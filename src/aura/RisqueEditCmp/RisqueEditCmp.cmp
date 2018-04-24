@@ -1,0 +1,79 @@
+<aura:component extends="c:AbstractEditCmp" controller="RisqueController">
+    <aura:attribute name="item" type="Risque__c" default="{ 'sobjectType': 'Risque__c',
+                    'Name': '',
+                    'description__c': '',
+                    'categorieRisque__c':'',
+                    }"  />
+
+    <aura:attribute name="categorieRisques" type="Categorie_Risque__c[]" description="liste des categories de risque dans le formulaire d'ajout du risque" />
+    <aura:handler action="{!c.doInit}" name="init" value="{!this}" />
+   <aura:handler action="{!c.openModal}" event="c:eventEditRisqueClicked"  />
+   <aura:registerEvent name="newRisqueAjoute" type="c:eventNewRisqueCreated" description="" />
+   
+    <!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
+
+    <div class="slds-m-around--xx-large">
+
+        <!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
+        <aura:if isTrue="{!v.isOpen}">
+
+            <!--###### MODAL BOX Start From Here ######-->
+            <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+                <div class="slds-modal__container form-style-6">
+                    <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse"  title="Close" onclick="{!c.closeModel}">
+							X <span class="slds-assistive-text">Close</span>
+						</button>
+                        <h1 id="header99" class="slds-text-heading--medium">Modification
+							</h1>
+                    </div>
+                    <!--###### MODAL BOX BODY Part Start From Here ######-->
+                    <div class="slds-modal__content slds-p-around--medium">
+
+
+                        <!-- CREATE NEW Entite FORM -->
+                        <form class="slds-form--stacked">
+
+                            <div class="slds-form-element slds-is-required">
+                                <div class="slds-form-element__control">
+                                    <ui:inputText aura:id="nom" label="Libélle Categorie" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Name}" required="true" />
+                                </div>
+                            </div>
+
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <ui:inputTextArea aura:id="description" label="Description" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.description__c}" />
+
+                                </div>
+                            </div>
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <ui:inputSelect aura:id="categorieRisqueId" label="Categorie Risque" class="slds-select" labelClass="slds-form-element__label">
+                                        <aura:iteration items="{!v.categorieRisques}" var="categorie">
+                                            <ui:inputSelectOption text="{!categorie.Id}" label="{!categorie.Name}" value="{!categorie.Id==v.item.categorieRisque__c}" />
+                                        </aura:iteration>
+                                    </ui:inputSelect>
+
+                                </div>
+                            </div>
+
+
+                        </form>
+                        <!-- / CREATE NEW Item FORM -->
+
+                    </div>
+                    <!--###### MODAL BOX FOOTER Part Start From Here ######-->
+                    <div class="slds-modal__footer">
+                        <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">Annuler</button>
+                        <button class="slds-button slds-button--brand" onclick="{!c.editItem}">
+                        Editer catégorie</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--open"></div>
+            <!--###### MODAL BOX Part END Here ######-->
+
+        </aura:if>
+    </div>
+</aura:component>

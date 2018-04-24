@@ -1,0 +1,95 @@
+<aura:component controller="PlanActionController" extends="c:AbstractEditCmp">
+    <aura:attribute name="item" type="Plan_Action__c" />
+
+   <aura:attribute name="userEntites" type="Contact[]" description="user entité" />
+   <aura:registerEvent name="newPlanActionAjoute" type="c:eventNewPlanActionCreated" description="" />
+      <aura:handler action="{!c.openModal}" event="c:eventEditPlanActionClicked"  />
+    <!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
+
+    <div class="slds-m-around--xx-large">
+
+        <!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
+        <aura:if isTrue="{!v.isOpen}">
+
+            <!--###### MODAL BOX Start From Here ######-->
+            <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open slds-modal_medium  ">
+                <div class="slds-modal__container form-style-6">
+                    <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+							X <span class="slds-assistive-text">Close</span>
+						</button>
+                        <h1 id="header99" class="slds-text-heading--medium">Modification
+							</h1>
+                    </div>
+                    <!--###### MODAL BOX BODY Part Start From Here ######-->
+                    <div class="slds-modal__content slds-p-around--medium">
+
+
+                        <!-- CREATE NEW Entite FORM -->
+                        <form class="slds-form--stacked">
+	<div class="slds-grid slds-gutters">
+  <div class="slds-col">
+  <div class="slds-form-element slds-is-required">
+                                <div class="slds-form-element__control">
+                                    <ui:inputText aura:id="libelle" label="Intitulé" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Name}" required="true" />
+                                </div>
+                            </div>
+                            <div class="slds-form-element slds-is-required">
+                                <div class="slds-form-element__control">
+                                    <ui:inputDate aura:id="dateCreation" label="Date Création" displayDatePicker="true" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.date_commencement__c}" required="true" />
+                                </div>
+                            </div>
+                            <div class="slds-form-element slds-is-required">
+                                <div class="slds-form-element__control">
+                                    <ui:inputDateTime aura:id="echeancier" label="Echéancier" displayDatePicker="true" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.echeancier__c}" required="true" />
+                                </div>
+                            </div>
+                            <div class="slds-form-element">
+                            
+  </div>
+  <div class="slds-col">
+      <div class="slds-form-element__control">
+                                    <ui:inputSelect aura:id="userEntiteID" label="Utilisateur" class="slds-select" labelClass="slds-form-element__label">
+                                        <aura:iteration items="{!v.userEntites}" var="userEntite">
+                                            <ui:inputSelectOption text="{!userEntite.Id}" label="{!userEntite.Name}" value="{!v.item.gestionnaire__c==userEntite.Id}"/>
+                                        </aura:iteration>
+                                    </ui:inputSelect>
+                                </div>
+                            </div>
+   <div class="slds-form-element slds-is-required">
+                                <div class="slds-form-element__control">
+                                    <ui:inputCheckbox aura:id="etat" label="Etat" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.etat__c}" />
+                                </div>
+                            </div>
+
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <ui:inputTextArea aura:id="commentaire" label="Commentaire" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.commentaire__c}" />
+
+                                </div>
+                            </div>
+  </div>
+  </div>
+                            
+                           
+
+                        </form>
+                        <!-- / CREATE NEW Item FORM -->
+
+                    </div>
+                    <!--###### MODAL BOX FOOTER Part Start From Here ######-->
+                    <div class="slds-modal__footer">
+                        <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">Annuler</button>
+                        <button class="slds-button slds-button--brand" onclick="{!c.editItem}">
+                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                        Editer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--open"></div>
+            <!--###### MODAL BOX Part END Here ######-->
+
+        </aura:if>
+    </div>
+</aura:component>

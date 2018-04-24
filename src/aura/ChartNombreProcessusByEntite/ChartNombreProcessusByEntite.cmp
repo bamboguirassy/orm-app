@@ -1,0 +1,27 @@
+<aura:component extends="c:AbstractChartCmp" controller="ChartProcessusController">
+    <aura:attribute name="annees" type="Integer[]" description="" default="2017,2018" />
+    <aura:handler action="{!c.doInit}" value="{!this}" name="init" />
+    <div class=" slds-size--1-of-6   slds-p-horizontal--small slds-float—left">
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <ui:inputSelect aura:id="anneeID" label="Année" class="slds-select" labelClass="slds-form-element__label" change="{!c.refreshChart}">
+                    <aura:iteration items="{!v.annees}" var="annee">
+                        <ui:inputSelectOption text="{!annee}" label="{!annee}" />
+                    </aura:iteration>
+                </ui:inputSelect>
+            </div>
+        </div>
+    </div>
+    <div class=" slds-size--1-of-6   slds-p-horizontal--small slds-float—left">
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <ui:inputSelect aura:id="typeID" label="Type" class="slds-select" labelClass="slds-form-element__label" change="{!c.refreshChart}">
+                    <aura:iteration items="{!v.types}" var="type">
+                        <ui:inputSelectOption text="{!type}" label="{!type}" />
+                    </aura:iteration>
+                </ui:inputSelect>
+            </div>
+        </div>
+    </div>
+
+</aura:component>

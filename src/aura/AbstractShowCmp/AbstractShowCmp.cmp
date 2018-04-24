@@ -1,0 +1,65 @@
+<aura:component abstract="true" extensible="true">
+	<aura:attribute name="item" type="SObject"
+		description="item à afficher" />
+	<aura:attribute name="Id" type="String"
+		description="id de l'objet à visualiser" required="true" />
+		<aura:attribute name="clabels" type="Map"
+		description="fields label and api names" />
+	<aura:method name="doInit" description="" />
+	<div aura:id="spinner-div" class="slds-hide load-spinner">
+		<lightning:spinner aura:id="spinner" variant="brand" size="medium" />
+	</div>
+		{!v.body}
+		
+		<!-- 		modal suppression confirmation -->
+	<!--use boolean attribute for Store true/false value,
+    make default to "false" so modal box are not display on the load of component. 
+    -->
+	<aura:attribute name="isDeleteConfirmationOpen" type="boolean"
+		default="false" />
+
+	<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
+	<div class="slds-m-around--xx-large">
+
+		<!--Use aura:if tag to display Model Box, on the bese of conditions. [isDeleteConfirmationOpen boolean attribute] -->
+		<aura:if isTrue="{!v.isDeleteConfirmationOpen}">
+
+			<!--###### MODAL BOX Start From Here ######-->
+			<div role="dialog" tabindex="-1" aria-labelledby="header99"
+				class="slds-modal slds-fade-in-open ">
+				<div class="slds-modal__container form-style-supprimer">
+					<!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+					<div class="slds-modal__header">
+						<button
+							class="slds-button slds-modal__close slds-button--icon-inverse"
+							title="Close" onclick="{!c.closeDeleteConfirmationModel}">
+							X <span class="slds-assistive-text">{!$Label.c.close_button_title}</span>
+						</button>
+						<h1 id="header99" class="slds-text-heading--medium">{!$Label.c.deletion_confirmation}</h1>
+					</div>
+					<!--###### MODAL BOX BODY Part Start From Here ######-->
+					<div class="slds-modal__content slds-p-around--medium">
+						<p>
+							<b>{!$Label.c.deletion_message} </b>
+						</p>
+					</div>
+					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
+					<div class="slds-modal__footer">
+						<button class="slds-button slds-button--neutral"
+							onclick="{!c.closeDeleteConfirmationModel}">{!$Label.c.cancel_button_title}</button>
+						<button class="slds-button slds-button--destructive"
+							onclick="{!c.confirmDeletion}">
+							<c:svg class="slds-button__icon" aria-hidden="true"
+								xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
+							{!$Label.c.delete_button_title}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="slds-backdrop slds-backdrop--open"></div>
+			<!--###### MODAL BOX Part END Here ######-->
+
+		</aura:if>
+	</div>
+	<!-- fin modal suppression confirmation -->
+</aura:component>

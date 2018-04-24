@@ -1,0 +1,151 @@
+<aura:component extends="c:AbstractListCmp"
+	controller="IntervenantProjetController">
+	<aura:attribute name="projet" type="Projet__c" required="true" />
+	<aura:registerEvent name="eventEditIntervenantProjetClicked" type="c:eventEditIntervenantProjetClicked" />
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:handler event="c:eventNewIntervenantProjetCreated"
+		action="{!c.refreshList}" />
+	<div class="slds-container--fluid ">
+		<!-- 	 header -->
+		<div class="slds-page-header">
+			<div class="slds-media">
+				<div class="slds-media__figure">
+					<span class="slds-icon_container slds-icon-standard-opportunity"
+						title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+							xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+					</span>
+				</div>
+				<div class="slds-media__body">
+					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
+						title="Liste des plans d'action">Liste des intervenants du
+						projet</h1>
+					<p class="slds-text-body_small slds-line-height_reset">Nombre
+						d'enregistrements ({!v.items.length})</p>
+				</div>
+			</div>
+		</div>
+		<!-- fin header -->
+		<!-- 		debut body -->
+		<div class="slds-box slds-theme_shade slds-theme_alert-texture">
+			<!--     debut datatable -->
+			<table
+				class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped">
+				<thead>
+					<tr class="slds-text-title_caps">
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+							<div class="slds-truncate" title="Nom">Nom</div>
+						</th>
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+							<div class="slds-truncate" title="telephone">Telephone</div>
+						</th>
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+							<div class="slds-truncate" title="Email">Email</div>
+						</th>
+						<aura:if isTrue="{!v.entite==null}">
+							<th scope="col"
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+								<div class="slds-truncate" title="Role">Role</div>
+							</th>
+						</aura:if>
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+							<div class="slds-truncate" title="Stage">Actions</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<aura:iteration items="{!v.items}" var="item" indexVar="i">
+						<tr class="slds-hint-parent">
+							<td scope="row" data-label="Nom"
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+								<div class="slds-truncate" title="{!item.Intervenant__r.Name}">
+									{!item.Intervenant__r.Name}</div>
+							</td>
+							<td scope="row" data-label="Telephone"
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+								<div class="slds-truncate" title="{!item.Intervenant__r.Phone}">
+									<ui:outputPhone value="{!item.Intervenant__r.Phone}" />
+								</div>
+							</td>
+							<td scope="row" data-label="Email"
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+								<div class="slds-truncate" title="{!item.Intervenant__r.Email}">
+									<ui:outputEmail value="{!item.Intervenant__r.Email}" />
+								</div>
+							</td>
+							<td scope="row" data-label="Role"
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+								<div class="slds-truncate" title="{!item.Role__c}">
+									{!item.Role__c}</div>
+							</td>
+							<td data-label="Actions"
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+								<div class="slds-truncate" title="Actions">
+									<div class="slds-einstein-header__actions">
+										<div class="slds-button-group" role="group">
+<!-- 											<a data-index="{!i}" onclick="{!c.navigateToShow}" -->
+<!-- 												class="slds-button slds-button_icon slds-button_icon-border-filled" -->
+<!-- 												title="afficher" aria-pressed="false"> <c:svg -->
+<!-- 													class="slds-button__icon" aria-hidden="true" -->
+<!-- 													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#preview'}" /> -->
+
+<!-- 												<span class="slds-assistive-text">Afficher</span> -->
+<!-- 											</a>  -->
+<!--                                              <a data-index="{!i}" onclick="{!c.showEditModal}" -->
+											<a data-index="{!i}" onclick="{!c.registerEdit}"
+												class="slds-button slds-button_icon slds-button_icon-border-filled"
+												title="modifier" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
+
+												<span class="slds-assistive-text">Modifier</span>
+											</a> <a data-index="{!i}" onclick="{!c.removeItem}"
+												class="slds-button slds-button_icon slds-button_icon-border-filled"
+												title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
+
+												<span class="slds-assistive-text">supprimer</span>
+											</a>
+											<!--  <aura:if isTrue="{!v.entite}">
+												<a data-index="{!i}" onclick="{!c.showEditModal}"
+													class="slds-button slds-button_icon slds-button_icon-border-filled"
+													title="modifier" aria-pressed="false"> <c:svg
+														class="slds-button__icon" aria-hidden="true"
+														xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
+
+													<span class="slds-assistive-text">Modifier</span>
+												</a>
+											</aura:if>-->
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</aura:iteration>
+				</tbody>
+			</table>
+			<!-- fin implementation datatable -->
+
+
+
+
+			<div class=" slds-grid  slds-wrap slds-align--absolute-center"
+				style="">
+				<div
+					class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
+					style="">
+
+
+                     <aura:if isTrue="{!v.projet}">
+						<c:IntervenantProjetNewCmp projet="{!v.projet}" />
+                        <c:IntervenantProjetEditCmp projet="{!v.projet}"/>
+                      </aura:if>
+
+				</div>
+			</div>
+		</div>
+		<!-- fin body -->
+	</div>
+</aura:component>

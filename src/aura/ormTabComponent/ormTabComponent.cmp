@@ -1,0 +1,116 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="AppController">
+    <ltng:require styles="/resource/fontawesome/font-awesome-4.7.0/css/font-awesome.min.css,
+                          /resource/bootstrap/css/bootstrap.css" />
+<!-- /resource/slds/assets/styles/salesforce-lightning-design-system.css, -->
+                          
+<!-- 	<ltng:require styles="{!$Resource.datatablecss}" -->
+<!-- 			scripts="{!join(',',$Resource.jqueryjs, -->
+<!-- 			$Resource.datatable)}" /> -->
+    <aura:attribute name="user" type="User" />
+    <aura:attribute name="profile" type="Profile" description="" />
+
+
+
+    <aura:handler action="{!c.doInit}" name="init" value="{!this}" />
+    <aura:handler action="{!c.navigateToRisqueEntiteShow}" event="c:navigateToRisqueEntiteShow" />
+    <aura:handler action="{!c.navigateToRisqueEntiteList}" event="c:navigateToRisqueEntiteList" />
+    <aura:handler action="{!c.navigateToEntiteShow}" event="c:navigateToEntiteShow" />
+    <aura:handler action="{!c.navigateToEntiteList}" event="c:navigateToEntiteList" />
+    <aura:handler action="{!c.navigateToRisqueShow}" event="c:navigateToRisqueShow" />
+    <aura:handler action="{!c.navigateToProjetShow}" event="c:navigateToProjetShow" />
+    <aura:handler action="{!c.navigateToRisqueList}" event="c:navigateToRisqueList" />
+    <aura:handler action="{!c.navigateToPlanActionPreventifShow}" event="c:navigateToPlanActionPreventifShow" />
+    <aura:handler action="{!c.navigateToPlanActionShow}" event="c:navigateToPlanActionShow" />
+    <aura:handler action="{!c.navigateToActivitePreventiveShow}" event="c:navigateToActivitePreventiveShow" />
+    <aura:handler action="{!c.navigateToActiviteShow}" event="c:navigateToActiviteShow" />
+    <aura:handler action="{!c.navigateToProcessusShow}" event="c:navigateToProcessusShow" />
+    <aura:handler action="{!c.navigateToProcessusList}" event="c:navigateToProcessusList" />
+    <aura:handler action="{!c.navigateToPartieConcerneeShow}" event="c:navigateToPartieConcerneeShow" />
+    <aura:handler action="{!c.navigateToRiskManagerShow}" event="c:navigateToRiskManagerShow" />
+	<aura:handler action="{!c.navigateToParamRisqueEntiteShow}" event="c:navigateToParamRisqueEntiteShow" />
+
+
+
+    <div class="slds-context-bar ">
+
+        <nav class="slds-context-bar__secondary " role="navigation">
+            <ul class="slds-grid">
+                <li class="slds-context-bar__item slds-context-bar__item_divider-right">
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Home" onclick="{!c.doInit}"> <span class="slds-truncate" title="Home"><i
+							class="fa fa-2x fa-dashboard"></i> {!$Label.c.dashbord_menu}</span>
+                    </a>
+                </li>
+                <li class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_hover slds-context-bar__item_divider-right">
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item"> <span class="slds-truncate" title="Menu Item"><i
+							class="fa fa-gears"></i> {!$Label.c.configuration_menu}</span>
+                    </a>
+                    <div class="slds-dropdown slds-dropdown_right slds-context-bar__item_divider-right">
+                        <ul class="slds-dropdown__list" role="menu">
+                            <li class="slds-dropdown__item slds-context-bar__item_divider-right" role="presentation"></li>
+                            <li class="slds-dropdown__header slds-has-divider_top-space slds-context-bar__item_divider-right" role="separator"><span class="slds-text-title_caps">Configuration</span>
+                            </li>
+                            <li class="slds-dropdown__item slds-context-bar__item_divider-right" role="presentation">
+                                <a href="javascript:void(0);" role="menuitem" tabindex="-1" onclick="{!c.navigateToCategorieRisqueList}"> <span class="slds-truncate" title="Menu Item One">Categorie
+										{!$Label.c.risk_menu}</span>
+                                </a>
+                            </li>
+                            <li class="slds-dropdown__item slds-context-bar__item_divider-right" role="presentation" onclick="{!c.navigateToCategorieMesurePreventionList}">
+                                <a href="javascript:void(0);" role="menuitem" tabindex="-1"> <span class="slds-truncate" title="Menu Item Two">
+                                {!$Label.c.prevention_mes_cat_menu}</span>
+                                </a>
+                            </li>
+                            <li class="slds-dropdown__item slds-context-bar__item_divider-right" role="presentation" onclick="{!c.navigateToCategorieImpactList}">
+                                <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                    <span class="slds-truncate" title="Menu Item Three">
+                                    {!$Label.c.impact_category_menu}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="slds-context-bar__item slds-context-bar__item_divider-right">
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 0" onclick="{!c.navigateToRisqueList}"> <span class="slds-truncate" title="Menu Item"><i
+							class="fa fa-adjust"></i>{!$Label.c.risk_menu}</span>
+                    </a>
+                </li>
+                <li class="slds-context-bar__item slds-context-bar__item_divider-right">
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 0" onclick="{!c.navigateToEntiteList}"> <span class="slds-truncate" title="Menu Item"><i
+							class="fa  fa-building"></i> {!$Label.c.structure_menu}</span>
+                    </a>
+                </li>
+                <li class="slds-context-bar__item slds-context-bar__item_divider-right">
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 1" onclick="{!c.navigateToProcessusList}"> <span class="slds-truncate" title="Menu Item"><i
+							class="fa fa-archive"></i> {!$Label.c.processus_menu}</span>
+                    </a>
+                </li>
+                <li class="slds-context-bar__item slds-context-bar__item_divider-right">
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 0" onclick="{!c.navigateToProjetList}"> <span class="slds-truncate" title="Menu Item"><i
+							class="fa fa-chain"></i> {!$Label.c.project_menu}</span>
+                    </a>
+                </li>
+                <!--                 <li class="slds-context-bar__item slds-context-bar__item_divider-right"> -->
+                <!--                     <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 1" onclick="{!c.navigateToRisqueEntiteList}"> -->
+                <!--                         <span class="slds-truncate" title="Menu Item"><i class="fa fa-ban"></i> Risques Detectés</span> -->
+                <!--                     </a> -->
+                <!--                 </li> -->
+                <!--                 <li class="slds-context-bar__item slds-context-bar__item_divider-right"> -->
+                <!--                     <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 1" onclick="{!c.navigateToPlanActionList}"> -->
+                <!--                         <span class="slds-truncate" title="Menu Item"><i class="fa fa-calendar"></i> Plans d'action</span> -->
+                <!--                     </a> -->
+                <!--                 </li> -->
+                <!--                 <li class="slds-context-bar__item slds-context-bar__item_divider-right"> -->
+                <!--                     <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 1" onclick="{!c.navigateToActiviteList}"> -->
+                <!--                         <span class="slds-truncate" title="Menu Item"><i class="fa fa-tasks"></i> Activités</span> -->
+                <!--                     </a> -->
+                <!--                 </li> -->
+            </ul>
+        </nav>
+    </div>
+    <!--     <div class="breadcum"> -->
+    <!--         <c:breadcum title="Titre 1" subtitle="Sub title" /> -->
+    <!--     </div> -->
+    <div class=" slds-grid  slds-wrap ">
+        <div class=" slds-size--1-of-1   slds-p-horizontal--small right-header ">
+            {!v.body}</div>
+    </div>
+</aura:component>

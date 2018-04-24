@@ -1,0 +1,7 @@
+<aura:component >
+<ltng:require scripts="/resource/JustGage/justgage-1.2.2/justgage.js,
+/resource/JustGage/justgage-1.2.2/raphael-2.1.4.min.js"   afterScriptsLoaded="{!c.afterScriptsLoaded}"/>
+	<aura:attribute name="value" type="Integer" required="true" description="" />
+	<aura:attribute name="max" type="Integer" required="true" description="" />
+	<div id="gauge" class="200x160px"></div>
+</aura:component>

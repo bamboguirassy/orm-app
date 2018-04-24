@@ -1,0 +1,21 @@
+.THIS .breadcum{
+	float:right;
+}
+
+.THIS .menu2{
+	margin-top:25px;
+}
+.THIS slds-context-bar__secondary.menuHead , .THIS .slds-context-bar__secondary{
+	border-bottom:1px solid rgb(221, 219, 218);
+    border-raduis:.25rem .25rem 0 0;
+    background:rgb(250, 250, 249);
+    background-clip:padding-box;
+    padding-top:15px;
+    padding-bottom:15px;
+    font-size: .8125rem;
+}
+.THIS nav.menuHead ul {
+	
+    padding-top:15px;
+    padding-bottom:15px;
+}

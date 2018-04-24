@@ -1,0 +1,29 @@
+.THIS {
+   color: rgb(112, 110, 107);
+    font-family: 'Salesforce Sans',Arial,sans-serif;
+    font-size: 1.0125rem;
+
+}
+
+.THIS .slds-nav-vertical {
+    border-right:1px solid rgb(221, 219, 218);
+}
+.THIS .slds-nav-vertical__item.slds-is-active {
+    color: rgb(0, 112, 210);
+    background-color:rgb(236, 235, 234);
+        
+   
+}
+.THIS .slds-nav-vertical__item.slds-is-active .slds-nav-vertical__action {
+   background-color:rgb(236, 235, 234);
+    
+}
+.THIS h1 {
+    color: rgb(0, 112, 210);
+        
+   
+}
+.THIS .slds-p-horizontal_small, .THIS .slds-p-horizontal--small {
+    padding-right: 0rem;
+    padding-left: 0rem;
+}

@@ -1,0 +1,247 @@
+<aura:component extends="c:AbstractShowCmp"
+	controller="ProcessusController" access="global">
+	<aura:handler action="{!c.doInit}" value="{!this}" name="init" />
+	<aura:registerEvent name="navigateToProcessusList"
+		type="c:navigateToProcessusList" />
+		<aura:handler event="c:eventNewProcessusCreated" action="{!c.refreshShow}" />
+    <aura:registerEvent name="eventEditProcessusClicked" type="c:eventEditProcessusClicked" description="" />
+	<!--     debut implementation -->
+	<div class="slds-grid slds-gutters">
+		<div class="slds-col slds-size_1-of-6"></div>
+		<div class="slds-col slds-size_4-of-6">
+			<div class="slds-container--fluid ">
+				<!-- 	 header -->
+				<div class="slds-page-header">
+					<div class="slds-media">
+						<div class="slds-media__figure">
+							<span class="slds-icon_container slds-icon-standard-opportunity"
+								title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+									xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+							</span>
+						</div>
+						<div class="slds-media__body">
+							<h1
+								class="slds-page-header__title slds-truncate slds-align-middle"
+								title="Plan d'action"><ui:outputText value="{!v.item.Name}" /></h1>
+							<p class="slds-text-body_small slds-line-height_reset"></p>
+						</div>
+						<div>
+							<button class="btn btn-default"
+								onclick="{!c.navigateToProcessusList}">
+								<i class="fa fa-rotate-left"></i> Retour
+							</button>
+						</div>
+					</div>
+				</div>
+				<!-- fin header -->
+				<!-- 		debut body -->
+				<div class="slds-box slds-theme_shade slds-theme_alert-texture">
+
+
+					<!-- 			ligthning tab start -->
+					<lightning:tabset >
+						<lightning:tab label="DETAILS" id="1">
+							<!--                             details sur le processus-->
+
+							<div class="slds-grid slds-gutters">
+								<div class="slds-col slds-size_2-of-6">
+									<div
+										class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+										<div
+											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+
+											<div class="slds-panel__section">
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">Détails
+													du processus</h3>
+												<ul>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Intitulé</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Name}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Version</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"><ui:outputText value="{!v.item.version__c}" /> </span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Référence</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.reference__c}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Date
+															Application</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"><ui:outputDateTime value="{!v.item.dateApplication__c}" /> </span>
+														</div>
+													</li>
+
+
+												</ul>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="slds-col slds-size_2-of-6">
+									<div
+										class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+										<div
+											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+
+											<div class="slds-panel__section">
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">Pilotage</h3>
+												<ul>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Pilote</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"><ui:outputText value="{!v.item.pilote__r.Name}" /> </span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Copilote</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"><ui:outputText value="{!v.item.copilote__r.Name}" /> </span>
+														</div>
+													</li>
+
+												</ul>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="slds-col slds-size_2-of-6">
+									<div
+										class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+										<div
+											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+
+											<div class="slds-panel__section">
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">Finalité</h3>
+												<ul>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Finalité</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"><ui:outputText value="{!v.item.finalite__c}" /> </span>
+														</div>
+													</li>
+
+
+												</ul>
+											</div>
+											<div class="slds-panel__section">
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">Structure Propriétaire</h3>
+												<ul>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Nom</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static">
+                                                                <a onclick="{!c.navigateToEntiteShow}">{!v.item.proprietaire__r.Name}</a>
+															</span>
+														</div>
+													</li>
+                                                </ul>
+                                            </div>
+										</div>
+									</div>
+									<div class="slds-button-group" style="text-align:right" role="group">
+														<button  onclick="{!c.registerEdit}" class="slds-button slds-button_success">
+
+															<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
+																aria-hidden="true"
+																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" /></span>
+															</button>
+															<button  class="slds-button slds-button_destructive" onclick="{!c.removeItem}">
+																<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
+																	aria-hidden="true"
+																	xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" /></span>
+																</button>
+															</div>
+								</div>
+							</div>
+
+							<!-- 	fin details processus -->
+						</lightning:tab>
+						<lightning:tab label="Risques associés" id="2">
+							<aura:if isTrue="{!v.item}">
+								<c:ProcessusRisqueListCmp processus="{!v.item}" />
+							</aura:if>
+						</lightning:tab>
+						<lightning:tab label="Parties concernées" id="3">
+							<aura:if isTrue="{!v.item}">
+								<c:PartieConcerneeListCmp processus="{!v.item}" />
+							</aura:if>
+						</lightning:tab>
+
+					<lightning:tab label="Processus en entrée" id="4">
+						<aura:if isTrue="{!v.item}">
+							<c:ProcessusEntreeListCmp processus="{!v.item}" />
+						</aura:if>
+					</lightning:tab>
+					<lightning:tab label="Entités responsable des elements en entrée"
+						id="5">
+						<aura:if isTrue="{!v.item}">
+							<c:EntiteSourceListCmp processus="{!v.item}" />
+						</aura:if>
+					</lightning:tab>
+					<lightning:tab label="Elements en entrée" id="6">
+						<aura:if isTrue="{!v.item}">
+							<c:ElementEntreeListCmp processus="{!v.item}" />
+						</aura:if>
+					</lightning:tab>
+					<lightning:tab label="Processus en sortie" id="4">
+						<aura:if isTrue="{!v.item}">
+							<c:ProcessusSortieListCmp processus="{!v.item}" />
+						</aura:if>
+					</lightning:tab>
+					<lightning:tab label="Entités responsable des elements de sortie"
+						id="5">
+						<aura:if isTrue="{!v.item}">
+							<c:EntiteSortieListCmp processus="{!v.item}" />
+						</aura:if>
+					</lightning:tab>
+					<lightning:tab label="Elements de sortie" id="6">
+						<aura:if isTrue="{!v.item}">
+							<c:ElementSortieListCmp processus="{!v.item}" />
+						</aura:if>
+					</lightning:tab>
+					
+
+
+					</lightning:tabset>
+					<!-- 			fin lightning tab -->
+
+
+				</div>
+				<!-- fin body -->
+			</div>
+
+		</div>
+		<div class="slds-col slds-size_1-of-6"></div>
+	</div>
+
+
+
+
+	<!--     fin implementation -->
+
+
+
+  <c:ProcessusEditCmp />
+
+</aura:component>

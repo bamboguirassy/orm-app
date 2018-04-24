@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event template" >
+<aura:attribute name="sum" type="Double" description="sum of all tracker values related to the ParamRisque" />
+<aura:attribute name="preID" type="String" description="" />
+</aura:event>

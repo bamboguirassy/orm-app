@@ -1,0 +1,137 @@
+<aura:component controller="PartieInteresseeController"
+	extends="c:AbstractListCmp">
+	<aura:attribute name="partieConcernee" type="PartieConcernee__c"
+		description="PartieConcernee dont est lié le risque" required="true" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+	<aura:registerEvent name="eventEditPartieInteresseeClicked"
+		type="c:eventEditPartieInteresseeClicked" description="" />
+
+	<aura:handler event="c:eventNewPartieInteresseeCreated" action="{!c.refreshList}" />
+
+
+	<div class="slds-container--fluid " style="background: #fff;">
+		<!--     debut implementation elements en entrée -->
+		<div class="slds-m-bottom_xx-large">
+			<div class="slds-grid">
+				<!-- 	 header -->
+				<div class="slds-col slds-size_1-of-1">
+					<div class="slds-page-header">
+						<div class="slds-grid">
+							<div class="slds-col slds-has-flexi-truncate">
+								<div class="slds-media slds-no-space slds-grow">
+									<div class="slds-media__figure">
+										<span
+											class="slds-icon_container slds-icon-standard-opportunity"
+											title="Liste des catégories de mesure de prévention">
+											<c:svg class="slds-icon slds-page-header__icon"
+												aria-hidden="true"
+												xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+										</span>
+									</div>
+									<div class="slds-media__body">
+										<nav>
+											<ol class="slds-breadcrumb slds-line-height_reset">
+												<li class="slds-breadcrumb__item"><span> Liste
+														des parties interessées </span></li>
+											</ol>
+										</nav>
+										<h1
+											class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate"
+											title="Nombred'enregistrements ">Nombre
+											d'enregistrements ({!v.items.length})</h1>
+									</div>
+								</div>
+							</div>
+							<div class="slds-col slds-no-flex slds-grid slds-align-top">
+								<div class="slds-button-group" role="group">
+									<!--bouton entete -->
+								</div>
+							</div>
+						</div>
+						<!--   fin header -->
+						<div class=" slds-grid  slds-wrap slds-align--absolute-center">
+							<div
+								class=" slds-size--1-of-4   slds-p-horizontal--small slds-float—left">
+								<button onclick="{!c.doInit}">
+									<i class="fa fa-refresh" aria-hidden="true"></i>
+								</button>
+							</div>
+							<div
+								class=" slds-size--1-of-4   slds-p-horizontal--small slds-float—right">
+								<lightning:input type="search" label="Search" name="search" />
+							</div>
+						</div>
+						<div class="slds-grid slds-page-header__detail-row">
+							<div class="slds-grid slds-wrap slds-size_1-of-1 ">
+								<div
+									class="slds-grid slds-wrap slds-theme_shade slds-theme_alert-texture  slds-size_1-of-1">
+									<aura:iteration items="{!v.items}" var="item" indexVar="i">
+										<div class="slds-col slds-size_1-of-2">
+											<div
+												class="slds-box slds-box_x-small slds-text-align_left slds-m-around_x-small"
+												style="border: none;">
+												<article class="slds-card">
+													<div class="slds-card__header slds-grid">
+														<header
+															class="slds-media slds-media_center slds-has-flexi-truncate">
+															<div class="slds-media__figure">
+																<span
+																	class="slds-icon_container slds-icon-standard-record"
+																	title="Liste des parties concernées"> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
+																		xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#record'}" />
+																</span>
+															</div>
+															<div class="slds-media__body">
+																<h2>
+																	<a href="javascript:void(0);"
+																		class="slds-card__header-link slds-truncate"
+																		title="{!item.Name}"> <span
+																		class="slds-text-heading_small"><ui:outputText value="{!item.Name}" /></span>
+																	</a>
+																</h2>
+															</div>
+														</header>
+														<div class="slds-einstein-header__actions">
+															<div class="slds-button-group" role="group">
+																<a data-index="{!i}" onclick="{!c.removeItem}"
+																	class="slds-button slds-button_icon slds-button_icon-border-filled"
+																	title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																		xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
+																	<span class="slds-assistive-text">supp..</span>
+																</a> <a data-index="{!i}" onclick="{!c.registerEdit}"
+																	class="slds-button slds-button_icon slds-button_icon-border-filled"
+																	title="Modifier" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																		xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
+																	<span class="slds-assistive-text">Edit</span>
+																</a>
+															</div>
+														</div>
+													</div>
+													<br />
+												</article>
+											</div>
+										</div>
+									</aura:iteration>
+								</div>
+							</div>
+						</div>
+						<footer class="slds-card__footer" style="text-align: left;">
+							<aura:if isTrue="{!v.partieConcernee}">
+								<c:PartieInteresseeNewCmp partieConcernee="{!v.partieConcernee}" />
+								<c:PartieInteresseeEditCmp />
+
+							</aura:if>
+						</footer>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- fin implementation elements en entrée -->
+
+	</div>
+
+
+
+</aura:component>

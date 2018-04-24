@@ -1,0 +1,94 @@
+.THIS .form-style-6{
+    font: 95% Arial, Helvetica, sans-serif;
+    max-width: 400px;
+     margin: 10px auto; 
+    padding: 16px;
+    
+}
+.THIS .form-style-6 h1{
+    background: #6692BF;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+}
+.THIS .form-style-6 input[type="text"],
+.THIS .form-style-6 input[type="date"],
+.THIS .form-style-6 input[type="datetime"],
+.THIS .form-style-6 input[type="email"],
+.THIS .form-style-6 input[type="number"],
+.THIS .form-style-6 input[type="search"],
+.THIS .form-style-6 input[type="time"],
+.THIS .form-style-6 input[type="url"],
+.THIS .form-style-6 textarea,
+.THIS .form-style-6 select 
+{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+}
+/* .THIS .form-style-6 input[type="text"]:focus, */
+/* .THIS .form-style-6 input[type="date"]:focus, */
+/* .THIS .form-style-6 input[type="datetime"]:focus, */
+/* .THIS .form-style-6 input[type="email"]:focus, */
+/* .THIS .form-style-6 input[type="number"]:focus, */
+/* .THIS .form-style-6 input[type="search"]:focus, */
+/* .THIS .form-style-6 input[type="time"]:focus, */
+/* .THIS .form-style-6 input[type="url"]:focus, */
+/* .THIS .form-style-6 textarea:focus, */
+/* .THIS .form-style-6 select:focus */
+/* { */
+/*     box-shadow: 0 0 5px #43D1AF; */
+/*     padding: 3%; */
+/*     border: 1px solid #43D1AF; */
+/* } */
+
+.THIS .form-style-6 input[type="submit"],
+.THIS .form-style-6 input[type="button"]{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #43D1AF;
+    border-bottom: 2px solid #30C29E;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;    
+    color: #fff;
+}
+.THIS  .form-style-6 input[type="submit"]:hover,
+.THIS .form-style-6 input[type="button"]:hover{
+    background: #2EBC99;
+}
+.THIS .slds-modal__footer .slds-button+.slds-button {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #6692BF;
+    border: 1px solid rgb(0, 112, 210);
+    color: rgb(255, 255, 255);
+}
+
+.THIS .new-button {
+	float:right;
+	background:#6692BF;
+	padding-left:15px;
+	padding-right:15px;
+	color:#a094ed
+}

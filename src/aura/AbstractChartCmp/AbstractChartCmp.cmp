@@ -1,0 +1,37 @@
+<aura:component access="public" abstract="true" extensible="true">
+    <ltng:require scripts='/resource/Chart/Chart.js-2.7.0/dist/Chart.bundle.min.js' />
+
+    <aura:attribute name="types" type="String[]" description="" default="line,bar,radar,polarArea" />
+    <aura:attribute name="title" type="String" description="" default="Statistique" />
+    <aura:attribute name="result" type="Object" description="" />
+
+
+    <aura:method name="refreshChart" description="" />
+    <aura:method name="doInit" description="" />
+    <aura:method name="drawAfterWaiting" description="" />
+
+    <div class="" style="background: #fff;">
+
+
+        <div class=" slds-grid  slds-wrap slds-align--absolute-center" style="">
+            <div class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left">
+
+                <div class=" slds-grid  slds-wrap slds-align--absolute-center">
+                    <div class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left" style="margin-top:15px;">
+                        <h1 style="font-size: 24px; color: rgb(0, 112, 210);font-size: 1rem;font-weight: 300;">{!v.title}</h1>
+                    </div>
+                    {!v.body}
+
+                </div>
+
+                <div class=" slds-grid  slds-wrap slds-align--absolute-center">
+                    <div class="slds-size--1-of-1   slds-p-horizontal--small slds-float—right" id="container">
+                        <canvas id="myChart" width="400" height="100" responsive="true"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</aura:component>

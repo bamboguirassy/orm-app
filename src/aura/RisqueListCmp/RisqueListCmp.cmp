@@ -1,0 +1,127 @@
+<aura:component extends="c:AbstractListCmp"
+	controller="RisqueController">
+	<!-- Static Resource details - jQuery js file (jQUerySource), jQuery Datatable file (jqueryDatatableJS) -->
+
+	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
+	<aura:handler event="c:eventNewRisqueCreated"  action="{!c.refreshList}" />
+	<aura:handler event="c:eventNewCategorieRisqueClicked"  action="{!c.NewCategorieRisque}" />
+	
+
+	<aura:registerEvent name="eventEditRisqueClicked" type="c:eventEditRisqueClicked" />
+	
+
+	<aura:registerEvent name="navigateToRisqueShow"
+		type="c:navigateToRisqueShow" />
+
+		<div class="slds-container--fluid ">
+			<!-- 	 header -->
+			<div class="slds-page-header">
+				<div class="slds-media">
+					<div class="slds-media__figure">
+						<span class="slds-icon_container slds-icon-standard-opportunity"
+							title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+							xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+						</span>
+					</div>
+					<div class="slds-media__body">
+						<h1 class="slds-page-header__title slds-truncate slds-align-middle"
+							title="Liste des plans d'action">Liste des risques paramètrés</h1>
+							<p class="slds-text-body_small slds-line-height_reset">Nombre
+								d'enregistrements ({!v.items.length})</p>
+							</div>
+
+							<c:RisqueNewCmp />
+						</div>
+					</div>
+					<!-- fin header -->
+					<!-- 		debut body -->
+					<div class="slds-box slds-theme_shade slds-theme_alert-texture">
+						<!-- 		filtre -->
+						<!--     debut datatable -->
+						<table aura:id="table" id="table"
+							class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped">
+							<thead>
+								<tr class="slds-text-title_caps">
+									<th scope="col"
+										class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+										<div class="slds-truncate" title="Close Date">Nom {!v.fields.name} </div>
+									</th>
+									<th scope="col"
+										class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+										<div class="slds-truncate" title="Account Name">Catégorie</div>
+									</th>
+									<th scope="col"
+										class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+										<div class="slds-truncate" title="Stage">Actions</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<aura:iteration items="{!v.items}" var="item" indexVar="i">
+									<tr class="slds-hint-parent">
+										<td scope="row" data-label="Libellé"
+											class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+											<div class="slds-truncate" title="{!item.Name}">
+												<a data-index="{!i}" onclick="{!c.navigateToShow}">{!item.Name}</a></div>
+											</td>
+											<td data-label="Catégorie"
+												class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+												<div class="slds-truncate"
+													title="{!item.categorieRisque__r.Name}">
+													<ui:outputText value="{!item.categorieRisque__r.Name}" />
+												</div>
+											</td>
+											<td data-label="Actions"
+												class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+												<div class="slds-truncate" title="Actions">
+													<div class="slds-einstein-header__actions">
+														<div class="slds-button-group" role="group">
+															<a data-index="{!i}" onclick="{!c.navigateToShow}"
+																class="slds-button slds-button_icon slds-button_icon-border-filled"
+																title="afficher" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#preview'}" />
+
+																<span class="slds-assistive-text">Afficher</span>
+															</a> 
+															<a data-index="{!i}" onclick="{!c.removeItem}"
+																class="slds-button slds-button_icon slds-button_icon-border-filled"
+																title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
+
+																<span class="slds-assistive-text">supprimer</span>
+															</a> 
+															<a data-index="{!i}" onclick="{!c.registerEdit}"
+																class="slds-button slds-button_icon slds-button_icon-border-filled"
+																title="modifier" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
+
+																<span class="slds-assistive-text">Modifier</span>
+															</a>
+														</div>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</aura:iteration>
+								</tbody>
+							</table>
+							<!-- fin implementation datatable -->
+
+
+
+
+							<div class=" slds-grid  slds-wrap slds-align--absolute-center"
+								style="">
+								<div
+									class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
+									style="">
+
+									<c:RisqueEditCmp />									
+
+								</div>
+							</div>
+						</div>
+						<!-- fin body -->
+					</div>
+
+				</aura:component>

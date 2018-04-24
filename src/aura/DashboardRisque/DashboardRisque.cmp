@@ -1,0 +1,22 @@
+<aura:component >
+    <aura:handler action="{!c.doInit}" name="init" value="{!this}" />
+    <div class="tete  " style="padding-top:15px;">
+        <div class="">
+            <div class="slds-button-group" role="group">
+                <button onclick="{!c.navigateTochartNombreRisqueByCategorie}" class="slds-button slds-button_neutral">Par Catégorie</button>
+                <button onclick="{!c.navigateTochartRisqueByEntiteByAnnee}" class="slds-button slds-button_neutral">Par Entité</button>
+                <button onclick="{!c.navigateTochartNombreRisqueByEntite}" class="slds-button slds-button_neutral">Par catégorie/Entité</button>
+                <button onclick="{!c.navigateTochartRisqueByUserByEntite}" class="slds-button slds-button_neutral">Par Responsable</button>
+                <button onclick="{!c.navigateTochartRisqueEnEntreeByProcessus}" class="slds-button slds-button_neutral">Par processus</button>
+                <button onclick="{!c.navigateTochartRisqueEntiteByRisque}" class="slds-button slds-button_neutral">Par Risque</button>
+                <button onclick="{!c.navigateToChartRisqueEntiteByCotationByEntite}" class="slds-button slds-button_neutral">Par Cotation</button>
+
+
+
+
+            </div>
+
+        </div>
+        {!v.body}
+    </div>
+</aura:component>

@@ -1,0 +1,140 @@
+<aura:component controller="ParamRisqueEntiteController"
+	extends="c:AbstractListCmp">
+	<aura:attribute name="entite" type="Account"
+		description="entité dont est lié le risque" required="true" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:handler event="c:eventNewParamRisqueEntiteCreated"
+		action="{!c.refreshList}" />
+	<aura:registerEvent name="eventEditParamRisqueEntiteClicked"
+		type="c:eventEditParamRisqueEntiteClicked" description="" />
+	<aura:registerEvent name="navigateToParamRisqueEntiteShow"
+		type="c:navigateToParamRisqueEntiteShow" />
+
+	<!-- implementation contenu page -->
+	<!-- 	 header -->
+	<div class="slds-page-header">
+		<div class="slds-media">
+			<div class="slds-media__figure">
+				<span class="slds-icon_container slds-icon-standard-opportunity"
+					title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+						xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+				</span>
+			</div>
+			<div class="slds-media__body">
+				<h1 class="slds-page-header__title slds-truncate slds-align-middle"
+					title="Liste des plans d'action">Liste des paramètres de suivi
+					de risque</h1>
+				<p class="slds-text-body_small slds-line-height_reset">Nombre
+					d'enregistrements ({!v.items.length})</p>
+			</div>
+		</div>
+	</div>
+	<!-- fin header -->
+	<!-- 		implementation body -->
+	
+<!-- 	phase test tableau -->
+<div class="slds-box slds-theme_shade slds-theme_alert-texture">
+		<table
+			class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_col-bordered slds-table_striped">
+			<thead>
+				<tr class="slds-text-title_caps">
+					<th scope="col"
+						class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+						<div class="slds-truncate" title="Icone"></div>
+					</th>
+					<th scope="col"
+						class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+						<div class="slds-truncate" title="Nom">Nom</div>
+					</th>
+					<th scope="col"
+						class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+						<div class="slds-truncate" title="Seuil Apparition">Seuil Apparition</div>
+					</th>
+					<th scope="col"
+						class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+						<div class="slds-truncate" title="Etat">Etat</div>
+					</th>			
+					<th scope="col"
+						class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+						<div class="slds-truncate" title="Actions">Actions</div>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<aura:iteration items="{!v.items}" var="item" indexVar="i">
+					<tr>
+					<td data-label="Nom">
+					<div class="slds-media__figure">
+						<span class="slds-icon_container slds-icon-standard-contact"
+							title="description of icon when needed"> <c:svg class="slds-icon" aria-hidden="true"
+								xlinkHref="{!$Resource.slds+'/assets/icons/custom-sprite/svg/symbols.svg#custom76'}" />
+						</span>
+					</div>
+					</td>
+						<td data-label="Nom">
+							<div class="slds-truncate" title="{!item.risque__r.Name}">
+								<ui:outputText value="{!item.risque__r.Name}"/>
+							</div>
+						</td>
+						<td data-label="Phone">
+							<div class="slds-truncate" title="{!item.seuilApparution__c}">
+								<ui:outputText value="{!item.seuilApparution__c}" /> ( <ui:outputText value="{!item.unite__c}" /> )
+							</div>
+						</td>
+						<td data-label="Website">
+							<div class="slds-truncate" title="{!item.apparu__c}">
+								<ui:outputCheckbox value="{!item.apparu__c}" />
+							</div>
+						</td>
+						
+
+						<td data-label="Action">
+							<div class="slds-truncate" title="Actions">
+								<div class="slds-button-group" role="group">
+						<a data-index="{!i}" onclick="{!c.navigateToShow}"
+												class="slds-button slds-button_icon slds-button_icon-border-filled"
+												title="afficher" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#preview'}" />
+
+												<span class="slds-assistive-text">Afficher</span>
+											</a>
+							<a data-index="{!i}" onclick="{!c.removeItem}"
+								class="slds-button slds-button_icon slds-button_icon-border-filled"
+								title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+									xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
+
+								<span class="slds-assistive-text">supprimer</span>
+							</a> <a data-index="{!i}" onclick="{!c.registerEdit}"
+								class="slds-button slds-button_icon slds-button_icon-border-filled"
+								title="Edit" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+									xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
+
+								<span class="slds-assistive-text">modifier</span>
+							</a>
+						</div>
+							</div>
+						</td>
+
+					</tr>
+				</aura:iteration>
+			</tbody>
+		</table>
+		</div>
+<!-- fin test tableau -->
+	
+	<footer class="slds-card__footer">
+				<aura:if isTrue="{!v.entite}">
+					<c:ParamRisqueEntiteNewCmp items="{!v.items}" entite="{!v.entite}" />
+					
+
+				</aura:if>
+				<c:ParamRisqueEntiteEditCmp />
+			</footer>
+	<!-- 	fin implementation body -->
+	<!-- fin implementation contenu page -->
+
+
+
+
+</aura:component>

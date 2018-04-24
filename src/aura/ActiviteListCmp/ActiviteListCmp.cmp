@@ -1,0 +1,185 @@
+<aura:component extends="c:AbstractListCmp"
+	controller="ActiviteController">
+	<aura:attribute name="planAction" type="Plan_Action__c" description="" />
+	<!--<aura:attribute name="planAction" type="String"
+		description="risque lié" />-->
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:eventNewActiviteCreated" action="{!c.refreshList}" />
+	<aura:registerEvent name="eventEditActiviteClicked" type="c:eventEditActiviteClicked" description="" />
+
+	<aura:registerEvent name="navigateToActiviteShow"
+		type="c:navigateToActiviteShow" />
+
+
+	<div class="slds-container--fluid ">
+		<!--     debut test -->
+		<div class="slds-grid slds-gutters slds-m-top_x-small">
+
+			<div class="slds-col slds-size_1-of-1">
+				<!-- 	 header -->
+				<div class="slds-page-header">
+					<div class="slds-media">
+						<div class="slds-media__figure">
+							<span class="slds-icon_container slds-icon-standard-opportunity"
+								title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+									xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+							</span>
+						</div>
+						<div class="slds-media__body">
+							<h1
+								class="slds-page-header__title slds-truncate slds-align-middle"
+								title="Liste des plans d'action">Liste des activités</h1>
+							<p class="slds-text-body_small slds-line-height_reset">Nombre
+								d'enregistrements ({!v.items.length})</p>
+						</div>
+					</div>
+				</div>
+				<!-- fin header -->
+				<div
+					class="slds-tabs_card slds-theme_shade slds-theme_alert-texture">
+					<ul class="slds-timeline" style="background: #fff;">
+						<aura:iteration items="{!v.items}" var="item" indexVar="i">
+
+							<li>
+								<div
+									class="slds-timeline__item_expandable slds-timeline__item_task slds-is-open">
+									<span class="slds-assistive-text">activités</span>
+									<div class="slds-media">
+										<div class="slds-media__figure">
+											<button class="slds-button slds-button_icon"
+												title="Toggle details for Review proposals for EBC deck with larger team and have marketing review this"
+												aria-controls="task-item-expanded" aria-expanded="true">
+												<c:svg class="slds-button__icon slds-timeline__details-action-icon"
+													aria-hidden="true"
+													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#switch'}" />
+												<span class="slds-assistive-text">Toggle details for
+													Review proposals for EBC deck with larger team and have
+													marketing review this</span>
+											</button>
+											<div
+												class="slds-icon_container slds-icon-standard-task slds-timeline__icon"
+												title="task">
+												<c:svg class="slds-icon slds-icon_small" aria-hidden="true"
+													xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#task'}" />
+
+											</div>
+										</div>
+										<div class="slds-media__body">
+											<div
+												class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+												<div
+													class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+													<span class="slds-checkbox"> <input type="checkbox"
+														name="options" id="checkbox-61" value="on" /> <label
+														class="slds-checkbox__label" for="checkbox-61"> <span
+															class="slds-checkbox_faux"></span> <span
+															class="slds-form-element__label slds-assistive-text">Mark
+																Review proposals for EBC deck with larger team and have
+																marketing review this complete</span>
+													</label>
+													</span>
+													<h5 class="slds-truncate" title="{!item.Name}">
+														<strong> <a href="javascript:void(0);"
+															data-index="{!i}" onclick="{!c.navigateToShow}">
+																{!item.Name} </a>
+														</strong>
+													</h5>
+													<div class="slds-no-flex">
+														<span class="slds-icon_container slds-icon-utility-rotate"
+															title="Recurring Task"> <c:svg class="slds-icon slds-icon_xx-small slds-icon-text-default slds-m-left_x-small"
+																aria-hidden="true"
+																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#rotate'}" />
+															<span class="slds-assistive-text">Recurring Task</span>
+														</span>
+													</div>
+												</div>
+												<div
+													class="slds-timeline__actions slds-timeline__actions_inline">
+													<p class="slds-timeline__date">
+														<ui:outputDateTime value="{!item.date__c}" />
+													</p>
+													<div class="slds-truncate" title="Actions">
+														<div class="slds-einstein-header__actions">
+															<div class="slds-button-group" role="group">
+																<a data-index="{!i}" onclick="{!c.navigateToShow}"
+																	class="slds-button slds-button_icon slds-button_icon-border-filled"
+																	title="afficher" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																		xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#preview'}" />
+
+																	<span class="slds-assistive-text">Afficher</span>
+																</a> <a data-index="{!i}" onclick="{!c.removeItem}"
+																	class="slds-button slds-button_icon slds-button_icon-border-filled"
+																	title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																		xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
+
+																	<span class="slds-assistive-text">supprimer</span>
+																</a>
+																<aura:if isTrue="{!v.planAction}">
+																	<a data-index="{!i}" onclick="{!c.registerEdit}"
+																		class="slds-button slds-button_icon slds-button_icon-border-filled"
+																		title="modifier" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																			xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
+
+																		<span class="slds-assistive-text">Modifier</span>
+																	</a>
+																</aura:if>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<p class="slds-m-horizontal_xx-small">géré par
+												{!item.responsable__r.Name}</p>
+											<article
+												class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small slds-p-around_medium slds-theme_shade slds-theme_alert-texture"
+												id="task-item-expanded" aria-hidden="false">
+												<ul class="slds-list_horizontal slds-wrap">
+													<li
+														class="slds-grid slds-grid--vertical slds-size_1-of-2 slds-p-bottom_small">
+														<span class="slds-text-title slds-p-bottom_x-small">Type</span>
+														<span class="slds-text-body_medium slds-truncate"
+														title="{!item.type__c}"><ui:outputText value="{!item.type__c}" /></span>
+													</li>
+													<li
+														class="slds-grid slds-grid--vertical slds-size_1-of-2 slds-p-bottom_small">
+														<span class="slds-text-title slds-p-bottom_x-small">Délai</span>
+														<span class="slds-text-body_medium slds-truncate"
+														title="{!item.delai__c}"><ui:outputDateTime value="{!item.delai__c}" /></span>
+													</li>
+												</ul>
+												<div class="slds-grid slds-gutters">
+													<div class="slds-col">
+														<span class="slds-text-title">Statut</span>
+														<p class="slds-p-top_x-small">{!item.statut__c}</p>
+													</div>
+													<div class="slds-col">
+														<span class="slds-text-title">Coût</span>
+														<p class="slds-p-top_x-small">
+															<ui:outputCurrency value="{!item.cout__c}" />
+														</p>
+													</div>
+
+												</div>
+
+											</article>
+										</div>
+									</div>
+								</div>
+							</li>
+						</aura:iteration>
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+		<aura:if isTrue="{!v.planAction}">
+                <c:ActiviteNewCmp planAction="{!v.planAction}" /> 
+				<c:ActiviteEditCmp />
+		</aura:if>
+		<!-- fin test -->
+
+
+	</div>
+
+</aura:component>

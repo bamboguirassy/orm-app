@@ -1,0 +1,60 @@
+<aura:component controller="FileUploadController" access="global" extends="c:AbstractNewCmp">
+ <!-- 'parentId' Aura Attribute for store the Id for Parent Record where we are attach our file -->  
+   <aura:attribute name="parentId" type="Id" />
+ <!-- 'showLoadingSpinner' attribute for show/hide the uploading image and msg in aura:if-->
+   <aura:attribute name="showLoadingSpinner" type="boolean" default="false" />
+ <!-- 'fileName' attribute for display the selected file name -->  
+   <aura:attribute name="fileName" type="String" default="No File Selected.." />
+   
+   		<aura:attribute name="isOpenfileUploadNewCmp" default="false" type="Boolean" description="Test visibilité form upload file" />
+<!--    new content -->
+
+<!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
+		<aura:if isTrue="{!v.isOpenfileUploadNewCmp}">
+	<!--###### MODAL BOX Start From Here ######-->
+			<div role="dialog" tabindex="-1" aria-labelledby="header99"
+				class="slds-modal slds-fade-in-open">
+				<div class="slds-modal__container form-style-6">
+					<!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+					<div class="slds-modal__header">
+						<button
+							class="slds-button slds-modal__close slds-button--icon-inverse"
+							title="Close" onclick="{!c.closeModelfileUploadCmp}">
+							X <span class="slds-assistive-text">Close</span>
+						</button>
+						<h1 id="header99" class="slds-text-heading--medium">Nouvelle
+							Piece jointe</h1>
+					</div>
+					<!--###### MODAL BOX BODY Part Start From Here ######-->
+					<div class="slds-modal__content slds-p-around--medium">
+
+
+						<!-- CREATE NEW PROJET FORM -->
+						<lightning:input aura:id="file" onchange="{!c.handleFilesChange}" type="file" name="file" label="Upload Attachment" multiple="false"/>
+   <div class="slds-text-body_small slds-text-color_error">{!v.fileName} </div>
+ 
+ <!--use aura:if for show-hide the loading spinner image--> 
+   <aura:if isTrue="{!v.showLoadingSpinner}">
+      <div class="slds-text-body_small slds-text-color_error">Uploading... 
+         <img src="/auraFW/resources/aura/images/spinner.gif" class="spinner-img" alt="Loading"/>'
+      </div>
+   </aura:if>
+   
+						<!-- / CREATE NEW Item FORM -->
+
+					</div>
+					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
+					<div class="slds-modal__footer">
+						<button class="slds-button slds-button--neutral"
+							onclick="{!c.closeModelfileUploadCmp}">Annuler</button>
+						<button class="slds-button slds-button_brand" onclick="{!c.doSave}">Upload Attachment</button>
+					</div>
+				</div>
+			</div>
+			<div class="slds-backdrop slds-backdrop--open"></div>
+			<!--###### MODAL BOX Part END Here ######-->
+
+		</aura:if>
+<!--    fin new content -->
+
+</aura:component>

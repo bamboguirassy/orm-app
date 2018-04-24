@@ -1,0 +1,5 @@
+<aura:interface description="Interface template">
+	<aura:attribute name="title" type="String" default="" description="Titre du breadcum"/>
+	<aura:attribute name="subtitle" type="String" description="Sous titre du breadcum" />
+	
+</aura:interface>

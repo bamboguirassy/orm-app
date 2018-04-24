@@ -1,0 +1,220 @@
+<aura:component extends="c:AbstractShowCmp"
+	controller="PlanActionController" access="global">
+	<aura:attribute name="userEntites" type="Contact[]"
+		description="user entité" />
+	<aura:handler action="{!c.doInit}" value="{!this}" name="init" />
+	<aura:registerEvent name="navigateToRisqueEntiteShow"
+		type="c:navigateToRisqueEntiteShow" />
+    <aura:registerEvent name="navigateToRisqueShow"
+		type="c:navigateToRisqueShow" />
+	<aura:handler event="c:eventNewPlanActionCreated"  action="{!c.refreshShow}" />
+	<!--     debut implementation -->
+	<div class="slds-grid slds-gutters">
+		<div class="slds-col slds-size_1-of-6"></div>
+		<div class="slds-col slds-size_4-of-6">
+			<div class="slds-container--fluid ">
+				<!-- 	 header -->
+				<div class="slds-page-header">
+					<div class="slds-media">
+						<div class="slds-media__figure">
+							<span class="slds-icon_container slds-icon-standard-opportunity"
+								title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+									xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+							</span>
+						</div>
+						<div class="slds-media__body">
+							<h1
+								class="slds-page-header__title slds-truncate slds-align-middle"
+								title="Plan d'action">Plan d'action</h1>
+							<p class="slds-text-body_small slds-line-height_reset"></p>
+						</div>
+						<div>
+							<button class="btn btn-default"
+								onclick="{!c.navigateToRisqueEntiteShow}">
+								<i class="fa fa-rotate-left"></i> Retour
+							</button>
+						</div>
+					</div>
+				</div>
+				<!-- fin header -->
+				<!-- 		debut body -->
+				<div class="slds-box slds-theme_shade slds-theme_alert-texture">
+
+
+					<!-- 			ligthning tab start -->
+					<lightning:tabset >
+						<lightning:tab label="DETAILS" id="1">
+							<!--                             details sur le plan d'	action -->
+
+							<div class="slds-grid slds-gutters">
+								<div class="slds-col slds-size_2-of-6">
+									<div
+										class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+										<div
+											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+
+											<div class="slds-panel__section">
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">Détails
+													du plan</h3>
+												<ul>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Libellé</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Name}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Date
+															création</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputDateTime value="{!v.item.date_commencement__c}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Echéancier</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputDateTime value="{!v.item.echeancier__c}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Etat</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputCheckbox value="{!v.item.etat__c}" />
+															</span>
+														</div>
+													</li>
+
+
+												</ul>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="slds-col slds-size_2-of-6">
+									<div
+										class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+										<div
+											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+
+											<div class="slds-panel__section">
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">Gestionnaire</h3>
+												<ul>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Nom</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.gestionnaire__r.Name}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Email</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.gestionnaire__r.Email}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Tel</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.gestionnaire__r.Phone}" />
+															</span>
+														</div>
+													</li>
+
+
+												</ul>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="slds-col slds-size_2-of-6">
+									<div
+										class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+										<div
+											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+
+											<div class="slds-panel__section">
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">Risque</h3>
+												<ul>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Risque</span>
+														<div class="slds-form-element__control">
+                                                            <span class="slds-form-element__static"> <a onclick="{!c.navigateToRisqueShow}">{!v.item.risque_Entite__r.Risque__r.Name}</a>
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Description</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.commentaire__c}" />
+															</span>
+														</div>
+													</li>
+
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+                        <!-- buttons actions -->
+                                            
+                            <div class="slds-button-group" style="text-align:right" role="group">
+									<button onclick="{!c.registerEdit}" class="slds-button slds-button_success">
+
+										<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
+												aria-hidden="true"
+												xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" /></span>
+									</button>
+									<button  onclick="{!c.removeItem}" class="slds-button slds-button_destructive">
+										<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
+													aria-hidden="true"
+													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" /></span>
+									</button>
+						    </div>
+                            
+                            <!-- /buttons actions -->
+
+
+
+							<!-- 	fin details risque -->
+						</lightning:tab>
+						<lightning:tab label="Activités du plan" id="2">
+							<aura:if isTrue="{!v.item}">
+								<c:ActiviteListCmp planAction="{!v.item}" />
+							</aura:if>
+						</lightning:tab>
+
+
+					</lightning:tabset>
+					<!-- 			fin lightning tab -->
+
+
+				</div>
+				<!-- fin body -->
+			</div>
+
+		</div>
+		<div class="slds-col slds-size_1-of-6"></div>
+	</div>
+
+	<!--     fin implementation -->
+
+<c:PlanActionEditCmp />
+
+</aura:component>

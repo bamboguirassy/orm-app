@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable">
+<ltng:require scripts="/resource/Chart"/>
+    <div onclick="{!c.getChart}">
+        <canvas aura:id="chart" height="450" width="600"></canvas>
+    </div>
+</aura:component>

@@ -1,0 +1,76 @@
+<aura:component extends="c:AbstractListCmp" controller="EvidenceController">
+
+      <!--declaration de variable-->
+       
+	<aura:attribute name="items" type="ContentDocument[]"
+		description="Liste des pieces jointes" />
+	<aura:attribute name="activite" type="String"
+		description="Activite des preuves" />
+	
+        <!--declaration des abonnements aux évenements-->
+	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
+	
+	<div class="slds-container--fluid ">
+		<!-- 	 header -->
+		<div class="slds-page-header">
+			<div class="slds-media">
+				<div class="slds-media__figure">
+					<span class="slds-icon_container slds-icon-standard-opportunity"
+						title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+							xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+					</span>
+				</div>
+				<div class="slds-media__body">
+					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
+						title="Liste des plans d'action">Liste des preuves</h1>
+					<p class="slds-text-body_small slds-line-height_reset">Nombre
+						d'enregistrements ({!v.items.length})</p>
+				</div>
+			</div>
+		</div>
+		<!-- fin header -->
+		<!-- 		debut body -->
+		<div class="slds-box slds-theme_shade slds-theme_alert-texture">
+			<!-- 		filtre -->
+			<!--     debut datatable -->
+			<table id="table"
+				class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped">
+				<thead>
+					<tr class="slds-text-title_caps">
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+							<div class="slds-truncate" title="Nom">Nom</div>
+						</th>
+					
+					</tr>
+				</thead>
+				<tbody>
+					<aura:iteration items="{!v.items}" var="item" indexVar="i">
+						<tr class="slds-hint-parent">
+							<td scope="row" data-label="Libellé"
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+								<div class="slds-truncate" title="{!item.Title}">
+								<a data-index="{!i}"  onclick="{!c.openSingleFile}">{!item.Title}[{!item.ParentId.LinkedEntityId}]</a></div>
+							</td>
+						
+						</tr>
+					</aura:iteration>
+				</tbody>
+			</table>
+			<!-- fin implementation datatable -->
+
+				
+			<div class=" slds-grid  slds-wrap slds-align--absolute-center"
+				style="">
+				<div
+					class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
+					style="">
+
+
+				</div>
+			</div>
+		</div>
+		<!-- fin body -->
+	</div>
+	
+</aura:component>

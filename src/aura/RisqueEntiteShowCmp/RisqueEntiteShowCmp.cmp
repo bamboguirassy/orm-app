@@ -1,0 +1,302 @@
+<aura:component extends="c:AbstractShowCmp"
+	controller="RisqueEntiteController" access="global">
+	<aura:handler action="{!c.doInit}" value="{!this}" name="init" />
+	<aura:registerEvent name="navigateToEntiteShow"
+		type="c:navigateToEntiteShow" />
+	<aura:registerEvent name="navigateToRisqueShow"
+		type="c:navigateToRisqueShow" />
+	<aura:handler event="c:eventNewRisqueEntiteCreated"
+		action="{!c.refreshShow}" />
+	<aura:registerEvent name="eventEditRisqueEntiteClicked"
+		type="c:eventEditRisqueEntiteClicked" description="" />
+	<!--  implementation tab -->
+	<aura:attribute name="selTabId" type="string" default="1" />
+
+
+	<div class="slds-grid slds-gutters">
+		<div class="slds-col slds-size_1-of-6"></div>
+		<div class="slds-col slds-size_4-of-6">
+			<div class="slds-container--fluid ">
+				<!-- 	 header -->
+				<div class="slds-page-header">
+					<div class="slds-media">
+						<div class="slds-media__figure">
+							<span class="slds-icon_container slds-icon-standard-opportunity"
+								title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+									xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+							</span>
+						</div>
+						<div class="slds-media__body">
+							<h1
+								class="slds-page-header__title slds-truncate slds-align-middle"
+								title="Liste des plans d'action">
+								<ui:outputText value="{!v.item.Risque__r.Name}" />
+							</h1>
+							<p class="slds-text-body_small slds-line-height_reset"></p>
+						</div>
+						<div>
+							<button class="btn btn-default"
+								onclick="{!c.navigateToEntiteShow}">
+								<i class="fa fa-rotate-left"></i> Retour
+							</button>
+						</div>
+					</div>
+				</div>
+				<!-- fin header -->
+				<!-- 		debut body -->
+				<div class="slds-box slds-theme_shade slds-theme_alert-texture">
+
+
+					<!-- 			ligthning tab start -->
+					<lightning:tabset selectedTabId="{!v.selTabId}">
+						<lightning:tab label="DETAILS" id="1">
+							<!--                             details sur le risque -->
+
+							<div class="slds-grid slds-gutters">
+								<div class="slds-col slds-size_2-of-6">
+									<div
+										class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+										<div
+											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+
+											<div class="slds-panel__section">
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">Détails
+													risque</h3>
+												<ul>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Risque
+															detecté</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <a
+																onclick="{!c.navigateToRisqueShow}">{!v.item.Risque__r.Name}</a>
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Description</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputTextArea value="{!v.item.description__c}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Detecté le</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputDate value="{!v.item.Date_Detection__c}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Responsable</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.responsable__r.Name}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Etat actuel</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <aura:if isTrue="{!v.item.etat__c}">
+																	<span class="success">Géré</span>
+																	<aura:set attribute="else">
+																		<span class="danger">En cours</span>
+																	</aura:set>
+																</aura:if>
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<div class="slds-box">
+															<p>Une fois le risque géré, vous pourrez changer son
+																état</p>
+															<button class="slds-button slds-button--brand"
+																onclick="{!c.updateRisque}">Changer Etat</button>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="slds-col slds-size_2-of-6">
+									<div
+										class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+										<div
+											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+
+											<div class="slds-panel__section">
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">Structure
+													concernée</h3>
+												<ul>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Nom</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <a
+																onclick="{!c.navigateToEntiteShow}">{!v.item.Entite__r.Name}</a>
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Téléphone</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputPhone value="{!v.item.Entite__r.Phone}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Site Web</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputURL value="{!v.item.Entite__r.Website}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Type</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Entite__r.Type}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Descriptions</span>
+														<div class="slds-form-element__control">
+															<span
+																class="slds-form-element__static slds-text-longform">
+																<ui:outputRichText value="{!v.item.Entite__r.Description}" />
+															</span>
+														</div>
+													</li>
+												</ul>
+												<div class="slds-button-group" style="text-align: right"
+													role="group">
+													<button onclick="{!c.registerEdit}"
+														class="slds-button slds-button_success">
+
+														<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
+																aria-hidden="true"
+																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" /></span>
+													</button>
+													<button class="slds-button slds-button_destructive"
+														onclick="{!c.removeItem}">
+														<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
+																aria-hidden="true"
+																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" /></span>
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="slds-col slds-size_2-of-6">
+									<div
+										class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+										<div
+											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+
+											<div class="slds-panel__section">
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">Cotation</h3>
+												<ul>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Fréquence</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.frequence__c}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Maitrise</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.maitrise__c}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Gravité</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.gravite__c}" />
+															</span>
+														</div>
+													</li>
+													<li
+														class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">Criticité</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.criticite__c}" />
+															</span>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<div class="slds-panel__section">
+												<aura:if isTrue="{!v.item}">
+													<c:JaugeCmp value="{!v.item.criticite__c}" max="16" />
+												</aura:if>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- 	fin details risque -->
+						</lightning:tab>
+						<lightning:tab label="Mesures Préventives" id="2">
+							<aura:if isTrue="{!v.item}">
+								<c:MesurePreventionRisqueDetecteListCmp risqueEntite="{!v.item.Id}" risque="{!v.item.Risque__c}" />
+							</aura:if>
+						</lightning:tab>
+
+						<lightning:tab label="Impacts" id="3">
+							<aura:if isTrue="{!v.item}">
+								<c:ImpactRisqueEntiteListCmp risqueEntite="{!v.item.Id}"
+									risque="{!v.item.Risque__c}" />
+							</aura:if>
+						</lightning:tab>
+
+						<lightning:tab label="Plans d'action" id="4">
+							<!--<c:PlanActionListCmp risqueEntite="{!v.item.Id}" 
+								entite="{!v.item.Entite__c}" />-->
+							<c:PlanActionListCmp risqueEntite="{!v.item}"/>
+
+						</lightning:tab>
+
+						<lightning:tab label="Causes" id="5">
+							<aura:if isTrue="{!v.item}">
+								<c:CauseRisqueDetecteListCmp risqueEntite="{!v.item.Id}" />
+							</aura:if>
+						</lightning:tab>
+						<lightning:tab label="Entitées affectées" id="6">
+							<aura:if isTrue="{!v.item}">
+								<c:EntiteAffecteeListCmp risqueEntite="{!v.item.Id}" />
+							</aura:if>
+						</lightning:tab>
+
+					</lightning:tabset>
+					<!-- 			fin lightning tab -->
+
+
+				</div>
+				<!-- fin body -->
+			</div>
+
+		</div>
+		<div class="slds-col slds-size_1-of-6"></div>
+	</div>
+
+	<c:RisqueEntiteEditCmp />
+</aura:component>

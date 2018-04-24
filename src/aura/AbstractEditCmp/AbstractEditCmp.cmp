@@ -1,0 +1,17 @@
+<aura:component abstract="true" extensible="true" access="public">
+	<aura:attribute name="items" type="SObject[]" description="" />
+
+	<!--use boolean attribute for Store true/false value,
+    make default to "false" so modal box are not display on the load of component. 
+    -->
+	<aura:attribute name="isOpen" type="boolean" default="false" />
+	<aura:attribute name="clabels" type="Map"
+		description="fields label and api names" />
+	<!--     methods -->
+	<aura:method name="closeModel" description="" />
+
+	<div aura:id="spinner-div" class="slds-hide load-spinner">
+		<lightning:spinner aura:id="spinner" variant="brand" size="medium" />
+	</div>
+		{!v.body}
+</aura:component>

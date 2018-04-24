@@ -1,0 +1,101 @@
+<aura:component extends="c:AbstractListCmp" controller="EvidenceController">
+	 <!--declaration de variable-->
+       
+	<aura:attribute name="items" type="ContentDocument[]"
+		description="Liste des pieces" />
+		 <aura:attribute name="parentId" type="String" description="id du preuve"/>
+<aura:attribute name="currentContentDocumentId" type="String"
+		description="id d'un attachment" />
+		
+		
+        <!--declaration des abonnements aux évenements-->
+<aura:handler event="c:eventListFileUploadClicked" action="{!c.refreshList}" />
+			<aura:attribute name="isOpenListfileUploadCmp" default="false" type="Boolean" description="Test visibilité list upload file" />
+			<aura:attribute name="isOpenfileUploadShowCmp" default="false" type="Boolean" description="Test visibilité show upload file" />
+
+	<!--    new content -->
+
+<!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
+		<aura:if isTrue="{!v.isOpenListfileUploadCmp}">
+	<!--###### MODAL BOX Start From Here ######-->
+			<div role="dialog" tabindex="-1" aria-labelledby="header99"
+				class="slds-modal slds-fade-in-open slds-modal_medium">
+				<div class="slds-modal__container form-style-6">
+					<!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+					<div class="slds-modal__header">
+						<button
+							class="slds-button slds-modal__close slds-button--icon-inverse"
+							title="Close" onclick="{!c.closeModelListfileUploadCmp}">
+							X <span class="slds-assistive-text">Close</span>
+						</button>
+						<h1 class="slds-text-heading--medium" >Liste des pieces jointes </h1>
+						</div>
+					<!--###### MODAL BOX BODY Part Start From Here ######-->
+					<div class="slds-modal__content slds-p-around--medium">
+	<!--     debut datatable -->
+			<table id="table"
+				class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped">
+				<thead>
+					<tr class="slds-text-title_caps">
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+							<div class="slds-truncate" title="Libellé">Nom</div>
+						</th>
+
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+							<div class="slds-truncate" title="Stage">Actions</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<aura:iteration items="{!v.items}" var="item" indexVar="i">
+						<tr class="slds-hint-parent">
+							<td scope="row" data-label="Libellé"
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+								<div class="slds-truncate" title="{!item.Title}">
+								<a data-index="{!i}"  onclick="{!c.openSingleFile}">{!item.Title}</a></div>
+							</td>
+						
+							<td data-label="Actions"
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+								<div class="slds-truncate" title="Actions">
+									<div class="slds-einstein-header__actions">
+										<div class="slds-button-group" role="group">
+						 
+											<a data-index="{!i}" onclick="{!c.removeItem}"
+												class="slds-button slds-button_icon slds-button_icon-border-filled"
+												title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
+
+												<span class="slds-assistive-text">supprimer</span>
+											</a> 
+											
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</aura:iteration>
+				</tbody>
+			</table>
+			<!-- fin implementation datatable -->
+
+
+					</div>
+					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
+					<div class="slds-modal__footer">
+					<button class="slds-button slds-button--neutral"
+							onclick="{!c.closeModelListfileUploadCmp}">Annuler</button>
+					</div>
+				</div>
+			</div>
+			<div class="slds-backdrop slds-backdrop--open"></div>
+			<!--###### MODAL BOX Part END Here ######-->
+
+		</aura:if>
+<!--    fin new content -->
+		<!--<c:FileUploadShowCmp isOpenfileUploadShowCmp="{!v.isOpenfileUploadShowCmp}" />-->
+	
+	
+</aura:component>

@@ -1,0 +1,13 @@
+<aura:component >
+    <aura:attribute name="item" type="Categorie_Risque__c" description="" required="true" />
+    <div class="slds-col slds-col--padded slds-p-top--large">
+        <p>
+            Nom Categorie:
+            <ui:outputText value="{!v.item.unknown_custom_field}" />
+        </p>
+        <p>
+            Description:
+            <ui:outputRichText value="{!v.item.Description__c}" />
+        </p>
+    </div>
+</aura:component>

@@ -1,0 +1,30 @@
+<aura:component >
+    <aura:handler action="{!c.doInit}" name="init" value="{!this}" />
+    <div class=" slds-grid  slds-wrap " style="background:#fff;">
+        <div class=" slds-size--2-of-12   slds-p-horizontal--small menu2">
+            <h4>
+                <span class="slds-icon_container slds-icon-standard-contact" title="description of icon when needed" style="padding:5px;color:#fff;margin-top:5px;margin-bottom:5px; text-transform: uppercase;font-size:12px;background-color:rgb(0, 112, 210);">
+          				<i class="fa fa-tachometer" aria-hidden="true"></i> Tableau de bord 
+        			</span>
+            
+            </h4>
+            <nav class="slds-nav-vertical " aria-label="Sub page">
+                <div class="slds-nav-vertical__section">
+                    <h2 id="entity-header" class="slds-nav-vertical__title slds-text-title_caps">Reports</h2>
+                    <ul>
+                        <li onclick="{!c.doInit}" class="slds-nav-vertical__item slds-is-active"><a href="javascript:void(0);" class="slds-nav-vertical__action" aria-describedby="entity-header">Risque</a></li>
+<!--                         <li class="slds-nav-vertical__item"><a href="javascript:void(0);" class="slds-nav-vertical__action" aria-describedby="entity-header">Processus</a></li> -->
+<!--                         <li class="slds-nav-vertical__item"><a href="javascript:void(0);" class="slds-nav-vertical__action" aria-describedby="entity-header">Plan d'action</a></li> -->
+<!--                         <li class="slds-nav-vertical__item"><a href="javascript:void(0);" class="slds-nav-vertical__action" aria-describedby="entity-header">Activité</a></li> -->
+<!--                         <li class="slds-nav-vertical__item"><a href="javascript:void(0);" class="slds-nav-vertical__action" aria-describedby="entity-header">Entité</a></li> -->
+                    </ul>
+                </div>
+            </nav>
+            
+
+        </div>
+        <div class="  slds-size--10-of-12  slds-p-horizontal--small">
+            {!v.body}
+        </div>
+    </div>
+</aura:component>

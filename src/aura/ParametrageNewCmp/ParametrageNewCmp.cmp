@@ -1,0 +1,110 @@
+<aura:component controller="AppController" extends="c:AbstractNewCmp"
+	implements="flexipage:availableForAllPageTypes">
+	<aura:attribute name="item" type="Parametrage__c"
+		default="{
+						'sobjectType' : 'Parametrage__c',
+						'Name' : '',
+						'siteWeb__c' : '',
+						'Sigle__c':'',
+						'telephone__c':'',
+						'email__c':'',
+						'Ville__c':''
+					}" />
+
+	<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
+	<div class="slds-m-around--xx-large">
+		<div class=" slds-grid  slds-wrap slds-align--absolute-center">
+			<div
+				class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left">
+<!-- 				<button class="slds-button slds-button__icon_left" -->
+<!-- 					style="float: right; background: #a094ed; padding-left: 15px; padding-right: 15px; color: #fff; padding: 25px; font-size: 15px; font-weight: bold" -->
+<!-- 					onclick="{!c.openModel}"> -->
+<!-- 					<i class="fa fa-plus" aria-hidden="true"></i> -->
+<!-- 				</button> -->
+
+			</div>
+		</div>
+		<!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
+		<aura:if isTrue="{!v.isOpen}">
+
+			<!--###### MODAL BOX Start From Here ######-->
+			<div role="dialog" tabindex="-1" aria-labelledby="header99"
+				class="slds-modal slds-fade-in-open ">
+				<div class="slds-modal__container form-style-6">
+					<!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+					<div class="slds-modal__header ">
+						
+						<h1 id="header99" class="slds-text-heading--medium">Definir
+							Parametre</h1>
+					</div>
+					<!--###### MODAL BOX BODY Part Start From Here ######-->
+					<div class="slds-modal__content slds-p-around--medium">
+
+
+						<!-- CREATE NEW Entite FORM -->
+						<form class="slds-form--stacked">
+
+							<div class="slds-form-element slds-is-required">
+								<div class="slds-form-element__control">
+									<ui:inputText aura:id="nom" class="slds-input"
+										labelClass="slds-form-element__label" label="Nom" value="{!v.item.Name}"
+										required="true" placeholder="Nom entreprise" />
+								</div>
+							</div>
+							<div class="slds-form-element slds-is-required">
+								<div class="slds-form-element__control">
+									<ui:inputText aura:id="sigle" class="slds-input" label="Sigle"
+										labelClass="slds-form-element__label" value="{!v.item.Sigle__c}"
+										required="true" placeholder="Sigle" />
+								</div>
+							</div>
+							<div class="slds-form-element slds-is-required">
+								<div class="slds-form-element__control">
+									<ui:inputText aura:id="ville" class="slds-input"
+										labelClass="slds-form-element__label" label="Ville" value="{!v.item.Ville__c}"
+										required="true" placeholder="Ville de l'entreprise" />
+								</div>
+							</div>
+							<div class="slds-form-element">
+								<div class="slds-form-element__control">
+									<ui:inputURL aura:id="siteWeb" class="slds-input" label="Site Web"
+										labelClass="slds-form-element__label"
+										value="{!v.item.siteWeb__c}" placeholder="Site web" />
+								</div>
+							</div>
+							<div class="slds-form-element slds-is-required">
+								<div class="slds-form-element__control">
+									<ui:inputPhone aura:id="telephone" class="slds-input" label="Telephone"
+										labelClass="slds-form-element__label"
+										value="{!v.item.telephone__c}" required="true"
+										placeholder="Telephone" />
+								</div>
+							</div>
+							<div class="slds-form-element slds-is-required">
+								<div class="slds-form-element__control">
+									<ui:inputText aura:id="email" class="slds-input" label="Email"
+										labelClass="slds-form-element__label" value="{!v.item.email__c}"
+										required="true" placeholder="Email" />
+								</div>
+							</div>
+
+						</form>
+						<!-- / CREATE NEW Item FORM -->
+
+					</div>
+					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
+					<div class="slds-modal__footer">
+						<button class="slds-button slds-button--brand"
+							onclick="{!c.createItem}">
+							<i class="fa fa-paper-plane-o" aria-hidden="true"></i> Creer
+							paramètre
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="slds-backdrop slds-backdrop--open"></div>
+			<!--###### MODAL BOX Part END Here ######-->
+
+		</aura:if>
+	</div>
+</aura:component>

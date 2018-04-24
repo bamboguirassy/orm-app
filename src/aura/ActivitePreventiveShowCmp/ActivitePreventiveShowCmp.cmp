@@ -1,0 +1,286 @@
+<aura:component extends="c:AbstractShowCmp"
+	controller="ActiviteController" access="global">
+	<aura:handler action="{!c.doInit}" value="{!this}" name="init" />
+	<aura:registerEvent name="navigateToPlanActionPreventifShow"
+		type="c:navigateToPlanActionPreventifShow" />
+	<!--      debut implementation entite -->
+	<div class="slds-grid slds-gutters">
+		<div class="slds-col slds-size_1-of-7"></div>
+		<div class="slds-col slds-size_5-of-7">
+			<!--     debut implementation page -->
+
+			<div class="slds-m-bottom_xx-large">
+				<div class="slds-grid">
+
+					<!-- 	 header -->
+					<div class="slds-col slds-size_1-of-1">
+						<div class="slds-page-header">
+							<div class="slds-grid">
+								<div class="slds-col slds-has-flexi-truncate">
+									<div class="slds-media slds-no-space slds-grow">
+										<div class="slds-media__figure">
+											<span
+												class="slds-icon_container slds-icon-standard-opportunity"
+												title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+													xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+											</span>
+										</div>
+										<div class="slds-media__body">
+											<nav>
+												<ol class="slds-breadcrumb slds-line-height_reset">
+													<li class="slds-breadcrumb__item"><span> <ui:outputText value="{!v.item.Name}" /></span></li>
+												</ol>
+											</nav>
+											<h1
+												class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate"
+												title="Acme - 1,200 Widgets"></h1>
+
+										</div>
+										<div>
+											<button class="btn btn-default"
+												onclick="{!c.navigateToPlanActionPreventifShow}">
+												<i class="fa fa-rotate-left"></i> Retour
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="slds-col slds-no-flex slds-grid slds-align-top">
+
+									<div class="slds-button-group" role="group">
+										<!--                                 bouton entete -->
+
+									</div>
+								</div>
+							</div>
+							<div class="slds-grid slds-page-header__detail-row">
+								<div class="slds-grid slds-wrap  slds-size_1-of-1">
+									<!-- debut tab -->
+									<lightning:tabset >
+										<lightning:tab label="Description " id="1">
+											<!-- detail entite -->
+											<!-- 											debut -->
+
+											<!--  debut  description de l'activite  -->
+
+											<div class="slds-grid slds-gutters">
+
+												<div class="slds-col slds-size_2-of-6">
+													<div
+														class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+														<div
+															class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+
+															<div class="slds-panel__section">
+
+																<h3 class="slds-text-heading_small slds-m-bottom_medium">
+																	Description de l'activité</h3>
+																<ul>
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label">
+																			Intitule </span>
+																		<div class="slds-form-element__control">
+																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Name}" />
+																			</span>
+																		</div>
+																	</li>
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label">Date:</span>
+																		<div class="slds-form-element__control">
+																			<span class="slds-form-element__static"> <ui:outputDateTime value="{!v.item.date__c}" />
+																			</span>
+																		</div>
+																	</li>
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label">Délai</span>
+																		<div class="slds-form-element__control">
+																			<span class="slds-form-element__static"> <ui:outputDateTime value="{!v.item.delai__c}" />
+																			</span>
+																		</div>
+																	</li>
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label">Type</span>
+																		<div class="slds-form-element__control">
+																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.type__c}" />
+																			</span>
+																		</div>
+																	</li>
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label">Statut</span>
+																		<div class="slds-form-element__control">
+																			<span
+																				class="slds-form-element__static slds-text-longform">
+																				<ui:outputText value="{!v.item.statut__c}" />
+																			</span>
+																		</div>
+																	</li>
+
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label"> Coût</span>
+																		<div class="slds-form-element__control">
+																			<span
+																				class="slds-form-element__static slds-text-longform">
+																				<ui:outputCurrency value="{!v.item.cout__c}" />
+																			</span>
+																		</div>
+																	</li>
+
+
+																</ul>
+															</div>
+														</div>
+													</div>
+
+												</div>
+												<div class="slds-col slds-size_2-of-6">
+													<div
+														class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+														<div
+															class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+
+															<div class="slds-panel__section">
+																<h3 class="slds-text-heading_small slds-m-bottom_medium">Responsable</h3>
+																<ul>
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label">Nom</span>
+																		<div class="slds-form-element__control">
+																			<span
+																				class="slds-form-element__static slds-text-longform">
+																				<ui:outputText value="{!v.item.responsable__r.Name}" />
+																			</span>
+																		</div>
+																	</li>
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label">Email</span>
+																		<div class="slds-form-element__control">
+																			<span
+																				class="slds-form-element__static slds-text-longform">
+																				<ui:outputEmail value="{!v.item.responsable__r.Email}" />
+																			</span>
+																		</div>
+																	</li>
+																</ul>
+
+															</div>
+														</div>
+													</div>
+
+												</div>
+												<div class="slds-col slds-size_2-of-6">
+													<div
+														class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+														<div
+															class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+
+															<div class="slds-panel__section">
+																<h3 class="slds-text-heading_small slds-m-bottom_medium">Plan
+																	d'action</h3>
+																<ul>
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label">Nom</span>
+																		<div class="slds-form-element__control">
+																			<span
+																				class="slds-form-element__static slds-text-longform">
+                                                                                <a onclick="{!c.navigateToPlanActionPreventifShow}">{!v.item.plan_Action__r.Name}</a>
+																			</span>
+																		</div>
+																	</li>
+
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label">Date de
+																			détection</span>
+																		<div class="slds-form-element__control">
+																			<span
+																				class="slds-form-element__static slds-text-longform">
+																				<ui:outputDateTime value="{!v.item.plan_Action__r.date_commencement__c}" />
+																			</span>
+																		</div>
+																	</li>
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label">Echeancier</span>
+																		<div class="slds-form-element__control">
+																			<span
+																				class="slds-form-element__static slds-text-longform">
+																				<ui:outputDateTime value="{!v.item.plan_Action__r.echeancier__c}" />
+																			</span>
+																		</div>
+																	</li>
+
+																</ul>
+
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+
+											
+
+
+
+											<!-- 	fin description de l'activite  -->
+
+											<!-- 	fin	-->
+
+
+											<!-- fin detail sur l'entite-->
+										</lightning:tab>
+
+										<lightning:tab label="indicateurs de l'activité" id="2">
+											<aura:if isTrue="{!v.item}">
+												<c:IndicateurActiviteListCmp activite="{!v.item.Id}" />
+											</aura:if>
+										</lightning:tab>
+
+										<lightning:tab label="mesures de l'activité" id="3">
+											<aura:if isTrue="{!v.item}">
+                                                <c:MesureActiviteListCmp activite="{!v.item.Id}" /> 
+											</aura:if>
+
+										</lightning:tab>
+
+		                               <lightning:tab label="Preuves de l'activité" id="4">
+											<aura:if isTrue="{!v.item}"> 
+												<c:EvidenceListByActivityCmp activite="{!v.item.Id}" />
+											</aura:if> 
+
+										</lightning:tab>
+	
+
+									</lightning:tabset>
+									<!-- fin tab -->
+
+									<!-- debut elements associes -->
+									<div
+										class="slds-size_1-of-1  slds-theme_shade slds-theme_alert-texture  ">
+									</div>
+
+									<!-- fin elements associes -->
+
+								</div>
+							</div>
+							<footer class="slds-card__footer" style="text-align: left;">
+
+							</footer>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--     fin implementation entite -->
+
+
+</aura:component>

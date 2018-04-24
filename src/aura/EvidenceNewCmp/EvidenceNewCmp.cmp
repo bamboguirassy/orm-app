@@ -1,0 +1,93 @@
+<aura:component controller="EvidenceController" extends="c:AbstractNewCmp">
+	<aura:attribute name="item" type="Evidence__c"
+		default="{
+						'sobjectType' : 'Evidence__c',
+						'Name' : '',
+						'description__c' : '',
+						'evidenceOfActivity__c' : '',
+						'webRessource__c' : ''
+					}" />
+
+	<aura:attribute name="mesure" type="String" description="Mesure de l'activité concernant la preuve" />
+	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
+	<aura:attribute name="isOpenEvidenceNewCmp" default="false" type="Boolean" description="Test visibilité form" />
+	<!--     evenement à publier lorsqu'il ya un nouvel element ajouté -->
+<aura:registerEvent name="newPreuveAjoute" type="c:eventNewPreuveCreated" description="" />
+ 
+
+	<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
+	<div class="slds-m-around">
+		
+
+		<!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
+		<aura:if isTrue="{!v.isOpenEvidenceNewCmp}">
+	<!--###### MODAL BOX Start From Here ######-->
+			<div role="dialog" tabindex="-1" aria-labelledby="header99"
+				class="slds-modal slds-fade-in-open ">
+				<div class="slds-modal__container form-style-6">
+					<!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+					<div class="slds-modal__header">
+						<button
+							class="slds-button slds-modal__close slds-button--icon-inverse"
+							title="Close" onclick="{!c.closeModelEvidenceNewCmp}">
+							X <span class="slds-assistive-text">Close</span>
+						</button>
+						<h1 id="header99" class="slds-text-heading--medium">Nouvelle
+							Preuve</h1>
+					</div>
+					<!--###### MODAL BOX BODY Part Start From Here ######-->
+					<div class="slds-modal__content slds-p-around--medium">
+
+
+						<!-- CREATE NEW PROJET FORM -->
+						<form class="slds-form--stacked">
+							<div class="slds-grid slds-gutters">
+								<div class="slds-col">
+									<div class="slds-form-element slds-is-required">
+										<div class="slds-form-element__control">
+											<ui:inputText aura:id="nom" label="Nom preuve"
+										class="slds-input" labelClass="slds-form-element__label"
+										value="{!v.item.Name}" />
+										</div>
+									</div>
+									
+									<div class="slds-form-element">
+										<div class="slds-form-element__control slds-is-required">
+										<ui:inputURL aura:id="webressource" label="Web ressource"
+										class="slds-input" labelClass="slds-form-element__label"
+										value="{!v.item.webRessource__c}"  />
+										</div>
+									</div>
+									
+									<div class="slds-form-element" >
+										<div class="slds-form-element__control">
+											<ui:inputTextArea aura:id="description" label="Description"
+										class="slds-input" labelClass="slds-form-element__label"
+										value="{!v.item.description__c}" />
+										</div>
+									</div>
+							
+									</div>
+									</div>
+							
+						</form>
+						<!-- / CREATE NEW Item FORM -->
+
+					</div>
+					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
+					<div class="slds-modal__footer">
+						<button class="slds-button slds-button--neutral"
+							onclick="{!c.closeModelEvidenceNewCmp}">Annuler</button>
+						<button class="slds-button slds-button--brand"
+							onclick="{!c.createItem}">
+							<i class="fa fa-paper-plane-o" aria-hidden="true"></i> Ajouter
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="slds-backdrop slds-backdrop--open"></div>
+			<!--###### MODAL BOX Part END Here ######-->
+
+		</aura:if>
+	</div>
+</aura:component>

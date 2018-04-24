@@ -1,0 +1,155 @@
+<aura:component extends="c:AbstractListCmp" controller="ProjetController">
+
+      <!--declaration de variable-->
+       
+	<aura:attribute name="items" type="Projet__c[]"
+		description="Liste des projets" />
+
+        <!--declaration des abonnements aux évenements-->
+	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
+	<aura:handler action="{!c.refreshList}" event="c:eventNewProjetCreated" />
+	<aura:registerEvent name="navigateToProjetShow" type="c:navigateToProjetShow" description="enregistrement event navigateToProjetShow" />
+	<aura:registerEvent name="eventEditProjetClicked" type="c:eventEditProjetClicked" description="" />
+	
+	
+	<div class="slds-container--fluid ">
+		<!-- 	 header -->
+		<div class="slds-page-header">
+			<div class="slds-media">
+				<div class="slds-media__figure">
+					<span class="slds-icon_container slds-icon-standard-opportunity"
+						title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+							xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+					</span>
+				</div>
+				<div class="slds-media__body">
+					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
+						title="Liste des plans d'action">Liste des projets</h1>
+					<p class="slds-text-body_small slds-line-height_reset">Nombre
+						d'enregistrements ({!v.items.length})</p>
+				</div>
+			</div>
+		</div>
+		<!-- fin header -->
+		<!-- 		debut body -->
+		<div class="slds-box slds-theme_shade slds-theme_alert-texture">
+			<!-- 		filtre -->
+			<!--     debut datatable -->
+			<table id="table"
+				class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped">
+				<thead>
+					<tr class="slds-text-title_caps">
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+							<div class="slds-truncate" title="Nom">Nom</div>
+						</th>
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+							<div class="slds-truncate" title="Date debut">Date début</div>
+						</th>
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+							<div class="slds-truncate" title="Date fin prevue">Date fin prévue</div>
+						</th>
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+							<div class="slds-truncate" title="Responsable">Responsable</div>
+						</th>
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+							<div class="slds-truncate" title="Account Name">Structure</div>
+						</th>
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+							<div class="slds-truncate" title="Stage">Actions</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<aura:iteration items="{!v.items}" var="item" indexVar="i">
+						<tr class="slds-hint-parent">
+							<td scope="row" data-label="Libellé"
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+								<div class="slds-truncate" title="{!item.Name}">{!item.Name}</div>
+							</td>
+							<td scope="row" data-label="Date début"
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+								<div class="slds-truncate" title="{!item.Date_debut}">
+								<ui:outputDate value="{!item.Date_debut__c}"/></div>
+							</td>
+							<td scope="row" data-label="Date fin prévue"
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+								<div class="slds-truncate" title="{!item.Date_fin_prevue}">
+								<ui:outputDate value="{!item.Date_fin_prevue__c}"/></div>
+							</td>
+							<td data-label="Responsable"
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+								<div class="slds-truncate"
+									title="{!item.Responsable__r.Name}">
+									<ui:outputText value="{!item.Responsable__r.Name}" />
+								</div>
+							</td>
+							<td data-label="Structure"
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+								<div class="slds-truncate"
+									title="{!item.Structure__r.Name}">
+									<ui:outputText value="{!item.Structure__r.Name}" />
+								</div>
+							</td>
+							<td data-label="Actions"
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+								<div class="slds-truncate" title="Actions">
+									<div class="slds-einstein-header__actions">
+										<div class="slds-button-group" role="group">
+											<a data-index="{!i}" onclick="{!c.navigateToShow}"
+												class="slds-button slds-button_icon slds-button_icon-border-filled"
+												title="afficher" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#preview'}" />
+
+												<span class="slds-assistive-text">Afficher</span>
+											</a> 
+											<a data-index="{!i}" onclick="{!c.removeItem}"
+												class="slds-button slds-button_icon slds-button_icon-border-filled"
+												title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
+
+												<span class="slds-assistive-text">supprimer</span>
+											</a> 
+											<!-- {!c.showEditModal} -->
+											<a data-index="{!i}" onclick="{!c.registerEdit}"
+												class="slds-button slds-button_icon slds-button_icon-border-filled"
+												title="modifier" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
+
+												<span class="slds-assistive-text">Modifier</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</aura:iteration>
+				</tbody>
+			</table>
+			<!-- fin implementation datatable -->
+
+
+
+
+			<div class=" slds-grid  slds-wrap slds-align--absolute-center"
+				style="">
+				<div
+					class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
+					style="">
+
+ 					<c:ProjetNewCmp /> 
+					<!-- <c:ProjetEditCmp item="{!v.editItem}" isOpen="{!v.editComponentIsOpen}" /> -->
+					<c:ProjetEditCmp />
+
+				</div>
+			</div>
+		</div>
+		<!-- fin body -->
+	</div>
+	
+</aura:component>

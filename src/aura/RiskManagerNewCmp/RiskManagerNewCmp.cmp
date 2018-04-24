@@ -1,0 +1,130 @@
+<aura:component controller="RiskManagerController"
+	extends="c:AbstractNewCmp">
+	<aura:attribute name="item" type="Contact"
+		default="{
+                        'sobjectType': 'Contact',
+                        'Birthdate': '',
+                        'Description': '',
+                        'Email': '',
+                        'FirstName': '',
+                        'LastName': '',
+                        'Phone': '',
+                                            }" />
+   <aura:attribute name="fileName" type="String" default="No File Selected.." />
+
+	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
+
+	<aura:registerEvent name="newRiskManagerAjoute"
+		type="c:eventNewRiskManagerCreated" description="" />
+
+
+	<aura:attribute name="entite" type="Account"
+		description="entite auquelest rattaché l'utilisateur" required="true" />
+
+
+	<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
+	<div class="slds-m-around--xx-large">
+		<div class=" slds-grid  slds-wrap slds-align--absolute-center"
+			style="margin-top: 20px">
+			<div
+				class=" slds-size--1-of-2   slds-p-horizontal--small slds-float—left">
+				<button onclick="{!c.openModel}"
+					class="slds-button slds-button_stateful slds-not-selected slds-button_brand"
+					aria-live="assertive" style="float: right;">
+					<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
+							aria-hidden="true"
+							xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#add'}" /></span>
+				</button>
+
+			</div>
+		</div>
+		<!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
+		<aura:if isTrue="{!v.isOpen}">
+
+			<!--###### MODAL BOX Start From Here ######-->
+			<div role="dialog" tabindex="-1" aria-labelledby="header99"
+				class="slds-modal slds-fade-in-open slds-modal_medium ">
+				<div class="slds-modal__container form-style-6">
+					<!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+					<div class="slds-modal__header">
+						<button
+							class="slds-button slds-modal__close slds-button--icon-inverse"
+							title="Close" onclick="{!c.closeModel}">
+							X <span class="slds-assistive-text">Close</span>
+						</button>
+						<h1 id="header99" class="slds-text-heading--medium">Nouveau
+							gestionnaire du risque</h1>
+					</div>
+					<!--###### MODAL BOX BODY Part Start From Here ######-->
+					<div class="slds-modal__content slds-p-around--medium">
+
+
+						<!-- CREATE NEW RisManager FORM -->
+						<form class="slds-form--stacked">
+							<div class="slds-grid slds-gutters">
+								<div class="slds-col">
+									<div class="slds-form-element">
+										<div class="slds-form-element__control">
+											<ui:inputText aura:id="firstName" label="Prénoms"
+												labelClass="slds-form-element__label"
+												value="{!v.item.FirstName}" />
+										</div>
+									</div>
+									<div class="slds-form-element">
+										<div class="slds-form-element__control">
+											<ui:inputText aura:id="lastName" label="Nom"
+												labelClass="slds-form-element__label"
+												value="{!v.item.LastName}" />
+										</div>
+									</div>
+									<div class="slds-form-element">
+										<div class="slds-form-element__control">
+											<ui:inputDate aura:id="birthdate" label="Date de naissance"
+												displayDatePicker="true"
+												labelClass="slds-form-element__label"
+												value="{!v.item.Birthdate}" />
+										</div>
+									</div>
+									<div class="slds-form-element">
+										<div class="slds-form-element__control">
+											<ui:inputEmail aura:id="email" label="Email"
+												labelClass="slds-form-element__label"
+												value="{!v.item.Email}" />
+										</div>
+									</div>
+								</div>
+								<div class="slds-col">
+									<div class="slds-form-element">
+										<div class="slds-form-element__control">
+											<ui:inputPhone aura:id="phone" label="Phone"
+												labelClass="slds-form-element__label"
+												value="{!v.item.Phone}" />
+										</div>
+									</div>
+								
+									
+								</div>
+								
+							</div>
+						</form>
+
+						<!-- / CREATE NEW Item FORM -->
+
+					</div>
+					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
+					<div class="slds-modal__footer">
+						<button class="slds-button slds-button--neutral"
+							onclick="{!c.closeModel}">Annuler</button>
+						<button class="slds-button slds-button--brand"
+							onclick="{!c.createItem}">
+							<i class="fa fa-paper-plane-o" aria-hidden="true"></i> Ajouter
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="slds-backdrop slds-backdrop--open"></div>
+			<!--###### MODAL BOX Part END Here ######-->
+
+		</aura:if>
+	</div>
+</aura:component>

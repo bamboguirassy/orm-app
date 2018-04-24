@@ -1,0 +1,178 @@
+<aura:component extends="c:AbstractShowCmp"
+	controller="EntiteController" access="global">
+	<aura:handler action="{!c.doInit}" value="{!this}" name="init" />
+	<!-- evenement à publier après modification de l'objet -->
+	<aura:handler event="c:eventNewEntiteCreated" action="{!c.refreshShow}" />
+	<!-- évenement de navigation vers la liste des entités -->
+	<aura:registerEvent name="navigateToEntiteList"
+		type="c:navigateToEntiteList" />
+		<!-- évenement de navigation vers la visualisation // cas de l'entité parente -->
+	<aura:registerEvent name="navigateToEntiteShow"
+		type="c:navigateToEntiteShow" />
+		<!-- évenement publié lorsqu'on veut supprimer un objet -->
+		<aura:registerEvent name="eventEditEntiteClicked" type="c:eventEditEntiteClicked" description="" />
+	<!--      debut implementation entite -->
+	<div class="slds-grid slds-gutters">
+		<div class="slds-col slds-size_1-of-7"></div>
+		<div class="slds-col slds-size_5-of-7">
+			<!--     debut implementation page -->
+
+			<div class="slds-m-bottom_xx-large">
+				<div class="slds-grid">
+
+					<!-- 	 header -->
+					<div class="slds-col slds-size_1-of-1">
+						<div class="slds-page-header">
+							<div class="slds-grid">
+								<div class="slds-col slds-has-flexi-truncate">
+									<div class="slds-media slds-no-space slds-grow">
+										<div class="slds-media__figure">
+											<span
+												class="slds-icon_container slds-icon-standard-opportunity"
+												title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+													xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+											</span>
+										</div>
+										<div class="slds-media__body">
+											<nav>
+												<ol class="slds-breadcrumb slds-line-height_reset">
+													<li class="slds-breadcrumb__item"><span> <ui:outputText value="{!v.item.Name}" /></span></li>
+												</ol>
+											</nav>
+											<h1
+												class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate"
+												title="Acme - 1,200 Widgets"></h1>
+
+										</div>
+										<div>
+											<button class="btn btn-default"
+												onclick="{!c.navigateToEntiteList}">
+												<i class="fa fa-rotate-left"></i> Retour
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="slds-col slds-no-flex slds-grid slds-align-top">
+
+									<div class="slds-button-group" role="group">
+										<!--                                 bouton entete -->
+
+									</div>
+								</div>
+							</div>
+							<div class="slds-grid slds-page-header__detail-row">
+								<div class="slds-grid slds-wrap  slds-size_1-of-1">
+									<!-- debut tab -->
+									<lightning:tabset >
+										<lightning:tab label="Details" id="1">
+											<!-- detail entite -->
+
+											<div class="slds-grid slds-gutters slds-size_1-of-1">
+												<div class="slds-col slds-size_1-of-1">
+													<div
+														class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+														<div
+															class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+
+															<div
+																class="slds-panel__section slds-theme_shade slds-theme_alert-texture">
+																<h3 class="slds-text-heading_small slds-m-bottom_medium">Détails
+																	sur l'entité</h3>
+																<ul>
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label">Nom</span>
+																		<div class="slds-form-element__control">
+																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Name}" />
+																			</span>
+																		</div>
+																	</li>
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label">Site Web</span>
+																		<div class="slds-form-element__control">
+																			<span class="slds-form-element__static"> <ui:outputEmail value="{!v.item.Website}" />
+																			</span>
+																		</div>
+																	</li>
+																	<li
+																		class="slds-form-element slds-hint-parent slds-border_bottom">
+																		<span class="slds-form-element__label">Telephone</span>
+																		<div class="slds-form-element__control">
+																			<span class="slds-form-element__static"> <ui:outputPhone value="{!v.item.Phone}" />
+																			</span>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div class="slds-button-group" style="text-align:right" role="group">
+														<button class="slds-button slds-button_success" onclick="{!c.registerEdit}">
+
+															<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
+																aria-hidden="true"
+																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" /></span>
+															</button>
+															<button  onclick="{!c.removeItem}" class="slds-button slds-button_destructive">
+																<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
+																	aria-hidden="true"
+																	xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" /></span>
+																</button>
+															</div>
+
+												</div>
+
+
+											</div>
+
+
+											<!-- fin detail sur l'entite-->
+										</lightning:tab>
+										<lightning:tab label="Risk Managers" id="2">
+											<aura:if isTrue="{!v.item}">
+												<c:RiskManagerListCmp entite="{!v.item}" />
+											</aura:if>
+										</lightning:tab>
+										<lightning:tab label="Risques détectés" id="3">
+											<aura:if isTrue="{!v.item}">
+												<c:RisqueEntiteListCmp entite="{!v.item.Id}" />
+											</aura:if>
+										</lightning:tab>
+
+										<lightning:tab label="Paramétre de suivi" id="4">
+
+											<aura:if isTrue="{!v.item}">
+												<c:ParamRisqueEntiteListCmp entite="{!v.item}" />
+											</aura:if>
+										</lightning:tab>
+
+
+
+									</lightning:tabset>
+									<!-- fin tab -->
+
+									<!-- debut elements associes -->
+									<div
+										class="slds-size_1-of-1  slds-theme_shade slds-theme_alert-texture  ">
+									</div>
+
+									<!-- fin elements associes -->
+
+								</div>
+							</div>
+							<footer class="slds-card__footer" style="text-align: left;">
+
+							</footer>
+						</div>
+
+
+						<!--     fin implementation entite -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<c:EntiteEditCmp />
+</aura:component>

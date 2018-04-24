@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>false</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>false</enableSharing>
+    <enableStreamingApi>false</enableStreamingApi>
+    <fields>
+        <fullName>commentaire__c</fullName>
+        <externalId>false</externalId>
+        <label>comment</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>date_commencement__c</fullName>
+        <externalId>false</externalId>
+        <label>date of detection</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>echeancier__c</fullName>
+        <externalId>false</externalId>
+        <label>timeline</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>etat__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>state</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>gestionnaire__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>administrator</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Action Plans</relationshipLabel>
+        <relationshipName>Action_Plans</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>risque_Entite__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>detected risk</label>
+        <referenceTo>Risque_Entite__c</referenceTo>
+        <relationshipLabel>Action Plans</relationshipLabel>
+        <relationshipName>Action_Plans</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Action Plan</label>
+    <nameField>
+        <label>PA Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Action Plans</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Deadline_less_than_start_date</fullName>
+        <active>true</active>
+        <errorConditionFormula>date_commencement__c  &gt;  echeancier__c</errorConditionFormula>
+        <errorMessage>The start date can not be upper than the deadline</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Detected_Risk_Closed_on_PA</fullName>
+        <active>true</active>
+        <errorConditionFormula>risque_Entite__r.etat__c  = true</errorConditionFormula>
+        <errorMessage>the detected risk must be in process in order to add action plans</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>different_structure_for_admin_planaction</fullName>
+        <active>true</active>
+        <errorConditionFormula>gestionnaire__r.Account.Id  &lt;&gt;  risque_Entite__r.Entite__r.Id</errorConditionFormula>
+        <errorMessage>The action plan administrator and the action plan must be in the same structure</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,138 @@
+<aura:component controller="ProcessusSortieController"
+	extends="c:AbstractListCmp">
+	<aura:attribute name="processus" type="Processus__c"
+		description="processus dont est lié le risque" required="true" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:handler event="c:eventNewProcessusSortieCreated"
+		action="{!c.refreshList}" />
+
+	<!-- debut implementation page -->
+	<div class="slds-container--fluid " style="background: #fff;">
+		<!-- 	 header -->
+		<div class="slds-page-header">
+			<div class="slds-media">
+				<div class="slds-media__figure">
+					<span class="slds-icon_container slds-icon-standard-opportunity"
+						title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+							xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+					</span>
+				</div>
+				<div class="slds-media__body">
+					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
+						title="Liste des plans d'action">Liste des processus en
+						sortie</h1>
+					<p class="slds-text-body_small slds-line-height_reset">Nombre
+						d'enregistrements ({!v.items.length})</p>
+				</div>
+			</div>
+		</div>
+		<!-- fin header -->
+		<div class="slds-box slds-theme_shade slds-theme_alert-texture">
+			<table
+				class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped">
+				<thead>
+					<tr class="slds-text-title_caps">
+
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+							<div class="slds-truncate" title="Nom">Nom</div>
+						</th>
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+							<div class="slds-truncate" title="Date application">Date
+								application</div>
+						</th>
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+							<div class="slds-truncate" title="Version">Version</div>
+						</th>
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+							<div class="slds-truncate" title="Propriétaire">Propriétaire</div>
+						</th>
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+							<div class="slds-truncate" title="Stage">Actions</div>
+						</th>
+
+
+					</tr>
+				</thead>
+				<tbody>
+					<aura:iteration items="{!v.items}" var="item" indexVar="i">
+						<tr class="slds-hint-parent">
+
+							<th scope="row" data-label="Intitulé"
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+								<div class="slds-truncate" title="{!item.destination__r.Name}">
+									<ui:outputText value="{!item.destination__r.Name}" />
+								</div>
+							</th>
+							<td data-label="Date détection"
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+								<div class="slds-truncate"
+									title="{!item.destination__r.dateApplication__c}">
+									<ui:outputDate value="{!item.destination__r.dateApplication__c}" />
+								</div>
+							</td>
+							<td data-label="Structure"
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+								<div class="slds-truncate"
+									title="{!item.destination__r.version__c}">
+									<ui:outputText value="{!item.destination__r.version__c}" />
+								</div>
+							</td>
+							<td data-label="Etat"
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+								<div class="slds-truncate"
+									title="{!item.destination__r.proprietaire__r.Name}">
+									<ui:outputText value="{!item.destination__r.proprietaire__r.Name}" />
+								</div>
+							</td>
+							<td data-label="Actions"
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+								<div class="slds-truncate" title="Actions">
+									<div class="slds-button-group" role="group">
+										<a data-index="{!i}" onclick="{!c.removeItem}"
+											class="slds-button slds-button_icon slds-button_icon-border-filled"
+											title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+												xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
+											<span class="slds-assistive-text">supprimer</span>
+
+										</a>
+
+									</div>
+
+
+								</div>
+							</td>
+
+						</tr>
+
+					</aura:iteration>
+				</tbody>
+			</table>
+			<!-- fin implementation datatable -->
+			<!--debut bouton d'ajout -->
+			<div class=" slds-grid  slds-wrap slds-align--absolute-center"
+				style="">
+				<div
+					class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
+					style="">
+
+					<aura:if isTrue="{!v.processus}">
+						<c:ProcessusSortieNewCmp items="{!v.items}"
+							processus="{!v.processus}" />
+					</aura:if>
+				</div>
+			</div>
+			<!-- fin bouton d'ajout -->
+
+		</div>
+
+	</div>
+	<!-- fin implementation page -->
+
+
+</aura:component>

@@ -1,0 +1,80 @@
+<aura:component controller="PREtrackerController"
+	extends="c:AbstractListCmp">
+	<aura:attribute name="paramRisqueEntite" type="ParamRisqueEntite__c"
+		description="paramRisqueEntite dont est lié le tracker"
+		required="true" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:handler event="c:eventNewPREtrackerCreated"
+		action="{!c.refreshList}" />
+	<aura:registerEvent name="eventEditPREtrackerClicked"
+		type="c:eventEditPREtrackerClicked" description="" />
+	<!-- debut new implementation -->
+	<table
+		class="slds-table slds-table_fixed-layout slds-table_bordered slds-no-row-hover slds-table_cell-buffer">
+		<thead>
+			<tr class="slds-text-title_caps">
+				<th scope="col">
+					<div class="slds-truncate" title="Description">Description</div>
+				</th>
+				<th scope="col">
+					<div class="slds-truncate" title="Valeur">Valeur</div>
+				</th>
+				<th scope="col">
+					<div class="slds-truncate" title="Actions">Actions</div>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<aura:iteration items="{!v.items}" var="item" indexVar="i">
+				<tr class="slds-hint-parent">
+					<th scope="row">
+						<div class="slds-truncate" title="Description">
+							<ui:outputText value="{!item.description__c}" />
+						</div>
+					</th>
+					<td>
+						<div class="slds-truncate" title="Valeur">
+							<ui:outputText value="{!item.valeur__c+' '+v.paramRisqueEntite.unite__c+'(s)'}" />
+						</div>
+					</td>
+					<td>
+						<div class="slds-truncate" title="Actions">
+							<div class="slds-einstein-header__actions">
+								<div class="slds-button-group" role="group">
+									<a data-index="{!i}" onclick="{!c.registerEdit}"
+										class="slds-button slds-button_icon slds-button_icon-border-filled"
+										title="afficher" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+											xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
+
+										<span class="slds-assistive-text">Modifier</span>
+									</a> <a data-index="{!i}" onclick="{!c.removeItem}"
+										class="slds-button slds-button_icon slds-button_icon-border-filled"
+										title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+											xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
+
+										<span class="slds-assistive-text">Supprimer</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</td>
+
+				</tr>
+			</aura:iteration>
+		</tbody>
+	</table>
+	<footer
+		class="slds-card__footer slds-theme_shade slds-theme_alert-texture">
+
+		<aura:if isTrue="{!v.paramRisqueEntite}">
+			<c:PREtrackerNewCmp paramRisqueEntite="{!v.paramRisqueEntite}" />
+		</aura:if>
+		<c:PREtrackerEditCmp />
+	</footer>
+	<!-- fin new implementation -->
+
+
+
+
+</aura:component>
