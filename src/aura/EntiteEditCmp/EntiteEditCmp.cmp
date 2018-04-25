@@ -52,20 +52,20 @@
                                 <div class="slds-col">
                                 	<div class="slds-form-element">
 								<div class="slds-form-element__control">
-									<ui:inputText aura:id="nom" label="Nom Projet"
+									<ui:inputText aura:id="nom" label="{!v.clabels.name}"
 										class="slds-input" labelClass="slds-form-element__label"
 										value="{!v.item.Name}" required="true" />
 								</div>
 							</div>
 							<div class="slds-form-element">
 								<div class="slds-form-element__control">
-									<ui:inputPhone aura:id="phone" label="Phone" class="slds-input"
+									<ui:inputPhone aura:id="phone" label="{!v.clabels.phone}" class="slds-input"
 										labelClass="slds-form-element__label" value="{!v.item.Phone}" />
 								</div>
 							</div>
 							<div class="slds-form-element">
 								<div class="slds-form-element__control">
-									<ui:inputURL aura:id="website" label="Site web"
+									<ui:inputURL aura:id="website" label="{!v.clabels.website}"
 										class="slds-input" labelClass="slds-form-element__label"
 										value="{!v.item.Website}" />
 								</div>
@@ -73,10 +73,10 @@
                                 </div>
                                 <div class="slds-col">
                                 	<div class="slds-form-element__control">
-								<ui:inputSelect aura:id="parentID" label="Parent Name"
+								<ui:inputSelect aura:id="parentID" label="{!v.clabels.parentid}"
 									class="slds-select" labelClass="slds-form-element__label">
 									<ui:inputSelectOption text=""
-										label="Selectionnez structure parent">
+										label="{!v.clabels.parentid}">
 									</ui:inputSelectOption>
 
 									<aura:iteration items="{!v.entites}" var="structure">
@@ -90,7 +90,7 @@
 
 							<div class="slds-form-element">
 								<div class="slds-form-element__control">
-									<ui:inputTextArea aura:id="description" label="Description"
+									<ui:inputTextArea aura:id="description" label="{!v.clabels.description}"
 										class="slds-input" labelClass="slds-form-element__label"
 										value="{!v.item.Description}" />
 
@@ -109,11 +109,11 @@
 					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
 					<div class="slds-modal__footer">
 						<button class="slds-button slds-button--neutral"
-							onclick="{!c.closeModel}">Annuler</button>
+							onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
 						<button class="slds-button slds-button--brand"
 							onclick="{!c.editItem}">
-							<i class="fa fa-paper-plane-o" aria-hidden="true"></i> Modifier
-
+							<i class="fa fa-paper-plane-o" aria-hidden="true"></i> 
+							{!$Label.c.update_button_title}
 						</button>
 					</div>
 				</div>
