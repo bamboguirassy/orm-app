@@ -17,7 +17,7 @@
                             <div class="slds-col slds-has-flexi-truncate">
                                 <div class="slds-media slds-no-space slds-grow">
                                     <div class="slds-media__figure">
-                                        <span class="slds-icon_container slds-icon-standard-opportunity" title="Liste des catégories de mesure de prévention"> 
+                                        <span class="slds-icon_container slds-icon-standard-opportunity" title="{!$Label.c.list_title_label+' '+v.clabels.labelPlural}"> 
 										<c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
 									xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 									</span>
@@ -31,7 +31,7 @@
                                                 </li>
                                             </ol>
                                         </nav>
-                                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="Nombred'enregistrements ">
+                                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="{!$Label.c.record_count_label}">
                                         	{!$Label.c.record_count_label} ({!v.items.length})
 										</h1>
 
@@ -56,7 +56,7 @@
                                                 <div class="slds-card__header slds-grid">
                                                     <header class="slds-media slds-media_center slds-has-flexi-truncate">
                                                         <div class="slds-media__figure">
-                                                            <span class="slds-icon_container slds-icon-standard-record" title="catégories de mesure de prévention"> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
+                                                            <span class="slds-icon_container slds-icon-standard-record" title="{!v.clabels.labelPlural}"> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
 												xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#record'}" />
 
 										</span>
