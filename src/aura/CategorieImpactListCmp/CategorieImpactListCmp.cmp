@@ -12,7 +12,7 @@
             <!-- 	 header -->
             <div class="slds-col slds-size_1-of-7"></div>
             <div class="slds-col slds-size_5-of-7">
-                <div class="slds-page-header">
+                <div class="slds-page-header">   
                     <div class="slds-grid">
                         <div class="slds-col slds-has-flexi-truncate">
                             <div class="slds-media slds-no-space slds-grow">
@@ -98,7 +98,6 @@
                         </div>
                     </div>
                     <footer class="slds-card__footer" style="text-align: left;">
-                    <!-- <c:CategorieImpactNewCmp items="{!v.items}" /> -->
                     <c:CategorieImpactNewCmp />
 
                     </footer>
@@ -108,8 +107,6 @@
             <!-- fin header -->
         </div>
 
-
-				<!-- item="{!v.editItem}" items="{!v.items}" isOpen="{!v.editComponentIsOpen}" -->
                 <c:CategorieImpactEditCmp />
 
 
