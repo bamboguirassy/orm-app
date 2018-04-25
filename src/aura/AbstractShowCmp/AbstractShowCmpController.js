@@ -1,7 +1,7 @@
 ({
 	doInit : function(component, event, helper) {
 	//get clabels
-	//helper.getFieldLabels(component, event);
+	helper.getFieldLabels(component, event);
 	
 		var action = component.get('c.getElementById');
 		action.setParam("Id", component.get('v.Id'));

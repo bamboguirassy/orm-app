@@ -4,7 +4,7 @@
             helper.refreshList(component, event);
         }
 
-//         helper.getFieldLabels(component, event);
+         helper.getFieldLabels(component, event);
 
     },
     jsLoaded: function(component, event, helper) {
