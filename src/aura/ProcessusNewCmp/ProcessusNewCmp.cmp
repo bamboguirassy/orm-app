@@ -116,7 +116,7 @@
 									</div>
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">
-											<ui:inputSelect aura:id="copiloteID" label="Copilote"
+											<ui:inputSelect aura:id="copiloteID" label="{!v.clabels.copilote__c}"
 												class="slds-select" labelClass="slds-form-element__label">
 												<ui:inputSelectOption label="{!v.clabels.copilote__c}" />
 												<aura:iteration items="{!v.userEntites}" var="userEntite">
