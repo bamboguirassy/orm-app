@@ -57,7 +57,7 @@
 					</th>
 					<th scope="col"
 						class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-						<div class="slds-truncate" title="{!v.clabels.parent}">{!v.clabels.Parent.Name}</div>
+						<div class="slds-truncate" title="{!v.clabels.parent}">{!v.clabels.parentid}</div>
 					</th>
 					<th scope="col"
 						class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
