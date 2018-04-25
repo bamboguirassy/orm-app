@@ -25,12 +25,14 @@
                                     <div class="slds-media__body">
                                         <nav>
                                             <ol class="slds-breadcrumb slds-line-height_reset">
-                                                <li class="slds-breadcrumb__item"><span>Liste des catégories de mesure de prévention</span>
+                                                <li class="slds-breadcrumb__item">
+                                                	<span>{!$Label.c.list_title_label+' '+v.clabels.labelPlural}	<!--Liste des catégories de mesure de prévention  -->
+                                                	</span>
                                                 </li>
                                             </ol>
                                         </nav>
                                         <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="Nombred'enregistrements ">
-                                        Nombre d'enregistrements ({!v.items.length})
+                                        <!-- Nombre d'enregistrements ({!v.items.length}) --> {!$Label.c.record_count_label} ({!v.items.length})
 										</h1>
 
                                     </div>
