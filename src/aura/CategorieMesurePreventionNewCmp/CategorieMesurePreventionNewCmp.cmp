@@ -55,8 +55,8 @@
 							<form class="slds-form--stacked">
 
 								<div class="slds-form-element slds-is-required">
-									<div class="slds-form-element__control">
-										<ui:inputText aura:id="nom" label="Nom Categorie"
+									<div class="slds-form-element__control"><!-- Nom Categorie -->
+										<ui:inputText aura:id="nom" label="{!v.clabels.name}"
 											class="slds-input" labelClass="slds-form-element__label"
 											value="{!v.item.Name}" required="true" />
 									</div>
@@ -64,7 +64,7 @@
 
 								<div class="slds-form-element">
 									<div class="slds-form-element__control">
-										<ui:inputTextArea aura:id="description" label="Description"
+										<ui:inputTextArea aura:id="description" label="{!v.clabels.description__c}"
 											class="slds-input" labelClass="slds-form-element__label"
 											value="{!v.item.Description__c}" />
 
@@ -79,11 +79,10 @@
 						<!--###### MODAL BOX FOOTER Part Start From Here ######-->
 						<div class="slds-modal__footer">
 							<button class="slds-button slds-button--neutral"
-								onclick="{!c.closeModel}">Annuler</button>
+								onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
 							<button class="slds-button slds-button--brand"
 								onclick="{!c.createItem}">
-								<i class="fa fa-paper-plane-o" aria-hidden="true"></i> Créer
-								catégorie
+								<i class="fa fa-paper-plane-o" aria-hidden="true"></i>{!$Label.c.add_button_title}
 							</button>
 						</div>
 					</div>
