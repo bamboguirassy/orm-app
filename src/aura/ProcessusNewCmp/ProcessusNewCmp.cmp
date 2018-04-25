@@ -47,8 +47,8 @@
 							title="Close" onclick="{!c.closeModel}">
 							X <span class="slds-assistive-text">Close</span>
 						</button>
-						<h1 id="header99" class="slds-text-heading--medium">Nouveau
-							Processus</h1>
+                        <h1 id="header99" class="slds-text-heading--medium">{!$Label.c.new_title_label+' '+v.clabels.label}</h1>
+
 					</div>
 					<!--###### MODAL BOX BODY Part Start From Here ######-->
 					<div class="slds-modal__content slds-p-around--medium">
@@ -60,29 +60,29 @@
 								<div class="slds-col">
 									<div class="slds-form-element slds-is-required">
 										<div class="slds-form-element__control">
-											<ui:inputText aura:id="intitule" label="Intitulé"
+											<ui:inputText aura:id="intitule" label="{!v.clabels.name}" placeholder="{!v.clabels.name}"
 												class="slds-input" labelClass="slds-form-element__label"
-												value="{!v.item.Name}" required="true" />
+												value="{!v.item.Name}" required="true"  />
 										</div>
 									</div>
 									<div class="slds-form-element slds-is-required">
 										<div class="slds-form-element__control">
-											<ui:inputText aura:id="version" label="Version"
+											<ui:inputText aura:id="version" label="{!v.clabels.version__c}"
 												class="slds-input" labelClass="slds-form-element__label"
-												value="{!v.item.version__c}" required="true" />
+												value="{!v.item.version__c}" required="true" placeholder="{!v.clabels.version__c}"/>
 										</div>
 									</div>
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">
-											<ui:inputText aura:id="reference" label="Reference"
+											<ui:inputText aura:id="reference" label="{!v.clabels.reference__c}"
 												class="slds-input" labelClass="slds-form-element__label"
-												value="{!v.item.reference__c}" />
+												value="{!v.item.reference__c}" placeholder="{!v.clabels.reference__c}" />
 										</div>
 									</div>
 									<div class="slds-form-element slds-is-required">
 										<div class="slds-form-element__control">
 											<ui:inputDate aura:id="dateApplication"
-												label="Date Application" displayDatePicker="true"
+												label="{!v.clabels.dateapplication__c}" displayDatePicker="true"
 												class="slds-input" labelClass="slds-form-element__label"
 												value="{!v.item.dateApplication__c}" required="true" />
 										</div>
@@ -93,10 +93,10 @@
 										<div class="slds-form-element__control">
 											<ui:inputSelect aura:id="proprietaireID" label="Propriètaire"
 												class="slds-select" labelClass="slds-form-element__label">
-												<ui:inputSelectOption label="selectionner le propriétaire" />
+												<ui:inputSelectOption label="{!v.clabels.proprietaire__c}" />
 												<aura:iteration items="{!v.entites}" var="entite">
 													<ui:inputSelectOption text="{!entite.Id}"
-														label="{!entite.Name}" />
+														label="{!v.clabels.proprietaire__c}" />
 												</aura:iteration>
 											</ui:inputSelect>
 										</div>
@@ -104,12 +104,12 @@
 
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">
-											<ui:inputSelect aura:id="piloteID" label="Pilote"
+											<ui:inputSelect aura:id="piloteID" label="{!v.clabels.pilote__c}"
 												class="slds-select" labelClass="slds-form-element__label">
 												<ui:inputSelectOption label="selectionner le pilote" />
 												<aura:iteration items="{!v.userEntites}" var="userEntite">
 													<ui:inputSelectOption text="{!userEntite.Id}"
-														label="{!userEntite.Name}" />
+														label="{!v.clabels.pilote__c}" />
 												</aura:iteration>
 											</ui:inputSelect>
 										</div>
@@ -118,10 +118,10 @@
 										<div class="slds-form-element__control">
 											<ui:inputSelect aura:id="copiloteID" label="Copilote"
 												class="slds-select" labelClass="slds-form-element__label">
-												<ui:inputSelectOption label="selectionner le copilote" />
+												<ui:inputSelectOption label="{!v.clabels.copilote__c}" />
 												<aura:iteration items="{!v.userEntites}" var="userEntite">
 													<ui:inputSelectOption text="{!userEntite.Id}"
-														label="{!userEntite.Name}" />
+														label="{!v.clabels.copilote__c}" />
 												</aura:iteration>
 											</ui:inputSelect>
 										</div>
@@ -129,7 +129,7 @@
 
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">
-											<ui:inputTextArea aura:id="finalite" label="Finalité"
+											<ui:inputTextArea aura:id="finalite" label="{!v.clabels.finalite__c}"
 												class="slds-input" labelClass="slds-form-element__label"
 												value="{!v.item.finalite__c}" />
 										</div>
@@ -147,10 +147,10 @@
 					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
 					<div class="slds-modal__footer">
 						<button class="slds-button slds-button--neutral"
-							onclick="{!c.closeModel}">Annuler</button>
+							onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
 						<button class="slds-button slds-button--brand"
 							onclick="{!c.createItem}">
-							<i class="fa fa-paper-plane-o" aria-hidden="true"></i> ajouter
+							<i class="fa fa-paper-plane-o" aria-hidden="true"></i> {!$Label.c.add_button_title}
 						</button>
 					</div>
 				</div>
