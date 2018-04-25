@@ -1,5 +1,6 @@
 ({
     doInit: function(component, event, helper) {
+        //helper.getFieldLabels(component, event);
         var action = component.get("c.findAll");
         action.setCallback(this, function(response) {
             var state = response.getState();
@@ -12,7 +13,7 @@
         });
         $A.enqueueAction(action);
 
-       // helper.getFieldLabels(component, event);
+  
 
     },
     createItem: function(component, event, helper) {
