@@ -38,8 +38,7 @@
                         <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
 							X <span class="slds-assistive-text">Close</span>
 						</button>
-                        <h1 id="header99" class="slds-text-heading--medium">Nouvelle
-							Structure</h1>
+                        <h1 id="header99" class="slds-text-heading--medium">Nouvelle Structure</h1>
                     </div>
                     <!--###### MODAL BOX BODY Part Start From Here ######-->
                     <div class="slds-modal__content slds-p-around--medium">

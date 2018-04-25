@@ -24,9 +24,10 @@
 			</div>
 			<div class="slds-media__body">
 				<h1 class="slds-page-header__title slds-truncate slds-align-middle"
-					title="Liste des plans d'action">Liste des structures</h1>
-				<p class="slds-text-body_small slds-line-height_reset">Nombre
-					d'enregistrements ({!v.items.length})</p>
+					title="{!$Label.c.list_title_label+'
+													'+v.clabels.labelPlural}"> {!$Label.c.list_title_label+'
+													'+v.clabels.labelPlural}</h1>
+				<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label}({!v.items.length})</p>
 
 			</div>
 
@@ -45,27 +46,28 @@
 
 					<th scope="col"
 						class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-						<div class="slds-truncate" title="Nom">Nom</div>
+						<div class="slds-truncate" title="{!v.clabels.name}">{!v.clabels.name}</div>
 					</th>
 					<th scope="col"
 						class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-						<div class="slds-truncate" title="Type">Tel</div>
+						<div class="slds-truncate" title="{!v.clabels.phone}">{!v.clabels.phone}</div>
 					</th>
 					<th scope="col"
 						class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-						<div class="slds-truncate" title="Tel">Website</div>
+						<div class="slds-truncate" title="{!v.clabels.website}">{!v.clabels.website}</div>
 					</th>
 					<th scope="col"
 						class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-						<div class="slds-truncate" title="Tel">ParentID</div>
+						<div class="slds-truncate" title="{!v.clabels.parent}">{!v.clabels.parent}</div>
 					</th>
 					<th scope="col"
 						class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-						<div class="slds-truncate" title="Tel">Description</div>
+						<div class="slds-truncate" title="{!v.clabels.description}">{!v.clabels.description}</div>
 					</th>
 					<th scope="col"
 						class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-						<div class="slds-truncate" title="Actions">Actions</div>
+						<div class="slds-truncate" title="{!$Label.c.table_action_label}">{!$Label.c.table_action_label}</div>
+						
 					</th>
 				</tr>
 			</thead>
@@ -104,24 +106,25 @@
 									<div class="slds-button-group" role="group">
 										<a data-index="{!i}" onclick="{!c.navigateToShow}"
 											class="slds-button slds-button_icon slds-button_icon-border-filled"
-											title="afficher" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+											title="{!$Label.c.show_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 												xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#preview'}" />
 
-											<span class="slds-assistive-text">Afficher</span>
+											<span class="slds-assistive-text">{!$Label.c.show_button_title}</span>
+											
 										</a> 
 										<a data-index="{!i}" onclick="{!c.registerEdit}"
 												class="slds-button slds-button_icon slds-button_icon-border-filled"
-												title="modifier" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+												title="{!$Label.c.edit_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
 
-												<span class="slds-assistive-text">Modifier</span>
+												<span class="slds-assistive-text">{!$Label.c.edit_button_title}</span>
 											</a>
 										<a data-index="{!i}" onclick="{!c.removeItem}"
 											class="slds-button slds-button_icon slds-button_icon-border-filled"
-											title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+											title="{!$Label.c.delete_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 												xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
 
-											<span class="slds-assistive-text">supprimer</span>
+											<span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
 										</a>
 									</div>
 								</div>

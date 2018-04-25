@@ -12,6 +12,7 @@
 
 		});
 		$A.enqueueAction(action);
+		
 	},
 	editItem : function(component, event, helper) {
 	

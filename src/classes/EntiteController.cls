@@ -58,7 +58,9 @@ public with sharing class EntiteController {
         }
         //return map with fields api name as key and field label as value
         System.debug('###-result'+objectFields);
+        
         return objectFields;
+       
     }
 	
 }

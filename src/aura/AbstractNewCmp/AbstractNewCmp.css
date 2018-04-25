@@ -1,3 +1,19 @@
+.THIS .form-style-duplicate{
+    font: 95% Arial, Helvetica, sans-serif;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 16px;
+    
+}
+.THIS .form-style-duplicate h1{
+    background: #ffac00;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+}
 .THIS .form-style-6{
     font: 95% Arial, Helvetica, sans-serif;
     max-width: 400px;
