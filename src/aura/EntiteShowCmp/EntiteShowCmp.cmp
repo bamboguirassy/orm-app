@@ -47,7 +47,7 @@
 										<div>
 											<button class="btn btn-default"
 												onclick="{!c.navigateToEntiteList}">
-												<i class="fa fa-rotate-left"></i> Retour
+												<i class="fa fa-rotate-left"></i> {!$Label.c.back_button_title}
 											</button>
 										</div>
 									</div>
@@ -64,7 +64,7 @@
 								<div class="slds-grid slds-wrap  slds-size_1-of-1">
 									<!-- debut tab -->
 									<lightning:tabset >
-										<lightning:tab label="Details" id="1">
+										<lightning:tab label="{!$Label.c.detail_menu}" id="1">
 											<!-- detail entite -->
 
 											<div class="slds-grid slds-gutters slds-size_1-of-1">
@@ -76,12 +76,14 @@
 
 															<div
 																class="slds-panel__section slds-theme_shade slds-theme_alert-texture">
-																<h3 class="slds-text-heading_small slds-m-bottom_medium">Détails
-																	sur l'entité</h3>
+																<h3 class="slds-text-heading_small slds-m-bottom_medium">
+																
+																{!$Label.c.detail_menu+'   '+v.clabels.label}
+																</h3>
 																<ul>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Nom</span>
+																		<span class="slds-form-element__label">{!v.clabels.name}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Name}" />
 																			</span>
@@ -89,7 +91,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Site Web</span>
+																		<span class="slds-form-element__label">{!v.clabels.website}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputEmail value="{!v.item.Website}" />
 																			</span>
@@ -97,7 +99,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Telephone</span>
+																		<span class="slds-form-element__label">{!v.clabels.phone}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputPhone value="{!v.item.Phone}" />
 																			</span>
@@ -129,18 +131,20 @@
 
 											<!-- fin detail sur l'entite-->
 										</lightning:tab>
-										<lightning:tab label="Risk Managers" id="2">
+									
+										<lightning:tab label="{!$Label.c.risk_manager_menu}" id="2">
 											<aura:if isTrue="{!v.item}">
+											
 												<c:RiskManagerListCmp entite="{!v.item}" />
 											</aura:if>
 										</lightning:tab>
-										<lightning:tab label="Risques détectés" id="3">
+										<lightning:tab label="{!$Label.c.detected_risk_menu}" id="3">
 											<aura:if isTrue="{!v.item}">
 												<c:RisqueEntiteListCmp entite="{!v.item.Id}" />
 											</aura:if>
-										</lightning:tab>
+										</lightning:tab> 
 
-										<lightning:tab label="Paramétre de suivi" id="4">
+										<lightning:tab label="{!$Label.c.risk_tracking_parameter_menu}" id="4">
 
 											<aura:if isTrue="{!v.item}">
 												<c:ParamRisqueEntiteListCmp entite="{!v.item}" />

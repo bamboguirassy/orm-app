@@ -39,8 +39,8 @@
 							title="Close" onclick="{!c.closeModel}">
 							X <span class="slds-assistive-text">Close</span>
 						</button>
-						<h1 id="header99" class="slds-text-heading--medium">Modification
-							Structure</h1>
+						<h1 id="header99" class="slds-text-heading--medium">{!$Label.c.edit_title_label+'
+							'+v.clabels.label}</h1>
 					</div>
 					<!--###### MODAL BOX BODY Part Start From Here ######-->
 					<div class="slds-modal__content slds-p-around--medium">
