@@ -11,7 +11,9 @@
 
         });
         $A.enqueueAction(action);
-        helper.getFieldLabels(component, event);
+
+       // helper.getFieldLabels(component, event);
+
     },
     createItem: function(component, event, helper) {
         var nomField = component.find("nom");

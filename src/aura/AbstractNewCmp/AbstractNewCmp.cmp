@@ -22,7 +22,7 @@
 			<!--###### MODAL BOX Start From Here ######-->
 			<div role="dialog" tabindex="-1" aria-labelledby="header99"
 				class="slds-modal slds-fade-in-open ">
-				<div class="slds-modal__container form-style-supprimer">
+				<div class="slds-modal__container form-style-duplicate">
 					<!-- ###### MODAL BOX HEADER Part Start From Here ######-->
 					<div class="slds-modal__header">
 						<button

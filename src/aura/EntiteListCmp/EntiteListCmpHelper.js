@@ -9,12 +9,13 @@
                     if (state == "SUCCESS") {
                         component.set("v.items", response
                             .getReturnValue());
-                            $A.enqueueAction(component.get('c.applyDatatable'));
+                        $A.enqueueAction(component.get('c.applyDatatable'));
                     } else {
                         alert("Impossible de recuperer la liste des entités dans entité");
                     }
 
                 });
         $A.enqueueAction(action);
+       
     }
 })
