@@ -76,12 +76,14 @@
 
 															<div
 																class="slds-panel__section slds-theme_shade slds-theme_alert-texture">
-																<h3 class="slds-text-heading_small slds-m-bottom_medium">Détails
-																	sur l'entité</h3>
+																<h3 class="slds-text-heading_small slds-m-bottom_medium">
+																
+																{!$Label.c.detail_menu+'   '+v.clabels.label}
+																</h3>
 																<ul>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Nom</span>
+																		<span class="slds-form-element__label">{!v.clabels.name}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Name}" />
 																			</span>
@@ -89,7 +91,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Site Web</span>
+																		<span class="slds-form-element__label">{!v.clabels.website}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputEmail value="{!v.item.Website}" />
 																			</span>
@@ -97,7 +99,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Telephone</span>
+																		<span class="slds-form-element__label">{!v.clabels.phone}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputPhone value="{!v.item.Phone}" />
 																			</span>
