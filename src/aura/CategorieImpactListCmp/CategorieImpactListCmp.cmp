@@ -86,13 +86,11 @@
                                             </div>
                                             <div class="slds-card__body slds-card__body_inner">
                                                 <ui:outputRichText value="{!item.Description__c}" />
-                                            </div>
+                                            </div>mouhama
                                         </article>
                                     </div>
-
                                 </div>
                             </aura:iteration>
-                            
 						</div>
 
                         </div>
