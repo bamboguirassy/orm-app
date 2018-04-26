@@ -6,6 +6,15 @@
             var state = response.getState();
             if (state == "SUCCESS") {
                 component.set("v.entites", response.getReturnValue());
+                var getFieldsLabelAction=component.get('c.getObjectFields');
+        getFieldsLabelAction.setCallback(this, function(response){
+            if(response.getState()=='SUCCESS'){
+                component.set('v.clabels',response.getReturnValue()); 
+                
+            } else {
+                    alert('Une erreur est survenues lors de la récuperation des champs'); }
+        });
+        $A.enqueueAction(getFieldsLabelAction);
             } else {
                 alert("Echec de la recuperation des structures");
             };
