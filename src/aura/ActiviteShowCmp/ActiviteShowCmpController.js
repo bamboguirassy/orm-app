@@ -32,7 +32,7 @@
 					helper.closeDeleteConfirmationModel(component);
 					helper.showToast('Success', itemToRemove.Name
 							+ " supprimé avec succés ", 'success');
-					var evt = $A.get("e.c:navigateToPlanActionShowShow");
+					var evt = $A.get("e.c:navigateToPlanActionShow");
 					evt.setParams({
 						"Id" : component.get('v.item').plan_Action__c
 					});
