@@ -29,7 +29,7 @@
 						<div class="slds-media__body">
 							<h1
 								class="slds-page-header__title slds-truncate slds-align-middle"
-								title="Liste des plans d'action">
+								title="{!v.item.Risque__r.Name}">
 								<ui:outputText value="{!v.item.Risque__r.Name}" />
 							</h1>
 							<p class="slds-text-body_small slds-line-height_reset"></p>
@@ -49,7 +49,7 @@
 
 					<!-- 			ligthning tab start -->
 					<lightning:tabset selectedTabId="{!v.selTabId}">
-						<lightning:tab label="DETAILS" id="1">
+						<lightning:tab label="{!$Label.c.detail_menu}" id="1">
 							<!--                             details sur le risque -->
 
 							<div class="slds-grid slds-gutters">
@@ -101,7 +101,7 @@
 														<span class="slds-form-element__label">{!v.clabels.etat__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <aura:if isTrue="{!v.item.etat__c}">
-																	<span class="success">Géré</span>
+																	<span class="success">{!$Label.c.orm_gere_value}</span>
 																	<aura:set attribute="else">
 																		<span class="danger">{!$Label.c.orm_en_cours_select_value} </span>
 																	</aura:set>
@@ -135,7 +135,7 @@
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Nom</span>
+														<span class="slds-form-element__label">{!v.clabels.name}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <a
 																onclick="{!c.navigateToEntiteShow}">{!v.item.Entite__r.Name}</a>
@@ -152,7 +152,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Site Web</span>
+														<span class="slds-form-element__label">{!v.clabels.website}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputURL value="{!v.item.Entite__r.Website}" />
 															</span>
@@ -160,7 +160,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Type</span>
+														<span class="slds-form-element__label">{!v.clabels.type}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Entite__r.Type}" />
 															</span>
@@ -168,7 +168,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Descriptions</span>
+														<span class="slds-form-element__label">{!v.clabels.description}</span>
 														<div class="slds-form-element__control">
 															<span
 																class="slds-form-element__static slds-text-longform">
