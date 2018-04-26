@@ -1,7 +1,7 @@
 <aura:component controller="EntiteAffecteeController" extends="c:AbstractListCmp">
     <aura:attribute name="risqueEntite" type="String" description="l'entité à laquelle le risque est associé" required="" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-
+	<aura:handler event="c:eventNewEntiteAffecteeCreated"  action="{!c.refreshList}" />
 
 <!--     debut implementation page -->
 	<div class="slds-m-bottom_xx-large">

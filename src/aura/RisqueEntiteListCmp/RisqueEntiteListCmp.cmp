@@ -26,9 +26,8 @@
 				</div>
 				<div class="slds-media__body">
 					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
-						title="Liste des plans d'action">Liste des risques detectés</h1>
-					<p class="slds-text-body_small slds-line-height_reset">Nombre
-						d'enregistrements ({!v.items.length})</p>
+						title="{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}">{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}</h1>
+					<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label} ({!v.items.length})</p>
 				</div>
 			</div>
 		</div>
@@ -42,26 +41,25 @@
 					<tr class="slds-text-title_caps">
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-							<div class="slds-truncate" title="Risque">Risque</div>
+							<div class="slds-truncate" title="{!v.clabels.risque__c}">{!v.clabels.risque__c}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-							<div class="slds-truncate" title="Date de détection">Date
-								de détection</div>
+							<div class="slds-truncate" title="{!v.clabels.date_detection__c}">{!v.clabels.date_detection__c}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-							<div class="slds-truncate" title="CRITICITÉ">CRITICITÉ</div>
+							<div class="slds-truncate" title="{!v.clabels.criticite__c}">{!v.clabels.criticite__c}</div>
 						</th>
 						<aura:if isTrue="{!v.entite==null}">
 							<th scope="col"
 								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-								<div class="slds-truncate" title="ENTITÉ">ENTITÉ</div>
+								<div class="slds-truncate" title="{!v.clabels.entite__c}">{!v.clabels.entite__c}</div>
 							</th>
 						</aura:if>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Stage">Actions</div>
+							<div class="slds-truncate" title="{!$Label.c.table_action_label}">{!$Label.c.table_action_label}</div>
 						</th>
 					</tr>
 				</thead>
