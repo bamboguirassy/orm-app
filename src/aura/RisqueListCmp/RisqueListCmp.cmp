@@ -51,7 +51,7 @@
 									</th>
 									<th scope="col"
 										class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-										<div class="slds-truncate" title="Stage">{!$Label.c.table_action_label}</div>
+										<div class="slds-truncate" title="{!$Label.c.table_action_label}">{!$Label.c.table_action_label}</div>
 									</th>
 								</tr>
 							</thead>
