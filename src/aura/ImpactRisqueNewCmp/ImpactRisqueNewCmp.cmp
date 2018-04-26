@@ -76,7 +76,7 @@
                                                 <div class="slds-size_4-of-5">
                                                   <div class="slds-form-element__control">
                                                       <ui:inputSelect aura:id="categorieImpactId"
-                                                        label="{!v.clabels.name}" class="slds-select"
+                                                        label="{!v.clabels.categorie_impact__c}" class="slds-select"
                                                         labelClass="slds-form-element__label">
                                                         <aura:iteration items="{!v.categorieImpacts}" var="categorie">
                                                             <ui:inputSelectOption text="{!categorie.Id}"
@@ -129,7 +129,7 @@
                                                             title="Close" onclick="{!c.closeModel}">
                                                             X <span class="slds-assistive-text">{!$Label.c.close_button_title}</span>
                                                         </button>
-                                                        <h1 id="header99" class="slds-text-heading--medium">{!$Label.c.add_button_title}</h1>
+                                                        <h1 id="header99" class="slds-text-heading--medium">{!$Label.c.new_title_label+' '+v.clabels.label}</h1>
                                                         </div>
                                                         <!--###### MODAL BOX BODY Part Start From Here ######-->
                                                         <div class="slds-modal__content slds-p-around--medium">
@@ -158,7 +158,7 @@
                                                                         <div class="slds-form-element">
                                                                             <div class="slds-form-element__control">
                                                                                 <ui:inputSelect aura:id="categorieImpactId"
-                                                                                    label="Categorie Impact" class="slds-select"
+                                                                                    label="{!v.clabels.categorie_impact__c}" class="slds-select"
                                                                                     labelClass="slds-form-element__label">
                                                                                     <aura:iteration items="{!v.categorieImpacts}" var="categorie">
                                                                                         <ui:inputSelectOption text="{!categorie.Id}"
