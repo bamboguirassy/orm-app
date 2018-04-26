@@ -1,6 +1,6 @@
 ({
 	doInit : function(component, event, helper) {
-
+		helper.getFieldLabels(component, event);
 		var actionRisques = component.get("c.findRisques");
 		actionRisques.setCallback(this, function(response) {
 			var state = response.getState();
