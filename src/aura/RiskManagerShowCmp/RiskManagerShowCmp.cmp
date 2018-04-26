@@ -64,7 +64,7 @@
 								<div class="slds-grid slds-wrap  slds-size_1-of-1">
 									<!-- debut tab -->
 									<lightning:tabset >
-										<lightning:tab label="Details" id="1">
+										<lightning:tab label="{!$Label.c.detail_menu}" id="1">
 											<!-- detail entite -->
 
 
@@ -77,12 +77,11 @@
 
 															<div
 																class="slds-panel__section slds-theme_shade slds-theme_alert-texture">
-																<h3 class="slds-text-heading_small slds-m-bottom_medium">Détails
-																	sur {!v.item.Name}</h3>
+																<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.detail_menu+'   '+v.clabels.label}</h3>
 																<ul>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Prénoms</span>
+																		<span class="slds-form-element__label">{!v.clabels.firstname}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.FirstName}" />
 																			</span>
@@ -90,7 +89,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Nom</span>
+																		<span class="slds-form-element__label">{!v.clabels.lastname}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.LastName}" />
 																			</span>
@@ -98,8 +97,8 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Date
-																			Naissance</span>
+																		<span class="slds-form-element__label">{!v.clabels.birthdate}
+																			</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputDate value="{!v.item.Birthdate}" />
 																			</span>
@@ -107,7 +106,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Description</span>
+																		<span class="slds-form-element__label">{!v.clabels.description}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputTextArea value="{!v.item.Description}" />
 																			</span>
@@ -133,8 +132,8 @@
 																<ul>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Structure
-																			d'intervention</span>
+																		<span class="slds-form-element__label">{!v.clabels.accountid}
+																			</span>
 																		<div class="slds-form-element__control">
 																			<a onclick="{!c.navigateToEntiteShow}">{!v.item.Account.Name}</a>
 
@@ -142,7 +141,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Photo</span>
+																		<span class="slds-form-element__label">{!v.clabels.photourl}</span>
 																		<aura:if isTrue="{!v.item.Id}">
 																		<c:ProfilePictureCmp recordId="{!v.item.Id}" />
 																		</aura:if>
@@ -150,7 +149,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Email</span>
+																		<span class="slds-form-element__label">{!v.clabels.email}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputEmail value="{!v.item.Email}" />
 																			</span>
@@ -158,7 +157,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Telephone</span>
+																		<span class="slds-form-element__label">{!v.clabels.phone}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputPhone value="{!v.item.Phone}" />
 																			</span>
@@ -194,14 +193,15 @@
 
 										</lightning:tab>
 										<!-- fin detail sur l'entite-->
-										<lightning:tab label="Responsabilités" id="2">
+										<lightning:tab label="{!$Label.c.responsabilite_menu}" id="2">
+										
 											<c:ProjetListByRiskManager riskmanager="{!v.item.Id}" />
 										</lightning:tab>
-										<lightning:tab label="Statistique" id="3">
+										<lightning:tab label="{!$Label.c.statistical_menu}" id="3">
 											<c:ChartStatistiqueRiskManager riskManagerId="{!v.item.Id}" />
 										</lightning:tab>
 										
-										<lightning:tab label="Processus" id="4">
+										<lightning:tab label="{!$Label.c.processus_menu}" id="4">
 											<c:ProcessusListByRiskManager idRiskManager="{!v.item.Id}" />
 										</lightning:tab>
 
