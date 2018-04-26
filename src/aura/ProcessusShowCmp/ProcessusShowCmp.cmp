@@ -98,7 +98,7 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Pilotage</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.pilotage_menu}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
@@ -128,7 +128,7 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Finalité</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.finalite_menu}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
