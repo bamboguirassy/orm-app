@@ -47,10 +47,10 @@
                     <div class="slds-dropdown slds-dropdown_right slds-context-bar__item_divider-right">
                         <ul class="slds-dropdown__list" role="menu">
                             <li class="slds-dropdown__item slds-context-bar__item_divider-right" role="presentation"></li>
-                            <li class="slds-dropdown__header slds-has-divider_top-space slds-context-bar__item_divider-right" role="separator"><span class="slds-text-title_caps">Configuration</span>
+                            <li class="slds-dropdown__header slds-has-divider_top-space slds-context-bar__item_divider-right" role="separator"><span class="slds-text-title_caps">Configuration </span>
                             </li>
                             <li class="slds-dropdown__item slds-context-bar__item_divider-right" role="presentation">
-                                <a href="javascript:void(0);" role="menuitem" tabindex="-1" onclick="{!c.navigateToCategorieRisqueList}"> <span class="slds-truncate" title="Menu Item One">Categorie
+                                <a href="javascript:void(0);" role="menuitem" tabindex="-1" onclick="{!c.navigateToCategorieRisqueList}"> <span class="slds-truncate" title="Menu Item One">Categorie 
 										{!$Label.c.risk_menu}</span>
                                 </a>
                             </li>
@@ -70,7 +70,7 @@
                 </li>
                 <li class="slds-context-bar__item slds-context-bar__item_divider-right">
                     <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 0" onclick="{!c.navigateToRisqueList}"> <span class="slds-truncate" title="Menu Item"><i
-							class="fa fa-adjust"></i>{!$Label.c.risk_menu}</span>
+							class="fa fa-adjust"></i> {!$Label.c.risk_menu}</span>
                     </a>
                 </li>
                 <li class="slds-context-bar__item slds-context-bar__item_divider-right">
@@ -88,21 +88,6 @@
 							class="fa fa-chain"></i> {!$Label.c.project_menu}</span>
                     </a>
                 </li>
-                <!--                 <li class="slds-context-bar__item slds-context-bar__item_divider-right"> -->
-                <!--                     <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 1" onclick="{!c.navigateToRisqueEntiteList}"> -->
-                <!--                         <span class="slds-truncate" title="Menu Item"><i class="fa fa-ban"></i> Risques Detectés</span> -->
-                <!--                     </a> -->
-                <!--                 </li> -->
-                <!--                 <li class="slds-context-bar__item slds-context-bar__item_divider-right"> -->
-                <!--                     <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 1" onclick="{!c.navigateToPlanActionList}"> -->
-                <!--                         <span class="slds-truncate" title="Menu Item"><i class="fa fa-calendar"></i> Plans d'action</span> -->
-                <!--                     </a> -->
-                <!--                 </li> -->
-                <!--                 <li class="slds-context-bar__item slds-context-bar__item_divider-right"> -->
-                <!--                     <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 1" onclick="{!c.navigateToActiviteList}"> -->
-                <!--                         <span class="slds-truncate" title="Menu Item"><i class="fa fa-tasks"></i> Activités</span> -->
-                <!--                     </a> -->
-                <!--                 </li> -->
             </ul>
         </nav>
     </div>
