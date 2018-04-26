@@ -90,7 +90,6 @@ public with sharing class RisqueEntiteController {
        	type='Account';
          leadSchema = schemaMap.get(type);
          fieldMap = leadSchema.getDescribe().fields.getMap();
-       
         //loop over description
         for (String fieldName: fieldMap.keySet()) {
            //fill variable

@@ -250,7 +250,6 @@
 									</div>
 								</div>
 							</div>
-
 							<!-- 	fin details risque -->
 						</lightning:tab>
 						<lightning:tab label="{!$Label.c.preventive_measure_menu}" id="2"> 
