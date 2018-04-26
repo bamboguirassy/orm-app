@@ -9,7 +9,11 @@
 		event="c:eventEditCategorieMesurePreventioClicked" />
 	<aura:registerEvent name="newCategorieMesurePreventioAjouter"
 		type="c:eventNewCategorieMesurePreventioCreated" description="" />
+	
+	<aura:handler action="{!c.doInit}" name="init"  value="{!this}" />
+	
 	<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
+	
 
 	<div class="slds-m-around--xx-large">
 
