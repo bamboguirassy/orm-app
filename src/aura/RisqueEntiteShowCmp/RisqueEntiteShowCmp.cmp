@@ -103,7 +103,7 @@
 															<span class="slds-form-element__static"> <aura:if isTrue="{!v.item.etat__c}">
 																	<span class="success">Géré</span>
 																	<aura:set attribute="else">
-																		<span class="danger">En cours</span>
+																		<span class="danger">{!$Label.c.orm_en_cours_select_value} </span>
 																	</aura:set>
 																</aura:if>
 															</span>
@@ -112,10 +112,9 @@
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
 														<div class="slds-box">
-															<p>Une fois le risque géré, vous pourrez changer son
-																état</p>
+															<p>{!$Label.c.orm_changer_etat_risque_message}</p>
 															<button class="slds-button slds-button--brand"
-																onclick="{!c.updateRisque}">Changer Etat</button>
+																onclick="{!c.updateRisque}">{!$Label.c.orm_changer_etat_title} </button>
 														</div>
 													</li>
 												</ul>
@@ -131,8 +130,8 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Structure
-													concernée</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.orm_structure_concernee_menu}
+													</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
@@ -145,7 +144,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">{!v.clabels.entite__r.phone}</span>
+														<span class="slds-form-element__label">{!v.clabels.phone}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputPhone value="{!v.item.Entite__r.Phone}" />
 															</span>
@@ -206,7 +205,7 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Cotation</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium"> {!$Label.c.orm_cotation_menu} </h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
@@ -218,7 +217,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">{!v.clabels.matrice__c}</span>
+														<span class="slds-form-element__label">{!v.clabels.maitrise__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.maitrise__c}" />
 															</span>
@@ -254,32 +253,32 @@
 
 							<!-- 	fin details risque -->
 						</lightning:tab>
-						<lightning:tab label="Mesures Préventives" id="2">
+						<lightning:tab label="{!$Label.c.preventive_measure_menu}" id="2"> 
 							<aura:if isTrue="{!v.item}">
 								<c:MesurePreventionRisqueDetecteListCmp risqueEntite="{!v.item.Id}" risque="{!v.item.Risque__c}" />
 							</aura:if>
 						</lightning:tab>
 
-						<lightning:tab label="Impacts" id="3">
+						<lightning:tab label="{!$Label.c.impact_menu}" id="3">
 							<aura:if isTrue="{!v.item}">
 								<c:ImpactRisqueEntiteListCmp risqueEntite="{!v.item.Id}"
 									risque="{!v.item.Risque__c}" />
 							</aura:if>
 						</lightning:tab>
 
-						<lightning:tab label="Plans d'action" id="4">
+						<lightning:tab label="{!$Label.c.action_plan_menu}" id="4">
 							<!--<c:PlanActionListCmp risqueEntite="{!v.item.Id}" 
 								entite="{!v.item.Entite__c}" />-->
 							<c:PlanActionListCmp risqueEntite="{!v.item}"/>
 
 						</lightning:tab>
 
-						<lightning:tab label="Causes" id="5">
+						<lightning:tab label="{!$Label.c.cause_menu}" id="5">
 							<aura:if isTrue="{!v.item}">
 								<c:CauseRisqueDetecteListCmp risqueEntite="{!v.item.Id}" />
 							</aura:if>
 						</lightning:tab>
-						<lightning:tab label="Entitées affectées" id="6">
+						<lightning:tab label="{!$Label.c.entite_affectee_menu}" id="6">
 							<aura:if isTrue="{!v.item}">
 								<c:EntiteAffecteeListCmp risqueEntite="{!v.item.Id}" />
 							</aura:if>

@@ -86,6 +86,16 @@ public with sharing class RisqueEntiteController {
            //fill variable
             objectFields.put(fieldName, fieldMap.get(fieldName).getDescribe().getLabel());
         }
+        //get field description
+       	type='Account';
+         leadSchema = schemaMap.get(type);
+         fieldMap = leadSchema.getDescribe().fields.getMap();
+       
+        //loop over description
+        for (String fieldName: fieldMap.keySet()) {
+           //fill variable
+            objectFields.put(fieldName, fieldMap.get(fieldName).getDescribe().getLabel());
+        }
         //return map with fields api name as key and field label as value
         System.debug('###-result'+objectFields);
         return objectFields;

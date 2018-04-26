@@ -100,7 +100,7 @@
                             </div>
                             <div class="slds-form-element">
                                 <div class="slds-form-element__control">
-                                    <ui:inputSelect aura:id="maitriseID" label="{!v.clabels.matrice__c}" class="slds-select" labelClass="slds-form-element__label">
+                                    <ui:inputSelect aura:id="maitriseID" label="{!v.clabels.maitrise__c}" class="slds-select" labelClass="slds-form-element__label">
                                         <ui:inputSelectOption text="2" label="{!$Label.c.orm_level_select_value+''+1}" />
                                         <ui:inputSelectOption text="1" label="{!$Label.c.orm_level_select_value+''+2}" />
                                         <ui:inputSelectOption text="0.5" label="{!$Label.c.orm_level_select_value+''+3}" />
