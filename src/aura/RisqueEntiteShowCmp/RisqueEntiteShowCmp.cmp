@@ -37,7 +37,7 @@
 						<div>
 							<button class="btn btn-default"
 								onclick="{!c.navigateToEntiteShow}">
-								<i class="fa fa-rotate-left"></i> Retour
+								<i class="fa fa-rotate-left"></i>{!$Label.c.back_button_title}
 							</button>
 						</div>
 					</div>
@@ -60,13 +60,12 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Détails
-													risque</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.detail_menu+'
+																	'+v.clabels.label}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Risque
-															detecté</span>
+														<span class="slds-form-element__label">{!v.clabels.label}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <a
 																onclick="{!c.navigateToRisqueShow}">{!v.item.Risque__r.Name}</a>
@@ -75,7 +74,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Description</span>
+														<span class="slds-form-element__label">{!v.clabels.description__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputTextArea value="{!v.item.description__c}" />
 															</span>
@@ -83,7 +82,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Detecté le</span>
+														<span class="slds-form-element__label">{!v.clabels.date_detection__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputDate value="{!v.item.Date_Detection__c}" />
 															</span>
@@ -91,7 +90,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Responsable</span>
+														<span class="slds-form-element__label">{!v.clabels.responsable__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.responsable__r.Name}" />
 															</span>
@@ -99,7 +98,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Etat actuel</span>
+														<span class="slds-form-element__label">{!v.clabels.etat__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <aura:if isTrue="{!v.item.etat__c}">
 																	<span class="success">Géré</span>
@@ -146,7 +145,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Téléphone</span>
+														<span class="slds-form-element__label">{!v.clabels.entite__r.phone}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputPhone value="{!v.item.Entite__r.Phone}" />
 															</span>
@@ -211,7 +210,7 @@
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Fréquence</span>
+														<span class="slds-form-element__label">{!v.clabels.frequence__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.frequence__c}" />
 															</span>
@@ -219,7 +218,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Maitrise</span>
+														<span class="slds-form-element__label">{!v.clabels.matrice__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.maitrise__c}" />
 															</span>
@@ -227,7 +226,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Gravité</span>
+														<span class="slds-form-element__label">{!v.clabels.gravite__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.gravite__c}" />
 															</span>
@@ -235,7 +234,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Criticité</span>
+														<span class="slds-form-element__label">{!v.clabels.criticite__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.criticite__c}" />
 															</span>
