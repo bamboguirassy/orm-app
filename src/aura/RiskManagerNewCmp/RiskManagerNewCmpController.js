@@ -1,7 +1,7 @@
 ({
 
     doInit: function(component, event, helper) {
-
+    	helper.getFieldLabels(component, event);
     },
     createItem: function(component, event, helper) {
 

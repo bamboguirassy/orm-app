@@ -32,11 +32,11 @@
 					<div class="slds-modal__header">
 						<button
 							class="slds-button slds-modal__close slds-button--icon-inverse"
-							title="Close" onclick="{!c.closeModel}">
-							X <span class="slds-assistive-text">Close</span>
+							title="{!$Label.c.close_button_title}" onclick="{!c.closeModel}">
+							X <span class="slds-assistive-text">{!$Label.c.close_button_title}</span>
 						</button>
-						<h1 id="header99" class="slds-text-heading--medium">Editer
-							gestionnaire du risque</h1>
+						<h1 id="header99" class="slds-text-heading--medium">{!$Label.c.edit_title_label+'
+							'+v.clabels.label}</h1>
 					</div>
 					<!--###### MODAL BOX BODY Part Start From Here ######-->
 					<div class="slds-modal__content slds-p-around--medium">
@@ -48,21 +48,21 @@
 								<div class="slds-col">
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">
-											<ui:inputText aura:id="firstName" label="Prénoms"
+											<ui:inputText aura:id="firstName" label="{!v.clabels.firstname}"
 												labelClass="slds-form-element__label"
 												value="{!v.item.FirstName}" />
 										</div>
 									</div>
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">
-											<ui:inputText aura:id="lastName" label="Nom"
+											<ui:inputText aura:id="lastName" label="{!v.clabels.lastname}"
 												labelClass="slds-form-element__label"
 												value="{!v.item.LastName}" />
 										</div>
 									</div>
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">
-											<ui:inputDate aura:id="birthdate" label="Date de naissance"
+											<ui:inputDate aura:id="birthdate" label="{!v.clabels.birthdate}"
 												displayDatePicker="true"
 												labelClass="slds-form-element__label"
 												value="{!v.item.Birthdate}" />
@@ -70,7 +70,7 @@
 									</div>
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">
-											<ui:inputEmail aura:id="email" label="Email"
+											<ui:inputEmail aura:id="email" label="{!v.clabels.email}"
 												labelClass="slds-form-element__label"
 												value="{!v.item.Email}" />
 										</div>
@@ -81,7 +81,7 @@
 
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">
-											<ui:inputPhone aura:id="phone" label="Phone"
+											<ui:inputPhone aura:id="phone" label="{!v.clabels.phone}"
 												labelClass="slds-form-element__label"
 												value="{!v.item.Phone}" />
 										</div>
@@ -89,7 +89,7 @@
 									<div class="slds-media__figure">
 										<div class="slds-form-element__control">
 											
-										<lightning:input aura:id="photoUrl"  value="{!v.item.PhotoUrl}"  type="file" name="photoUrl" label="photoUrl" multiple="false"/>
+										<lightning:input aura:id="photoUrl"  value="{!v.item.PhotoUrl}"  type="file" name="photoUrl" label="{!v.clabels.photourl}" multiple="false"/>
 												
 										</div>
 										
@@ -97,7 +97,7 @@
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">
 											<ui:inputTextArea aura:id="description"
-												label="Description" labelClass="slds-form-element__label"
+												label="{!v.clabels.description}" labelClass="slds-form-element__label"
 												value="{!v.item.Description}" />
 										</div>
 									</div>
@@ -113,11 +113,11 @@
 					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
 					<div class="slds-modal__footer">
 						<button class="slds-button slds-button--neutral"
-							onclick="{!c.closeModel}">Annuler</button>
+							onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
 						<button class="slds-button slds-button--brand"
 							onclick="{!c.editItem}">
 							<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-							Editer
+							{!$Label.c.update_button_title}
 						</button>
 					</div>
 				</div>

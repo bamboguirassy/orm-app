@@ -35,8 +35,8 @@
                 <div class="slds-modal__container form-style-6">
                     <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
                     <div class="slds-modal__header">
-                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
-							X <span class="slds-assistive-text">Close</span>
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="{!$Label.c.close_button_title}" onclick="{!c.closeModel}">
+							X <span class="slds-assistive-text">{!$Label.c.close_button_title}</span>
 						</button>
 
                         <h1 id="header99" class="slds-text-heading--medium">{!$Label.c.new_title_label+' '+v.clabels.label}</h1>
@@ -53,34 +53,34 @@
                                 <div class="slds-col">
                                     <div class="slds-form-element slds-is-required">
                                 <div class="slds-form-element__control">
-                                    <ui:inputText aura:id="nom" label="Nom de l'entité" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Name}" required="true" />
+                                    <ui:inputText aura:id="nom" label="{!v.clabels.name}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Name}" required="true" />
                                 </div>
                             </div>
 
                             <div class="slds-form-element slds-is-required">
                                 <div class="slds-form-element__control">
-                                    <ui:inputPhone aura:id="phone" label="Phone" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Phone}" required="true" />
+                                    <ui:inputPhone aura:id="phone" label="{!v.clabels.phone}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Phone}" required="true" />
 
                                 </div>
                             </div>
 
                             <div class="slds-form-element">
                                 <div class="slds-form-element__control">
-                                    <ui:inputURL aura:id="website" label="Website" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Website}" />
+                                    <ui:inputURL aura:id="website" label="{!v.clabels.website}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Website}" />
                                 </div>
                             </div>
                                 </div>
                                  <div class="slds-col">
                                      <div class="slds-form-element">
                                 <div class="slds-form-element__control">
-                                    <ui:inputTextArea aura:id="description" label="Description" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Description}"  />
+                                    <ui:inputTextArea aura:id="description" label="{!v.clabels.description}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Description}"  />
                                 </div>
                             </div>
 
                             <div class="slds-form-element">
                                 <div class="slds-form-element__control">
-                                    <ui:inputSelect aura:id="entiteParentID" label="Entité Parent" class="slds-select" labelClass="slds-form-element__label">
-                                        <ui:inputSelectOption text="" label="Selectionnez structure parent">  </ui:inputSelectOption>
+                                    <ui:inputSelect aura:id="entiteParentID" label="{!v.clabels.parentid}" class="slds-select" labelClass="slds-form-element__label">
+                                        <ui:inputSelectOption text="" label="{!v.clabels.parentid}">  </ui:inputSelectOption>
                                         <aura:iteration items="{!v.entites}" var="entite">
                                             <ui:inputSelectOption text="{!entite.Id}" label="{!entite.Name}" />
                                         </aura:iteration>
@@ -101,8 +101,8 @@
                     <div class="slds-modal__footer">
                         <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
                         <button class="slds-button slds-button--brand" onclick="{!c.createItem}">
-                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                        Créer Structure</button>
+                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i> {!$Label.c.add_button_title+'  '+v.clabels.label}
+                      </button>
                     </div>
                 </div>
             </div>
