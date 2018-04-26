@@ -44,15 +44,15 @@
 
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Close Date">Intitulé</div>
+							<div class="slds-truncate" title="Close Date">{!v.clabels.name}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Account Name">Version</div>
+							<div class="slds-truncate" title="Account Name">{!v.clabels.version__c}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Close Date">Reference</div>
+							<div class="slds-truncate" title="Close Date">{!v.clabels.reference__c}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
