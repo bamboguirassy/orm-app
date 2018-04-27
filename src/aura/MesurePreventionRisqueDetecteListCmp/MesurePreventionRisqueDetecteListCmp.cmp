@@ -2,7 +2,6 @@
     <aura:attribute name="ParamRisqueEntite" type="String" description="l'entité à laquelle le risque est associé" required="true" />
     <aura:attribute name="risque" type="String" description="risque de l'entité risque" required="true" />
     <aura:attribute name="updatable" type="Boolean" description="updatable" default="true" />
-
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 	<aura:handler event="c:eventNewMesurePreventionCreated"  action="{!c.refreshList}" />
 <!-- début new content -->
@@ -100,7 +99,7 @@
 
                         <footer class="slds-card__footer" style="text-align: left;">
 
-                        <aura:if isTrue="{!v.ParamRisqueEntite}">
+                        <aura:if isTrue="{!v.RisqueEntite}">
                             <c:MesurePreventionRisqueDetecteNewCmp risqueEntite="{!v.ParamRisqueEntite}"   items="{!v.items}" risque="{!v.risque}" />
                         </aura:if>
                 
