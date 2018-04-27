@@ -121,7 +121,7 @@
 										<lightning:tab label="{!$Label.c.preventive_measure_menu}" id="3">
 											<aura:if isTrue="{!v.item}">
 										<!-- 	mettre ici la liste de mesure preventive -->
-<!-- 										<c:MesurePreventionRisqueDetecteListCmp ParamRisqueEntite="{!v.item.Id}" risque="{!v.item.Risque__c}" /> -->
+								<c:MesurePreventionRisqueDetecteListCmp ParamRisqueEntite="{!v.item.Id}" risque="{!v.item.Risque__c}" /> 
 											</aura:if>
 										</lightning:tab>
 										<lightning:tab label="{!$Label.c.action_plan_menu}" id="4">
