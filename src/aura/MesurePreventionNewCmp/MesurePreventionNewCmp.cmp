@@ -38,9 +38,9 @@
                         <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
                         <div class="slds-modal__header">
                             <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
-                                X <span class="slds-assistive-text">Close</span>
+                                X <span class="slds-assistive-text">{!$Label.c.close_button_title}</span>
                             </button>
-                            <h1 id="header99" class="slds-text-heading--medium">Nouvelle Mesure</h1>
+                            <h1 id="header99" class="slds-text-heading--medium">{!$Label.c.new_title_label+' '+v.clabels.label}</h1>
                         </div>
                         <!--###### MODAL BOX BODY Part Start From Here ######-->
                         <div class="slds-modal__content slds-p-around--medium">
@@ -51,13 +51,13 @@
 
                                 <div class="slds-form-element slds-is-required">
                                     <div class="slds-form-element__control">
-                                        <ui:inputText aura:id="nom" label="Libelle" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Name}" required="true" />
+                                        <ui:inputText aura:id="nom" label="{!v.clabels.name}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Name}" required="true" />
                                     </div>
                                 </div>
 
                                 <div class="slds-form-element">
                                     <div class="slds-form-element__control">
-                                        <ui:inputTextArea aura:id="description" label="Description" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Description__c}" />
+                                        <ui:inputTextArea aura:id="description" label="{!v.clabels.description__c}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Description__c}" />
 
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@
                                 <div class="demo-only demo-only--sizing slds-grid slds-wrap" >
                                     <div class="slds-size_4-of-5">
                                       <div class="slds-form-element__control">
-                                        <ui:inputSelect aura:id="categorieMesurePreventionId" label="Categorie Mesure Prévention" class="slds-select" labelClass="slds-form-element__label">
+                                        <ui:inputSelect aura:id="categorieMesurePreventionId" label="{!v.clabels.categoriemesureprevention__c}" class="slds-select" labelClass="slds-form-element__label">
                                             <aura:iteration items="{!v.categorieMesurePreventions}" var="categorie">
                                                 <ui:inputSelectOption text="{!categorie.Id}" label="{!categorie.Name}" />
                                             </aura:iteration>
@@ -86,10 +86,10 @@
                     </div>
                     <!--###### MODAL BOX FOOTER Part Start From Here ######-->
                     <div class="slds-modal__footer">
-                        <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">Annuler</button>
+                        <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
                         <button class="slds-button slds-button--brand" onclick="{!c.createItem}">
                          <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                         Créer</button>
+                         {!$Label.c.add_button_title}</button>
                      </div>
                  </div>
              </div>
@@ -112,9 +112,9 @@
                             <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
                             <div class="slds-modal__header">
                                 <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
-                                    X <span class="slds-assistive-text">Close</span>
+                                    X <span class="slds-assistive-text">{!$Label.c.close_button_title}</span>
                                 </button>
-                                <h1 id="header99" class="slds-text-heading--medium">Nouvelle Mesure</h1>
+                                <h1 id="header99" class="slds-text-heading--medium">{!$Label.c.new_title_label+' '+v.clabels.label}</h1>
                             </div>
                             <!--###### MODAL BOX BODY Part Start From Here ######-->
                             <div class="slds-modal__content slds-p-around--medium">
@@ -125,13 +125,13 @@
 
                                     <div class="slds-form-element slds-is-required">
                                         <div class="slds-form-element__control">
-                                            <ui:inputText aura:id="nom" label="Libelle" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Name}" required="true" />
+                                            <ui:inputText aura:id="nom" label="{!v.clabels.name}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Name}" required="true" />
                                         </div>
                                     </div>
 
                                     <div class="slds-form-element">
                                         <div class="slds-form-element__control">
-                                            <ui:inputTextArea aura:id="description" label="Description" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Description__c}" />
+                                            <ui:inputTextArea aura:id="description" label="{!v.clabels.description__c}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Description__c}" />
 
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                                     <div class="demo-only demo-only--sizing slds-grid slds-wrap" >
                                         <div class="slds-size_4-of-5">
                                           <div class="slds-form-element__control">
-                                            <ui:inputSelect aura:id="categorieMesurePreventionId" label="Categorie Mesure Prévention" class="slds-select" labelClass="slds-form-element__label">
+                                            <ui:inputSelect aura:id="categorieMesurePreventionId" label="{!v.clabels.categoriemesureprevention__c}" class="slds-select" labelClass="slds-form-element__label">
                                                 <aura:iteration items="{!v.categorieMesurePreventions}" var="categorie">
                                                     <ui:inputSelectOption text="{!categorie.Id}" label="{!categorie.Name}" />
                                                 </aura:iteration>
@@ -160,10 +160,10 @@
                         </div>
                         <!--###### MODAL BOX FOOTER Part Start From Here ######-->
                         <div class="slds-modal__footer">
-                            <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">Annuler</button>
+                            <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
                             <button class="slds-button slds-button--brand" onclick="{!c.createItem}">
                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                               Créer</button>
+                               {!$Label.c.add_button_title}</button>
                            </div>
                        </div>
                    </div>

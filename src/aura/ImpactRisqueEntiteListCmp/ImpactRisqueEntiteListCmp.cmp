@@ -1,6 +1,6 @@
 <aura:component controller="ImpactRisqueEntiteController" extends="c:AbstractListCmp">
-    <aura:attribute name="risqueEntite" type="String" description="l'entité à laquelle le risque est associé" required="true" />
-    <aura:attribute name="risque" type="String" description="risque de l'entité risque" required="true" />
+    <aura:attribute name="risqueEntite" type="Risque_Entite__c" description="risque lié"/> 
+    <aura:attribute name="risque" type="String" description="risque de l'entité risque" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:handler event="c:eventNewImpactRisqueEntiteCreated"  action="{!c.refreshList}" />
@@ -21,7 +21,7 @@
                             <div class="slds-col slds-has-flexi-truncate">
                                 <div class="slds-media slds-no-space slds-grow">
                                     <div class="slds-media__figure">
-                                        <span class="slds-icon_container slds-icon-standard-opportunity" title="Liste des catégories de mesure de prévention"> 
+                                        <span class="slds-icon_container slds-icon-standard-opportunity" title="{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}"> 
 										<c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
 									xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 									</span>
@@ -29,12 +29,12 @@
                                     <div class="slds-media__body">
                                         <nav>
                                             <ol class="slds-breadcrumb slds-line-height_reset">
-                                                <li class="slds-breadcrumb__item"><span>Liste des impacts de risque</span>
+                                                <li class="slds-breadcrumb__item"><span>{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}</span>
                                                 </li>
                                             </ol>
                                         </nav>
-                                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="Nombred'enregistrements ">
-                                        Nombre d'enregistrements ({!v.items.length})
+                                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="{!$Label.c.record_count_label}">
+                                       {!$Label.c.record_count_label} ({!v.items.length})
 										</h1>
 
                                     </div>
@@ -58,7 +58,7 @@
                                                 <div class="slds-card__header slds-grid">
                                                     <header class="slds-media slds-media_center slds-has-flexi-truncate">
                                                         <div class="slds-media__figure">
-                                                            <span class="slds-icon_container slds-icon-standard-record" title="catégories de mesure de prévention"> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
+                                                            <span class="slds-icon_container slds-icon-standard-record" title="{!item.ImpactRisque__r.Name}"> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
 												xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#record'}" />
 
 										</span>
@@ -71,14 +71,15 @@
 																class="slds-text-heading_small"><ui:outputText value="{!item.ImpactRisque__r.Name}" /></span>
 															</a>
 														</h2>
+														
                                                         </div>
                                                     </header>
                                                     <div class="slds-einstein-header__actions">
                                                         <div class="slds-button-group" role="group">
-                                                            <a data-index="{!i}" onclick="{!c.removeItem}" class="slds-button slds-button_icon slds-button_icon-border-filled" title="Supprimer" aria-pressed="false">
+                                                            <a data-index="{!i}" onclick="{!c.removeItem}" class="slds-button slds-button_icon slds-button_icon-border-filled" title="{!$Label.c.delete_button_title}" aria-pressed="false">
                                                                 <c:svg class="slds-button__icon" aria-hidden="true" xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
 
-                                                                <span class="slds-assistive-text">supp..</span>
+                                                                <span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
                                                             </a>
 
                                                         </div>
@@ -101,7 +102,7 @@
                         <footer class="slds-card__footer" style="text-align: left;">
 
                             <aura:if isTrue="{!v.risqueEntite}">
-                                <c:ImpactRisqueEntiteNewCmp risqueEntite="{!v.risqueEntite}"  risque="{!v.risque}" />
+                                <c:ImpactRisqueEntiteNewCmp risqueEntite="{!v.risqueEntite}" />
 
                             </aura:if>
                         </footer>

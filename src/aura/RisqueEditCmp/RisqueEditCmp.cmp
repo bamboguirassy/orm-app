@@ -68,7 +68,7 @@
                     <div class="slds-modal__footer">
                         <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
                         <button class="slds-button slds-button--brand" onclick="{!c.editItem}">
-                        {!$Label.c.add_button_title}</button>
+                        {!$Label.c.edit_button_title}</button>
                     </div>
                 </div>
             </div>

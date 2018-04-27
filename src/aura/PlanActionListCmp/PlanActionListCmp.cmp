@@ -29,9 +29,8 @@
 						<div class="slds-media__body">
 							<h1
 								class="slds-page-header__title slds-truncate slds-align-middle"
-								title="Liste des plans d'action">Liste des plans d'action</h1>
-							<p class="slds-text-body_small slds-line-height_reset">Nombre
-								d'enregistrements ({!v.items.length})</p>
+								title="{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}">{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}</h1>
+							<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label} ({!v.items.length})</p>
 						</div>
 					</div>
 				</div>
@@ -104,24 +103,24 @@
 															<div class="slds-button-group" role="group">
 																<a data-index="{!i}" onclick="{!c.navigateToShow}"
 																	class="slds-button slds-button_icon slds-button_icon-border-filled"
-																	title="afficher" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																	title="{!$Label.c.show_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 																		xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#preview'}" />
 
-																	<span class="slds-assistive-text">Afficher</span>
+																	<span class="slds-assistive-text">{!$Label.c.show_button_title}</span>
 																</a> <a data-index="{!i}" onclick="{!c.removeItem}"
 																	class="slds-button slds-button_icon slds-button_icon-border-filled"
-																	title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																	title="{!$Label.c.delete_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 																		xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
 
-																	<span class="slds-assistive-text">supprimer</span>
+																	<span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
 																</a>
 																<aura:if isTrue="{!v.risqueEntite}">
 																	<a data-index="{!i}" onclick="{!c.registerEdit}"
 																		class="slds-button slds-button_icon slds-button_icon-border-filled"
-																		title="modifier" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																		title="{!$Label.c.edit_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 																			xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
 
-																		<span class="slds-assistive-text">Modifier</span>
+																		<span class="slds-assistive-text">{!$Label.c.edit_button_title}</span>
 																	</a>
 																</aura:if>
 															</div>
@@ -130,27 +129,26 @@
 
 												</div>
 											</div>
-											<p class="slds-m-horizontal_xx-small">géré par
-												{!item.gestionnaire__r.Name}</p>
+											<p class="slds-m-horizontal_xx-small">  {!$Label.c.orm_gere_value+'   '} {!item.gestionnaire__r.Name}</p>
 											<article
 												class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small slds-p-around_medium  slds-theme_shade slds-theme_alert-texture"
 												id="task-item-expanded" aria-hidden="false">
 												<ul class="slds-list_horizontal slds-wrap">
 													<li
 														class="slds-grid slds-grid--vertical slds-size_1-of-2 slds-p-bottom_small">
-														<span class="slds-text-title slds-p-bottom_x-small">Etat</span>
+														<span class="slds-text-title slds-p-bottom_x-small">{!v.clabels.etat__c}</span>
 														<span class="slds-text-body_medium slds-truncate"
-														title="etat"><ui:outputCheckbox value="{!item.etat__c}" /></span>
+														title="{!item.etat__c}"><ui:outputCheckbox value="{!item.etat__c}" /></span>
 													</li>
 													<li
 														class="slds-grid slds-grid--vertical slds-size_1-of-2 slds-p-bottom_small">
-														<span class="slds-text-title slds-p-bottom_x-small">Echéancier</span>
+														<span class="slds-text-title slds-p-bottom_x-small">{!v.clabels.echancier__c}</span>
 														<span class="slds-text-body_medium slds-truncate"
 														title="{!item.echeancier__c}"><ui:outputDateTime value="{!item.echeancier__c}" /></span>
 													</li>
 												</ul>
 												<div>
-													<span class="slds-text-title">Description</span>
+													<span class="slds-text-title">{!v.clabels.commentaire__c}</span>
 													<p class="slds-p-top_x-small">{!item.commentaire__c}</p>
 												</div>
 											</article>
