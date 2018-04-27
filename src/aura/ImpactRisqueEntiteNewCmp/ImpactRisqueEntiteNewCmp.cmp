@@ -71,7 +71,7 @@
 										</div>
 							        </div>
                                 </div>
-                                <div class="slds-size_1-of-5" style="margin-top:21px">
+                                <div class="slds-size_1-of-5">
                                     <c:ImpactRisqueNewCmp inImpactRisqueListCmp="false" risque="{!v.risque}" />
                                 </div>
                             </div>
