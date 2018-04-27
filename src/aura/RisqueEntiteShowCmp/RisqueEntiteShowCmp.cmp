@@ -252,11 +252,11 @@
 							</div>
 							<!-- 	fin details risque -->
 						</lightning:tab>
-						<lightning:tab label="{!$Label.c.preventive_measure_menu}" id="2"> 
-							<aura:if isTrue="{!v.item}">
-								<c:MesurePreventionRisqueDetecteListCmp risqueEntite="{!v.item.Id}" risque="{!v.item.Risque__c}" />
-							</aura:if>
-						</lightning:tab>
+<!-- 						<lightning:tab label="{!$Label.c.preventive_measure_menu}" id="2">  -->
+<!-- 							<aura:if isTrue="{!v.item}"> -->
+<!-- 								<c:MesurePreventionRisqueDetecteListCmp risqueEntite="{!v.item.Id}" risque="{!v.item.Risque__c}" /> -->
+<!-- 							</aura:if> -->
+<!-- 						</lightning:tab> -->
 
 						<lightning:tab label="{!$Label.c.impact_menu}" id="3">
 							<aura:if isTrue="{!v.item}">
