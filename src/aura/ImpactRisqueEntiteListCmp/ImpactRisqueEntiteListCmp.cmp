@@ -1,6 +1,6 @@
 <aura:component controller="ImpactRisqueEntiteController" extends="c:AbstractListCmp">
-    <aura:attribute name="risqueEntite" type="String" description="l'entité à laquelle le risque est associé" required="true" />
-    <aura:attribute name="risque" type="String" description="risque de l'entité risque" required="true" />
+    <aura:attribute name="risqueEntite" type="Risque_Entite__c" description="risque lié"/> 
+    <aura:attribute name="risque" type="String" description="risque de l'entité risque" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:handler event="c:eventNewImpactRisqueEntiteCreated"  action="{!c.refreshList}" />
@@ -102,7 +102,7 @@
                         <footer class="slds-card__footer" style="text-align: left;">
 
                             <aura:if isTrue="{!v.risqueEntite}">
-                                <c:ImpactRisqueEntiteNewCmp risqueEntite="{!v.risqueEntite}"  risque="{!v.risque}" />
+                                <c:ImpactRisqueEntiteNewCmp risqueEntite="{!v.risqueEntite}" />
 
                             </aura:if>
                         </footer>
