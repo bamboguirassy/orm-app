@@ -25,13 +25,13 @@ public with sharing class ImpactRisqueEntiteController {
         //variable for storing object field api name and field label
         Map<String,String> objectFields=new Map<String,String>();
         //field type
-        String type='Impact__c';
+        String type='Impact_Risque_Entite__c';
         //get field description
         Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
         Schema.SObjectType leadSchema = schemaMap.get(type);
         Map<String, Schema.SObjectField> fieldMap = leadSchema.getDescribe().fields.getMap();
-        objectFields.put('label', SObjectType.Impact__c.getLabel());
-        objectFields.put('labelPlural', SObjectType.Impact__c.getLabelPlural());
+        objectFields.put('label', SObjectType.Impact_Risque_Entite__c.getLabel());
+        objectFields.put('labelPlural', SObjectType.Impact_Risque_Entite__c.getLabelPlural());
         //loop over description
         for (String fieldName: fieldMap.keySet()) {
            //fill variable
