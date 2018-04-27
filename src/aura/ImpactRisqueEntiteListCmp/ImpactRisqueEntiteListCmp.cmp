@@ -71,6 +71,7 @@
 																class="slds-text-heading_small"><ui:outputText value="{!item.ImpactRisque__r.Name}" /></span>
 															</a>
 														</h2>
+														
                                                         </div>
                                                     </header>
                                                     <div class="slds-einstein-header__actions">

@@ -33,6 +33,7 @@
 
 			</div>
 		</div>
+		
 		<!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
 		<aura:if isTrue="{!v.isOpen}">
 
