@@ -17,9 +17,8 @@
 				</div>
 				<div class="slds-media__body">
 					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
-						title="Liste des plans d'action">Liste des projets du Responsable</h1>
-					<p class="slds-text-body_small slds-line-height_reset">Nombre
-						d'enregistrements ({!v.items.length})</p>
+						title="{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}">{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}</h1>
+					<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label} ({!v.items.length})</p>
 				</div>
 			</div>
 		</div>
@@ -34,23 +33,23 @@
 					<tr class="slds-text-title_caps">
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-							<div class="slds-truncate" title="Nom">Nom</div>
+							<div class="slds-truncate" title="{!v.clabels.name}">{!v.clabels.name}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-							<div class="slds-truncate" title="Date debut">Date début</div>
+							<div class="slds-truncate" title="{!v.clabels.date_debut__c}">{!v.clabels.date_debut__c}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-							<div class="slds-truncate" title="Date fin prevue">Date fin prévue</div>
+							<div class="slds-truncate" title="{!v.clabels.date_fin_prevue__c}">{!v.clabels.date_fin_prevue__c}</div>
 						</th>
                         <th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-							<div class="slds-truncate" title="Account Name">Structure</div>
+							<div class="slds-truncate" title="{!v.clabels.structure__c}">{!v.clabels.structure__c}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Stage">Actions</div>
+							<div class="slds-truncate" title="{!$Label.c.table_action_label}">{!$Label.c.table_action_label}</div>
 						</th>
 					</tr>
 				</thead>
@@ -87,10 +86,10 @@
 										<div class="slds-button-group" role="group">
 					                     <a data-index="{!i}" onclick="{!c.navigateToShow}"
 												class="slds-button slds-button_icon slds-button_icon-border-filled"
-												title="afficher" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+												title="{!$Label.c.show_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#preview'}" />
 
-												<span class="slds-assistive-text">Afficher</span>
+												<span class="slds-assistive-text">{!$Label.c.show_button_title}</span>
 											</a> 
 
 
