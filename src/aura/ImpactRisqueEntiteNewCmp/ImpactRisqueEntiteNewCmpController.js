@@ -1,6 +1,7 @@
 ({
     doInit : function(component, event, helper) {
 		//refresh MesurePrevention entité List
+		helper.getFieldLabels(component, event);
         helper.refreshList(component,event);
 		
 	},
