@@ -10,6 +10,7 @@
 			}
 		});
 		$A.enqueueAction(action);
+		helper.getFieldLabels(component, event)
 
 	},
 	createItem : function(component, event, helper) {
