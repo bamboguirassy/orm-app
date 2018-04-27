@@ -1,6 +1,7 @@
 ({
 	
 	doInit : function(component, event, helper) {
+	helper.getFieldLabels(component, event);
 		if ($A.util.isEmpty(component.get('v.items'))) {
 			helper.refreshList(component, event);
 		}
