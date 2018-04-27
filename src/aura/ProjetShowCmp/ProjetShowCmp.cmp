@@ -52,7 +52,7 @@
                         <div class="slds-grid slds-wrap  slds-size_1-of-1">
                             <!-- debut tab -->
                             <lightning:tabset >
-                                <lightning:tab label="Details" id="1">
+                                <lightning:tab label="{!$Label.c.detail_menu}" id="1">
                                     <!-- detail Projet -->
 
                                     <div class="slds-grid slds-gutters slds-size_1-of-1">
@@ -61,53 +61,52 @@
                                                 <div class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
                                                     <div class="slds-panel__section slds-theme_shade slds-theme_alert-texture">
-                                                        <h3 class="slds-text-heading_small slds-m-bottom_medium">Détails Projet
-													</h3>
+                                                        <h3 class="slds-text-heading_small slds-m-bottom_medium">{! $Label.c.detail_menu + ' ' + v.clabels.label }</h3>
                                                         <ul>
                                                             <li class="slds-form-element slds-hint-parent slds-border_bottom">
-                                                                <span class="slds-form-element__label">Nom</span>
+                                                                <span class="slds-form-element__label">{!v.clabels.name}</span>
                                                                 <div class="slds-form-element__control">
                                                                     <span class="slds-form-element__static"> <ui:outputText value="{!v.item.Name}" />
 															</span>
                                                                 </div>
                                                             </li>
                                                             <li class="slds-form-element slds-hint-parent slds-border_bottom">
-                                                                <span class="slds-form-element__label">Coût</span>
+                                                                <span class="slds-form-element__label">{!v.clabels.cout__c}</span>
                                                                 <div class="slds-form-element__control">
                                                                     <span class="slds-form-element__static"> <ui:outputText value="{!v.item.Cout__c}" />
 															</span>
                                                                 </div>
                                                             </li>
                                                               <li class="slds-form-element slds-hint-parent slds-border_bottom">
-                                                                <span class="slds-form-element__label">Date début</span>
+                                                                <span class="slds-form-element__label">{!v.clabels.date_debut__c}</span>
                                                                 <div class="slds-form-element__control">
                                                                     <span class="slds-form-element__static"> <ui:outputText value="{!v.item.Date_debut__c}" />
 															</span>
                                                                 </div>
                                                             </li>
                                                               <li class="slds-form-element slds-hint-parent slds-border_bottom">
-                                                                <span class="slds-form-element__label">Date fin prévue</span>
+                                                                <span class="slds-form-element__label">{!v.clabels.date_fin_prevue__c}</span>
                                                                 <div class="slds-form-element__control">
                                                                     <span class="slds-form-element__static"> <ui:outputText value="{!v.item.Date_fin_prevue__c}" />
 															</span>
                                                                 </div>
                                                             </li>
                                                               <li class="slds-form-element slds-hint-parent slds-border_bottom">
-                                                                <span class="slds-form-element__label">Etat</span>
+                                                                <span class="slds-form-element__label">{!v.clabels.etat__c}</span>
                                                                 <div class="slds-form-element__control">
                                                                     <span class="slds-form-element__static"> <ui:outputText value="{!v.item.Etat__c}" />
 															</span>
                                                                 </div>
                                                             </li>
                                                             <li class="slds-form-element slds-hint-parent slds-border_bottom">
-                                                                <span class="slds-form-element__label">Description Projet</span>
+                                                                <span class="slds-form-element__label">{!v.clabels.description__c+ ' ' + v.clabels.label }</span>
                                                                 <div class="slds-form-element__control">
                                                                     <span class="slds-form-element__static"> <ui:outputTextArea value="{!v.item.Description__c}" />
 															</span>
                                                                 </div>
                                                             </li>
                                                                                                                         <li class="slds-form-element slds-hint-parent slds-border_bottom">
-                                                                <span class="slds-form-element__label">Responsable Projet</span>
+                                                                <span class="slds-form-element__label">{!v.clabels.responsable__c + ' ' +  v.clabels.label}</span>
                                                                 <div class="slds-form-element__control">
                                                                     <span class="slds-form-element__static"> <ui:outputTextArea value="{!v.item.Responsable__r.Name}" />
 															</span>
@@ -124,10 +123,10 @@
                                                 <div class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
                                                     <div class="slds-panel__section slds-theme_shade slds-theme_alert-texture">
-                                                        <h3 class="slds-text-heading_small slds-m-bottom_medium">Structure du projet</h3>
+                                                        <h3 class="slds-text-heading_small slds-m-bottom_medium">{!v.clabels.structure__c + ' ' +  v.clabels.label}</h3>
                                                         <ul>
                                                             <li class="slds-form-element slds-hint-parent slds-border_bottom">
-                                                                <span class="slds-form-element__label">Nom</span>
+                                                                <span class="slds-form-element__label">{!v.clabels.structureLabel}</span>
                                                                 <div class="slds-form-element__control">
                                                                     <span class="slds-form-element__static"> <!-- <ui:outputText value="{!v.item.Structure__r.Name}" /> -->
 																		<a onclick="{!c.navigateToShowEntite}">{!v.item.Structure__r.Name}</a>
@@ -135,7 +134,7 @@
                                                                 </div>
                                                             </li>
                                                             <li class="slds-form-element slds-hint-parent slds-border_bottom">
-                                                                <span class="slds-form-element__label">Description Structure</span>
+                                                                <span class="slds-form-element__label">{!v.clabels.description__c}</span>
                                                                 <div class="slds-form-element__control">
                                                                     <span class="slds-form-element__static"> <ui:outputRichText value="{!v.item.Structure__r.Description}" />
 															</span>

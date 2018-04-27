@@ -81,6 +81,8 @@ public with sharing class ProjetController {
            //fill variable
             objectFields.put(fieldName, fieldMap.get(fieldName).getDescribe().getLabel());
         }
+        
+        objectFields.put('structureLabel', SObjectType.Account.getLabel());
         //return map with fields api name as key and field label as value
         System.debug('###-result'+objectFields);
         return objectFields;
