@@ -91,12 +91,12 @@
 								<div class="slds-col">
 									<div class="slds-form-element" onchange="{!c.getUserEntites}">
 										<div class="slds-form-element__control">
-											<ui:inputSelect aura:id="proprietaireID" label="Propriètaire"
+											<ui:inputSelect aura:id="proprietaireID" label="{!v.clabels.proprietaire__c}"
 												class="slds-select" labelClass="slds-form-element__label">
 												<ui:inputSelectOption label="{!v.clabels.proprietaire__c}" />
 												<aura:iteration items="{!v.entites}" var="entite">
 													<ui:inputSelectOption text="{!entite.Id}"
-														label="{!v.clabels.proprietaire__c}" />
+														label="{!entite.Name}" /> 
 												</aura:iteration>
 											</ui:inputSelect>
 										</div>
@@ -106,10 +106,10 @@
 										<div class="slds-form-element__control">
 											<ui:inputSelect aura:id="piloteID" label="{!v.clabels.pilote__c}"
 												class="slds-select" labelClass="slds-form-element__label">
-												<ui:inputSelectOption label="selectionner le pilote" />
+												<ui:inputSelectOption label="{!v.clabels.pilote__c}" />
 												<aura:iteration items="{!v.userEntites}" var="userEntite">
 													<ui:inputSelectOption text="{!userEntite.Id}"
-														label="{!v.clabels.pilote__c}" />
+														label="{!userEntite.Name}" />
 												</aura:iteration>
 											</ui:inputSelect>
 										</div>
@@ -121,7 +121,7 @@
 												<ui:inputSelectOption label="{!v.clabels.copilote__c}" />
 												<aura:iteration items="{!v.userEntites}" var="userEntite">
 													<ui:inputSelectOption text="{!userEntite.Id}"
-														label="{!v.clabels.copilote__c}" />
+														label="{!userEntite.Name}"  />
 												</aura:iteration>
 											</ui:inputSelect>
 										</div>

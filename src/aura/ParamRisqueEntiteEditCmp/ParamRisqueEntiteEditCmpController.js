@@ -1,6 +1,7 @@
 ({
     doInit: function(component, event, helper) {
        //refresh MesurePrevention entité List
+       helper.getFieldLabels(component, event);
         var action = component.get("c.getRisques");
         action.setCallback(this, function(response) {
             var state = response.getState();

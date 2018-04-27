@@ -38,10 +38,10 @@
                 <div class="slds-modal__container form-style-6">
                     <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
                     <div class="slds-modal__header">
-                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
-							X <span class="slds-assistive-text">Close</span>
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="{!$Label.c.close_button_title}" onclick="{!c.closeModel}">
+							X <span class="slds-assistive-text">{!$Label.c.close_button_title}</span>
 						</button>
-                        <h1 id="header99" class="slds-text-heading--medium">Nouveau risque detecté </h1>
+                        <h1 id="header99" class="slds-text-heading--medium">{!$Label.c.new_title_label+' '+v.clabels.label} </h1>
                     </div>
                     <!--###### MODAL BOX BODY Part Start From Here ######-->
                     <div class="slds-modal__content slds-p-around--medium">
@@ -53,7 +53,7 @@
   <div class="slds-col">
   <div class="slds-form-element">
                                 <div class="slds-form-element__control">
-                                    <ui:inputSelect aura:id="risqueID" label="Risque" class="slds-select" labelClass="slds-form-element__label">
+                                    <ui:inputSelect aura:id="risqueID" label="{!v.clabels.risque__c}" class="slds-select" labelClass="slds-form-element__label">
                                         <aura:iteration items="{!v.risques}" var="risque">
                                             <ui:inputSelectOption text="{!risque.Id}" label="{!risque.Name}" />
                                         </aura:iteration>
@@ -62,27 +62,27 @@
                             </div>
                             <div class="slds-form-element">
                                 <div class="slds-form-element__control">
-                                    <ui:inputSelect aura:id="userEntiteID" label="Utilisateur" class="slds-select" labelClass="slds-form-element__label">
+                                    <ui:inputSelect aura:id="userEntiteID" label="{!v.clabels.responsable__c}" class="slds-select" labelClass="slds-form-element__label">
                                         <aura:iteration items="{!v.userEntites}" var="userEntite">
                                             <ui:inputSelectOption text="{!userEntite.Id}" label="{!userEntite.Name}" />
                                         </aura:iteration>
                                     </ui:inputSelect>
                                 </div>
                             </div>
-
                             <div class="slds-form-element">
                                 <div class="slds-form-element__control">
-                                    <ui:inputDate aura:id="dateDetection" label="Date Detection" displayDatePicker="true" labelClass="slds-form-element__label" value="{!v.item.Date_Detection__c}" />
+                                    <ui:inputDate aura:id="dateDetection" label="{!v.clabels.date_detection__c}" displayDatePicker="true" labelClass="slds-form-element__label" value="{!v.item.Date_Detection__c}" />
                                 </div>
                             </div>
                                <div class="slds-form-element">
                                 <div class="slds-form-element__control">
-                                    <ui:inputSelect aura:id="graviteID" label="Indice de Gravité" class="slds-select" labelClass="slds-form-element__label">
-                                        <ui:inputSelectOption text="1" label="Faible" />
-                                        <ui:inputSelectOption text="2" label="Moyenne" />
-                                        <ui:inputSelectOption text="3" label="Grave" />
-                                        <ui:inputSelectOption text="4" label="Très Grave" />
+                                    <ui:inputSelect aura:id="graviteID" label="{!v.clabels.gravite__c}" class="slds-select" labelClass="slds-form-element__label">
+                                        <ui:inputSelectOption text="1" label="{!$Label.c.orm_faible_select_value}"/>
+                                        <ui:inputSelectOption text="2" label="{!$Label.c.orm_moyenne_select_value}" />
+                                        <ui:inputSelectOption text="3" label="{!$Label.c.orm_grave_select_value}" />
+                                        <ui:inputSelectOption text="4" label="{!$Label.c.orm_tres_grave_select_value}" />
                                     </ui:inputSelect>
+                                    
                                 </div>
                             </div>
   </div>
@@ -90,26 +90,26 @@
 
                             <div class="slds-form-element">
                                 <div class="slds-form-element__control">
-                                    <ui:inputSelect aura:id="frequenceID" label="Indice de fréquence" class="slds-select" labelClass="slds-form-element__label">
-                                        <ui:inputSelectOption text="1" label="Faible" />
-                                        <ui:inputSelectOption text="2" label="Moyenne" />
-                                        <ui:inputSelectOption text="3" label="Fréquente" />
-                                        <ui:inputSelectOption text="4" label="Très fréquente" />
+                                    <ui:inputSelect aura:id="frequenceID" label="{!v.clabels.frequence__c}" class="slds-select" labelClass="slds-form-element__label">
+                                        <ui:inputSelectOption text="1" label="{!$Label.c.orm_faible_select_value}" />
+                                        <ui:inputSelectOption text="2" label="{!$Label.c.orm_moyenne_select_value}" />
+                                        <ui:inputSelectOption text="3" label="{!$Label.c.orm_frequente_select_value}" />
+                                        <ui:inputSelectOption text="4" label="{!$Label.c.orm_tres_frequente_select_value}" />
                                     </ui:inputSelect>
                                 </div>
                             </div>
                             <div class="slds-form-element">
                                 <div class="slds-form-element__control">
-                                    <ui:inputSelect aura:id="maitriseID" label="Dégré de maitrise" class="slds-select" labelClass="slds-form-element__label">
-                                        <ui:inputSelectOption text="2" label="Niveau 1" />
-                                        <ui:inputSelectOption text="1" label="Niveau 2" />
-                                        <ui:inputSelectOption text="0.5" label="Niveau 3" />
+                                    <ui:inputSelect aura:id="maitriseID" label="{!v.clabels.maitrise__c}" class="slds-select" labelClass="slds-form-element__label">
+                                        <ui:inputSelectOption text="2" label="{!$Label.c.orm_level_select_value+''+1}" />
+                                        <ui:inputSelectOption text="1" label="{!$Label.c.orm_level_select_value+''+2}" />
+                                        <ui:inputSelectOption text="0.5" label="{!$Label.c.orm_level_select_value+''+3}" />
                                     </ui:inputSelect>
                                 </div>
                             </div>
                             <div class="slds-form-element">
                                 <div class="slds-form-element__control">
-                                    <ui:inputTextArea aura:id="description" label="Description" labelClass="slds-form-element__label" value="{!v.item.description__c}" />
+                                    <ui:inputTextArea aura:id="description" label="{!v.clabels.description__c}" labelClass="slds-form-element__label" value="{!v.item.description__c}" />
                                 </div>
                             </div>
    
@@ -124,10 +124,10 @@
                     </div>
                     <!--###### MODAL BOX FOOTER Part Start From Here ######-->
                     <div class="slds-modal__footer">
-                        <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">Annuler</button>
+                        <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
                         <button class="slds-button slds-button--brand" onclick="{!c.createItem}">
                         <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                        ajouter risque</button>
+                       {!$Label.c.add_button_title}</button>
                     </div>
                 </div>
             </div>

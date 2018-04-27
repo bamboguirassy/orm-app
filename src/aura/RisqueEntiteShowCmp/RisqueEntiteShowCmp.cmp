@@ -29,7 +29,7 @@
 						<div class="slds-media__body">
 							<h1
 								class="slds-page-header__title slds-truncate slds-align-middle"
-								title="Liste des plans d'action">
+								title="{!v.item.Risque__r.Name}">
 								<ui:outputText value="{!v.item.Risque__r.Name}" />
 							</h1>
 							<p class="slds-text-body_small slds-line-height_reset"></p>
@@ -37,7 +37,7 @@
 						<div>
 							<button class="btn btn-default"
 								onclick="{!c.navigateToEntiteShow}">
-								<i class="fa fa-rotate-left"></i> Retour
+								<i class="fa fa-rotate-left"></i>{!$Label.c.back_button_title}
 							</button>
 						</div>
 					</div>
@@ -49,7 +49,7 @@
 
 					<!-- 			ligthning tab start -->
 					<lightning:tabset selectedTabId="{!v.selTabId}">
-						<lightning:tab label="DETAILS" id="1">
+						<lightning:tab label="{!$Label.c.detail_menu}" id="1">
 							<!--                             details sur le risque -->
 
 							<div class="slds-grid slds-gutters">
@@ -60,13 +60,12 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Détails
-													risque</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.detail_menu+'
+																	'+v.clabels.label}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Risque
-															detecté</span>
+														<span class="slds-form-element__label">{!v.clabels.label}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <a
 																onclick="{!c.navigateToRisqueShow}">{!v.item.Risque__r.Name}</a>
@@ -75,7 +74,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Description</span>
+														<span class="slds-form-element__label">{!v.clabels.description__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputTextArea value="{!v.item.description__c}" />
 															</span>
@@ -83,7 +82,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Detecté le</span>
+														<span class="slds-form-element__label">{!v.clabels.date_detection__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputDate value="{!v.item.Date_Detection__c}" />
 															</span>
@@ -91,7 +90,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Responsable</span>
+														<span class="slds-form-element__label">{!v.clabels.responsable__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.responsable__r.Name}" />
 															</span>
@@ -99,12 +98,12 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Etat actuel</span>
+														<span class="slds-form-element__label">{!v.clabels.etat__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <aura:if isTrue="{!v.item.etat__c}">
-																	<span class="success">Géré</span>
+																	<span class="success">{!$Label.c.orm_gere_value}</span>
 																	<aura:set attribute="else">
-																		<span class="danger">En cours</span>
+																		<span class="danger">{!$Label.c.orm_en_cours_select_value} </span>
 																	</aura:set>
 																</aura:if>
 															</span>
@@ -113,10 +112,9 @@
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
 														<div class="slds-box">
-															<p>Une fois le risque géré, vous pourrez changer son
-																état</p>
+															<p>{!$Label.c.orm_changer_etat_risque_message}</p>
 															<button class="slds-button slds-button--brand"
-																onclick="{!c.updateRisque}">Changer Etat</button>
+																onclick="{!c.updateRisque}">{!$Label.c.orm_changer_etat_title} </button>
 														</div>
 													</li>
 												</ul>
@@ -132,12 +130,12 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Structure
-													concernée</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.orm_structure_concernee_menu}
+													</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Nom</span>
+														<span class="slds-form-element__label">{!v.clabels.name}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <a
 																onclick="{!c.navigateToEntiteShow}">{!v.item.Entite__r.Name}</a>
@@ -146,7 +144,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Téléphone</span>
+														<span class="slds-form-element__label">{!v.clabels.phone}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputPhone value="{!v.item.Entite__r.Phone}" />
 															</span>
@@ -154,7 +152,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Site Web</span>
+														<span class="slds-form-element__label">{!v.clabels.website}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputURL value="{!v.item.Entite__r.Website}" />
 															</span>
@@ -162,7 +160,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Type</span>
+														<span class="slds-form-element__label">{!v.clabels.type}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Entite__r.Type}" />
 															</span>
@@ -170,7 +168,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Descriptions</span>
+														<span class="slds-form-element__label">{!v.clabels.description}</span>
 														<div class="slds-form-element__control">
 															<span
 																class="slds-form-element__static slds-text-longform">
@@ -207,11 +205,11 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Cotation</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium"> {!$Label.c.orm_cotation_menu} </h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Fréquence</span>
+														<span class="slds-form-element__label">{!v.clabels.frequence__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.frequence__c}" />
 															</span>
@@ -219,7 +217,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Maitrise</span>
+														<span class="slds-form-element__label">{!v.clabels.maitrise__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.maitrise__c}" />
 															</span>
@@ -227,7 +225,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Gravité</span>
+														<span class="slds-form-element__label">{!v.clabels.gravite__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.gravite__c}" />
 															</span>
@@ -235,7 +233,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Criticité</span>
+														<span class="slds-form-element__label">{!v.clabels.criticite__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.criticite__c}" />
 															</span>
@@ -252,35 +250,34 @@
 									</div>
 								</div>
 							</div>
-
 							<!-- 	fin details risque -->
 						</lightning:tab>
-						<lightning:tab label="Mesures Préventives" id="2">
+						<lightning:tab label="{!$Label.c.preventive_measure_menu}" id="2"> 
 							<aura:if isTrue="{!v.item}">
 								<c:MesurePreventionRisqueDetecteListCmp risqueEntite="{!v.item.Id}" risque="{!v.item.Risque__c}" />
 							</aura:if>
 						</lightning:tab>
 
-						<lightning:tab label="Impacts" id="3">
+						<lightning:tab label="{!$Label.c.impact_menu}" id="3">
 							<aura:if isTrue="{!v.item}">
 								<c:ImpactRisqueEntiteListCmp risqueEntite="{!v.item.Id}"
 									risque="{!v.item.Risque__c}" />
 							</aura:if>
 						</lightning:tab>
 
-						<lightning:tab label="Plans d'action" id="4">
+						<lightning:tab label="{!$Label.c.action_plan_menu}" id="4">
 							<!--<c:PlanActionListCmp risqueEntite="{!v.item.Id}" 
 								entite="{!v.item.Entite__c}" />-->
 							<c:PlanActionListCmp risqueEntite="{!v.item}"/>
 
 						</lightning:tab>
 
-						<lightning:tab label="Causes" id="5">
+						<lightning:tab label="{!$Label.c.cause_menu}" id="5">
 							<aura:if isTrue="{!v.item}">
 								<c:CauseRisqueDetecteListCmp risqueEntite="{!v.item.Id}" />
 							</aura:if>
 						</lightning:tab>
-						<lightning:tab label="Entitées affectées" id="6">
+						<lightning:tab label="{!$Label.c.entite_affectee_menu}" id="6">
 							<aura:if isTrue="{!v.item}">
 								<c:EntiteAffecteeListCmp risqueEntite="{!v.item.Id}" />
 							</aura:if>

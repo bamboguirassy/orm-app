@@ -1,7 +1,7 @@
 ({
 
     doInit: function(component, event, helper) {
-
+    	helper.getFieldLabels(component, event);
     },
     editItem: function(component, event, helper) {
 

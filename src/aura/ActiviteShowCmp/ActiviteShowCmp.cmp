@@ -3,6 +3,10 @@
 	<aura:handler action="{!c.doInit}" value="{!this}" name="init" />
 	<aura:registerEvent name="navigateToPlanActionShow"
 		type="c:navigateToPlanActionShow" />
+		<aura:handler event="c:eventNewRiskManagerCreated"
+		action="{!c.refreshShow}" />
+	<aura:registerEvent name="eventEditRiskManagerClicked"
+		type="c:eventEditRiskManagerClicked" description="" />
 	<!--      debut implementation entite -->
 	<div class="slds-grid slds-gutters">
 		<div class="slds-col slds-size_1-of-7"></div>
@@ -217,6 +221,24 @@
 																	</li>
 
 																</ul>
+																<div class="slds-button-group" style="text-align: right"
+																	role="group">
+																	<button onclick="{!c.registerEdit}"
+																		class="slds-button slds-button_success">
+
+																		<span class="slds-text-not-selected"> <c:svg
+																				class="slds-button__icon_stateful slds-button__icon_left"
+																				aria-hidden="true"
+																				xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" /></span>
+																	</button>
+																	<button class="slds-button slds-button_destructive"
+																		onclick="{!c.removeItem}">
+																		<span class="slds-text-not-selected"> <c:svg
+																				class="slds-button__icon_stateful slds-button__icon_left"
+																				aria-hidden="true"
+																				xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" /></span>
+																	</button>
+																</div>
 
 															</div>
 														</div>
@@ -282,5 +304,5 @@
 
 	<!--     fin implementation entite -->
 
-
+<c:ActiviteEditCmp />
 </aura:component>

@@ -1,5 +1,5 @@
 <aura:component controller="MesurePreventionRisqueDetecteController" extends="c:AbstractListCmp">
-    <aura:attribute name="risqueEntite" type="String" description="l'entité à laquelle le risque est associé" required="true" />
+    <aura:attribute name="ParamRisqueEntite" type="String" description="l'entité à laquelle le risque est associé" required="true" />
     <aura:attribute name="risque" type="String" description="risque de l'entité risque" required="true" />
     <aura:attribute name="updatable" type="Boolean" description="updatable" default="true" />
 
@@ -100,8 +100,8 @@
 
                         <footer class="slds-card__footer" style="text-align: left;">
 
-                        <aura:if isTrue="{!v.risqueEntite}">
-                            <c:MesurePreventionRisqueDetecteNewCmp risqueEntite="{!v.risqueEntite}" risque="{!v.risque}" />
+                        <aura:if isTrue="{!v.ParamRisqueEntite}">
+                            <c:MesurePreventionRisqueDetecteNewCmp risqueEntite="{!v.ParamRisqueEntite}"   items="{!v.items}" risque="{!v.risque}" />
                         </aura:if>
                 
                         </footer>

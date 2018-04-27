@@ -28,7 +28,7 @@
 						<div>
 							<button class="btn btn-default"
 								onclick="{!c.navigateToProcessusList}">
-								<i class="fa fa-rotate-left"></i> Retour
+								<i class="fa fa-rotate-left"></i> {!$Label.c.back_button_title}
 							</button>
 						</div>
 					</div>
@@ -51,12 +51,11 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Détails
-													du processus</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.detail_menu}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Intitulé</span>
+														<span class="slds-form-element__label">{!v.clabels.name}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Name}" />
 															</span>
@@ -64,14 +63,14 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Version</span>
+														<span class="slds-form-element__label">{!v.clabels.version__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"><ui:outputText value="{!v.item.version__c}" /> </span>
 														</div>
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Référence</span>
+														<span class="slds-form-element__label">{!v.clabels.reference__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.reference__c}" />
 															</span>
@@ -79,8 +78,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Date
-															Application</span>
+														<span class="slds-form-element__label">{!v.clabels.dateapplication__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"><ui:outputDateTime value="{!v.item.dateApplication__c}" /> </span>
 														</div>
@@ -100,18 +98,18 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Pilotage</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.pilotage_menu}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Pilote</span>
+														<span class="slds-form-element__label">{!v.clabels.pilote__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"><ui:outputText value="{!v.item.pilote__r.Name}" /> </span>
 														</div>
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Copilote</span>
+														<span class="slds-form-element__label">{!v.clabels.copilote__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"><ui:outputText value="{!v.item.copilote__r.Name}" /> </span>
 														</div>
@@ -130,11 +128,11 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Finalité</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.finalite_menu}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Finalité</span>
+														<span class="slds-form-element__label">{!v.clabels.finalite__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"><ui:outputText value="{!v.item.finalite__c}" /> </span>
 														</div>
@@ -144,7 +142,7 @@
 												</ul>
 											</div>
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Structure Propriétaire</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!v.clabels.proprietaire__c}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
@@ -177,45 +175,44 @@
 
 							<!-- 	fin details processus -->
 						</lightning:tab>
-						<lightning:tab label="Risques associés" id="2">
+						<lightning:tab label="{!$Label.c.risque_associe_menu}" id="2">
 							<aura:if isTrue="{!v.item}">
 								<c:ProcessusRisqueListCmp processus="{!v.item}" />
 							</aura:if>
 						</lightning:tab>
-						<lightning:tab label="Parties concernées" id="3">
+						<lightning:tab label="{!$Label.c.partie_concernee_menu}" id="3">
 							<aura:if isTrue="{!v.item}">
 								<c:PartieConcerneeListCmp processus="{!v.item}" />
 							</aura:if>
 						</lightning:tab>
 
-					<lightning:tab label="Processus en entrée" id="4">
+					<lightning:tab label="{!$Label.c.processus_entree_menu}" id="4">
 						<aura:if isTrue="{!v.item}">
 							<c:ProcessusEntreeListCmp processus="{!v.item}" />
 						</aura:if>
 					</lightning:tab>
-					<lightning:tab label="Entités responsable des elements en entrée"
-						id="5">
+					<lightning:tab label="{!$Label.c.entite_responsable_element_entree_menu}" id="5">
 						<aura:if isTrue="{!v.item}">
 							<c:EntiteSourceListCmp processus="{!v.item}" />
 						</aura:if>
 					</lightning:tab>
-					<lightning:tab label="Elements en entrée" id="6">
+					<lightning:tab label="{!$Label.c.element_entree_menu}" id="6">
 						<aura:if isTrue="{!v.item}">
 							<c:ElementEntreeListCmp processus="{!v.item}" />
 						</aura:if>
 					</lightning:tab>
-					<lightning:tab label="Processus en sortie" id="4">
+					<lightning:tab label="{!$Label.c.processus_sortie_menu}" id="4">
 						<aura:if isTrue="{!v.item}">
 							<c:ProcessusSortieListCmp processus="{!v.item}" />
 						</aura:if>
 					</lightning:tab>
-					<lightning:tab label="Entités responsable des elements de sortie"
+					<lightning:tab label="{!$Label.c.entite_responsable_element_sortie_menu}"
 						id="5">
 						<aura:if isTrue="{!v.item}">
 							<c:EntiteSortieListCmp processus="{!v.item}" />
 						</aura:if>
 					</lightning:tab>
-					<lightning:tab label="Elements de sortie" id="6">
+					<lightning:tab label="{!$Label.c.element_sortie_menu}" id="6">
 						<aura:if isTrue="{!v.item}">
 							<c:ElementSortieListCmp processus="{!v.item}" />
 						</aura:if>

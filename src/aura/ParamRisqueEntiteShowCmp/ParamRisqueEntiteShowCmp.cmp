@@ -40,7 +40,7 @@
 										<div>
 											<button class="btn btn-default" onclick="{!c.navigateToParent}">
 												
-												<i class="fa fa-rotate-left"></i> Retour
+												<i class="fa fa-rotate-left"></i> {!$Label.c.back_button_title}
 											</button>
 										</div>
 										
@@ -63,12 +63,12 @@
 
 															<div
 																class="slds-panel__section slds-theme_shade slds-theme_alert-texture">
-																<h3 class="slds-text-heading_small slds-m-bottom_medium">Détails
-																	sur le parametre de suivi de risque</h3>
+																<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.detail_menu+'
+																	'+v.clabels.label}</h3>
 																<ul>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Nom</span>
+																		<span class="slds-form-element__label">{!v.clabels.name}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.risque__r.Name}" />
 																			</span>
@@ -76,7 +76,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Seuil Apparition</span>
+																		<span class="slds-form-element__label">{!v.clabels.seuilapparution__c}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"><ui:outputText value="{!v.item.seuilApparution__c}" /> ( <ui:outputText value="{!v.item.unite__c}" /> ) 
 																			</span>
@@ -84,7 +84,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Etat</span>
+																		<span class="slds-form-element__label">{!v.clabels.apparu__c}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputCheckbox value="{!v.item.apparu__c}" />
 																			</span>
@@ -113,17 +113,18 @@
 											</div>
 											<!-- fin detail sur l'entite-->
 										</lightning:tab>
-										<lightning:tab label="indice de detection" id="2">
+										<lightning:tab label="{!$Label.c.detection_index_menu}" id="2">
 											<aura:if isTrue="{!v.item}">
 											<c:PREtrackerListCmp paramRisqueEntite="{!v.item}" />
 											</aura:if>
 										</lightning:tab>
-										<lightning:tab label="Mesures Préventives" id="3">
+										<lightning:tab label="{!$Label.c.preventive_measure_menu}" id="3">
 											<aura:if isTrue="{!v.item}">
 										<!-- 	mettre ici la liste de mesure preventive -->
+								<c:MesurePreventionRisqueDetecteListCmp ParamRisqueEntite="{!v.item.Id}" risque="{!v.item.Risque__c}" /> 
 											</aura:if>
 										</lightning:tab>
-										<lightning:tab label="Plans d'action" id="4">
+										<lightning:tab label="{!$Label.c.action_plan_menu}" id="4">
 											<aura:if isTrue="{!v.item}">
 											<c:PlanActionPreventifListCmp paramRisqueEntite="{!v.item}" />
 											</aura:if>

@@ -28,11 +28,11 @@
                                     <div class="slds-media__body">
                                         <nav>
                                             <ol class="slds-breadcrumb slds-line-height_reset">
-                                                <li class="slds-breadcrumb__item"><span>Liste des elements en entrée</span></li>
+                                                <li class="slds-breadcrumb__item"><span>{!$Label.c.list_title_label+'
+													'+v.clabels.labelPlural}</span></li>
                                             </ol>
                                         </nav>
-                                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="Nombred'enregistrements ">Nombre
-											d'enregistrements ({!v.items.length})</h1>
+                                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="Nombred'enregistrements ">{!$Label.c.record_count_label}({!v.items.length})</h1>
                                     </div>
                                 </div>
                             </div>
@@ -79,13 +79,13 @@
                                                         </header>
                                                         <div class="slds-einstein-header__actions">
                                                             <div class="slds-button-group" role="group">
-                                                                <a data-index="{!i}" onclick="{!c.removeItem}" class="slds-button slds-button_icon slds-button_icon-border-filled" title="Supprimer" aria-pressed="false">
+                                                                <a data-index="{!i}" onclick="{!c.removeItem}" class="slds-button slds-button_icon slds-button_icon-border-filled" title="{!$Label.c.delete_button_title}" aria-pressed="false">
                                                                     <c:svg class="slds-button__icon" aria-hidden="true" xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
-                                                                    <span class="slds-assistive-text">supp..</span>
+                                                                    <span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
                                                                 </a>
-                                                                <a data-index="{!i}" onclick="{!c.registerEdit}" class="slds-button slds-button_icon slds-button_icon-border-filled" title="Modifier" aria-pressed="false">
+                                                                <a data-index="{!i}" onclick="{!c.registerEdit}" class="slds-button slds-button_icon slds-button_icon-border-filled" title="{!$Label.c.edit_button_title}" aria-pressed="false">
                                                                     <c:svg class="slds-button__icon" aria-hidden="true" xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
-                                                                    <span class="slds-assistive-text">Edit</span>
+                                                                    <span class="slds-assistive-text">{!$Label.c.edit_button_title}</span>
                                                                 </a>
                                                                 
                                                             </div>

@@ -26,9 +26,9 @@
 				</div>
 				<div class="slds-media__body">
 					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
-						title="Liste des plans d'action">Liste des gestionnaires de risque</h1>
-					<p class="slds-text-body_small slds-line-height_reset">Nombre
-						d'enregistrements ({!v.items.length})</p>
+						title="{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}">{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}</h1>
+					<p class="slds-text-body_small slds-line-height_reset">
+						{!$Label.c.record_count_label} ({!v.items.length})</p>
 				</div>
 			</div>
 		</div>
@@ -42,25 +42,25 @@
 					<tr class="slds-text-title_caps">
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-							<div class="slds-truncate" title="Nom">Nom</div>
+							<div class="slds-truncate" title="{!v.clabels.lastname}"> {!v.clabels.lastname}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-							<div class="slds-truncate" title="Prénoms">Prénoms</div>
+							<div class="slds-truncate" title="{!v.clabels.firstname}">{!v.clabels.firstname}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-							<div class="slds-truncate" title="Téléphone">Téléphone</div>
+							<div class="slds-truncate" title="{!v.clabels.phone}">{!v.clabels.phone}</div>
 						</th>
 						<aura:if isTrue="{!v.entite==null}">
 							<th scope="col"
 								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-								<div class="slds-truncate" title="Email">Email</div>
+								<div class="slds-truncate" title="{!v.clabels.email}">{!v.clabels.email}</div>
 							</th>
 						</aura:if>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Stage">Actions</div>
+							<div class="slds-truncate" title="{!$Label.c.table_action_label}">{!$Label.c.table_action_label}</div>
 						</th>
 					</tr>
 				</thead>
@@ -96,29 +96,29 @@
 							</aura:if>
 							<td data-label="Actions"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-								<div class="slds-truncate" title="Actions">
+								<div class="slds-truncate" title="{!$Label.c.table_action_label}">
 									<div class="slds-einstein-header__actions">
 										<div class="slds-button-group" role="group">
 											<a data-index="{!i}" onclick="{!c.navigateToShow}"
 												class="slds-button slds-button_icon slds-button_icon-border-filled"
-												title="afficher" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+												title="{!$Label.c.show_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#preview'}" />
 
-												<span class="slds-assistive-text">Afficher</span>
+												<span class="slds-assistive-text">{!$Label.c.show_button_title}</span>
 											</a> <a data-index="{!i}" onclick="{!c.removeItem}"
 												class="slds-button slds-button_icon slds-button_icon-border-filled"
-												title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+												title="{!$Label.c.delete_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
 
-												<span class="slds-assistive-text">supprimer</span>
+												<span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
 											</a>
 											<aura:if isTrue="{!v.entite}">
 												<a data-index="{!i}" onclick="{!c.registerEdit}"
 													class="slds-button slds-button_icon slds-button_icon-border-filled"
-													title="modifier" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+													title="{!$Label.c.edit_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 														xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
 
-													<span class="slds-assistive-text">Modifier</span>
+													<span class="slds-assistive-text">{!$Label.c.edit_button_title}</span>
 												</a>
 											</aura:if>
 										</div>

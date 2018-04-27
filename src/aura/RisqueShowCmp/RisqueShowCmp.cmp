@@ -6,9 +6,7 @@
     <!-- Evenement pour publier la modification -->
     <aura:registerEvent name="eventEditRisqueClicked" type="c:eventEditRisqueClicked" />
     
-    <aura:handler event="c:eventNewRisqueCreated"  action="{!c.refreshShow}"  />
-    <!--     <button onclick="{!c.navigateToRisqueList}">retour à la liste</button> -->
-    
+    <aura:handler event="c:eventNewRisqueCreated"  action="{!c.refreshShow}"  />    
 	
 
 <div class="slds-grid slds-gutters">
@@ -44,7 +42,7 @@
                                 <div>
 							<button class="btn btn-default"
 								onclick="{!c.navigateToRisqueList}">
-								<i class="fa fa-rotate-left"></i> Retour
+								<i class="fa fa-rotate-left"></i>{!$Label.c.back_button_title} 
 							</button>
 						</div>
                             </div>
@@ -70,18 +68,17 @@
                                                 <div class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
                                                     <div class="slds-panel__section slds-theme_shade slds-theme_alert-texture">
-                                                        <h3 class="slds-text-heading_small slds-m-bottom_medium">Détails
-													risque</h3>
+                                                        <h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.detail_menu+' '+v.clabels.label}</h3>
                                                         <ul>
                                                             <li class="slds-form-element slds-hint-parent slds-border_bottom">
-                                                                <span class="slds-form-element__label">Nom</span>
+                                                                <span class="slds-form-element__label">{!v.clabels.name}</span>
                                                                 <div class="slds-form-element__control">
                                                                     <span class="slds-form-element__static"> <ui:outputText value="{!v.item.Name}" />
 															</span>
                                                                 </div>
                                                             </li>
                                                             <li class="slds-form-element slds-hint-parent slds-border_bottom">
-                                                                <span class="slds-form-element__label">Description</span>
+                                                                <span class="slds-form-element__label">{!v.clabels.description__c}</span>
                                                                 <div class="slds-form-element__control">
                                                                     <span class="slds-form-element__static"> <ui:outputTextArea value="{!v.item.description__c}" />
 															</span>
@@ -116,18 +113,17 @@
                                                 <div class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
                                                     <div class="slds-panel__section slds-theme_shade slds-theme_alert-texture">
-                                                        <h3 class="slds-text-heading_small slds-m-bottom_medium">Catégorie
-													du risque</h3>
+                                                        <h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.categorie_menu}</h3>
                                                         <ul>
                                                             <li class="slds-form-element slds-hint-parent slds-border_bottom">
-                                                                <span class="slds-form-element__label">Nom</span>
+                                                                <span class="slds-form-element__label">{!$Label.c.categorie_menu}</span>
                                                                 <div class="slds-form-element__control">
                                                                     <span class="slds-form-element__static"> <ui:outputText value="{!v.item.categorieRisque__r.Name}" />
 															</span>
                                                                 </div>
                                                             </li>
                                                             <li class="slds-form-element slds-hint-parent slds-border_bottom">
-                                                                <span class="slds-form-element__label">Description</span>
+                                                                <span class="slds-form-element__label">{!v.clabels.description__c}</span>
                                                                 <div class="slds-form-element__control">
                                                                     <span class="slds-form-element__static"> <ui:outputRichText value="{!v.item.categorieRisque__r.Description__c}" />
 															</span>
@@ -148,13 +144,13 @@
                                     <!-- fin detail risques -->
                                 </lightning:tab>
 
-                                <lightning:tab label="Mesures préventives" id="2">
+                                <lightning:tab label="{!$Label.c.preventive_measure_menu}" id="2">
                                     <aura:if isTrue="{!v.item}">
                                         <c:MesurePreventionListCmp risque="{!v.item.Id}" />
                                     </aura:if>
                                 </lightning:tab>
 
-                                <lightning:tab label="Impacts" id="3">
+                                <lightning:tab label="{!$Label.c.impact_menu}" id="3">
                                     <aura:if isTrue="{!v.item}">
                                         <c:ImpactRisqueListCmp risque="{!v.item.Id}" />
                                     </aura:if>
