@@ -24,7 +24,7 @@
 						<div class="slds-media__body">
 							<h1
 								class="slds-page-header__title slds-truncate slds-align-middle"
-								title="Plan d'action">
+								title="{!v.clabels.name}">
 								<ui:outputText value="{!v.item.Name}" />
 							</h1>
 							<p class="slds-text-body_small slds-line-height_reset"></p>
@@ -49,7 +49,7 @@
 																
 							<button class="btn btn-default"
 								onclick="{!c.navigateToProcessusShow}">
-								<i class="fa fa-rotate-left"></i> Retour
+								<i class="fa fa-rotate-left"></i>  {!$Label.c.back_button_title}
 							</button>
 							</div>
 						</div>
@@ -62,35 +62,35 @@
 
 					<!-- 			ligthning tab start -->
 					<lightning:tabset >
-						<lightning:tab label="parties interessées" id="1">
+						<lightning:tab label="{!$Label.c.partie_interessee_menu}" id="1">
 							<aura:if isTrue="{!v.item}">
 								<c:PartieInteresseeListCmp partieConcernee="{!v.item}" />
 							</aura:if>
 
 
 						</lightning:tab>
-						<lightning:tab label="Liste des impacts" id="2">
+						<lightning:tab label="{!$Label.c.impact_menu}" id="2">
 							<aura:if isTrue="{!v.item}">
 								<c:ImpactPCListCmp partieConcernee="{!v.item}" />
 							</aura:if>
 						</lightning:tab>
-						<lightning:tab label="modes de surveillance" id="3">
+						<lightning:tab label="{!$Label.c.mode_surveillance_menu}" id="3">
 							<aura:if isTrue="{!v.item}">
 								<c:ModeSurveillancePCListCmp partieConcernee="{!v.item}" />
 							</aura:if>
 						</lightning:tab>
 
-						<lightning:tab label="Liste des revues" id="4">
+						<lightning:tab label="{!$Label.c.revue_menu}" id="4">
 							<aura:if isTrue="{!v.item}">
 								<c:RevuePCListCmp partieConcernee="{!v.item}" />
 							</aura:if>
 						</lightning:tab>
-						<lightning:tab label="Liste des exigences" id="5">
+						<lightning:tab label="{!$Label.c.exigence_menu}" id="5">
 							<aura:if isTrue="{!v.item}">
 								<c:ExigencePCListCmp partieConcernee="{!v.item}" />
 							</aura:if>
 						</lightning:tab>
-						<lightning:tab label="critères d'éfficacité" id="6">
+						<lightning:tab label="{!$Label.c.critere_efficacite_menu}" id="6">
 							<aura:if isTrue="{!v.item}">
 								<c:CritereEfficacitePCListCmp partieConcernee="{!v.item}" />
 							</aura:if>

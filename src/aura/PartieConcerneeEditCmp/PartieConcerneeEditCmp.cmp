@@ -1,58 +1,72 @@
-<aura:component extends="c:AbstractEditCmp" controller="PartieConcerneeController">
-    <aura:attribute name="item" type="PartieConcernee__c" default="{
+<aura:component extends="c:AbstractEditCmp"
+	controller="PartieConcerneeController">
+	<aura:attribute name="item" type="PartieConcernee__c"
+		default="{
                         'sobjectType': 'PartieConcernee__c',
                         'processus__c': '',
                         'Name': '',
-                    }" required="true" />
-                    
-                    <aura:handler action="{!c.openModal}" event="c:eventEditPartieConcerneeClicked"/>
-   <aura:registerEvent name="newPartieConcerneeAjouter" type="c:eventNewPartieConcerneeCreated" description="" />
+                    }"
+		required="true" />
+	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
 
-    <!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
+	<aura:handler action="{!c.openModal}"
+		event="c:eventEditPartieConcerneeClicked" />
+	<aura:registerEvent name="newPartieConcerneeAjouter"
+		type="c:eventNewPartieConcerneeCreated" description="" />
 
-    <div class="slds-m-around--xx-large">
+	<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
 
-        <!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
-        <aura:if isTrue="{!v.isOpen}">
+	<div class="slds-m-around--xx-large">
 
-            <!--###### MODAL BOX Start From Here ######-->
-            <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
-                <div class="slds-modal__container form-style-6">
-                    <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
-                    <div class="slds-modal__header">
-                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+		<!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
+		<aura:if isTrue="{!v.isOpen}">
+
+			<!--###### MODAL BOX Start From Here ######-->
+			<div role="dialog" tabindex="-1" aria-labelledby="header99"
+				class="slds-modal slds-fade-in-open ">
+				<div class="slds-modal__container form-style-6">
+					<!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+					<div class="slds-modal__header">
+						<button
+							class="slds-button slds-modal__close slds-button--icon-inverse"
+							title="Close" onclick="{!c.closeModel}">
 							X <span class="slds-assistive-text">Close</span>
 						</button>
-                        <h1 id="header99" class="slds-text-heading--medium">Modification
-							</h1>
-                    </div>
-                    <!--###### MODAL BOX BODY Part Start From Here ######-->
-                    <div class="slds-modal__content slds-p-around--medium">
+						<h1 id="header99" class="slds-text-heading--medium">{!$Label.c.edit_title_label+'
+							'+v.clabels.label}
+						</h1>
+					</div>
+					<!--###### MODAL BOX BODY Part Start From Here ######-->
+					<div class="slds-modal__content slds-p-around--medium">
 
 
-                        <!-- CREATE NEW Entite FORM -->
-                        <form class="slds-form--stacked">
-                            <div class="slds-form-element slds-is-required">
-                                <div class="slds-form-element__control">
-                                    <ui:inputText aura:id="libelle" label="Libellé" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Name}" required="true" />
-                                </div>
-                            </div>
-                        </form>
-                        <!-- / CREATE NEW Item FORM -->
+						<!-- CREATE NEW Entite FORM -->
+						<form class="slds-form--stacked">
+							<div class="slds-form-element slds-is-required">
+								<div class="slds-form-element__control">
+									<ui:inputText aura:id="libelle" label="{!v.clabels.name}"
+										class="slds-input" labelClass="slds-form-element__label"
+										value="{!v.item.Name}" required="true" />
+								</div>
+							</div>
+						</form>
+						<!-- / CREATE NEW Item FORM -->
 
-                    </div>
-                    <!--###### MODAL BOX FOOTER Part Start From Here ######-->
-                    <div class="slds-modal__footer">
-                        <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">Annuler</button>
-                        <button class="slds-button slds-button--brand" onclick="{!c.editItem}">
-                         <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                        Editer</button>
-                    </div>
-                </div>
-            </div>
-            <div class="slds-backdrop slds-backdrop--open"></div>
-            <!--###### MODAL BOX Part END Here ######-->
+					</div>
+					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
+					<div class="slds-modal__footer">
+						<button class="slds-button slds-button--neutral"
+							onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
+						<button class="slds-button slds-button--brand"
+							onclick="{!c.editItem}">
+							<i class="fa fa-paper-plane-o" aria-hidden="true"></i>  {!$Label.c.edit_button_title}
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="slds-backdrop slds-backdrop--open"></div>
+			<!--###### MODAL BOX Part END Here ######-->
 
-        </aura:if>
-    </div>
+		</aura:if>
+	</div>
 </aura:component>
