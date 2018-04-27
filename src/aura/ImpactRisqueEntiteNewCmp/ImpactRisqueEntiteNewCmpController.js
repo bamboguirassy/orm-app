@@ -8,7 +8,7 @@
     createItem: function(component, event, helper) {
 
         var newItem = component.get("v.item");
-        newItem.risque_Entite__c = component.get('v.risqueEntite');
+        newItem.risque_Entite__c = component.get('v.risqueEntite').Id;
         newItem.ImpactRisque__c = component.find('impactID').get("v.value");
 
 
@@ -25,18 +25,7 @@
                     // refresh list
                     var evt = $A.get("e.c:eventNewImpactRisqueEntiteCreated");
                     evt.fire();
-                    /*var findAllAction = component.get("c.findAll");
-                    findAllAction.setParam("risqueEntite", component.get('v.risqueEntite'));
-                    findAllAction.setCallback(this, function(response) {
-                        var resStatus = response.getState();
-                        if (resStatus == "SUCCESS") {
-                            component.set("v.items", response.getReturnValue());
-                        } else {
-                            alert("impossible de recuperer la liste aprés ajout");
-                        }
-                    });
-                    $A.enqueueAction(findAllAction);*/
-
+                 
                     component.set("v.item", {
                         'sobjectType': 'Impact_Risque_Entite__c',
                         'mesure_Prevention__c': '',
