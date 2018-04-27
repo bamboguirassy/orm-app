@@ -43,7 +43,7 @@
 
 					<!-- 			ligthning tab start -->
 					<lightning:tabset >
-						<lightning:tab label="DETAILS" id="1">
+						<lightning:tab label="{!$Label.c.detail_menu}" id="1">
 							<!--                             details sur le plan d'	action -->
 
 							<div class="slds-grid slds-gutters">
@@ -193,7 +193,7 @@
 
 							<!-- 	fin details risque -->
 						</lightning:tab>
-						<lightning:tab label="Activités du plan" id="2">
+						<lightning:tab label="{!$Label.c.activite_menu}" id="2">
 							<aura:if isTrue="{!v.item}">
 								<c:ActiviteListCmp planAction="{!v.item}" />
 							</aura:if>
