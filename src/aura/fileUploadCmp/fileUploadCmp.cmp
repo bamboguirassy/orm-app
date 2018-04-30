@@ -22,8 +22,7 @@
 							title="Close" onclick="{!c.closeModelfileUploadCmp}">
 							X <span class="slds-assistive-text">Close</span>
 						</button>
-						<h1 id="header99" class="slds-text-heading--medium">Nouvelle
-							Piece jointe</h1>
+						<h1 id="header99" class="slds-text-heading--medium">{!$Label.c.new_title_label}+' '+{!$Label.c.orm_upload_file}</h1>
 					</div>
 					<!--###### MODAL BOX BODY Part Start From Here ######-->
 					<div class="slds-modal__content slds-p-around--medium">
@@ -46,8 +45,8 @@
 					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
 					<div class="slds-modal__footer">
 						<button class="slds-button slds-button--neutral"
-							onclick="{!c.closeModelfileUploadCmp}">Annuler</button>
-						<button class="slds-button slds-button_brand" onclick="{!c.doSave}">Upload Attachment</button>
+							onclick="{!c.closeModelfileUploadCmp}">{!$Label.c.cancel_button_title}</button>
+						<button class="slds-button slds-button_brand" onclick="{!c.doSave}">{!$Label.c.orm_upload_file}</button>
 					</div>
 				</div>
 			</div>

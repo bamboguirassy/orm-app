@@ -22,9 +22,10 @@
 				</div>
 				<div class="slds-media__body">
 					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
-						title="Liste des plans d'action">Liste des preuves</h1>
-					<p class="slds-text-body_small slds-line-height_reset">Nombre
-						d'enregistrements ({!v.items.length})</p>
+						title="Liste des plans d'action">{!$Label.c.list_title_label+'
+													'+v.clabels.labelPlural}</h1>
+					<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label}
+										({!v.items.length})</p>
 				</div>
 			</div>
 		</div>
@@ -39,7 +40,7 @@
 					<tr class="slds-text-title_caps">
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-							<div class="slds-truncate" title="Nom">Nom</div>
+							<div class="slds-truncate" title="{!v.clabels.name}">{!v.clabels.name}</div>
 						</th>
 					
 					</tr>
@@ -50,7 +51,7 @@
 							<td scope="row" data-label="Libellé"
 								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
 								<div class="slds-truncate" title="{!item.Title}">
-								<a data-index="{!i}"  onclick="{!c.openSingleFile}">{!item.Title}[{!item.ParentId.LinkedEntityId}]</a></div>
+								<a data-index="{!i}"  onclick="{!c.openSingleFile}">{!item.Title}</a></div>
 							</td>
 						
 						</tr>

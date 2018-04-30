@@ -65,6 +65,27 @@ public with sharing class EvidenceController {
         return [SELECT Id,Title,ParentId from ContentDocument where Id IN :idcds ];
 }
 
+	@AuraEnabled
+    public static Map<String,String> getObjectFields(){
+        //variable for storing object field api name and field label
+        Map<String,String> objectFields=new Map<String,String>();
+        //field type
+        String type='Evidence__c';
+        //get field description
+        Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
+        Schema.SObjectType leadSchema = schemaMap.get(type);
+        Map<String, Schema.SObjectField> fieldMap = leadSchema.getDescribe().fields.getMap();
+        objectFields.put('label', SObjectType.Evidence__c.getLabel());
+        objectFields.put('labelPlural', SObjectType.Evidence__c.getLabelPlural());
+        //loop over description
+        for (String fieldName: fieldMap.keySet()) {
+           //fill variable
+            objectFields.put(fieldName, fieldMap.get(fieldName).getDescribe().getLabel());
+        }
+        //return map with fields api name as key and field label as value
+        System.debug('###-result'+objectFields);
+        return objectFields;
+    }
 
 
 }

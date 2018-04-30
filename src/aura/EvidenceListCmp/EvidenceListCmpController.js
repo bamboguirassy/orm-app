@@ -3,6 +3,7 @@
 		if ($A.util.isEmpty(component.get('v.items'))) {
 			helper.refreshList(component, event);
 		}
+		helper.getFieldLabels(component, event);
 		
 	},
 	showformfileUploadNew:function(component,event,helper){
