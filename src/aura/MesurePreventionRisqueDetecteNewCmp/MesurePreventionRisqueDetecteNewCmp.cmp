@@ -46,7 +46,7 @@
                                 <div class="slds-size_4-of-5">
                                     <div class="slds-form-element">
                                         <div class="slds-form-element__control">
-                                            <ui:inputSelect aura:id="mesurePreventionID" label="Mesure de prévention" class="slds-select" labelClass="slds-form-element__label">
+                                            <ui:inputSelect aura:id="mesurePreventionID" label="{!v.clabels.name}" class="slds-select" labelClass="slds-form-element__label">
                                                 <aura:iteration items="{!v.mesurePreventions}" var="mesurePrevention">
                                                     <ui:inputSelectOption text="{!mesurePrevention.Id}" label="{!mesurePrevention.Name}" />
                                                 </aura:iteration>
