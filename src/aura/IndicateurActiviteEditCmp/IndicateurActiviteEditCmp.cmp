@@ -1,5 +1,6 @@
 <aura:component extends="c:AbstractEditCmp"
 	controller="IndicateurActiviteController">
+	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
 	<aura:attribute name="item" type="Indicateur_Activite__c"
 		required="true" />
 <aura:handler action="{!c.openModal}" event="c:eventEditIndicateurActiviteClicked"/>
@@ -19,10 +20,11 @@
 					<div class="slds-modal__header">
 						<button
 							class="slds-button slds-modal__close slds-button--icon-inverse"
-							title="Close" onclick="{!c.closeModel}">
-							X <span class="slds-assistive-text">Close</span>
+							title="{!$Label.c.close_button_title}" onclick="{!c.closeModel}">
+							X <span class="slds-assistive-text">{!$Label.c.close_button_title}</span>
 						</button>
-						<h1 id="header99" class="slds-text-heading--medium">Modification
+						<h1 id="header99" class="slds-text-heading--medium">{!$Label.c.edit_title_label+'
+							'+v.clabels.label}
 						</h1>
 					</div>
 					<!--###### MODAL BOX BODY Part Start From Here ######-->
@@ -34,7 +36,7 @@
 
 							<div class="slds-form-element slds-is-required">
 								<div class="slds-form-element__control">
-									<ui:inputText aura:id="nom" label="Nom" class="slds-input"
+									<ui:inputText aura:id="nom" label="{!v.clabels.name}" class="slds-input"
 										labelClass="slds-form-element__label" value="{!v.item.Name}"
 										required="true" />
 								</div>
@@ -42,7 +44,7 @@
 
 							<div class="slds-form-element">
 								<div class="slds-form-element__control">
-									<ui:inputTextArea aura:id="description" label="Description"
+									<ui:inputTextArea aura:id="description" label="{!v.clabels.description__c}"
 										class="slds-input" labelClass="slds-form-element__label"
 										value="{!v.item.description__c}" />
 
@@ -57,10 +59,10 @@
 					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
 					<div class="slds-modal__footer">
 						<button class="slds-button slds-button--neutral"
-							onclick="{!c.closeModel}">Annuler</button>
+							onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
 						<button class="slds-button slds-button--brand"
 							onclick="{!c.editItem}">
-							<i class="fa fa-paper-plane-o" aria-hidden="true"></i>Editer
+							<i class="fa fa-paper-plane-o" aria-hidden="true"></i>{!$Label.c.update_button_title}
 						</button>
 					</div>
 				</div>
