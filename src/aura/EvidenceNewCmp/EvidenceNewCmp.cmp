@@ -32,8 +32,7 @@
 							title="Close" onclick="{!c.closeModelEvidenceNewCmp}">
 							X <span class="slds-assistive-text">Close</span>
 						</button>
-						<h1 id="header99" class="slds-text-heading--medium">Nouvelle
-							Preuve</h1>
+						<h1 id="header99" class="slds-text-heading--medium">{!$Label.c.new_title_label+' '+v.clabels.label}</h1>
 					</div>
 					<!--###### MODAL BOX BODY Part Start From Here ######-->
 					<div class="slds-modal__content slds-p-around--medium">
@@ -45,7 +44,7 @@
 								<div class="slds-col">
 									<div class="slds-form-element slds-is-required">
 										<div class="slds-form-element__control">
-											<ui:inputText aura:id="nom" label="Nom preuve"
+											<ui:inputText aura:id="nom" label="{!v.clabels.name}"
 										class="slds-input" labelClass="slds-form-element__label"
 										value="{!v.item.Name}" />
 										</div>
@@ -53,7 +52,7 @@
 									
 									<div class="slds-form-element">
 										<div class="slds-form-element__control slds-is-required">
-										<ui:inputURL aura:id="webressource" label="Web ressource"
+										<ui:inputURL aura:id="webressource" label="{!v.clabels.webressource__c}"
 										class="slds-input" labelClass="slds-form-element__label"
 										value="{!v.item.webRessource__c}"  />
 										</div>
@@ -61,7 +60,7 @@
 									
 									<div class="slds-form-element" >
 										<div class="slds-form-element__control">
-											<ui:inputTextArea aura:id="description" label="Description"
+											<ui:inputTextArea aura:id="description" label="{!v.clabels.description__c}"
 										class="slds-input" labelClass="slds-form-element__label"
 										value="{!v.item.description__c}" />
 										</div>
@@ -77,10 +76,10 @@
 					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
 					<div class="slds-modal__footer">
 						<button class="slds-button slds-button--neutral"
-							onclick="{!c.closeModelEvidenceNewCmp}">Annuler</button>
+							onclick="{!c.closeModelEvidenceNewCmp}">{!$Label.c.cancel_button_title}</button>
 						<button class="slds-button slds-button--brand"
 							onclick="{!c.createItem}">
-							<i class="fa fa-paper-plane-o" aria-hidden="true"></i> Ajouter
+							<i class="fa fa-paper-plane-o" aria-hidden="true"></i> {!$Label.c.add_button_title}
 						</button>
 					</div>
 				</div>

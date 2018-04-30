@@ -34,7 +34,7 @@
                 <div class="slds-modal__container form-style-6">
                     <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
                     <div class="slds-modal__header">
-                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="{!$Label.c.close_button_title}" onclick="{!c.closeModel}">
                          X <span class="slds-assistive-text">{!$Label.c.close_button_title}</span>
                      </button>
                      <h1 id="header99" class="slds-text-heading--medium">{!$Label.c.new_title_label+' '+v.clabels.label}</h1>

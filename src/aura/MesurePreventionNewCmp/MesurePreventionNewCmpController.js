@@ -17,7 +17,6 @@
         }
         if (isItemValid) {
             var newItem = component.get("v.item");
-            alert(JSON.stringify(newItem));
             newItem.CategorieMesurePrevention__c = component.find("categorieMesurePreventionId").get("v.value");
             newItem.Risque__c=component.get('v.risque');
             var action = component.get('c.add');
@@ -30,7 +29,6 @@
                     function(response) {
                         var state = response.getState();
                         if (state == "SUCCESS") {
-                            alert(JSON.stringify(response.getReturnValue()));
                             var evt = $A.get("e.c:eventNewMesurePreventionCreated");
                             evt.fire();
                             component.set("v.item", {

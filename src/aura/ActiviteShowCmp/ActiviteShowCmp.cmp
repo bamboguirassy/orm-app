@@ -43,7 +43,7 @@
 										<div>
 											<button class="btn btn-default"
 												onclick="{!c.navigateToPlanActionShow}">
-												<i class="fa fa-rotate-left"></i> Retour
+												<i class="fa fa-rotate-left"></i> {!$Label.c.back_button_title}
 											</button>
 										</div>
 									</div>
@@ -60,7 +60,7 @@
 								<div class="slds-grid slds-wrap  slds-size_1-of-1">
 									<!-- debut tab -->
 									<lightning:tabset >
-										<lightning:tab label="Description " id="1">
+										<lightning:tab label="{!$Label.c.description_menu}" id="1">
 											<!-- detail entite -->
 											<!-- 											debut -->
 
@@ -77,12 +77,14 @@
 															<div class="slds-panel__section">
 
 																<h3 class="slds-text-heading_small slds-m-bottom_medium">
-																	Description de l'activité</h3>
+																{!$Label.c.description_menu+'
+																	'+v.clabels.label}
+																	</h3>
 																<ul>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
 																		<span class="slds-form-element__label">
-																			Intitule </span>
+																			{!v.clabels.name} </span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Name}" />
 																			</span>
@@ -90,7 +92,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Date:</span>
+																		<span class="slds-form-element__label">{!v.clabels.date__c}:</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputDateTime value="{!v.item.date__c}" />
 																			</span>
@@ -98,7 +100,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Délai</span>
+																		<span class="slds-form-element__label">{!v.clabels.delai__c}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputDateTime value="{!v.item.delai__c}" />
 																			</span>
@@ -106,7 +108,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Type</span>
+																		<span class="slds-form-element__label">{!v.clabels.type__c}</span>
 																		<div class="slds-form-element__control">
 																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.type__c}" />
 																			</span>
@@ -114,7 +116,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Statut</span>
+																		<span class="slds-form-element__label">{!v.clabels.statut__c}</span>
 																		<div class="slds-form-element__control">
 																			<span
 																				class="slds-form-element__static slds-text-longform">
@@ -125,7 +127,7 @@
 
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label"> Coût</span>
+																		<span class="slds-form-element__label"> {!v.clabels.cout__c}</span>
 																		<div class="slds-form-element__control">
 																			<span
 																				class="slds-form-element__static slds-text-longform">
@@ -148,11 +150,11 @@
 															class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 															<div class="slds-panel__section">
-																<h3 class="slds-text-heading_small slds-m-bottom_medium">Responsable</h3>
+																<h3 class="slds-text-heading_small slds-m-bottom_medium">{!v.clabels.contactActivite}</h3>
 																<ul>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Nom</span>
+																		<span class="slds-form-element__label">{!v.clabels.contactActivite}</span>
 																		<div class="slds-form-element__control">
 																			<span
 																				class="slds-form-element__static slds-text-longform">
@@ -162,7 +164,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Email</span>
+																		<span class="slds-form-element__label">{!v.clabels.email}</span>
 																		<div class="slds-form-element__control">
 																			<span
 																				class="slds-form-element__static slds-text-longform">
@@ -184,12 +186,12 @@
 															class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 															<div class="slds-panel__section">
-																<h3 class="slds-text-heading_small slds-m-bottom_medium">Plan
-																	d'action</h3>
+																<h3 class="slds-text-heading_small slds-m-bottom_medium">{!v.clabels.plan}
+																	</h3>
 																<ul>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Nom</span>
+																		<span class="slds-form-element__label">{!v.clabels.plan}</span>
 																		<div class="slds-form-element__control">
 																			<span
 																				class="slds-form-element__static slds-text-longform">
@@ -200,8 +202,7 @@
 
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Date de
-																			détection</span>
+																		<span class="slds-form-element__label">{!v.clabels.date_commencement__c}</span>
 																		<div class="slds-form-element__control">
 																			<span
 																				class="slds-form-element__static slds-text-longform">
@@ -211,7 +212,7 @@
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
-																		<span class="slds-form-element__label">Echeancier</span>
+																		<span class="slds-form-element__label">{!v.clabels.echancier__c}</span>
 																		<div class="slds-form-element__control">
 																			<span
 																				class="slds-form-element__static slds-text-longform">
@@ -259,20 +260,20 @@
 											<!-- fin detail sur l'entite-->
 										</lightning:tab>
 
-										<lightning:tab label="indicateurs de l'activité" id="2">
+										<lightning:tab label="{!$Label.c.indicateur_menu}" id="2">
 											<aura:if isTrue="{!v.item}">
 												<c:IndicateurActiviteListCmp activite="{!v.item.Id}" />
 											</aura:if>
 										</lightning:tab>
 
-										<lightning:tab label="mesures de l'activité" id="3">
+										<lightning:tab label="{!$Label.c.mesure_menu}" id="3">
 											<aura:if isTrue="{!v.item}">
                                                 <c:MesureActiviteListCmp activite="{!v.item.Id}" /> 
 											</aura:if>
 
 										</lightning:tab>
 
-		                               <lightning:tab label="Preuves de l'activité" id="4">
+		                               <lightning:tab label="{!$Label.c.preuve_menu}" id="4">
 											<aura:if isTrue="{!v.item}"> 
 												<c:EvidenceListByActivityCmp activite="{!v.item.Id}" />
 											</aura:if> 

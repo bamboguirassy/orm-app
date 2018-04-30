@@ -1,5 +1,6 @@
 ({
 doInit : function(component, event, helper) {
+
 		var action = component.get('c.findAll');
 		 action.setParams({
                                 'mesure': component
@@ -14,6 +15,7 @@ doInit : function(component, event, helper) {
 			}
 		});
 		$A.enqueueAction(action);
+		helper.getFieldLabels(component, event);
 
 	},
 

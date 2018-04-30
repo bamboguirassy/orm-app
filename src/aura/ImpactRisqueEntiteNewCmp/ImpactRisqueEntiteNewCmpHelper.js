@@ -1,6 +1,5 @@
 ({
 	refreshList : function(component, event) {
-	alert(component.get('v.risqueEntite').Risque__c)
 		var action = component.get("c.getImpacts");
         //action.setParam('risque', component.get('v.risque'));
         action.setParam('risque', component.get('v.risqueEntite').Risque__c);
