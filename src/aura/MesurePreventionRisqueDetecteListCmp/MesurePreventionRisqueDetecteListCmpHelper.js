@@ -1,8 +1,8 @@
 ({
     refreshList: function(component, event) {
         var action = component.get("c.findAll");
-        action.setParam("ParamRisqueEntite", component.get('v.ParamRisqueEntite'));
-        if (component.get('v.ParamRisqueEntite')) {
+        action.setParam("ParamRisqueEntite", component.get('v.paramRisqueEntite').Id);
+        if (component.get('v.paramRisqueEntite')) {
             action
                 .setCallback(
                     this,

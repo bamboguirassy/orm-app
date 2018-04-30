@@ -6,10 +6,8 @@
                     }" />
      <aura:handler action="{!c.doInit}" value="{!this}" name="init" />
      <aura:handler event="c:eventNewMesurePreventionCreated" action="{!c.refreshListMesurePrevention}" />
-                    
-    <aura:attribute name="risqueEntite" type="String" description="entite auquelest rattaché l'utilisateur" required="true" />
+    <aura:attribute name="paramRisqueEntite" type="ParamRisqueEntite__c" description="param risque entité lié" />                
     <aura:attribute name="mesurePreventions" type="Mesure_Prevention__c[]" description="liste des mesures de prévention" />
-    <aura:attribute name="risque" type="String" description="" required="true" />
 
     <!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
     <div class="slds-m-around--xx-large">
@@ -33,10 +31,10 @@
                 <div class="slds-modal__container form-style-6">
                     <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
                     <div class="slds-modal__header">
-                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
-							X <span class="slds-assistive-text">Close</span>
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="{!$Label.c.close_button_title}" onclick="{!c.closeModel}">
+							X <span class="slds-assistive-text">{!$Label.c.close_button_title}</span>
 						</button>
-                        <h1 id="header99" class="slds-text-heading--medium">Nouvelle mesure de prévention </h1>
+                        <h1 id="header99" class="slds-text-heading--medium">{!$Label.c.new_title_label+' '+v.clabels.label} </h1>
                     </div>
                     <!--###### MODAL BOX BODY Part Start From Here ######-->
                     <div class="slds-modal__content slds-p-around--medium">
@@ -57,7 +55,7 @@
                                     </div>
                                 </div>
                                 <div class="slds-size_1-of-5" style="margin-top:21px">
-                                    <c:MesurePreventionNewCmp inMesurePreventionList="false" />
+                                    <c:MesurePreventionNewCmp inMesurePreventionList="false" risque="{!v.paramRisqueEntite.risque__c}" /> 
                                 </div>
                             </div>
 
@@ -67,10 +65,10 @@
                     </div>
                     <!--###### MODAL BOX FOOTER Part Start From Here ######-->
                     <div class="slds-modal__footer">
-                        <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">Annuler</button>
+                        <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
                         <button class="slds-button slds-button--brand" onclick="{!c.createItem}">
                         <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                        ajouter</button>
+                        {!$Label.c.add_button_title}</button>
                     </div>
                 </div>
             </div>

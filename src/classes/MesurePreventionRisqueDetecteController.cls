@@ -26,13 +26,13 @@ public with sharing class MesurePreventionRisqueDetecteController {
         //variable for storing object field api name and field label
         Map<String,String> objectFields=new Map<String,String>();
         //field type
-        String type='Contact';
+        String type='Mesure_Prevention_Risque_Detecte__c';
         //get field description
         Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
         Schema.SObjectType leadSchema = schemaMap.get(type);
         Map<String, Schema.SObjectField> fieldMap = leadSchema.getDescribe().fields.getMap();
-        objectFields.put('label', SObjectType.Contact.getLabel());
-        objectFields.put('labelPlural', SObjectType.Contact.getLabelPlural());
+        objectFields.put('label', SObjectType.Mesure_Prevention_Risque_Detecte__c.getLabel());
+        objectFields.put('labelPlural', SObjectType.Mesure_Prevention_Risque_Detecte__c.getLabelPlural());
         //loop over description
         for (String fieldName: fieldMap.keySet()) {
            //fill variable
