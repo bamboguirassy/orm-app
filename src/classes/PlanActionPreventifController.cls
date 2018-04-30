@@ -65,7 +65,11 @@ public with sharing class PlanActionPreventifController {
         //loop over description
         for (String fieldName: fieldMap.keySet()) {
            //fill variable
-            objectFields.put(fieldName, fieldMap.get(fieldName).getDescribe().getLabel());
+           String name = fieldName;
+           if(fieldName =='name'){
+           		name = fieldName + 'Manager';
+           }
+           objectFields.put(name, fieldMap.get(fieldName).getDescribe().getLabel());
         }
       objectFields.put('risqueLabel', SObjectType.Risque__c.getLabel());
         //return map with fields api name as key and field label as value
