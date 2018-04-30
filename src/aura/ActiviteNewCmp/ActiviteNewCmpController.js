@@ -1,10 +1,10 @@
 ({
 	doInit : function(component, event, helper) {
 		helper.getFieldLabels(component, event);
-		statuts = [ 'Non fait', 'En cours', 'Fait' ];
+		/*statuts = [ 'Non fait', 'En cours', 'Fait' ];
 		types = [ 'corrective', 'prévention', 'correction' ];
 		component.set('v.statuts', statuts);
-		component.set('v.types', types);
+		component.set('v.types', types);*/
 
 		var action = component.get("c.findUserEntites");
 		// action.setParam("entite", component.get('v.entite'));

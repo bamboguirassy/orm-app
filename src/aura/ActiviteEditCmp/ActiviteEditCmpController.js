@@ -1,6 +1,7 @@
 ({
 
 	openModal : function(component, event, helper) {
+	helper.getFieldLabels(component, event);
 		// recuperer l'élément avec l'Id
 		helper.openModal(component);
 		var action = component.get('c.getElementById');
@@ -13,11 +14,11 @@
 								component.set('v.item', response
 										.getReturnValue());
 								// contenu du doInit
-								statuts = [ 'Non fait', 'En cours', 'Fait' ];
+								/*statuts = [ 'Non fait', 'En cours', 'Fait' ];
 								types = [ 'corrective', 'prévention',
 										'correction' ];
 								component.set('v.statuts', statuts);
-								component.set('v.types', types);
+								component.set('v.types', types);*/
 
 								var actionUser = component
 										.get("c.findUserEntites");
