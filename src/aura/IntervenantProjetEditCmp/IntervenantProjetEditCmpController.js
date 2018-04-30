@@ -1,6 +1,7 @@
 ({
 
 	doInit : function(component, event, helper) {
+		helper.getFieldLabels(component, event);
 		var action = component.get('c.getIntervenantsEdit');
 		action.setParams({
 			'structureId' : component.get('v.projet').Structure__c,
@@ -10,8 +11,7 @@
 		action.setCallback(this, function(response) {
 			var state = response.getState();
 			if (state == "SUCCESS") {
-				component.set("v.intervenants", response.getReturnValue());
-				
+				component.set("v.intervenants", response.getReturnValue());				
 			} else {
 				helper.showToast("ERREUR",
 						"Impossible de recuperer la liste des intervenants",
@@ -19,7 +19,6 @@
 			}
 		});
 		$A.enqueueAction(action);
-
 	},
 	
 	editItem : function(component, event, helper) {
