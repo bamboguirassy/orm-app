@@ -55,7 +55,21 @@ public with sharing class IntervenantProjetController {
             objectFields.put(fieldName, fieldMap.get(fieldName).getDescribe().getLabel());
         }
         //return map with fields api name as key and field label as value
-        System.debug('###-result'+objectFields);
+        System.debug('###-result'+objectFields);      
+        
+        //field type
+        type='Contact';
+        //get field description
+        leadSchema = schemaMap.get(type);
+        fieldMap = leadSchema.getDescribe().fields.getMap();
+        objectFields.put('labelIntervenant', SObjectType.Contact.getLabel());
+        objectFields.put('labelPluralIntervenant', SObjectType.Contact.getLabelPlural());
+        //loop over description
+        for (String fieldName: fieldMap.keySet()) {
+           //fill variable
+            objectFields.put(fieldName, fieldMap.get(fieldName).getDescribe().getLabel());
+        }
+        
         return objectFields;
     }
 }

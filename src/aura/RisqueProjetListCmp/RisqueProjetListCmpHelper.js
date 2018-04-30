@@ -15,10 +15,8 @@
                         } else {
                             alert("Impossible de recuperer la liste des risques detectés");
                         }
-
                     });
             $A.enqueueAction(action);
         }
     }
-
 })

@@ -1,21 +1,21 @@
 ({
 	doInit: function(component, event, helper) {
-        var action = component.get('c.getIntervenants');
-    action.setParams({'structureId': component.get('v.projet').Structure__c});
-    action
-        .setCallback(
-            this,
-            function(response) {
-                var state = response.getState();
-                if (state == "SUCCESS") {
-                    component.set("v.intervenants", response
-                        .getReturnValue());
-                } else {
-                    helper.showToast("ERREUR","Impossible de recuperer la liste des intervenants","error");
-                }
-            });
-    $A.enqueueAction(action);
-
+		helper.getFieldLabels(component, event);
+	    var action = component.get('c.getIntervenants');
+	    action.setParams({'structureId': component.get('v.projet').Structure__c});
+	    action
+	        .setCallback(
+	            this,
+	            function(response) {
+	                var state = response.getState();
+	                if (state == "SUCCESS") {
+	                    component.set("v.intervenants", response
+	                        .getReturnValue());
+	                } else {
+	                    helper.showToast("ERREUR","Impossible de recuperer la liste des intervenants","error");
+	                }
+	            });
+	    $A.enqueueAction(action);
 },
 createItem: function(component, event, helper) {
     var roleField = component.find("role");
