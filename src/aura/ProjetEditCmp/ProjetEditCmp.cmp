@@ -96,8 +96,10 @@
 										<div class="slds-form-element__control">
 											<ui:inputSelect aura:id="etatID" label="{!v.clabels.etat__c}"
 												class="slds-select" labelClass="slds-form-element__label">
-												<ui:inputSelectOption text="En cours" label="En cours" value="{!v.item.Etat__c=='En cours'}" />
-												<ui:inputSelectOption text="Terminé" label="Terminé" value="{!v.item.Etat__c=='Terminé'}"/>
+												<ui:inputSelectOption text="{!$Label.c.orm_en_cours_select_value}" label="{!$Label.c.orm_en_cours_select_value}" 
+													value="{!v.item.Etat__c== $Label.c.orm_en_cours_select_value}" />
+												<ui:inputSelectOption text="{!$Label.c.orm_termine_select_value}" label="{!$Label.c.orm_termine_select_value}" 
+													value="{!v.item.Etat__c== $Label.c.orm_termine_select_value}"/>
 
 											</ui:inputSelect>
 
