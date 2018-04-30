@@ -1,6 +1,5 @@
 <aura:component controller="MesurePreventionRisqueDetecteController" extends="c:AbstractListCmp">
-    <aura:attribute name="ParamRisqueEntite" type="String" description="l'entité à laquelle le risque est associé" required="true" />
-    <aura:attribute name="risque" type="String" description="risque de l'entité risque" required="true" />
+    <aura:attribute name="paramRisqueEntite" type="ParamRisqueEntite__c" description="param risque entité lié" />  
     <aura:attribute name="updatable" type="Boolean" description="updatable" default="true" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 	<aura:handler event="c:eventNewMesurePreventionCreated"  action="{!c.refreshList}" />
@@ -27,12 +26,12 @@
                                     <div class="slds-media__body">
                                         <nav>
                                             <ol class="slds-breadcrumb slds-line-height_reset">
-                                                <li class="slds-breadcrumb__item"><span>Liste des mesures de prévention</span>
+                                                <li class="slds-breadcrumb__item"><span>{!$Label.c.list_title_label+' '+v.clabels.labelPlural}</span>
                                                 </li>
                                             </ol>
                                         </nav>
-                                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="Nombred'enregistrements ">
-                                        Nombre d'enregistrements ({!v.items.length})
+                                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="{!$Label.c.record_count_label}">
+                                        {!$Label.c.record_count_label} ({!v.items.length})
 										</h1>
 
                                     </div>
@@ -74,10 +73,10 @@
                                                     <div class="slds-einstein-header__actions">
                                                         <div class="slds-button-group" role="group">
                                                          
-                                                            <a data-index="{!i}" onclick="{!c.removeItem}" class="slds-button slds-button_icon slds-button_icon-border-filled" title="Supprimer" aria-pressed="false">
+                                                            <a data-index="{!i}" onclick="{!c.removeItem}" class="slds-button slds-button_icon slds-button_icon-border-filled" title="{!$Label.c.delete_button_title}" aria-pressed="false">
                                                                 <c:svg class="slds-button__icon" aria-hidden="true" xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
 
-                                                                <span class="slds-assistive-text">supp..</span>
+                                                                <span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
                                                             </a>
 
                                                         </div>
@@ -99,14 +98,11 @@
 
                         <footer class="slds-card__footer" style="text-align: left;">
 
-                        <aura:if isTrue="{!v.RisqueEntite}">
-                            <c:MesurePreventionRisqueDetecteNewCmp risqueEntite="{!v.ParamRisqueEntite}"   items="{!v.items}" risque="{!v.risque}" />
+                        <aura:if isTrue="{!v.paramRisqueEntite}">
+                            <c:MesurePreventionRisqueDetecteNewCmp paramRisqueEntite="{!v.paramRisqueEntite}"/>
                         </aura:if>
                 
                         </footer>
-                        <!--<aura:if isTrue="{!v.risqueEntite}">
-                        <c:MesurePreventionNewCmp items="{!v.items}" risque="{!v.risque}" />
-                        </aura:if>-->
                     </div>
 
 
