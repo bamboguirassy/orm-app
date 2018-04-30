@@ -1,5 +1,6 @@
 ({
     doInit : function(component, event, helper) {
+    helper.getFieldLabels(component, event);
         var action = component.get('c.findUserEntites');
         action.setParams({
             //'entite' : component.get('v.entite')

@@ -9,12 +9,11 @@
 	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
     <aura:handler event="c:eventNewImpactRisqueCreated" action="{!c.refreshListImpactRisqueEntite}" />
 
-	<aura:attribute name="risqueEntite" type="String"
-		description="entite auquelest rattaché l'utilisateur" required="true" />
+    <aura:attribute name="risqueEntite" type="Risque_Entite__c" description="risque lié"/> 
+	
 	<aura:attribute name="impacts" type="Impact__c[]"
 		description="liste des impacts" />
-	<aura:attribute name="risque" type="String" description=""
-		required="true" />
+	<aura:attribute name="risque" type="String" description=""/>
 	<aura:registerEvent name="NewImpactRisqueEntiteCreated" type="c:eventNewImpactRisqueEntiteCreated" />
 
 	<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
@@ -72,15 +71,9 @@
 							        </div>
                                 </div>
                                 <div class="slds-size_1-of-5">
-                                    <c:ImpactRisqueNewCmp inImpactRisqueListCmp="false" risque="{!v.risque}" />
+                                    <c:ImpactRisqueNewCmp inImpactRisqueListCmp="false" risque="{!v.risqueEntite.Risque__c}" />
                                 </div>
                             </div>
-
-
-
-
-
-							
 
 						</form>
 						<!-- / CREATE NEW Item FORM -->

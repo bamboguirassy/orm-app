@@ -252,32 +252,23 @@
 							</div>
 							<!-- 	fin details risque -->
 						</lightning:tab>
-<!-- 						<lightning:tab label="{!$Label.c.preventive_measure_menu}" id="2">  -->
-<!-- 							<aura:if isTrue="{!v.item}"> -->
-<!-- 								<c:MesurePreventionRisqueDetecteListCmp risqueEntite="{!v.item.Id}" risque="{!v.item.Risque__c}" /> -->
-<!-- 							</aura:if> -->
-<!-- 						</lightning:tab> -->
 
-						<lightning:tab label="{!$Label.c.impact_menu}" id="3">
+						<lightning:tab label="{!$Label.c.impact_menu}" id="2">
 							<aura:if isTrue="{!v.item}">
-								<c:ImpactRisqueEntiteListCmp risqueEntite="{!v.item.Id}"
-									risque="{!v.item.Risque__c}" />
+							<c:ImpactRisqueEntiteListCmp risqueEntite="{!v.item}"/>
 							</aura:if>
 						</lightning:tab>
 
-						<lightning:tab label="{!$Label.c.action_plan_menu}" id="4">
-							<!--<c:PlanActionListCmp risqueEntite="{!v.item.Id}" 
-								entite="{!v.item.Entite__c}" />-->
+						<lightning:tab label="{!$Label.c.action_plan_menu}" id="3">
 							<c:PlanActionListCmp risqueEntite="{!v.item}"/>
-
 						</lightning:tab>
 
-						<lightning:tab label="{!$Label.c.cause_menu}" id="5">
+						<lightning:tab label="{!$Label.c.cause_menu}" id="4">
 							<aura:if isTrue="{!v.item}">
 								<c:CauseRisqueDetecteListCmp risqueEntite="{!v.item.Id}" />
 							</aura:if>
 						</lightning:tab>
-						<lightning:tab label="{!$Label.c.entite_affectee_menu}" id="6">
+						<lightning:tab label="{!$Label.c.entite_affectee_menu}" id="5">
 							<aura:if isTrue="{!v.item}">
 								<c:EntiteAffecteeListCmp risqueEntite="{!v.item.Id}" />
 							</aura:if>

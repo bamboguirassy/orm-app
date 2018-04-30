@@ -214,6 +214,10 @@
 										<lightning:tab label="{!$Label.c.processus_menu}" id="4">
 											<c:ProcessusListByRiskManager idRiskManager="{!v.item.Id}" />
 										</lightning:tab>
+										
+										<lightning:tab label="{!$Label.c.detected_risk_menu}" id="5">
+											<c:DisplayRiskDetetedByRiskManager riskManager="{!v.item}" />
+										</lightning:tab>
 
 
 									</lightning:tabset>

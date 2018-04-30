@@ -8,7 +8,7 @@ public with sharing class PlanActionController {
     
     @AuraEnabled
 	public static List<Plan_Action__c> findAllByRisqueEntite(String risqueEntite){
-		return [SELECT Id,commentaire__c,date_commencement__c,echeancier__c,etat__c,gestionnaire__r.Name,Name,gestionnaire__c,risque_Entite__c,risque_Entite__r.Entite__c FROM Plan_Action__c where risque_Entite__c=:risqueEntite and RecordTypeId=:PlanActionController.getPlanActionCorrectifRecordTypeId() order by Name];
+		return [SELECT Id,commentaire__c,date_commencement__c,echeancier__c,etat__c,gestionnaire__r.Name,gestionnaire__r.Phone,Name,gestionnaire__c,risque_Entite__c,risque_Entite__r.Entite__c FROM Plan_Action__c where risque_Entite__c=:risqueEntite and RecordTypeId=:PlanActionController.getPlanActionCorrectifRecordTypeId() order by Name];
 	}
 	
 	@AuraEnabled
@@ -59,6 +59,16 @@ public with sharing class PlanActionController {
            //fill variable
             objectFields.put(fieldName, fieldMap.get(fieldName).getDescribe().getLabel());
         }
+         //get field description
+       	type='Contact';
+         leadSchema = schemaMap.get(type);
+         fieldMap = leadSchema.getDescribe().fields.getMap();
+        //loop over description
+        for (String fieldName: fieldMap.keySet()) {
+           //fill variable
+            objectFields.put(fieldName, fieldMap.get(fieldName).getDescribe().getLabel());
+        }
+      objectFields.put('risqueLabel', SObjectType.Risque__c.getLabel());
         //return map with fields api name as key and field label as value
         System.debug('###-result'+objectFields);
         return objectFields;
