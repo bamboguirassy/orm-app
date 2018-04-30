@@ -1,5 +1,6 @@
 ({
 	doInit : function(component, event, helper) {
+		helper.getFieldLabels(component, event);
 		statuts = [ 'Non fait', 'En cours', 'Fait' ];
 		types = [ 'corrective', 'prévention', 'correction' ];
 		component.set('v.statuts', statuts);

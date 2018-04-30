@@ -53,11 +53,10 @@
 					<div class="slds-modal__header">
 						<button
 							class="slds-button slds-modal__close slds-button--icon-inverse"
-							title="Close" onclick="{!c.closeModel}">
-							X <span class="slds-assistive-text">Close</span>
+							title="{!$Label.c.close_button_title}" onclick="{!c.closeModel}">
+							X <span class="slds-assistive-text">{!$Label.c.close_button_title}</span>
 						</button>
-						<h1 id="header99" class="slds-text-heading--medium">Nouvelle
-							activité</h1>
+						<h1 id="header99" class="slds-text-heading--medium">{!$Label.c.new_title_label+' '+v.clabels.label}</h1>
 					</div>
 					<!--###### MODAL BOX BODY Part Start From Here ######-->
 					<div class="slds-modal__content slds-p-around--medium">
@@ -69,14 +68,14 @@
 								<div class="slds-col">
 									<div class="slds-form-element slds-is-required">
 										<div class="slds-form-element__control">
-											<ui:inputText aura:id="libelle" label="Intitulé"
+											<ui:inputText aura:id="libelle" label="{!v.clabels.name}"
 												class="slds-input" labelClass="slds-form-element__label"
 												value="{!v.item.Name}" required="true" />
 										</div>
 									</div>
 									<div class="slds-form-element slds-is-required">
 										<div class="slds-form-element__control">
-											<ui:inputDateTime aura:id="date" label="Date"
+											<ui:inputDateTime aura:id="date" label="{!v.clabels.date__c}"
 												displayDatePicker="true" class="slds-input"
 												labelClass="slds-form-element__label"
 												value="{!v.item.date__c}" required="true" />
@@ -84,7 +83,7 @@
 									</div>
 									<div class="slds-form-element slds-is-required">
 										<div class="slds-form-element__control">
-											<ui:inputDateTime aura:id="delai" label="Délai"
+											<ui:inputDateTime aura:id="delai" label="{!v.clabels.delai__c}"
 												displayDatePicker="true" class="slds-input"
 												labelClass="slds-form-element__label"
 												value="{!v.item.delai__c}" required="true" />
@@ -92,7 +91,7 @@
 									</div>
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">
-											<ui:inputSelect aura:id="userEntiteID" label="Responsable"
+											<ui:inputSelect aura:id="userEntiteID" label="{!v.clabels.responsable__c}"
 												class="slds-select" labelClass="slds-form-element__label">
 												<ui:inputSelectOption label="selectionner le responsable" />
 												<aura:iteration items="{!v.userEntites}" var="userEntite">
@@ -107,7 +106,7 @@
 									<div class="slds-form-element">
 
 										<div class="slds-form-element__control">
-											<ui:inputSelect aura:id="statutid" label="Statut"
+											<ui:inputSelect aura:id="statutid" label="{!v.clabels.statut__c}"
 												class="slds-select" labelClass="slds-form-element__label">
 												<aura:iteration items="{!v.statuts}" var="statut">
 													<ui:inputSelectOption text="{!statut}" label="{!statut}" />
@@ -118,7 +117,7 @@
 									</div>
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">
-											<ui:inputSelect aura:id="typeid" label="Type"
+											<ui:inputSelect aura:id="typeid" label="{!v.clabels.type__c}"
 												class="slds-select" labelClass="slds-form-element__label">
 												<aura:iteration items="{!v.types}" var="type">
 													<ui:inputSelectOption text="{!type}" label="{!type}" />
@@ -128,7 +127,7 @@
 									</div>
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">
-											<ui:inputCurrency aura:id="cout" label="Coût"
+											<ui:inputCurrency aura:id="cout" label="{!v.clabels.cout__c}"
 												class="slds-input" labelClass="slds-form-element__label"
 												value="{!v.item.cout__c}" />
 
@@ -146,10 +145,10 @@
 					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
 					<div class="slds-modal__footer">
 						<button class="slds-button slds-button--neutral"
-							onclick="{!c.closeModel}">Annuler</button>
+							onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
 						<button class="slds-button slds-button--brand"
 							onclick="{!c.createItem}">
-							<i class="fa fa-paper-plane-o" aria-hidden="true"></i> ajouter
+							<i class="fa fa-paper-plane-o" aria-hidden="true"></i> {!$Label.c.add_button_title}
 						</button>
 					</div>
 				</div>
