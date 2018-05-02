@@ -18,10 +18,8 @@
 				</div>
 				<div class="slds-media__body">
 					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
-						title="Liste des plans d'action">Liste des risques associés
-						au processus</h1>
-					<p class="slds-text-body_small slds-line-height_reset">Nombre
-						d'enregistrements ({!v.items.length})</p>
+						title="{!$Label.c.list_title_label+' '+v.clabels.labelPlural}">{!$Label.c.list_title_label+' '+v.clabels.labelPlural}</h1>
+					<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label} ({!v.items.length})</p>
 				</div>
 			</div>
 		</div>
@@ -35,27 +33,24 @@
 
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Nom">Nom</div>
+							<div class="slds-truncate" title="{!v.clabels.nameRisque}">{!v.clabels.nameRisque}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Date détection">Date
-								détection</div>
+							<div class="slds-truncate" title="{!v.clabels.date_detection__c}">{!v.clabels.date_detection__c}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Criticité">Criticité</div>
+							<div class="slds-truncate" title="{!v.clabels.criticite__c}">{!v.clabels.criticite__c}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Entité">Etat</div>
+							<div class="slds-truncate" title="{!v.clabels.etat__c}">{!v.clabels.etat__c}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Stage">Actions</div>
+							<div class="slds-truncate" title="{!$Label.c.table_action_label}">{!$Label.c.table_action_label}</div>
 						</th>
-
-
 					</tr>
 				</thead>
 				<tbody>
@@ -96,9 +91,9 @@
 									<div class="slds-button-group" role="group">
 										<a data-index="{!i}" onclick="{!c.removeItem}"
 											class="slds-button slds-button_icon slds-button_icon-border-filled"
-											title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+											title="{!$Label.c.delete_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 												xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
-											<span class="slds-assistive-text">supprimer</span>
+											<span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
 
 										</a>
 

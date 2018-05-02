@@ -9,9 +9,8 @@
                     function(response) {
                         var state = response.getState();
                         if (state == "SUCCESS") {
-                            component.set("v.items", response
-                                .getReturnValue());
-                                $A.enqueueAction(component.get('c.applyDatatable'));
+                            component.set("v.items", response.getReturnValue());
+                            $A.enqueueAction(component.get('c.applyDatatable'));
                         } else {
                             alert("Impossible de recuperer la liste des risques detectés");
                         }
