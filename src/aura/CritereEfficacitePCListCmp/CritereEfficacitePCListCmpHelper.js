@@ -1,7 +1,7 @@
 ({
     refreshList: function(component, event) {
         var action = component.get("c.findFromPartieConcernee");
-        action.setParam("partieConcernee", component.get('v.partieConcernee'));
+        action.setParam("partieConcernee", component.get('v.partieConcernee').Id);
         if (component.get('v.partieConcernee')) {
             action
                 .setCallback( 
