@@ -1,6 +1,6 @@
 ({
     doInit : function(component, event, helper) {
-		
+			helper.getFieldLabels(component, event);
 		//refresh MesurePrevention entité List
 		var action = component.get("c.getEntites");
         action.setCallback(this, function(response) {
