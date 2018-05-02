@@ -200,7 +200,7 @@
 
 							<!-- 	fin details risque -->
 						</lightning:tab>
-						<lightning:tab label="Activités du plan" id="2">
+						<lightning:tab label="{!$Label.c.activite_menu}" id="2">
 							<aura:if isTrue="{!v.item}">
 								<c:ActivitePreventiveListCmp planAction="{!v.item}"/>
 							</aura:if>
