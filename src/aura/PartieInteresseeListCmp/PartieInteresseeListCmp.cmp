@@ -23,7 +23,7 @@
 									<div class="slds-media__figure">
 										<span
 											class="slds-icon_container slds-icon-standard-opportunity"
-											title="Liste des catégories de mesure de prévention">
+											title="{!$Label.c.list_title_label+' '+v.clabels.labelPlural}">
 											<c:svg class="slds-icon slds-page-header__icon"
 												aria-hidden="true"
 												xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
