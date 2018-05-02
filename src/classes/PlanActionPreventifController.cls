@@ -38,7 +38,7 @@ public with sharing class PlanActionPreventifController {
 	public static Plan_Action__c getElementById(String Id){
 		return [SELECT Id,commentaire__c,date_commencement__c,echeancier__c,etat__c,
 		gestionnaire__r.Name,Name,gestionnaire__c,ParamRisqueEntite__c,
-		ParamRisqueEntite__r.risque__r.Name,ParamRisqueEntite__r.entite__c FROM Plan_Action__c where Id=:Id];
+		ParamRisqueEntite__r.risque__r.Name, ParamRisqueEntite__r.risque__r.description__c, ParamRisqueEntite__r.entite__c FROM Plan_Action__c where Id=:Id];
 	}
 	
 	@AuraEnabled
@@ -72,6 +72,12 @@ public with sharing class PlanActionPreventifController {
            objectFields.put(name, fieldMap.get(fieldName).getDescribe().getLabel());
         }
       objectFields.put('risqueLabel', SObjectType.Risque__c.getLabel());
+      type='Risque__c';
+      leadSchema = schemaMap.get(type);
+      fieldMap = leadSchema.getDescribe().fields.getMap();
+      for (String fieldName: fieldMap.keySet()) {
+          objectFields.put(fieldName, fieldMap.get(fieldName).getDescribe().getLabel());
+          }
         //return map with fields api name as key and field label as value
         System.debug('###-result'+objectFields);
         return objectFields;
