@@ -11,15 +11,14 @@
 			<div class="slds-media">
 				<div class="slds-media__figure">
 					<span class="slds-icon_container slds-icon-standard-opportunity"
-						title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+						title="{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
 						xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 					</span>
 				</div>
 				<div class="slds-media__body">
 					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
-						title="Liste des plans d'action">Liste des entités responsables des éléments de sortie</h1>
-						<p class="slds-text-body_small slds-line-height_reset">Nombre
-							d'enregistrements ({!v.items.length})</p>
+						title="{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}">{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}</h1>
+						<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label} ({!v.items.length})</p>
 						</div>
 					</div>
 				</div>
@@ -33,23 +32,23 @@
 
 								<th scope="col"
 									class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-									<div class="slds-truncate" title="Nom">Nom</div>
+									<div class="slds-truncate" title="{!v.clabels.name}">{!v.clabels.name}</div>
 								</th>
 								<th scope="col"
 									class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-									<div class="slds-truncate" title="Téléphone">Téléphone</div>
+									<div class="slds-truncate" title="{!v.clabels.phone}">{!v.clabels.phone}</div>
 								</th>
 								<th scope="col"
 									class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-									<div class="slds-truncate" title="Siteweb">Siteweb</div>
+									<div class="slds-truncate" title="{!v.clabels.website}">{!v.clabels.website}</div>
 								</th>
 								<th scope="col"
 									class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-									<div class="slds-truncate" title="Type">Type</div>
+									<div class="slds-truncate" title="{!v.clabels.type}">{!v.clabels.type}</div>
 								</th>
 								<th scope="col"
 									class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-									<div class="slds-truncate" title="Actions">Actions</div>
+									<div class="slds-truncate" title="{!$Label.c.table_action_label}">{!$Label.c.table_action_label}</div>
 								</th>
 
 
@@ -89,13 +88,13 @@
 									</td>
 									<td data-label="Actions"
 										class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-										<div class="slds-truncate" title="Actions">
+										<div class="slds-truncate" title="{!$Label.c.delete_button_title}">
 											<div class="slds-button-group" role="group">
 												<a data-index="{!i}" onclick="{!c.removeItem}"
 													class="slds-button slds-button_icon slds-button_icon-border-filled"
-													title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+													title="{!$Label.c.delete_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
-													<span class="slds-assistive-text">supprimer</span>
+													<span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
 
 												</a>
 
