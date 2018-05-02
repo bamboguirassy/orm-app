@@ -45,7 +45,7 @@ public with sharing class EntiteSourceController {
            //fill variable
             objectFields.put(fieldName, fieldMap.get(fieldName).getDescribe().getLabel());
         }
-     // objectFields.put('risqueLabel', SObjectType.Risque__c.getLabel());
+      objectFields.put('entiteLabel', SObjectType.Account.getLabel());
         //return map with fields api name as key and field label as value
         System.debug('###-result'+objectFields);
         return objectFields;

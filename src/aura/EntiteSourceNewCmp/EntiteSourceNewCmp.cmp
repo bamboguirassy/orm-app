@@ -44,7 +44,7 @@
                         <form class="slds-form--stacked">
                             <div class="slds-form-element">
                                 <div class="slds-form-element__control">
-                                    <ui:inputSelect aura:id="entiteID" label="{!v.clabels.name}" class="slds-select" labelClass="slds-form-element__label">
+                                    <ui:inputSelect aura:id="entiteID" label="{!v.clabels.entiteLabel}" class="slds-select" labelClass="slds-form-element__label">
                                         <aura:iteration items="{!v.entites}" var="entite">
                                             <ui:inputSelectOption text="{!entite.Id}" label="{!entite.Name}" />
                                         </aura:iteration>
