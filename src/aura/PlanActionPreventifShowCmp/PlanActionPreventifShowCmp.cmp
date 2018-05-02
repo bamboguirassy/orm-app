@@ -25,7 +25,7 @@
 						<div class="slds-media__body">
 							<h1
 								class="slds-page-header__title slds-truncate slds-align-middle"
-								title="Plan d'action">Plan d'action</h1>
+								title="{!v.clabels.label}">{!v.clabels.label}</h1>
 							<p class="slds-text-body_small slds-line-height_reset"></p>
 						</div>
 						<div>
@@ -44,7 +44,6 @@
 					<!-- 			ligthning tab start -->
 					<lightning:tabset >
 						<lightning:tab label="DETAILS" id="1">
-							<!--                             details sur le plan d'	action -->
 
 							<div class="slds-grid slds-gutters">
 								<div class="slds-col slds-size_2-of-6">
@@ -54,12 +53,11 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Détails
-													du plan</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.detail_menu+' '+v.clabels.label}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Libellé</span>
+														<span class="slds-form-element__label">{!v.clabels.name}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Name}" />
 															</span>
@@ -67,8 +65,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Date
-															création</span>
+														<span class="slds-form-element__label">{!v.clabels.createddate}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputDateTime value="{!v.item.date_commencement__c}" />
 															</span>
@@ -76,7 +73,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Echéancier</span>
+														<span class="slds-form-element__label">{!v.clabels.echeancier__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputDateTime value="{!v.item.echeancier__c}" />
 															</span>
@@ -84,7 +81,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Etat</span>
+														<span class="slds-form-element__label">{!v.clabels.etat__c}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputCheckbox value="{!v.item.etat__c}" />
 															</span>
@@ -105,11 +102,11 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Gestionnaire</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!v.clabels.gestionnaire__c}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Nom</span>
+														<span class="slds-form-element__label">{!v.clabels.nameManager}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.gestionnaire__r.Name}" />
 															</span>
@@ -117,7 +114,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Email</span>
+														<span class="slds-form-element__label">{!v.clabels.email}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.gestionnaire__r.Email}" />
 															</span>
@@ -125,7 +122,7 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Tel</span>
+														<span class="slds-form-element__label">{!v.clabels.mobilephone}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.gestionnaire__r.Phone}" />
 															</span>
@@ -146,11 +143,11 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">Risque</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!v.clabels.risqueLabel}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Risque</span>
+														<span class="slds-form-element__label">{!v.clabels.risqueLabel}</span>
 														<div class="slds-form-element__control">
                                                             <span class="slds-form-element__static"> <a onclick="{!c.navigateToRisqueShow}">{!v.item.ParamRisqueEntite__r.risque__r.Name}</a>
 															</span>
@@ -158,9 +155,10 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">Description</span>
+														<span class="slds-form-element__label">{!v.clabels.description__c}</span>
 														<div class="slds-form-element__control">
-															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.commentaire__c}" />
+															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.ParamRisqueEntite__r.risque__r.description__c}" />
+															<!-- <span class="slds-form-element__static"> <ui:outputText value="{!v.item.commentaire__c}" /> -->
 															</span>
 														</div>
 													</li>
