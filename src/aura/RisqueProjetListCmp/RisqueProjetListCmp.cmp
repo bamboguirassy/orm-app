@@ -16,8 +16,15 @@
 				</div>
 				<div class="slds-media__body">
 					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
+<<<<<<< HEAD
+						title="Liste des plans d'action">{!$Label.c.list_title_label+'
+													'+v.clabels.labelPlural}</h1>
+					<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label}
+										({!v.items.length})</p>
+=======
 						title="Liste des plans d'action">Liste des risques associés au projet</h1>
 					<p class="slds-text-body_small slds-line-height_reset">Nombre d'enregistrements ({!v.items.length})</p>
+>>>>>>> 1e2ce873a9d856cc0affaa0f646d36230ddf0b1e
 				</div>
 			</div>
 		</div>
@@ -31,24 +38,24 @@
 
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Nom">Nom</div>
+							<div class="slds-truncate" title="{!v.clabels.name}">{!v.clabels.name}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Date détection">Date
-								détection</div>
+							<div class="slds-truncate" title="{!v.clabels.createddate}">{!v.clabels.createddate}
+								</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Criticité">Criticité</div>
+							<div class="slds-truncate" title="{!v.clabels.criticite__c}">{!v.clabels.criticite__c}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Entité">Etat</div>
+							<div class="slds-truncate" title="{!v.clabels.etat__c}">{!v.clabels.etat__c}</div>
 						</th>
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="Stage">Actions</div>
+							<div class="slds-truncate" title="Actions">Actions</div>
 						</th>
 
 
@@ -58,28 +65,28 @@
 					<aura:iteration items="{!v.items}" var="item" indexVar="i">
 						<tr class="slds-hint-parent">
 
-							<th scope="row" data-label="Intitulé"
+							<th scope="row" data-label="{!v.clabels.name}"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 								<div class="slds-truncate"
 									title="{!item.Risque_detecte__r.Risque__r.Name}">
 									<ui:outputText value="{!item.Risque_detecte__r.Risque__r.Name}" />
 								</div>
 							</th>
-							<td data-label="Date détection"
+							<td data-label="{!v.clabels.date_detection__c}"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 								<div class="slds-truncate"
 									title="{!item.risqueEntite__r.Date_Detection__c}">
 									<ui:outputDate value="{!item.Risque_detecte__r.Date_Detection__c}" />
 								</div>
 							</td>
-							<td data-label="Structure"
+							<td data-label="{!v.clabels.criticite__c}"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 								<div class="slds-truncate"
 									title="{!item.risqueEntite__r.criticite__c}">
 									<ui:outputNumber value="{!item.Risque_detecte__r.criticite__c}" />
 								</div>
 							</td>
-							<td data-label="Etat"
+							<td data-label="{!v.clabels.etat__c}"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 								<div class="slds-truncate"
 									title="{!item.risqueEntite__r.etat__c}">
@@ -92,9 +99,9 @@
 									<div class="slds-button-group" role="group">
 										<a data-index="{!i}" onclick="{!c.removeItem}"
 											class="slds-button slds-button_icon slds-button_icon-border-filled"
-											title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+											title="{!$Label.c.delete_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 												xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
-											<span class="slds-assistive-text">supprimer</span>
+											<span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
 
 										</a>
 

@@ -1,6 +1,6 @@
 ({
     doInit : function(component, event, helper) {
-		
+		helper.getFieldLabels(component, event); 
 		//refresh MesurePrevention entité List
 		var action = component.get("c.getRisqueEntites");
         action.setParam('entite', component.get('v.projet').Structure__c);

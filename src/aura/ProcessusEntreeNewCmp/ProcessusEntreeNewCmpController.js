@@ -2,6 +2,7 @@
     doInit : function(component, event, helper) {
 		
 		//refresh MesurePrevention entité List
+		helper.getFieldLabels(component, event);
 		var action = component.get("c.getProcessus");
         action.setParam('entite', component.get('v.processus').proprietaire__c);
         action.setCallback(this, function(response) {

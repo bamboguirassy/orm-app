@@ -15,13 +15,13 @@
 		<thead>
 			<tr class="slds-text-title_caps">
 				<th scope="col">
-					<div class="slds-truncate" title="Description">Description</div>
+					<div class="slds-truncate" title="{!v.clabels.description__c}">{!v.clabels.description__c}</div>
 				</th>
 				<th scope="col">
-					<div class="slds-truncate" title="Valeur">Valeur</div>
+					<div class="slds-truncate" title="{!v.clabels.valeur__c}">{!v.clabels.valeur__c}</div>
 				</th>
 				<th scope="col">
-					<div class="slds-truncate" title="Actions">Actions</div>
+					<div class="slds-truncate" title="{!$Label.c.table_action_label}">{!$Label.c.table_action_label}</div>
 				</th>
 			</tr>
 		</thead>
@@ -29,31 +29,31 @@
 			<aura:iteration items="{!v.items}" var="item" indexVar="i">
 				<tr class="slds-hint-parent">
 					<th scope="row">
-						<div class="slds-truncate" title="Description">
+						<div class="slds-truncate" title="{!item.description__c}">
 							<ui:outputText value="{!item.description__c}" />
 						</div>
 					</th>
 					<td>
-						<div class="slds-truncate" title="Valeur">
+						<div class="slds-truncate" title="{!item.valeur__c+' '+v.paramRisqueEntite.unite__c+'(s)'}">
 							<ui:outputText value="{!item.valeur__c+' '+v.paramRisqueEntite.unite__c+'(s)'}" />
 						</div>
 					</td>
 					<td>
-						<div class="slds-truncate" title="Actions">
+						<div class="slds-truncate" title="{!$Label.c.table_action_label}">
 							<div class="slds-einstein-header__actions">
 								<div class="slds-button-group" role="group">
 									<a data-index="{!i}" onclick="{!c.registerEdit}"
 										class="slds-button slds-button_icon slds-button_icon-border-filled"
-										title="afficher" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+										title="{!$Label.c.edit_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 											xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
 
-										<span class="slds-assistive-text">Modifier</span>
+										<span class="slds-assistive-text">{!$Label.c.edit_button_title}</span>
 									</a> <a data-index="{!i}" onclick="{!c.removeItem}"
 										class="slds-button slds-button_icon slds-button_icon-border-filled"
-										title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+										title="{!$Label.c.delete_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 											xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
 
-										<span class="slds-assistive-text">Supprimer</span>
+										<span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
 									</a>
 								</div>
 							</div>
