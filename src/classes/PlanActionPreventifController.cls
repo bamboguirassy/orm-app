@@ -75,9 +75,9 @@ public with sharing class PlanActionPreventifController {
       type='Risque__c';
       leadSchema = schemaMap.get(type);
       fieldMap = leadSchema.getDescribe().fields.getMap();
-      for (String fieldName: fieldMap.keySet()) {
-          objectFields.put(fieldName, fieldMap.get(fieldName).getDescribe().getLabel());
-          }
+      String description = 'descriptionRisque';
+      objectFields.put(description, fieldMap.get('description__c').getDescribe().getLabel());
+       
         //return map with fields api name as key and field label as value
         System.debug('###-result'+objectFields);
         return objectFields;
