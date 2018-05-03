@@ -78,14 +78,10 @@
 										<div class="slds-form-element__control">
 											<ui:inputSelect aura:id="graviteID" label="{!v.clabels.gravite__c}"
 												class="slds-select" labelClass="slds-form-element__label">
-												<ui:inputSelectOption text="1" label="Faible"
-													value="{!v.item.gravite__c==1}" />
-												<ui:inputSelectOption text="2" label="Moyenne"
-													value="{!v.item.gravite__c==2}" />
-												<ui:inputSelectOption text="3" label="Grave"
-													value="{!v.item.gravite__c==3}" />
-												<ui:inputSelectOption text="4" label="Très Grave"
-													value="{!v.item.gravite__c==4}" />
+												 <ui:inputSelectOption text="1" label="{!$Label.c.orm_faible_select_value}"/>
+                                        <ui:inputSelectOption text="2" label="{!$Label.c.orm_moyenne_select_value}" />
+                                        <ui:inputSelectOption text="3" label="{!$Label.c.orm_grave_select_value}" />
+                                        <ui:inputSelectOption text="4" label="{!$Label.c.orm_tres_grave_select_value}" />
 											</ui:inputSelect>
 										</div>
 									</div>
@@ -96,14 +92,10 @@
 											<ui:inputSelect aura:id="frequenceID"
 												label="{!v.clabels.frequence__c}" class="slds-select"
 												labelClass="slds-form-element__label">
-												<ui:inputSelectOption text="1" label="Faible"
-													value="{!v.item.gravite__c==1}" />
-												<ui:inputSelectOption text="2" label="Moyenne"
-													value="{!v.item.gravite__c==2}" />
-												<ui:inputSelectOption text="3" label="Fréquente"
-													value="{!v.item.gravite__c==3}" />
-												<ui:inputSelectOption text="4" label="Très fréquente"
-													value="{!v.item.gravite__c==4}" />
+												 <ui:inputSelectOption text="1" label="{!$Label.c.orm_faible_select_value}" />
+                                        <ui:inputSelectOption text="2" label="{!$Label.c.orm_moyenne_select_value}" />
+                                        <ui:inputSelectOption text="3" label="{!$Label.c.orm_frequente_select_value}" />
+                                        <ui:inputSelectOption text="4" label="{!$Label.c.orm_tres_frequente_select_value}" />
 											</ui:inputSelect>
 										</div>
 									</div>
@@ -112,12 +104,9 @@
 											<ui:inputSelect aura:id="maitriseID"
 												label="{!v.clabels.matrice__c}" class="slds-select"
 												labelClass="slds-form-element__label">
-												<ui:inputSelectOption text="0.5" label="Niveau 1"
-													value="{!v.item.gravite__c==0.5}" />
-												<ui:inputSelectOption text="1" label="Niveau 2"
-													value="{!v.item.gravite__c==1}" />
-												<ui:inputSelectOption text="2" label="Niveau 3"
-													value="{!v.item.gravite__c==2}" />
+												<ui:inputSelectOption text="2" label="{!$Label.c.orm_level_select_value+''+1}" />
+                                        <ui:inputSelectOption text="1" label="{!$Label.c.orm_level_select_value+''+2}" />
+                                        <ui:inputSelectOption text="0.5" label="{!$Label.c.orm_level_select_value+''+3}" />
 											</ui:inputSelect>
 										</div>
 									</div>
