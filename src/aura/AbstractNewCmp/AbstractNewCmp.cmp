@@ -35,7 +35,8 @@
 					<!--###### MODAL BOX BODY Part Start From Here ######-->
 					<div class="slds-modal__content slds-p-around--medium">
 						<p>
-							<b>le risque est dèja associé au processus </b>
+						
+							<b><center> {!$Label.c.orm_element_deja_ajoue} </center></b>
 						</p>
 					</div>
 					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
