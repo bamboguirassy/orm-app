@@ -1,9 +1,10 @@
 ({
 
 	createItem : function(component, event, helper) {
-
+		alert(JSON.stringify(component.get("v.partieConcernee")));
+		console.log(JSON.stringify(component.get("v.partieConcernee").Id));
 		var newItem = component.get("v.item");
-		newItem.PartieConcernee__c = component.get('v.partieConcernee');
+		newItem.PartieConcernee__c = component.get('v.partieConcernee').Id;
 
 		if ($A.util.isEmpty(newItem.Name)) {
 			alert("le libellé ne peut être null, veuillez selectionner une valeur");

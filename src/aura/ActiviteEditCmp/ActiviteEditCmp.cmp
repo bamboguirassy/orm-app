@@ -5,7 +5,7 @@
 		description="user entité" />
 	<aura:attribute name="statuts" type="String[]" description="" />
 	<aura:attribute name="types" type="String[]" description="" />
-
+	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
 	   <aura:handler action="{!c.openModal}" event="c:eventEditActiviteClicked"  />
    <aura:registerEvent name="newActiviteAjoute" type="c:eventNewActiviteCreated" description="" />
 	<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->

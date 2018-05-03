@@ -9,7 +9,6 @@
 		action.setCallback(this, function(response) {
 			var state = response.getState();
 			if (state == 'SUCCESS') {
-			    alert(JSON.stringify(response.getReturnValue()))
 				component.set("v.item", response.getReturnValue());
 				helper.hideSpinner(component);
 			} else {

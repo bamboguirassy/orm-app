@@ -4,7 +4,7 @@
                         'PartieConcernee__c': '',
                         'Name': '',
                     }" />
-    <aura:attribute name="partieConcernee" type="String" description="PartieConcernee dont est lié le risque" required="true" />
+    <aura:attribute name="partieConcernee" type="PartieConcernee__c" description="PartieConcernee dont est lié le risque" required="true" />
 	<aura:registerEvent name="newCritereAjoute" type="c:eventNewCritereEfficaciteCreated" description="" />
     <!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
     <div class="slds-m-around--xx-large">

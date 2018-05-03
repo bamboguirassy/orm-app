@@ -53,7 +53,7 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.detail_menu+' '+v.clabels.label}</h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.detail_menu}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
@@ -78,6 +78,15 @@
 															<span class="slds-form-element__static"> <ui:outputDateTime value="{!v.item.echeancier__c}" />
 															</span>
 														</div>
+													</li>
+													<li
+													    class="slds-form-element slds-hint-parent slds-border_bottom">
+														<span class="slds-form-element__label">{!v.clabels.commentaire__c}</span>
+														<div class="slds-form-element__control">
+															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.commentaire__c}" />
+															</span>
+														</div>
+													   
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
@@ -155,10 +164,9 @@
 													</li>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
-														<span class="slds-form-element__label">{!v.clabels.description__c}</span>
+														<span class="slds-form-element__label">{!v.clabels.descriptionRisque}</span>
 														<div class="slds-form-element__control">
 															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.ParamRisqueEntite__r.risque__r.description__c}" />
-															<!-- <span class="slds-form-element__static"> <ui:outputText value="{!v.item.commentaire__c}" /> -->
 															</span>
 														</div>
 													</li>
@@ -192,7 +200,7 @@
 
 							<!-- 	fin details risque -->
 						</lightning:tab>
-						<lightning:tab label="Activités du plan" id="2">
+						<lightning:tab label="{!$Label.c.activite_menu}" id="2">
 							<aura:if isTrue="{!v.item}">
 								<c:ActivitePreventiveListCmp planAction="{!v.item}"/>
 							</aura:if>
