@@ -21,6 +21,16 @@ showListfileByMesure : function(component,event,helper){
 			"Id" : eltselected.Id
 		});
   evt.fire();
-}
+},
+	regEdit : function(component, event, helper) {
+		alert('edit');
+		// deployer evenement qu'on veut modifier un impact
+		var item=helper.getSelectedItem(component, event);
+		var evt = $A.get("e.c:eventEditEvidenceClicked");
+		evt.setParams({
+			"Id" : item.Id
+		});
+		evt.fire();
+	}
 
 })

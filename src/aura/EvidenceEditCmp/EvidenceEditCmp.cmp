@@ -1,4 +1,5 @@
-<aura:component extends="c:AbstractEditCmp" controller="EvidenceController">
+<aura:component extends="c:AbstractEditCmp"
+	controller="EvidenceController">
 	<aura:attribute name="item" type="Evidence__c"
 		default="{
 						'sobjectType' : 'Evidence__c',
@@ -7,15 +8,17 @@
 						'evidenceOfActivity__c' : '',
 						'webRessource__c' : ''
 					}" />
-					<aura:handler action="{!c.openModal}" event="c:eventEditEvidenceClicked"/>
-					<aura:registerEvent name="newPreuveAjouter" type="c:eventNewPreuveCreated" description="" />
-					<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
+	<aura:handler action="{!c.openModal}"
+		event="c:eventEditEvidenceClicked" />
+	<aura:registerEvent name="newPreuveAjouter"
+		type="c:eventNewPreuveCreated" description="" />
+	<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
 	<div class="slds-m-around">
-		
+
 
 		<!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
 		<aura:if isTrue="{!v.isOpen}">
-	<!--###### MODAL BOX Start From Here ######-->
+			<!--###### MODAL BOX Start From Here ######-->
 			<div role="dialog" tabindex="-1" aria-labelledby="header99"
 				class="slds-modal slds-fade-in-open ">
 				<div class="slds-modal__container form-style-6">
@@ -39,30 +42,30 @@
 									<div class="slds-form-element slds-is-required">
 										<div class="slds-form-element__control">
 											<ui:inputText aura:id="nom" label="Nom preuve"
-										class="slds-input" labelClass="slds-form-element__label"
-										value="{!v.item.Name}" />
+												class="slds-input" labelClass="slds-form-element__label"
+												value="{!v.item.Name}" />
 										</div>
 									</div>
-									
+
 									<div class="slds-form-element">
 										<div class="slds-form-element__control slds-is-required">
-										<ui:inputURL aura:id="webressource" label="Web ressource"
-										class="slds-input" labelClass="slds-form-element__label"
-										value="{!v.item.webRessource__c}"  />
+											<ui:inputURL aura:id="webressource" label="Web ressource"
+												class="slds-input" labelClass="slds-form-element__label"
+												value="{!v.item.webRessource__c}" />
 										</div>
 									</div>
-									
-									<div class="slds-form-element" >
+
+									<div class="slds-form-element">
 										<div class="slds-form-element__control">
 											<ui:inputTextArea aura:id="description" label="Description"
-										class="slds-input" labelClass="slds-form-element__label"
-										value="{!v.item.description__c}" />
+												class="slds-input" labelClass="slds-form-element__label"
+												value="{!v.item.description__c}" />
 										</div>
 									</div>
-							
-									</div>
-									</div>
-							
+
+								</div>
+							</div>
+
 						</form>
 						<!-- / CREATE NEW Item FORM -->
 
