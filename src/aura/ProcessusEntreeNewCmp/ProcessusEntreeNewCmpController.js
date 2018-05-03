@@ -22,7 +22,6 @@
         newItem.processus__c = component.get('v.processus').Id;
         newItem.source__c = component.find('processusID').get("v.value");
 
-
         if ($A.util.isEmpty(newItem.source__c)) {
             alert("le proessus ne peut être null, veuillez selectionner une valeur");
         } else {        	
@@ -41,7 +40,8 @@
 		        	});
 		        	
 		        	if(existe){        		
-		        		alert("Le Processus a dèja été ajouté");
+		        		//alert("Le Processus a dèja été ajouté");
+		        		component.set("v.isDuplicateValueDetected", true);
 		        	} else {
 		        		var action = component.get('c.add');
 			            action.setParams({

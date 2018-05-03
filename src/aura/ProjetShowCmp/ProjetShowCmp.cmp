@@ -52,7 +52,7 @@
                         <div class="slds-grid slds-wrap  slds-size_1-of-1">
                             <!-- debut tab -->
                             <lightning:tabset >
-                                <lightning:tab label="{!$Label.c.detail_menu || 'Empty Label'}" id="1">
+                                <lightning:tab label="{!$Label.c.detail_menu}" id="1">
                                     <!-- detail Projet -->
 
                                     <div class="slds-grid slds-gutters slds-size_1-of-1">
