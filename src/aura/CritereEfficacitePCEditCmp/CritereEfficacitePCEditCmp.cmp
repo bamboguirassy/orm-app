@@ -39,7 +39,7 @@
 						<form class="slds-form--stacked">
 							<div class="slds-form-element slds-is-required">
 								<div class="slds-form-element__control">
-									<ui:inputTextArea aura:id="libelle" label="{!v.clabels.firstname}"
+									<ui:inputTextArea aura:id="libelle" label="{!v.clabels.name}"
 										class="slds-input" labelClass="slds-form-element__label"
 										value="{!v.item.Name}" required="true" />
 								</div>
