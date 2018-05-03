@@ -2,7 +2,7 @@
 
 	createItem : function(component, event, helper) {
 		alert(JSON.stringify(component.get("v.partieConcernee")));
-		console.log(JSON.stringify(component.get("v.partieConcernee").Id));
+		
 		var newItem = component.get("v.item");
 		newItem.PartieConcernee__c = component.get('v.partieConcernee').Id;
 
