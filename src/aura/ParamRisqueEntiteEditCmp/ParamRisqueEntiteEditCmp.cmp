@@ -21,6 +21,7 @@
 
             <!--###### MODAL BOX Start From Here ######-->
             <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+            
                 <div class="slds-modal__container form-style-6">
                     <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
                     <div class="slds-modal__header">
@@ -37,29 +38,37 @@
 
                         <!-- CREATE NEW Entite FORM -->
                         <form class="slds-form--stacked">
-
+							
                             <div class="slds-form-element">
-                                <div class="slds-form-element__control">
-                                    <ui:inputSelect aura:id="risqueID" label="{!v.clabels.name}" class="slds-select" labelClass="slds-form-element__label">
+                                <div class="slds-form-element__control"  >
+                                    <ui:inputSelect aura:id="risqueID" label="{!v.clabels.name}" class="slds-select" labelClass="slds-form-element__label"   >
                                         <aura:iteration items="{!v.risques}" var="risque">
-                                            <ui:inputSelectOption text="{!risque.Id}" label="{!risque.Name}" value="{!risque.Id==v.item.risque__c}" />
+                                            <ui:inputSelectOption text="{!risque.Id}" 
+                                            label="{!risque.Name}" 
+                                            value="{!risque.Id==v.item.risque__c}" />
                                         </aura:iteration>
                                     </ui:inputSelect>
                                 </div>
+                                 </div>
                                 <div class="slds-form-element slds-is-required">
                                     <div class="slds-form-element__control">
-                                        <ui:inputNumber aura:id="seuilApparution" label="{!v.clabels.seuilapparution__c}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.seuilApparution__c}" required="true" />
+                                        <ui:inputNumber aura:id="seuilApparution" 
+                                        label="{!v.clabels.seuilapparution__c}" 
+                                        class="slds-input" labelClass="slds-form-element__label" 
+                                        value="{!v.item.seuilApparution__c}" required="true" />
                                     </div>
                                 </div>
-                                <div class="slds-form-element slds-is-required">
+                                <div class="slds-form-element ">
                                     <div class="slds-form-element__control">
-                                        <ui:inputText aura:id="unite" label="{!v.clabels.unite__c}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.unite__c}" required="true" />
+                                        <ui:inputText aura:id="unite" label="{!v.clabels.unite__c}" 
+                                        labelClass="slds-form-element__label" 
+                                        value="{!v.item.unite__c}" required="true" />
                                     </div>
                                 </div>
-                            </div>
+                           
 
 
-
+						
                     </form>
                     <!-- / CREATE NEW Item FORM -->
 
