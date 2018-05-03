@@ -44,7 +44,8 @@
                             <div class="slds-form-element slds-is-required">
                                 <div class="slds-form-element__control">
                                 <!-- Libellé -->
-                                    <ui:inputText aura:id="libelle" label="{!v.clabels.name}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.Name}" required="true" />
+                                    <ui:inputText aura:id="libelle" label="{!$Label.c.partie_interessee_menu}" class="slds-input" 
+                                    labelClass="slds-form-element__label" value="{!v.item.Name}" required="true" />
                                 </div>
                             </div>
 

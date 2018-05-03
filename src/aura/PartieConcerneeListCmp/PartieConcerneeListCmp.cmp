@@ -28,7 +28,7 @@
 													'+v.clabels.labelPlural}</span></li>
                                             </ol>
                                         </nav>
-                                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="Nombred'enregistrements ">{!$Label.c.record_count_label}({!v.items.length})</h1>
+                                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="{!$Label.c.record_count_label}">{!$Label.c.record_count_label}({!v.items.length})</h1>
                                     </div>
                                 </div>
                             </div>

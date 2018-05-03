@@ -89,7 +89,7 @@
 								<div class="slds-form-element__control">
 									<ui:inputSelect aura:id="userEntiteID" label="{!v.clabels.gestionnaire__c}"
 										class="slds-select" labelClass="slds-form-element__label">
-										<ui:inputSelectOption label="selectionner le responsable" />
+										<ui:inputSelectOption label="--------------" />
 										<aura:iteration items="{!v.userEntites}" var="userEntite">
 											<ui:inputSelectOption text="{!userEntite.Id}"
 												label="{!userEntite.Name}" />
