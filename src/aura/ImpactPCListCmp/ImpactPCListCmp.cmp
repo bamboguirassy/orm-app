@@ -9,7 +9,6 @@
 	<aura:registerEvent name="eventEditImpactPCClicked"
 		type="c:eventEditImpactPCClicked" description="" />
 
-
 	<div class="slds-container--fluid " style="background: #fff;">
 
 		<!--     debut implementation Liste des impacts-->
@@ -33,14 +32,12 @@
 									<div class="slds-media__body">
 										<nav>
 											<ol class="slds-breadcrumb slds-line-height_reset">
-												<li class="slds-breadcrumb__item"><span>Liste
-														des impacts</span></li>
+												<li class="slds-breadcrumb__item"><span>{!$Label.c.list_title_label+' '+v.clabels.labelPlural}s</span></li>
 											</ol>
 										</nav>
 										<h1
 											class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate"
-											title="Nombred'enregistrements ">Nombre
-											d'enregistrements ({!v.items.length})</h1>
+											title="{!$Label.c.record_count_label}">{!$Label.c.record_count_label} ({!v.items.length})</h1>
 									</div>
 								</div>
 							</div>
@@ -79,7 +76,7 @@
 															<div class="slds-media__figure">
 																<span
 																	class="slds-icon_container slds-icon-standard-record"
-																	title="Liste des parties concernées"> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
+																	title=""> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
 																		xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#record'}" />
 																</span>
 															</div>
@@ -97,14 +94,14 @@
 															<div class="slds-button-group" role="group">
 																<a data-index="{!i}" onclick="{!c.removeItem}"
 																	class="slds-button slds-button_icon slds-button_icon-border-filled"
-																	title="Supprimer" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																	title="{!$Label.c.delete_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 																		xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
-																	<span class="slds-assistive-text">supp..</span>
+																	<span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
 																</a> <a data-index="{!i}" onclick="{!c.registerEdit}"
 																	class="slds-button slds-button_icon slds-button_icon-border-filled"
-																	title="Modifier" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																	title="{!$Label.c.edit_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 																		xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
-																	<span class="slds-assistive-text">Edit</span>
+																	<span class="slds-assistive-text">{!$Label.c.edit_button_title}</span>
 																</a>
 															</div>
 														</div>
@@ -118,17 +115,11 @@
 							</div>
 						</div>
 						<footer class="slds-card__footer" style="text-align: left;">
-
 							<aura:if isTrue="{!v.partieConcernee}">
 								<c:ImpactPCNewCmp items="{!v.items}"
 									partieConcernee="{!v.partieConcernee}" />
-
 							</aura:if>
 							<c:ImpactPCEditCmp />
-
-
-
-
 						</footer>
 					</div>
 				</div>
@@ -137,7 +128,4 @@
 		<!-- fin implementation  Liste des impacts-->
 
 	</div>
-
-
-
 </aura:component>
