@@ -169,7 +169,7 @@
                                     <!-- fin detail projet-->
                                 </lightning:tab>
 								<!-- Risques du projet -->
-                                <lightning:tab label="{!v.clabels.riskLabels}" id="2">
+                                <lightning:tab label="risk" id="2">
                                   	<c:RisqueProjetListCmp projet="{!v.item}"/>                                  
                                 </lightning:tab>
                                 <!-- intervenantLabels -->
