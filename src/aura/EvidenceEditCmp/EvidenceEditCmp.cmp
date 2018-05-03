@@ -8,13 +8,11 @@
 						'evidenceOfActivity__c' : '',
 						'webRessource__c' : ''
 					}" />
-	<aura:handler action="{!c.openModal}"
-		event="c:eventEditEvidenceClicked" />
+	<aura:handler action="{!c.openModal}" event="c:eventEditEvidenceClicked" />
 	<aura:registerEvent name="newPreuveAjouter"
 		type="c:eventNewPreuveCreated" description="" />
 	<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
 	<div class="slds-m-around">
-
 
 		<!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
 		<aura:if isTrue="{!v.isOpen}">
