@@ -25,6 +25,7 @@
 
 			var entitesExistant = component.get("v.items");
 			// if (Array.isArray(entitesExistant)) {
+			
 			var existe = false;
 			for (var i = 0; i < entitesExistant.length; i++) {
 				if (entitesExistant[i].Entite__c == newItem.Entite__c) {
@@ -34,7 +35,7 @@
 			}
 			
 			if(existe){
-				alert("vous ne pouvez plus ajouter cette entite");
+				component.set("v.isDuplicateValueDetected", true);
 			} else {
 					var action = component.get('c.add');
 					action.setParams({

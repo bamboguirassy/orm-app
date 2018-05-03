@@ -25,11 +25,11 @@
 				<div class="slds-modal__container form-style-duplicate">
 					<!-- ###### MODAL BOX HEADER Part Start From Here ######-->
 					<div class="slds-modal__header">
-						<button
-							class="slds-button slds-modal__close slds-button--icon-inverse"
-							title="Close" onclick="{!c.isDuplicateValueDetected}">
-							X <span class="slds-assistive-text">Close</span>
-						</button>
+ 						<button 
+							class="slds-button slds-modal__close slds-button--icon-inverse" 
+							title="Close" onclick="{!c.isDuplicateValueDetected}"> 
+						 <span class="slds-assistive-text">Close</span> 
+						</button> 
 						<h1 id="header99" class="slds-text-heading--medium">Confirmation</h1>
 					</div>
 					<!--###### MODAL BOX BODY Part Start From Here ######-->
@@ -40,7 +40,7 @@
 					</div>
 					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
 					<div class="slds-modal__footer">
-						<button class="slds-button slds-button--neutral"
+						<button class="slds-button slds-button--neutral buttonClose"
 							onclick="{!c.closeAlertExistence}">Close</button>
 					</div>
 				</div>

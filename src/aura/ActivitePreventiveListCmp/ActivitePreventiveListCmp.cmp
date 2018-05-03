@@ -46,18 +46,16 @@
 									<div class="slds-media">
 										<div class="slds-media__figure">
 											<button class="slds-button slds-button_icon"
-												title="Toggle details for Review proposals for EBC deck with larger team and have marketing review this"
+												title="{!item.Name}"
 												aria-controls="task-item-expanded" aria-expanded="true">
 												<c:svg class="slds-button__icon slds-timeline__details-action-icon"
 													aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#switch'}" />
-												<span class="slds-assistive-text">Toggle details for
-													Review proposals for EBC deck with larger team and have
-													marketing review this</span>
+												<span class="slds-assistive-text"></span>
 											</button>
 											<div
 												class="slds-icon_container slds-icon-standard-task slds-timeline__icon"
-												title="task">
+												title="{!item.Name}">
 												<c:svg class="slds-icon slds-icon_small" aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#task'}" />
 
@@ -72,9 +70,7 @@
 														name="options" id="checkbox-61" value="on" /> <label
 														class="slds-checkbox__label" for="checkbox-61"> <span
 															class="slds-checkbox_faux"></span> <span
-															class="slds-form-element__label slds-assistive-text">Mark
-																Review proposals for EBC deck with larger team and have
-																marketing review this complete</span>
+															class="slds-form-element__label slds-assistive-text"></span>
 													</label>
 													</span>
 													<h5 class="slds-truncate" title="{!item.Name}">
