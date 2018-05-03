@@ -52,7 +52,7 @@
                         <div class="slds-grid slds-wrap  slds-size_1-of-1">
                             <!-- debut tab -->
                             <lightning:tabset >
-                                <lightning:tab label="{!$Label.c.detail_menu}" id="1">
+                                <lightning:tab label="{!$Label.c.detail_menu || 'Empty Label'}" id="1">
                                     <!-- detail Projet -->
 
                                     <div class="slds-grid slds-gutters slds-size_1-of-1">
@@ -169,11 +169,11 @@
                                     <!-- fin detail projet-->
                                 </lightning:tab>
 								<!-- Risques du projet -->
-                                <lightning:tab label="{!v.clabels.riskLabels}" id="2">
+                                <lightning:tab label="{!v.clabels.riskLabels} || 'Empty Label'" id="2">
                                   	<c:RisqueProjetListCmp projet="{!v.item}"/>                                  
                                 </lightning:tab>
                                 <!-- intervenantLabels -->
-                                <lightning:tab label="{!v.clabels.intervenantLabels}" id="3">
+                                <lightning:tab label="{!v.clabels.intervenantLabels} || 'Empty Label'" id="3">
                                   	<c:IntervenantProjetListCmp projet="{!v.item}"/>                                  
                                 </lightning:tab>
                             </lightning:tabset>
