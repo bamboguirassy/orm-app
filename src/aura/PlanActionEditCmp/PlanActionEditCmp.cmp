@@ -35,67 +35,66 @@
 
 						<!-- CREATE NEW Entite FORM -->
 						<form class="slds-form--stacked">
+
 							<div class="slds-grid slds-gutters">
 								<div class="slds-col">
-									<div class="slds-form-element slds-is-required">
-										<div class="slds-form-element__control">
-											<ui:inputText aura:id="libelle" label="{!v.clabels.name}"
-												class="slds-input" labelClass="slds-form-element__label"
-												value="{!v.item.Name}" required="true" />
-										</div>
-									</div>
-									<div class="slds-form-element slds-is-required">
-										<div class="slds-form-element__control">
-											<ui:inputDate aura:id="dateCreation"
-												label="{!v.clabels.date_commencement__c}"
-												displayDatePicker="true" class="slds-input"
-												labelClass="slds-form-element__label"
-												value="{!v.item.date_commencement__c}" required="true" />
-										</div>
-									</div>
-									<div class="slds-form-element slds-is-required">
-										<div class="slds-form-element__control">
-											<ui:inputDateTime aura:id="echeancier"
-												label="{!v.clabels.echeancier__c}" displayDatePicker="true"
-												class="slds-input" labelClass="slds-form-element__label"
-												value="{!v.item.echeancier__c}" required="true" />
-										</div>
-									</div>
-									<div class="slds-form-element"></div>
-									<div class="slds-col">
-										<div class="slds-form-element__control">
-											<ui:inputSelect aura:id="userEntiteID"
-												label="{!v.clabels.gestionnaire__c}" class="slds-select"
-												labelClass="slds-form-element__label">
-												<aura:iteration items="{!v.userEntites}" var="userEntite">
-													<ui:inputSelectOption text="{!userEntite.Id}"
-														label="{!userEntite.Name}"
-														value="{!v.item.gestionnaire__c==userEntite.Id}" />
-												</aura:iteration>
-											</ui:inputSelect>
-										</div>
-									</div>
-									<div class="slds-form-element slds-is-required">
-										<div class="slds-form-element__control">
-											<ui:inputCheckbox aura:id="etat" label="{!v.clabels.etat__c}"
-												class="slds-input" labelClass="slds-form-element__label"
-												value="{!v.item.etat__c}" />
-										</div>
-									</div>
-
-									<div class="slds-form-element">
-										<div class="slds-form-element__control">
-											<ui:inputTextArea aura:id="commentaire" label="{!v.clabels.commentaire__c}"
-												class="slds-input" labelClass="slds-form-element__label"
-												value="{!v.item.commentaire__c}" />
-
-										</div>
-									</div>
+								<div class="slds-form-element slds-is-required">
+								<div class="slds-form-element__control">
+									<ui:inputText aura:id="libelle" label="{!v.clabels.name}"
+										class="slds-input" labelClass="slds-form-element__label"
+										value="{!v.item.Name}" required="true" />
+								</div>
+							</div>
+							<div class="slds-form-element slds-is-required">
+								<div class="slds-form-element__control">
+									<ui:inputDateTime aura:id="dateCreation" label="{!v.clabels.date_commencement__c}"
+										displayDatePicker="true" class="slds-input"
+										labelClass="slds-form-element__label"
+										value="{!v.item.date_commencement__c}" required="true" />
+								</div>
+							</div>
+							<div class="slds-form-element slds-is-required">
+								<div class="slds-form-element__control">
+									<ui:inputDateTime aura:id="echeancier" label="{!v.clabels.echeancier__c}"
+										displayDatePicker="true" class="slds-input"
+										labelClass="slds-form-element__label"
+										value="{!v.item.echeancier__c}" required="true" />
+								</div>
+							</div>
+								
+								
+								</div>
+								<div class="slds-col">
+								<div class="slds-form-element">
+								<div class="slds-form-element__control">
+									<ui:inputSelect aura:id="userEntiteID" label="{!v.clabels.gestionnaire__c}"
+										class="slds-select" labelClass="slds-form-element__label">
+										<aura:iteration items="{!v.userEntites}" var="userEntite">
+											<ui:inputSelectOption text="{!userEntite.Id}"
+												label="{!userEntite.Name}" />
+										</aura:iteration>
+									</ui:inputSelect>
+								</div>
+							</div>
+							<div class="slds-form-element slds-is-required">
+								<div class="slds-form-element__control">
+									<ui:inputCheckbox aura:id="etat" label="{!v.clabels.etat__c}"
+										class="slds-input" labelClass="slds-form-element__label"
+										value="{!v.item.etat__c}"/>
 								</div>
 							</div>
 
-
-
+							<div class="slds-form-element">
+								<div class="slds-form-element__control">
+									<ui:inputTextArea aura:id="commentaire" label="{!v.clabels.commentaire__c}"
+										class="slds-input" labelClass="slds-form-element__label"
+										value="{!v.item.commentaire__c}" />
+								</div>
+							</div>
+								
+								</div>
+							</div>
+		
 						</form>
 						<!-- / CREATE NEW Item FORM -->
 

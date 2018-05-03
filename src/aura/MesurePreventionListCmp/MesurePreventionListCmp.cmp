@@ -17,7 +17,7 @@
 				</div>
 				<div class="slds-media__body">
 					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
-						title="Liste des plans d'action">{!$Label.c.list_title_label+' '+v.clabels.labelPlural}</h1>
+						title="{!$Label.c.list_title_label+' '+v.clabels.labelPlural}">{!$Label.c.list_title_label+' '+v.clabels.labelPlural}</h1>
 					<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label} ({!v.items.length})</p>
 				</div>
 			</div>
