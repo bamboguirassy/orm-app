@@ -173,7 +173,7 @@
                                   	<c:RisqueProjetListCmp projet="{!v.item}"/>                                  
                                 </lightning:tab>
                                 <!-- intervenantLabels -->
-                                <lightning:tab label="{!$Label.c.intervenant_menus}" id="3">
+                                <lightning:tab label="{!$Label.c.intervenant_menu}" id="3">
                                   	<c:IntervenantProjetListCmp projet="{!v.item}"/>                                  
                                 </lightning:tab>
                             </lightning:tabset>

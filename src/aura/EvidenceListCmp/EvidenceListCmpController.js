@@ -23,12 +23,13 @@ showListfileByMesure : function(component,event,helper){
   evt.fire();
 },
 	regEdit : function(component, event, helper) {
-		alert('edit');
+	
 		// deployer evenement qu'on veut modifier un impact
-		var item=helper.getSelectedItem(component, event);
+		var eltselected=helper.getSelectedItem(component, event);
+			alert('edit'+item.Id);
 		var evt = $A.get("e.c:eventEditEvidenceClicked");
 		evt.setParams({
-			"Id" : item.Id
+			"Id" : eltselected.Id
 		});
 		evt.fire();
 	}
