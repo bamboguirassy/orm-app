@@ -27,7 +27,7 @@
 								<div class="slds-media__figure">
 									<span
 										class="slds-icon_container slds-icon-standard-opportunity"
-										title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+										> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
 											xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 									</span>
 								</div>
@@ -40,7 +40,7 @@
 									</nav>
 									<h1
 										class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate"
-										title="Acme - 1,200 Widgets">{!$Label.c.record_count_label}
+										>{!$Label.c.record_count_label}
 										({!v.items.length})</h1>
 
 								</div>
@@ -70,7 +70,7 @@
 													<div class="slds-media__figure">
 														<span
 															class="slds-icon_container slds-icon-standard-record"
-															title="description of icon when needed"> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
+															> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
 																xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#record'}" />
 
 														</span>
