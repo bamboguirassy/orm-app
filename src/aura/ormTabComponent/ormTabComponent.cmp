@@ -36,12 +36,12 @@
         <nav class="slds-context-bar__secondary " role="navigation">
             <ul class="slds-grid">
                 <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Home" onclick="{!c.doInit}"> <span class="slds-truncate" title="Home"><i
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.dashbord_menu}" onclick="{!c.doInit}"> <span class="slds-truncate" title="Home"><i
 							class="fa fa-2x fa-dashboard"></i> {!$Label.c.dashbord_menu}</span>
                     </a>
                 </li>
                 <li class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_hover slds-context-bar__item_divider-right">
-                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item"> <span class="slds-truncate" title="Menu Item"><i
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.configuration_menu}"> <span class="slds-truncate" title="{!$Label.c.configuration_menu}"><i
 							class="fa fa-gears"></i> {!$Label.c.configuration_menu}</span>
                     </a>
                     <div class="slds-dropdown slds-dropdown_right slds-context-bar__item_divider-right">
@@ -69,22 +69,22 @@
                     </div>
                 </li>
                 <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 0" onclick="{!c.navigateToRisqueList}"> <span class="slds-truncate" title="Menu Item"><i
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.risk_menu}" onclick="{!c.navigateToRisqueList}"> <span class="slds-truncate" title="Menu Item"><i
 							class="fa fa-adjust"></i> {!$Label.c.risk_menu}</span>
                     </a>
                 </li>
                 <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 0" onclick="{!c.navigateToEntiteList}"> <span class="slds-truncate" title="Menu Item"><i
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.structure_menu}" onclick="{!c.navigateToEntiteList}"> <span class="slds-truncate" title="Menu Item"><i
 							class="fa  fa-building"></i> {!$Label.c.structure_menu}</span>
                     </a>
                 </li>
                 <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 1" onclick="{!c.navigateToProcessusList}"> <span class="slds-truncate" title="Menu Item"><i
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.processus_menu}" onclick="{!c.navigateToProcessusList}"> <span class="slds-truncate" title="Menu Item"><i
 							class="fa fa-archive"></i> {!$Label.c.processus_menu}</span>
                     </a>
                 </li>
                 <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="Menu Item 0" onclick="{!c.navigateToProjetList}"> <span class="slds-truncate" title="Menu Item"><i
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.project_menu}" onclick="{!c.navigateToProjetList}"> <span class="slds-truncate" title="Menu Item"><i
 							class="fa fa-chain"></i> {!$Label.c.project_menu}</span>
                     </a>
                 </li>
