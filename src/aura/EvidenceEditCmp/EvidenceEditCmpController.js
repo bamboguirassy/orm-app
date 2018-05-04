@@ -43,6 +43,6 @@
             alert("modification échouée");
         }
         component.set("v.isOpen", false);
-    },
-
+    }
+ 
 })

@@ -10,7 +10,10 @@ public with sharing class EvidenceController {
     	
     }
     
-
+	@AuraEnabled
+	public static Evidence__c getElementById(String Id){
+		return [SELECT Id,webRessource__c, description__c,Name FROM Evidence__c where Id=:Id];
+	}
     	@AuraEnabled
 	public static Evidence__c add (Evidence__c item){
 		upsert item;
