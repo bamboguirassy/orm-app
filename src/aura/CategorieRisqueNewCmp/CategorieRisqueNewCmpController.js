@@ -8,11 +8,10 @@
 			nomField.set("v.errors", [ {
 				message : "Le nom de la catégorie ne peut etre vide."
 			} ]);
-			component.set("v.isMissedValue", true);
+			//component.set("v.isMissedValue", true);
 		} else {
 			nomField.set("v.errors", null);
-		}
-		if (isItemValid) {
+			if (isItemValid) {
 			var newItem = component.get("v.item");
 			var action = component.get('c.add');
 			action.setParams({
@@ -46,7 +45,8 @@
 		} else {
 			alert("ajout échouée");
 		}
-		component.set("v.isOpen", false);
+		component.set("v.isOpen", false);			
+		}
 	},
 
 	showNewCategorieRisque : function(component, event, helper) {

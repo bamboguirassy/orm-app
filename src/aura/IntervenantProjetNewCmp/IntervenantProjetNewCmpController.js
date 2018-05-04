@@ -26,7 +26,8 @@ createItem: function(component, event, helper) {
         roleField.set("v.errors", [{
             message: "Le role ne peut etre vide."
         }]);
-        heleper.showToast('erreur','le role ne peut etre vide', 'error');
+        component.set("v.isMissedValue", true);
+        //helper.showToast('erreur','le role ne peut etre vide', 'error');
     } else {
         roleField.set("v.errors", null);
     }
