@@ -14,4 +14,8 @@
 	closeAlertExistence: function(component, event, helper){
     	component.set("v.isDuplicateValueDetected", false);
     }
+    ,
+	closeAlertMissed: function(component, event, helper){
+    	component.set("v.isMissedValue", false);
+    }
 })

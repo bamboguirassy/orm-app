@@ -16,15 +16,11 @@
 				</div>
 				<div class="slds-media__body">
 					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
-<<<<<<< HEAD
-						title="Liste des plans d'action">{!$Label.c.list_title_label+'
+						title="{!$Label.c.list_title_label+'
+													'+v.clabels.labelPlural}">{!$Label.c.list_title_label+'
 													'+v.clabels.labelPlural}</h1>
 					<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label}
 										({!v.items.length})</p>
-=======
-						title="Liste des plans d'action">Liste des risques associés au projet</h1>
-					<p class="slds-text-body_small slds-line-height_reset">Nombre d'enregistrements ({!v.items.length})</p>
->>>>>>> 1e2ce873a9d856cc0affaa0f646d36230ddf0b1e
 				</div>
 			</div>
 		</div>
@@ -72,21 +68,21 @@
 									<ui:outputText value="{!item.Risque_detecte__r.Risque__r.Name}" />
 								</div>
 							</th>
-							<td data-label="{!v.clabels.date_detection__c}"
+							<td data-label="{!v.clabels.risque_detecte__r.date_detection__c}"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 								<div class="slds-truncate"
 									title="{!item.risqueEntite__r.Date_Detection__c}">
 									<ui:outputDate value="{!item.Risque_detecte__r.Date_Detection__c}" />
 								</div>
 							</td>
-							<td data-label="{!v.clabels.criticite__c}"
+							<td data-label="{!v.clabels.risque_detecte__r.criticite__c}"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 								<div class="slds-truncate"
 									title="{!item.risqueEntite__r.criticite__c}">
 									<ui:outputNumber value="{!item.Risque_detecte__r.criticite__c}" />
 								</div>
 							</td>
-							<td data-label="{!v.clabels.etat__c}"
+							<td data-label="{!v.clabels.risque_detecte__r.etat__c}"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 								<div class="slds-truncate"
 									title="{!item.risqueEntite__r.etat__c}">

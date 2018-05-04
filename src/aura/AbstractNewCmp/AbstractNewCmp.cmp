@@ -8,6 +8,7 @@
     <aura:attribute name="clabels" type="Map"
 		description="fields label and api names" />
     <aura:attribute name="isDuplicateValueDetected" type="Boolean" description="value to test if a given element is detected" />
+    <aura:attribute name="isMissedValue" type="Boolean" description="value to test if a given element is detected" />
     <aura:method name="openModel" description="" />
     <aura:method name="closeModel" description="" />
     
@@ -27,10 +28,10 @@
 					<div class="slds-modal__header">
  						<button 
 							class="slds-button slds-modal__close slds-button--icon-inverse" 
-							title="Close" onclick="{!c.isDuplicateValueDetected}"> 
-						 <span class="slds-assistive-text">Close</span> 
+							title="{!$Label.c.close_button_title}" onclick="{!c.isDuplicateValueDetected}"> 
+						 <span class="slds-assistive-text">{!$Label.c.close_button_title}</span> 
 						</button> 
-						<h1 id="header99" class="slds-text-heading--medium">Confirmation</h1>
+						<h1 id="header99" class="slds-text-heading--medium">{!$Label.c.orm_confirmation_message}</h1>
 					</div>
 					<!--###### MODAL BOX BODY Part Start From Here ######-->
 					<div class="slds-modal__content slds-p-around--medium">
@@ -42,11 +43,44 @@
 					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
 					<div class="slds-modal__footer">
 						<button class="slds-button slds-button--neutral buttonClose"
-							onclick="{!c.closeAlertExistence}">Close</button>
+							onclick="{!c.closeAlertExistence}">{!$Label.c.close_button_title}</button>
 					</div>
 				</div>
 			</div>
 			<div class="slds-backdrop slds-backdrop--open"></div>
 			<!--###### MODAL BOX Part END Here ######-->
 		</aura:if>
+		<aura:if isTrue="{!v.isMissedValue}">
+			<!-- alert model -->
+			<!--###### MODAL BOX Start From Here ######-->
+			<div role="dialog" tabindex="-1" aria-labelledby="header99"
+				class="slds-modal slds-fade-in-open ">
+				<div class="slds-modal__container form-style-duplicate">
+					<!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+					<div class="slds-modal__header">
+ 						<button 
+							class="slds-button slds-modal__close slds-button--icon-inverse" 
+							title="{!$Label.c.close_button_title}" onclick="{!c.closeAlertMissed}"> 
+						 <span class="slds-assistive-text">{!$Label.c.close_button_title}</span> 
+						</button> 
+						<h1 id="header99" class="slds-text-heading--medium">{!$Label.c.orm_confirmation_message} </h1>
+					</div>
+					<!--###### MODAL BOX BODY Part Start From Here ######-->
+					<div class="slds-modal__content slds-p-around--medium">
+						<p>
+						
+							<b style="font-size:15px;"><center> {!$Label.c.orm_libelle_null} </center></b>
+						</p>
+					</div>
+					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
+					<div class="slds-modal__footer">
+						<button class="slds-button slds-button--neutral buttonClose"
+							onclick="{!c.closeAlertMissed}">{!$Label.c.close_button_title}</button>
+					</div>
+				</div>
+			</div>
+			<div class="slds-backdrop slds-backdrop--open"></div>
+			<!--###### MODAL BOX Part END Here ######-->
+		</aura:if>
+		
 </aura:component>

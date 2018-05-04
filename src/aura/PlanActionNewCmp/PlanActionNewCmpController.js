@@ -35,7 +35,8 @@
             libelleField.set("v.errors", [{
                 message: "Le libelle ne peut etre vide."
             }]);
-            alert("le libelle,la date de creation, l'écheancier ne peuvent etre vides");
+             component.set("v.isMissedValue", true);
+            //alert("le libelle,la date de creation, l'écheancier ne peuvent etre vides");
         } else {
             libelleField.set("v.errors", null);
         }

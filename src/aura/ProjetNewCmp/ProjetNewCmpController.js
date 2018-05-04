@@ -32,7 +32,8 @@
 							[ {
 								message : "Le nom,la date de début, la structure et le responsable ne peuvent etre vides."
 							} ]);
-			alert("Le nom,la date de début ,la structure et le responsable ne peuvent etre vides.");
+							 component.set("v.isMissedValue", true);
+			//alert("Le nom,la date de début ,la structure et le responsable ne peuvent etre vides.");
 		} else {
 			nomField.set("v.errors", null);
 		}

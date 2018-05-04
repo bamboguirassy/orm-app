@@ -26,7 +26,7 @@ showListfileByMesure : function(component,event,helper){
 	
 		// deployer evenement qu'on veut modifier un impact
 		var eltselected=helper.getSelectedItem(component, event);
-			alert('edit'+item.Id);
+			
 		var evt = $A.get("e.c:eventEditEvidenceClicked");
 		evt.setParams({
 			"Id" : eltselected.Id

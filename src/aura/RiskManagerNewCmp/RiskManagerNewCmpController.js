@@ -10,7 +10,8 @@
 
 
         if ($A.util.isEmpty(newItem.LastName)) {
-            alert("Le nom ne peut être null, veuillez selectionner une valeur");
+            //alert("Le nom ne peut être null, veuillez selectionner une valeur");
+            component.set("v.isMissedValue", true);
         } else {
             var action = component.get('c.add');
             action.setParams({

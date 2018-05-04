@@ -7,7 +7,8 @@
 
 
         if ($A.util.isEmpty(newItem.Name)) {
-            alert("le libellé ne peut être null, veuillez selectionner une valeur");
+        component.set("v.isMissedValue", true);
+            //alert("le libellé ne peut être null, veuillez selectionner une valeur");
         } else {
             var action = component.get('c.add');
             action.setParams({
