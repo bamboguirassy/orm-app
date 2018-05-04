@@ -103,5 +103,21 @@
 		});
 		$A.enqueueAction(action);
 
-	}
+	},
+	closeModel : function(component, event, helper) {
+		// for Hide/Close Model,set the "isOpen" attribute to "Fasle"
+		component.set("v.item", {
+										'sobjectType' : 'Projet__c',
+										'Name' : '',
+										'Cout__c' : '',
+										'Date_debut__c' : '',
+										'Date_fin_prevue__c' : '',
+										'Description__c' : '',
+										'Etat__c' : '',
+										'Structure__c' : '',
+										'Responsable__c' : '',
+										'Site_web_du_projet__c' : ''
+									});
+		component.set("v.isOpen", false);
+	},
 })
