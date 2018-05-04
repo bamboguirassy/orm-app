@@ -33,7 +33,8 @@
                     "v.errors", [{
                         message: "Le nom,la version, le pilote et la date d'application ne peuvent etre vides."
                     }]);
-            alert("Le nom,la version et la date d'application ne peuvent etre vides.");
+            //alert("Le nom,la version et la date d'application ne peuvent etre vides.");
+            component.set("v.isMissedValue", true);
         } else {
             nomField.set("v.errors", null);
         }
