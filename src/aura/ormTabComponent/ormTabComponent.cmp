@@ -36,7 +36,7 @@
         <nav class="slds-context-bar__secondary " role="navigation">
             <ul class="slds-grid">
                 <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.dashbord_menu}" onclick="{!c.doInit}"> <span class="slds-truncate" title="Home"><i
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.dashbord_menu}" onclick="{!c.doInit}"> <span class="slds-truncate" title="{!$Label.c.dashbord_menu}"><i
 							class="fa fa-2x fa-dashboard"></i> {!$Label.c.dashbord_menu}</span>
                     </a>
                 </li>
