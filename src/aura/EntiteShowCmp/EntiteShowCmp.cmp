@@ -165,9 +165,10 @@
 
 								</div>
 							</div>
-							<footer class="slds-card__footer" style="text-align: left;">
+							<!-- <footer class="slds-card__footer" style="text-align: left;">
 
-							</footer>
+							</footer> -->
+							
 						</div>
 
 

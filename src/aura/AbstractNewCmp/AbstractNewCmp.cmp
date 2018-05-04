@@ -39,7 +39,7 @@
 						</p>
 					</div>
 					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
-					<div class="slds-modal__footer">
+					<div class="">
 						<button class="slds-button slds-button--neutral buttonClose"
 							onclick="{!c.closeAlertExistence}">Close</button>
 					</div>
