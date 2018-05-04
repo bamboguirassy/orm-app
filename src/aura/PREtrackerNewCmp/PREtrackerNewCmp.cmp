@@ -46,7 +46,7 @@
                         <!-- CREATE NEW Entite FORM -->
                         <form class="slds-form--stacked">
                             <div class="slds-form-element slds-is-required">
-                                <div class="slds-form-element__control">
+                                <div class="slds-form-element__control" >
                                     <ui:inputTextArea aura:id="description" label="{!v.clabels.description__c}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.description__c}" required="true" />
                                 </div>
                             </div>
