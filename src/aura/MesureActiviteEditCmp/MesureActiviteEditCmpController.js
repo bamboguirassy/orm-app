@@ -6,7 +6,7 @@
         if ($A.util.isEmpty(nom)) {
             isItemValid = false;
             nomField.set("v.errors", [{
-                message: "Le nom de la catégorie ne peut etre vide."
+                message: "Le nom  ne peut etre vide."
             }]);
         } else {
             nomField.set("v.errors", null);

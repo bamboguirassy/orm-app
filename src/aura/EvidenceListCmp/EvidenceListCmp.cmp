@@ -138,6 +138,7 @@
 			</div>
 		</div>
 		<!-- fin body -->
+		<c:EvidenceEditCmp />
 	</div>
 	
 </aura:component>
