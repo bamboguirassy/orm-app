@@ -64,7 +64,7 @@
 								<div class="slds-col">
 									<div class="slds-form-element slds-is-required">
 										<div class="slds-form-element__control">
-											<ui:inputText aura:id="" label="{!v.clabels.name}"
+											<ui:inputText aura:id="nom" label="{!v.clabels.name}"
 												class="slds-input" labelClass="slds-form-element__label"
 												value="{!v.item.Name}" />
 										</div>
