@@ -20,7 +20,6 @@
         newItem.processus__c = component.get('v.processus').Id;
         newItem.entite__c = component.find('entiteID').get("v.value");
 
-
         if ($A.util.isEmpty(newItem.entite__c)) {
             alert("l'entité ne peut être null, veuillez selectionner une valeur");
         } else {
@@ -39,7 +38,7 @@
         			});
         			
         			if(existe){
-        				alert("L'entite existe dèja");
+        				component.set("v.isDuplicateValueDetected", true);
         			} else {
         				
         				var action = component.get('c.add');

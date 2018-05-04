@@ -38,7 +38,7 @@
 		        	});
 		        	
 		        	if(existe){
-		        		alert("Le Processus a dèja été Ajouter");
+		        		component.set("v.isDuplicateValueDetected", true);
 		        	} else {
 		        			        	
 		        		var action = component.get('c.add');

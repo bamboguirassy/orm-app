@@ -19,6 +19,8 @@
 		<aura:attribute name="isOpenfileUploadNewCmp" default="false" type="Boolean" description="Test visibilité form upload file" />
         <aura:attribute name="isOpenListfileUploadCmp" default="false" type="Boolean" description="Test visibilité liste upload file" /> 
 	<aura:registerEvent name="eventListFileUploadClicked" type="c:eventListFileUploadClicked" description="" />
+		<aura:registerEvent name="eventEditEvidenceClicked" type="c:eventEditEvidenceClicked" description="" />
+	
 	<div class="slds-container--fluid ">
 		<!-- 	 header -->
 		<div class="slds-page-header">
@@ -89,7 +91,7 @@
 
 												<span class="slds-assistive-text">{!$Label.c.orm_attachment_menu}</span>
 											</a> 
-													<a data-index="{!i}" onclick="{!c.showEditModal}"
+													<a data-index="{!i}" onclick="{!c.regEdit}"
 															class="slds-button slds-button_icon slds-button_icon-border-filled"
 															title="{!$Label.c.edit_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />

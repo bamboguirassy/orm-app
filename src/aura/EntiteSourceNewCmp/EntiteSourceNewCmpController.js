@@ -39,7 +39,8 @@
         		});
         		
         		if(existe) {
-        			alert("L'entite a dèja été ajouter");
+        			//alert("L'entite a dèja été ajouter");
+        			component.set("v.isDuplicateValueDetected", true);
         		} else {
         			var action = component.get('c.add');
 		            action.setParams({
