@@ -10,7 +10,7 @@
 		<aura:attribute name="inCategorieImpactListCmp" type="boolean" default="true"/>
 		<!-- declaration des évènements -->
 		<aura:registerEvent name="EventNewCategorieImpactCreated" type="c:EventNewCategorieImpactCreated" />
-
+		<aura:attribute name="alertMessage" type="String" description="" default="{!$Label.c.orm_libelle_null}" />
 		<aura:if isTrue="{!v.inCategorieImpactListCmp}">
 			<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
 			<div class="slds-m-around--xx-large">

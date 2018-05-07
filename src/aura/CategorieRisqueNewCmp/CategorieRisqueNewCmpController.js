@@ -6,7 +6,7 @@
 		if ($A.util.isEmpty(nom)) {
 			isItemValid = false;
 			nomField.set("v.errors", [ {
-				message : "Le nom de la catégorie ne peut etre vide." + component.get("v.alertMessage")
+				message : "" + component.get("v.alertMessage")
 				
 			} ]);
 			//component.set("v.isMissedValue", true);

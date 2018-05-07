@@ -34,12 +34,15 @@
         if ($A.util.isEmpty(nom) || $A.util.isEmpty(phone)) {
             isItemValid = false;
             nomField.set("v.errors", [{
-                message: "Le nom de l'entité ne peut etre vide."
+                message: ""+ component.get("v.alertMessage")
             }]);
-            component.set("v.isMissedValue", true);
+            phoneField.set("v.errors", [{
+                message: ""+ component.get("v.alertMessage")
+            }]);
+           // component.set("v.isMissedValue", true);
         } else {
             nomField.set("v.errors", null);
-        }
+       
         if (isItemValid) {
             var newItem = component.get("v.item");
             
@@ -74,6 +77,7 @@
            // alert("ajout échouée");
         }
         component.set("v.isOpen", false);
+         }
     },
 
 })

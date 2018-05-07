@@ -25,11 +25,10 @@
                                     <div class="slds-media__body">
                                         <nav>
                                             <ol class="slds-breadcrumb slds-line-height_reset">
-                                                <li class="slds-breadcrumb__item"><span>{!$Label.c.list_title_label+'
-													'+v.clabels.labelPlural}</span></li>
+                                                <li class="slds-breadcrumb__item"><span>{!$Label.c.list_title_label+' '+ v.clabels.labelPlural}</span></li>
                                             </ol>
                                         </nav>
-                                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="Nombred'enregistrements ">{!$Label.c.record_count_label} ({!v.items.length})</h1>
+                                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" >{!$Label.c.record_count_label} ({!v.items.length})</h1>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +59,7 @@
                                                     <div class="slds-card__header slds-grid">
                                                         <header class="slds-media slds-media_center slds-has-flexi-truncate">
                                                             <div class="slds-media__figure">
-                                                                <span class="slds-icon_container slds-icon-standard-record" title="Liste des parties concernées"> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
+                                                                <span class="slds-icon_container slds-icon-standard-record" > <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
 																		xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#record'}" />
 																</span>
                                                             </div>
@@ -68,7 +67,7 @@
                                                                 <h2>
 																	<a href="javascript:void(0);"
 																		class="slds-card__header-link slds-truncate"
-																		title="{!item.Name}"> <span
+																		title="{!v.clabels.name}"> <span
 																		class="slds-text-heading_small"><ui:outputText value="{!item.Name}" /></span>
 																	</a>
 																</h2>

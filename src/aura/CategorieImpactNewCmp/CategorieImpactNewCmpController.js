@@ -6,12 +6,12 @@
 		if ($A.util.isEmpty(nom)) {
 			isItemValid = false;
 			nomField.set("v.errors", [ {
-				message : "Le nom de la catégorie ne peut etre vide."
+				message : ""+ component.get("v.alertMessage")
 			} ]);
-			component.set("v.isMissedValue", true);
+			//component.set("v.isMissedValue", true);
 		} else {
 			nomField.set("v.errors", null);
-		}
+		
 		if (isItemValid) {
 			var newItem = component.get("v.item");
 			var action = component.get('c.add');
@@ -51,6 +51,7 @@
 			alert("ajout échouée");
 		}
 		component.set("v.isOpen", false);
+		}
 	},
 
 })
