@@ -1,10 +1,10 @@
 ({
 	doInit : function(component, event, helper) {
 		helper.getFieldLabels(component, event);
-		var action = component.get('c.getEntites');
+		/*var action = component.get('c.getEntites');
 		action.setCallback(this, function(response) {
 			var state = response.getState();
-			if (state = 'SUCCESS') {
+			if (state == 'SUCCESS') {
 				component.set("v.entites", response.getReturnValue());
 			} else {
 				alert('Impossible de récupérer la liste des structures');
@@ -20,7 +20,7 @@
 				alert('impossible de récuperer la liste des users entités');
 			}
 		});
-		$A.enqueueAction(actionResponsable);
+		$A.enqueueAction(actionResponsable);*/
 
 	},
 	editItem : function(component, event, helper) {
@@ -103,5 +103,47 @@
 		});
 		$A.enqueueAction(action);
 
+	},	
+	
+	openModal : function(component, event, helper) {
+		// recuperer l'élément avec l'Id
+		helper.openModal(component);
+		var action = component.get('c.getElementById');
+		action.setParam('Id', event.getParam('Id'));
+		action.setCallback(this, function(response) {
+			if (response.getState() == 'SUCCESS') {
+				component.set('v.item', response.getReturnValue());
+				//laye
+				var actionEnt = component.get('c.getEntites');
+				actionEnt.setCallback(this, function(responseEnt) {
+					var state = response.getState();
+					if (state == 'SUCCESS') {
+						component.set("v.entites", responseEnt.getReturnValue());
+						console.log('entites '+ JSON.stringify(response.getReturnValue()));
+						var actionResponsable = component.get('c.findUserEntites');
+						console.log('structure_c '+ component.get("v.item").Structure__c);
+						actionResponsable.setParam("entite", component.get("v.item").Structure__c);
+						actionResponsable.setCallback(this, function(responseResp) {
+							if (response.getState() == "SUCCESS") {
+								component.set('v.userEntites', responseResp.getReturnValue());
+								console.log('responsable '+ JSON.stringify(responseResp.getReturnValue()));
+							} else {
+								alert('impossible de récuperer la liste des users entités');
+							}
+						});
+						$A.enqueueAction(actionResponsable);
+					} else {
+						alert('Impossible de récupérer la liste des structures');
+					}
+				});
+				$A.enqueueAction(actionEnt);
+				//laye
+			} else {
+				helper.showToast('Error', "Impossible de recuperer l'élement ",
+						'error');
+			}
+		});
+		$A.enqueueAction(action);
 	},
+	
 })
