@@ -46,8 +46,8 @@
                         <!-- CREATE NEW Entite FORM -->
                      
                         <form class="slds-form--stacked">
-                             <div class="slds-form-element slds-is-required">
-	                              <div class="slds-form-element__control">
+                             <div class="">
+	                              <div class="">
 	                                  <ui:inputSelect aura:id="risqueID" label="{!v.clabels.name}"  labelClass="slds-form-element__label">
 	                                      <aura:iteration items="{!v.risques}" var="risque">
 	                                          <ui:inputSelectOption text="{!risque.Id}" label="{!risque.Name}" />
