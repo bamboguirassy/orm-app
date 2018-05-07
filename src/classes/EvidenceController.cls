@@ -11,7 +11,7 @@ public with sharing class EvidenceController {
     }
     
 	@AuraEnabled
-	public static Evidence__c getElementById(String Id){
+	public static Evidence__c getElementByIdPreuve(String Id){
 		return [SELECT Id,webRessource__c, description__c,Name FROM Evidence__c where Id=:Id];
 	}
     	@AuraEnabled
