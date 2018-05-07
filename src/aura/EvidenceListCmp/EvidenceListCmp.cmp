@@ -12,6 +12,7 @@
 		description="Mesure des preuves" />
 		 <aura:attribute name="parentId" type="String" description="id du preuve"/>
      <aura:attribute name="preuveId" type="String" description="id du preuve"/>
+     <aura:attribute name="isOpenEditmodal" type="boolean" default="false" />
         <!--declaration des abonnements aux évenements-->
 	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
  		<aura:handler action="{!c.refreshList}" event="c:eventNewPreuveCreated" />
@@ -138,6 +139,7 @@
 			</div>
 		</div>
 		<!-- fin body -->
+	
 	</div>
 	
 </aura:component>

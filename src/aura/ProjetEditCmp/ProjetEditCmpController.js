@@ -102,6 +102,5 @@
 			}
 		});
 		$A.enqueueAction(action);
-
-	}
+	},
 })
