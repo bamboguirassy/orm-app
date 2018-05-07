@@ -9,8 +9,6 @@
 						this,
 						function(response) {
 							if (response.getState() == 'SUCCESS') {
-							alert(JSON.stringify(response
-										.getReturnValue()))
 								component.set('v.clabels', response
 										.getReturnValue());
 							} else {
