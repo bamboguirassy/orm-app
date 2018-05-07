@@ -28,16 +28,20 @@
             $A.util.isEmpty(dateApplication) ||
             $A.util.isEmpty(piloteID)) {
             isItemValid = false;
-            nomField
-                .set(
-                    "v.errors", [{
-                        message: "Le nom,la version, le pilote et la date d'application ne peuvent etre vides."
+            nomField .set(  "v.errors", [{
+                        message: ""+ component.get("v.alertMessage")
+                    }]);
+                     versionField.set( "v.errors", [{
+                        message: ""+ component.get("v.alertMessage")
+                    }]);
+                     dateApplicationField.set("v.errors", [{
+                        message: ""+ component.get("v.alertMessage")
                     }]);
             //alert("Le nom,la version et la date d'application ne peuvent etre vides.");
-            component.set("v.isMissedValue", true);
+           // component.set("v.isMissedValue", true);
         } else {
             nomField.set("v.errors", null);
-        }
+       
         if (isItemValid) {
             var newItem = component.get("v.item");
             newItem.pilote__c = piloteID;
@@ -75,6 +79,7 @@
             alert("ajout échouée");
         }
         component.set("v.isOpen", false);
+         }
     },
 
     getUserEntites: function(component, event, helper) {
