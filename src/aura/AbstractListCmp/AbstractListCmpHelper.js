@@ -13,7 +13,6 @@
         getFieldsLabelAction.setCallback(this, function(response){
             if(response.getState()=='SUCCESS'){
                 component.set('v.clabels',response.getReturnValue()); 
-                alert(JSON.stringify(component.get("v.clabels")));
             } else {
                     alert('Une erreur est survenues lors de la récuperation des champs'); }
         });
