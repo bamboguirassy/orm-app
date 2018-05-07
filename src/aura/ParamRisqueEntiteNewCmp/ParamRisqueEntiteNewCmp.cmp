@@ -46,9 +46,13 @@
                         <!-- CREATE NEW Entite FORM -->
                      
                         <form class="slds-form--stacked">
-                             <div class="">
-	                              <div class="">
-	                                  <ui:inputSelect aura:id="risqueID" label="{!v.clabels.name}"  labelClass="slds-form-element__label">
+                             <div class="slds-form-element slds-is-required">
+	                              <div class="slds-form-element__control">
+	                               <label style="float: left;" class="slds-form-element__label slds-is-required" for="">
+                            		<abbr class="slds-required" title="required">*</abbr>
+                            		{!v.clabels.name}
+                            	</label>
+	                                  <ui:inputSelect aura:id="risqueID" label=""  labelClass="slds-form-element__label">
 	                                      <aura:iteration items="{!v.risques}" var="risque">
 	                                          <ui:inputSelectOption text="{!risque.Id}" label="{!risque.Name}" />
 	                                      </aura:iteration>
@@ -57,12 +61,20 @@
                               </div>
                               <div class="slds-form-element slds-is-required">
                                   <div class="slds-form-element__control">
-                                      <ui:inputNumber aura:id="seuilApparution" label="{!v.clabels.seuilapparution__c}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.seuilApparution__c}" required="true" />
+                                  <label style="float: left;" class="slds-form-element__label slds-is-required" for="">
+                            		<abbr class="slds-required" title="required">*</abbr>
+                            		{!v.clabels.seuilapparution__c}
+                            	</label>
+                                      <ui:inputNumber aura:id="seuilApparution" label="" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.seuilApparution__c}" required="true" />
                                   </div>
                               </div>
                               <div class="slds-form-element slds-is-required">
                                   <div class="slds-form-element__control">
-                                      <ui:inputText aura:id="unite" label="{!v.clabels.unite__c}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.unite__c}" required="true" />
+                                   <label style="float: left;" class="slds-form-element__label slds-is-required" for="">
+                            		<abbr class="slds-required" title="required">*</abbr>
+                            		{!v.clabels.unite__c}
+                            	</label>
+                                      <ui:inputText aura:id="unite" label="" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.unite__c}" required="true" />
                                   </div>
                               </div>
                           
