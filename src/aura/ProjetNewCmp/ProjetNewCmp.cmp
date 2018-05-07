@@ -21,6 +21,7 @@
 	<!--     evenement à publier lorsqu'il ya un nouvel element ajouté -->
 	<aura:registerEvent name="newProjetAjoute"
 		type="c:eventNewProjetCreated" description="" />
+		<aura:attribute name="alertMessage" type="String" description="" default="{!$Label.c.orm_libelle_null}" />
 
 
 	<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->

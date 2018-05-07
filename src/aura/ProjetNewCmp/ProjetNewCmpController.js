@@ -26,17 +26,18 @@
 				|| $A.util.isEmpty(structureID)
 				|| $A.util.isEmpty(responsableID)) {
 			isItemValid = false;
-			nomField
-					.set(
-							"v.errors",
-							[ {
-								message : "Le nom,la date de début, la structure et le responsable ne peuvent etre vides."
+			nomField.set("v.errors",[ {
+								message : ""+ component.get("v.alertMessage")
 							} ]);
-							 component.set("v.isMissedValue", true);
+			datedebutField.set("v.errors",[ {
+								message : ""+ component.get("v.alertMessage")
+							} ]);
+							
+							// component.set("v.isMissedValue", true);
 			//alert("Le nom,la date de début ,la structure et le responsable ne peuvent etre vides.");
 		} else {
 			nomField.set("v.errors", null);
-		}
+		
 		if (isItemValid) {
 			var newItem = component.get("v.item");
 			newItem.Structure__c = structureID;
@@ -77,7 +78,7 @@
 			alert("ajout échouée");
 		}
 		component.set("v.isOpen", false);
-
+		}
 	},
 	getUserEntites : function(component, event, helper) {
 	
