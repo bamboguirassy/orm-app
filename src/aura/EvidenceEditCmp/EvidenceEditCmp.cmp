@@ -1,8 +1,9 @@
 <aura:component extends="c:AbstractEditCmp"
 	controller="EvidenceController">
 	<aura:attribute name="item" type="Evidence__c" required="true" />
+	<aura:attribute name="isOpenEditmodal" type="boolean" default="false" />
 	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
-	<aura:handler action="{!c.openModal}"
+	<aura:handler action="{!c.openModaledit}"
 		event="c:eventEditEvidenceClicked" />
 	<aura:registerEvent name="newPreuveAjouter"
 		type="c:eventNewPreuveCreated" description="" />
@@ -10,7 +11,7 @@
 	<div class="slds-m-around">
 
 		<!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
-		<aura:if isTrue="{!v.isOpen}">
+		<aura:if isTrue="{!v.isOpenEditmodal}">
 			<!--###### MODAL BOX Start From Here ######-->
 			<div role="dialog" tabindex="-1" aria-labelledby="header99"
 				class="slds-modal slds-fade-in-open ">
@@ -19,7 +20,7 @@
 					<div class="slds-modal__header">
 						<button
 							class="slds-button slds-modal__close slds-button--icon-inverse"
-							title="Close" onclick="{!c.closeModel}">
+							title="Close" onclick="{!c.closeModaledit}">
 							X <span class="slds-assistive-text">Close</span>
 						</button>
 						<h1 id="header99" class="slds-text-heading--medium">{!$Label.c.edit_title_label+' '+v.clabels.label}</h1>
@@ -66,7 +67,7 @@
 					<!--###### MODAL BOX FOOTER Part Start From Here ######-->
 					<div class="slds-modal__footer">
 						<button class="slds-button slds-button--neutral"
-							onclick="{!c.closeModel}">{!$Label.c.cancel_button_title}</button>
+							onclick="{!c.closeModaledit}">{!$Label.c.cancel_button_title}</button>
 						<button class="slds-button slds-button--brand"
 							onclick="{!c.editItem}">
 							<i class="fa fa-paper-plane-o" aria-hidden="true"></i> {!$Label.c.edit_button_title}

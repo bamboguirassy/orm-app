@@ -20,7 +20,6 @@ doInit : function(component, event, helper) {
 	},
 
 	createItem : function(component, event, helper) {
-	alert("mesure ="+component.get('v.mesure'));
 		var nomField = component.find("nom");
 		var nom = nomField.get("v.value");
 		
