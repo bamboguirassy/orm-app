@@ -13,6 +13,7 @@
 		type="c:eventNewCategorieRisqueCreated" />
 	<aura:handler event="c:eventNewCategorieRisqueClicked"
 		action="{!c.showNewCategorieRisque}" />
+		<aura:attribute name="alertMessage" type="String" description="" default="{!$Label.c.close_button_title}" />
 
 	<!-- 		doInit  -->
 	<aura:handler action="{!c.doInit}" value="{!this}" name="init" />
