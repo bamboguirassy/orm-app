@@ -14,7 +14,7 @@
 	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
      <aura:handler event="c:EventNewCategorieImpactCreated" action="{!c.refreshListCategorieImpactList}" />
 	<aura:registerEvent name="newImpactRisqueAjoute" type="c:eventNewImpactRisqueCreated" description="" />
-	
+	<aura:attribute name="alertMessage" type="String" description="" default="{!$Label.c.orm_libelle_null}" />
 	<aura:if isTrue="{!v.inImpactRisqueListCmp}"> 
     <!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
     <div class="slds-m-around--xx-large">
