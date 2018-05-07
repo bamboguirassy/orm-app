@@ -10,7 +10,7 @@
 		type="boolean" default="true" />
 	<aura:registerEvent name="newCategorieMesurePreventioAjoute"
 		type="c:eventNewCategorieMesurePreventioCreated" description="" />
-	
+	<aura:attribute name="alertMessage" type="String" description="" default="{!$Label.c.orm_libelle_null}" />
 	<aura:handler action="{!c.doInit}" value="{!this}" name="init" />
 
 
