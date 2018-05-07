@@ -9,13 +9,13 @@
         if ($A.util.isEmpty(nom)) {
             isItemValid = false;
             nomField.set("v.errors", [{
-                message: "Le nom ne peut etre vide."
+                message: ""+ component.get("v.alertMessage")
             }]);
            // alert('le nom ne peut etre vide');
-           component.set("v.isMissedValue", true);
+          // component.set("v.isMissedValue", true);
         } else {
             nomField.set("v.errors", null);
-        }
+        
         if (isItemValid) {
             var newItem = component.get("v.item");
             newItem.categorieRisque__c = component.find("categorieRisqueId").get("v.value");
@@ -45,6 +45,7 @@
             alert("ajout échouée");
         }
         component.set("v.isOpen", false);
+        }
     },
 
     refreshListCategorie: function(component, event, helper) {

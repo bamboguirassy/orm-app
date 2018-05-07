@@ -11,7 +11,7 @@
       <aura:registerEvent name="newRisqueAjoute" type="c:eventNewRisqueCreated" description="" />
       <aura:registerEvent name="eventNewCategorieRisqueClicked" type="c:eventNewCategorieRisqueClicked" />
       <aura:handler event="c:eventNewCategorieRisqueCreated" action="{!c.refreshListCategorie}" />
-
+		<aura:attribute name="alertMessage" type="String" description="" default="{!$Label.c.orm_libelle_null}" />
       <!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
       <div class="slds-m-around--xx-large">
         <div class=" slds-grid  slds-wrap slds-align--absolute-center" style="margin-top:20px">
