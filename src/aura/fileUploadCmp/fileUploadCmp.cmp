@@ -22,7 +22,7 @@
 							title="Close" onclick="{!c.closeModelfileUploadCmp}">
 							X <span class="slds-assistive-text">Close</span>
 						</button>
-						<h1 id="header99" class="slds-text-heading--medium">{!$Label.c.new_title_label}+' '+{!$Label.c.orm_upload_file}</h1>
+						<h1 id="header99" class="slds-text-heading--medium">{!$Label.c.new_title_label+' '+$Label.c.orm_upload_file}</h1>
 					</div>
 					<!--###### MODAL BOX BODY Part Start From Here ######-->
 					<div class="slds-modal__content slds-p-around--medium">

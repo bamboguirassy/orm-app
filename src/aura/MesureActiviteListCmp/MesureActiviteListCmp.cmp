@@ -153,6 +153,7 @@
 <!-- 		<aura:if isTrue="{!v.activite}"> -->
 			<c:MesureActiviteEditCmp />
 <!-- 			item="{!v.editItem}" items="{!v.items}" isOpen="{!v.editComponentIsOpen}" -->
+	<c:EvidenceEditCmp />
 <!-- 		</aura:if> -->
 	</div>
 

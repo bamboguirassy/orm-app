@@ -1,4 +1,23 @@
 ({
+	openModaledit : function(component, event, helper) {
+		// recuperer l'élément avec l'Id
+		helper.openModal(component);
+		var action = component.get('c.getElementByIdPreuve');
+		action.setParam('Id', event.getParam('Id'));
+		action.setCallback(this, function(response) {
+			if (response.getState() == 'SUCCESS') {
+				component.set('v.item', response.getReturnValue());
+			} else {
+				helper.showToast('Error', "Impossible de recuperer l'élement ",
+						'error');
+			}
+		});
+		$A.enqueueAction(action);
+	},
+	 closeModaledit : function(component, event, helper) {
+		// for Hide/Close Model,set the "isOpen" attribute to "False"
+		component.set("v.isOpenEditmodal", false);
+	},
     editItem: function(component, event, helper) {
       	var nomField = component.find("nom");
 		var nom = nomField.get("v.value");
@@ -42,7 +61,7 @@
         } else {
             alert("modification échouée");
         }
-        component.set("v.isOpen", false);
+        component.set("v.isOpenEditmodal", false);
     }
  
 })
