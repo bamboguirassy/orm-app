@@ -46,14 +46,22 @@
                         <!-- CREATE NEW Entite FORM -->
                         <form class="slds-form--stacked">
                             <div class="slds-form-element slds-is-required">
+                            	<label style="float: left;" class="slds-form-element__label slds-is-required" for="">
+                            		<abbr class="slds-required" title="required">*</abbr>
+                            		{!v.clabels.description__c}
+                            	</label>
                                 <div class="slds-form-element__control" >
-                                    <ui:inputTextArea aura:id="description" label="{!v.clabels.description__c}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.description__c}" required="true" />
+                                    <ui:inputTextArea aura:id="description" label="" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.description__c}" required="true" />
                                 </div>
                             </div>
                             <div class="slds-form-element">
+                            	<label style="float: left;" class="slds-form-element__label slds-is-required" for="">
+                            		<abbr class="slds-required" title="required">*</abbr>
+                            		{!$Label.c.orm_value_in +'  '+ v.paramRisqueEntite.unite__c}
+                            	</label>
                                 <div class="slds-form-element slds-is-required">
                                     <div class="slds-form-element__control">
-                                        <ui:inputNumber aura:id="valeur" label="{!$Label.c.orm_value_in +'  '+ v.paramRisqueEntite.unite__c}" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.valeur__c}" required="true" />
+                                        <ui:inputNumber aura:id="valeur" label="" class="slds-input" labelClass="slds-form-element__label" value="{!v.item.valeur__c}" required="true" />
                                     </div>
                                 </div>
                             </div>
