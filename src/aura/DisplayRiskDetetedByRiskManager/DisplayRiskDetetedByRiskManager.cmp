@@ -100,10 +100,10 @@
 										<div class="slds-button-group" role="group">
 											<a data-index="{!i}" onclick="{!c.navigateToShow}"
 												class="slds-button slds-button_icon slds-button_icon-border-filled"
-												title="afficher" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+												title="{!$Label.c.show_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#preview'}" />
 
-												<span class="slds-assistive-text">Afficher</span>
+												<span class="slds-assistive-text">{!$Label.c.show_button_title}</span>
 											</a> 
 				
 										</div>
