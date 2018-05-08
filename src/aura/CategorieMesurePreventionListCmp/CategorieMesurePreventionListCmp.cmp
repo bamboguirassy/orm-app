@@ -59,19 +59,18 @@
                                                             <span class="slds-icon_container slds-icon-standard-record" title="{!v.clabels.labelPlural}"> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
 												xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#record'}" />
 
-										</span>
-                                                        </div>
-                                                        <div class="slds-media__body">
-                                                            <h2>
-											<a href="javascript:void(0);"
-												class="slds-card__header-link slds-truncate"
-												title="{!item.Name}"> <span
-												class="slds-text-heading_small"><ui:outputText value="{!item.Name}" /></span>
-											</a>
-										</h2>
-                                                        </div>
-                                                    </header>
-                                                    <div class="slds-einstein-header__actions">
+										  </span>
+                                          </div>
+                                          <div class="slds-media__body">
+	                                            <h2>
+													<a href="javascript:void(0);"
+														class="slds-card__header-link"
+														title="{!item.Name}"><ui:outputText value="{!item.Name}" />
+													</a>
+											   </h2>
+                                           </div>
+                                           </header>
+                                                   <div class="slds-einstein-header__actions">
                                                         <div class="slds-button-group" role="group">
                                                             <a data-index="{!i}" onclick="{!c.removeItem}" class="slds-button slds-button_icon slds-button_icon-border-filled" title="{!$Label.c.delete_button_title}" aria-pressed="false">
                                                                 <c:svg class="slds-button__icon" aria-hidden="true" xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
