@@ -53,19 +53,17 @@
                                                 <header class="slds-media slds-media_center slds-has-flexi-truncate">
                                                     <div class="slds-media__figure">
                                                         <span class="slds-icon_container slds-icon-standard-record" title="description of icon when needed"> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
-												xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#record'}" />
-
-										</span>
-                                                    </div>
-                                                    <div class="slds-media__body">
-                                                        <h2>
-											<a href="javascript:void(0);"
-												class="slds-card__header-link slds-truncate"
-												title="{!item.Name}"> <span
-												class="slds-text-heading_small"><ui:outputText value="{!item.Name}" /></span>
-											</a>
-										</h2>
-                                                    </div>
+												            xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#record'}" />
+                                                        </span>
+										       </div>
+                                               <div class="slds-media__body">
+                                                    <h2>
+														<a href="javascript:void(0);"
+															class="slds-card__header-link"
+															title="{!item.Name}"><ui:outputText value="{!item.Name}" />
+														</a>
+										             </h2>
+                                               </div>
                                                 </header>
                                                 <div class="slds-einstein-header__actions">
                                                     <div class="slds-button-group" role="group">
