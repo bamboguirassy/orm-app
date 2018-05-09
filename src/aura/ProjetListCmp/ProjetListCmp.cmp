@@ -46,10 +46,7 @@
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
 							<div class="slds-truncate" title="{!v.clabels.date_debut__c}">{!v.clabels.date_debut__c}</div>
 						</th>
-						<th scope="col"
-							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-							<div class="slds-truncate" title="{!v.clabels.date_fin_prevue__c}">{!v.clabels.date_fin_prevue__c}</div>
-						</th>
+						
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
 							<div class="slds-truncate" title="{!v.clabels.responsable__c}">{!v.clabels.responsable__c}</div>
@@ -76,11 +73,7 @@
 								<div class="slds-truncate" title="{!item.Date_debut}">
 								<ui:outputDate value="{!item.Date_debut__c}"/></div>
 							</td>
-							<td scope="row" data-label="Date fin prévue"
-								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-								<div class="slds-truncate" title="{!item.Date_fin_prevue}">
-								<ui:outputDate value="{!item.Date_fin_prevue__c}"/></div>
-							</td>
+							
 							<td data-label="Responsable"
 								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
 								<div class="slds-truncate"
