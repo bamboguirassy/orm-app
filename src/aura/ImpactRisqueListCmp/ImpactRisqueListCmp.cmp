@@ -31,7 +31,7 @@
 		<div class="slds-box slds-theme_shade slds-theme_alert-texture">
 			<!--     debut datatable -->
 			<table
-				class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped">
+				class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped table_legenda"  width="100%">
 				<thead>
 					<tr class="slds-text-title_caps">
 						<th scope="col"
@@ -57,26 +57,24 @@
 						<tr class="slds-hint-parent">
 							<td scope="row" data-label="Libellé"
 								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-								<div class="slds-truncate" title="{!item.Name}">
+								<div title="{!item.Name}" width="20%">
 									<ui:outputText value="{!item.Name}" />
 								</div>
 							</td>
 							<td data-label="Catégorie"
-								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-								<div class="slds-truncate"
-									title="{!item.description__c}">
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right" width="40%">
+								<div title="{!item.description__c}">
 									<ui:outputRichText value="{!item.description__c}" />
 								</div>
 							</td>
 							<td data-label="Catégorie"
-								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-								<div class="slds-truncate"
-									title="{!item.Categorie_Impact__r.Name}">
-							<ui:outputRichText value="{!item.Categorie_Impact__r.Name}" />
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right" width="30%">
+								<div title="{!item.Categorie_Impact__r.Name}">
+							        <ui:outputRichText value="{!item.Categorie_Impact__r.Name}" />
 								</div>
 							</td>
 							<td data-label="Actions"
-								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" width="10%">
 								<div class="slds-truncate" title="Actions">
 									<div class="slds-einstein-header__actions">
 										<div class="slds-button-group" role="group">
