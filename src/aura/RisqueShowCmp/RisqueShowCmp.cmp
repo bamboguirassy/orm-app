@@ -155,12 +155,6 @@
                                         <c:ImpactRisqueListCmp risque="{!v.item.Id}" />
                                     </aura:if>
                                 </lightning:tab>
-                                
-                                <!-- <lightning:tab label="Processus" id="4">
-                                </lightning:tab> -->
-
-
-
                             </lightning:tabset>
                             <!-- fin tab -->
 
