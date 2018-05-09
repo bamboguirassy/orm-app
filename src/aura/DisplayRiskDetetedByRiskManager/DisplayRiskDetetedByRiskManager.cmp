@@ -51,12 +51,7 @@
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
 							<div class="slds-truncate" title="{!v.clabels.criticite__c}">{!v.clabels.criticite__c}</div>
 						</th>
-						<aura:if isTrue="{!v.entite==null}">
-							<th scope="col"
-								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-								<div class="slds-truncate" title="{!v.clabels.entite__c}">{!v.clabels.entite__c}</div>
-							</th>
-						</aura:if>
+						
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 							<div class="slds-truncate" title="{!$Label.c.table_action_label}">{!$Label.c.table_action_label}</div>
@@ -85,14 +80,7 @@
 									<ui:outputNumber value="{! item.criticite__c}" />
 								</div>
 							</td>
-							<aura:if isTrue="{!v.entite==null}">
-								<td data-label="Entité parente"
-									class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-									<div class="slds-truncate" title="{! item.Entite__r.Name}">
-										<ui:outputText value="{! item.Entite__r.Name}" />
-									</div>
-								</td>
-							</aura:if>
+							
 							<td data-label="Actions"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 								<div class="slds-truncate" title="Actions">
