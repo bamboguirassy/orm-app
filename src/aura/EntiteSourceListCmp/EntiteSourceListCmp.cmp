@@ -39,14 +39,7 @@
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 							<div class="slds-truncate" title="{!v.clabels.phone}">{!v.clabels.phone}</div>
 						</th>
-						<th scope="col"
-							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="{!v.clabels.website}">{!v.clabels.website}</div>
-						</th>
-						<th scope="col"
-							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="{!v.clabels.type}">{!v.clabels.type}</div>
-						</th>
+						
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 							<div class="slds-truncate" title="{!$Label.c.table_action_label}">{!$Label.c.table_action_label}</div>
@@ -73,20 +66,7 @@
 									<ui:outputPhone value="{!item.entite__r.Phone}" />
 								</div>
 							</td>
-							<td data-label="Website"
-								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-								<div class="slds-truncate"
-									title="{!item.entite__r.Website}">
-									<ui:outputURL label="{!item.entite__r.Website}" value="{!item.entite__r.Website}" />
-								</div>
-							</td>
-							<td data-label="Type"
-								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-								<div class="slds-truncate"
-									title="{!item.entite__r.Type}">
-									<ui:outputText value="{!item.entite__r.Type}" />
-								</div>
-							</td>
+							
 							<td data-label="Actions"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 								<div class="slds-truncate" title="Actions">
