@@ -26,7 +26,7 @@
 				<div class="slds-box slds-theme_shade slds-theme_alert-texture">
 					<!-- debut implementation datatable -->
 					<table
-						class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped">
+						class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped table_legenda"  width="100%">
 						<thead>
 							<tr class="slds-text-title_caps">
 
@@ -59,36 +59,32 @@
 								<tr class="slds-hint-parent">
 
 									<th scope="row" data-label="Nom"
-										class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-										<div class="slds-truncate"
-											title="{!item.entite__r.Name}">
+										class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" width="25%">
+										<div title="{!item.entite__r.Name}">
 											<ui:outputText value="{!item.entite__r.Name}" />
 										</div>
 									</th>
 									<td data-label="Tél"
-										class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-										<div class="slds-truncate"
-											title="{!item.entite__r.Phone}">
+										class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" width="20%">
+										<div title="{!item.entite__r.Phone}">
 											<ui:outputPhone value="{!item.entite__r.Phone}" />
 										</div>
 									</td>
 									<td data-label="Website"
-										class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-										<div class="slds-truncate"
-											title="{!item.entite__r.Website}">
+										class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" width="30%">
+										<div title="{!item.entite__r.Website}">
 											<ui:outputURL label="{!item.entite__r.Website}" value="{!item.entite__r.Website}" />
 										</div>
 									</td>
 									<td data-label="Type"
-										class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-										<div class="slds-truncate"
-											title="{!item.entite__r.Type}">
+										class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" width="20%">
+										<div title="{!item.entite__r.Type}">
 											<ui:outputText value="{!item.entite__r.Type}" />
 										</div>
 									</td>
 									<td data-label="Actions"
-										class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-										<div class="slds-truncate" title="{!$Label.c.delete_button_title}">
+										class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" width="5%">
+										<div title="{!$Label.c.delete_button_title}">
 											<div class="slds-button-group" role="group">
 												<a data-index="{!i}" onclick="{!c.removeItem}"
 													class="slds-button slds-button_icon slds-button_icon-border-filled"
