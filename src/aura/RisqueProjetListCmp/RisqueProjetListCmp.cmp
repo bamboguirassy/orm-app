@@ -36,11 +36,7 @@
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 							<div class="slds-truncate" title="{!v.clabels.name}">{!v.clabels.name}</div>
 						</th>
-						<th scope="col"
-							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-							<div class="slds-truncate" title="{!v.clabels.createddate}">{!v.clabels.createddate}
-								</div>
-						</th>
+						
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 							<div class="slds-truncate" title="{!v.clabels.criticite__c}">{!v.clabels.criticite__c}</div>
@@ -68,13 +64,7 @@
 									<ui:outputText value="{!item.Risque_detecte__r.Risque__r.Name}" />
 								</div>
 							</th>
-							<td data-label="{!v.clabels.risque_detecte__r.date_detection__c}"
-								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-								<div class="slds-truncate"
-									title="{!item.risqueEntite__r.Date_Detection__c}">
-									<ui:outputDate value="{!item.Risque_detecte__r.Date_Detection__c}" />
-								</div>
-							</td>
+							
 							<td data-label="{!v.clabels.risque_detecte__r.criticite__c}"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 								<div class="slds-truncate"
