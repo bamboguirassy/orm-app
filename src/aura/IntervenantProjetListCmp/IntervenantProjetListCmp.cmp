@@ -42,12 +42,7 @@
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
 							<div class="slds-truncate" title="{!v.clabels.email}">{!v.clabels.email}</div>
 						</th>
-						<aura:if isTrue="{!v.entite==null}">
-							<th scope="col"
-								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-								<div class="slds-truncate" title="{!v.clabels.role__c}">{!v.clabels.role__c}</div>
-							</th>
-						</aura:if>
+						
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 							<div class="slds-truncate" title="{!$Label.c.table_action_label}">{!$Label.c.table_action_label}</div>
@@ -74,11 +69,7 @@
 									<ui:outputEmail value="{!item.Intervenant__r.Email}" />
 								</div>
 							</td>
-							<td scope="row" data-label="{!v.clabels.role__c}"
-								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
-								<div class="slds-truncate" title="{!item.Role__c}">
-									{!item.Role__c}</div>
-							</td>
+							
 							<td data-label="{!$Label.c.table_action_label}"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
 								<div class="slds-truncate" title="{!$Label.c.table_action_label}">
@@ -134,8 +125,6 @@
 				<div
 					class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
 					style="">
-
-
                      <aura:if isTrue="{!v.projet}">
 						<c:IntervenantProjetNewCmp projet="{!v.projet}" />
                         <c:IntervenantProjetEditCmp projet="{!v.projet}"/>
