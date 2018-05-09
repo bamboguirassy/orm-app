@@ -29,7 +29,7 @@
 		<!-- fin header -->
 		<div class="slds-box slds-theme_shade slds-theme_alert-texture">
 			<table
-				class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped">
+				class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped table_legenda"  width="100%">
 				<thead>
 					<tr class="slds-text-title_caps">
 
@@ -62,35 +62,32 @@
 						<tr class="slds-hint-parent">
 
 							<th scope="row" data-label="Intitulé"
-								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-								<div class="slds-truncate" title="{!item.destination__r.Name}">
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" width="15%">
+								<div title="{!item.destination__r.Name}">
 									<ui:outputText value="{!item.destination__r.Name}" />
 								</div>
 							</th>
 							<td data-label="Date détection"
-								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-								<div class="slds-truncate"
-									title="{!item.destination__r.dateApplication__c}">
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" width="20%">
+								<div title="{!item.destination__r.dateApplication__c}">
 									<ui:outputDate value="{!item.destination__r.dateApplication__c}" />
 								</div>
 							</td>
 							<td data-label="Structure"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-								<div class="slds-truncate"
-									title="{!item.destination__r.version__c}">
+								<div title="{!item.destination__r.version__c}" width="20%">
 									<ui:outputText value="{!item.destination__r.version__c}" />
 								</div>
 							</td>
 							<td data-label="Etat"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-								<div class="slds-truncate"
-									title="{!item.destination__r.proprietaire__r.Name}">
+								<div title="{!item.destination__r.proprietaire__r.Name}" width="40%">
 									<ui:outputText value="{!item.destination__r.proprietaire__r.Name}" />
 								</div>
 							</td>
 							<td data-label="Actions"
 								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-								<div class="slds-truncate" title="{!$Label.c.delete_button_title}">
+								<div title="{!$Label.c.delete_button_title}" width="5%">
 									<div class="slds-button-group" role="group">
 										<a data-index="{!i}" onclick="{!c.removeItem}"
 											class="slds-button slds-button_icon slds-button_icon-border-filled"
