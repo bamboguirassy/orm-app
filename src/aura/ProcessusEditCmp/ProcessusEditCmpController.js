@@ -97,12 +97,14 @@
 				var action1 = component.get('c.getEntites');
 		        action1.setCallback(this, function(response) {
 		            if (response.getState() == 'SUCCESS') {
+		            	console.log('entites '+ JSON.stringify(response.getReturnValue()));
 		                component.set('v.entites', response.getReturnValue());
 		                
 		                var actionPil = component.get('c.findUserEntites');
 				        actionPil.setParam("entite", item.proprietaire__c);
 				        actionPil.setCallback(this, function(response) {
 				            if (response.getState() == "SUCCESS") {
+				                console.log('v.userEntites '+ JSON.stringify(response.getReturnValue()));
 				                component.set('v.userEntites', response.getReturnValue());
 				            } else {
 				                alert('impossible de récuperer la liste des users entités');
@@ -122,8 +124,6 @@
 			}
 		});
 		$A.enqueueAction(action);
-    
-    
     }
 
 })
