@@ -1,7 +1,6 @@
 ({
     
     createItem: function(component, event, helper) {
-
         var newItem = component.get("v.item");
         newItem.PartieConcernee__c = component.get('v.partieConcernee').Id;
 
