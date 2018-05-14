@@ -22,11 +22,11 @@
         }
     },
     removeItem: function(component, event, helper) {
+
         var index = event.target.dataset.index;        
         component.set('v.currentIndex', index);
         //component.set('v.currentIndex', event.target.dataset.index);
-        
-        helper.openDeleteConfirmationModel(component);
+            helper.openDeleteConfirmationModel(component);
 
     },
     refreshList: function(component, event, helper) {
