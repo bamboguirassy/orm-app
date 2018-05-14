@@ -15,6 +15,14 @@
 	<aura:attribute name="clabels" type="Map" description="fields label and api names" />
 	<aura:attribute name="scriptLoaded" type="Boolean" default="false" />
 	<aura:attribute name="isEdit" type="Boolean" default="false" />
+	
+	<!-- Attribute Declration For Pagination -->
+    <aura:attribute name="PaginationList" type="SObject[]"/>
+    <aura:attribute name="startPage" type="Integer" />
+    <aura:attribute name="endPage" type="Integer"/>
+    <aura:attribute name="totalRecords" type="Integer"/>
+    <aura:attribute name="pageSize" type="Integer" default="5"/>
+    <!-- Attribute Declration For Pagination End-->
 
 	<!--     methods -->
 	<aura:method name="showEditModal" description=""

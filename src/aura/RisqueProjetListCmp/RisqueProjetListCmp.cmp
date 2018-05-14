@@ -28,7 +28,7 @@
 		<div class="slds-box slds-theme_shade slds-theme_alert-texture">
 
 			<table
-				class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped">
+				class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped table_legenda"  width="100%">
 				<thead>
 					<tr class="slds-text-title_caps">
 
@@ -58,30 +58,27 @@
 						<tr class="slds-hint-parent">
 
 							<th scope="row" data-label="{!v.clabels.name}"
-								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-								<div class="slds-truncate"
-									title="{!item.Risque_detecte__r.Risque__r.Name}">
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" width="50%">
+								<div title="{!item.Risque_detecte__r.Risque__r.Name}">
 									<ui:outputText value="{!item.Risque_detecte__r.Risque__r.Name}" />
 								</div>
 							</th>
 							
 							<td data-label="{!v.clabels.risque_detecte__r.criticite__c}"
-								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-								<div class="slds-truncate"
-									title="{!item.risqueEntite__r.criticite__c}">
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" width="20%">
+								<div title="{!item.risqueEntite__r.criticite__c}">
 									<ui:outputNumber value="{!item.Risque_detecte__r.criticite__c}" />
 								</div>
 							</td>
 							<td data-label="{!v.clabels.risque_detecte__r.etat__c}"
-								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-								<div class="slds-truncate"
-									title="{!item.risqueEntite__r.etat__c}">
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" width="20%">
+								<div title="{!item.risqueEntite__r.etat__c}">
 									<ui:outputCheckbox value="{!item.Risque_detecte__r.etat__c}" />
 								</div>
 							</td>
 							<td data-label="Actions"
-								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
-								<div class="slds-truncate" title="Actions">
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" width="10%">
+								<div title="Actions">
 									<div class="slds-button-group" role="group">
 										<a data-index="{!i}" onclick="{!c.removeItem}"
 											class="slds-button slds-button_icon slds-button_icon-border-filled"
