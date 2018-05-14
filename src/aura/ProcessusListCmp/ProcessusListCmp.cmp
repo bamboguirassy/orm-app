@@ -127,14 +127,16 @@
 
 			<div class="slds-m-top_medium">
 				<lightning:buttonGroup>
-					<lightning:button label="Previous" disabled="{!v.startPage == 0}"
-						onclick="{!c.previous}" variant="brand" iconName='utility:back' />
+					<lightning:button label="{!$Label.c.orm_prev_title}"
+						disabled="{!v.startPage == 0}" onclick="{!c.previous}"
+						variant="brand" iconName='utility:back' />
 							            &nbsp; &nbsp; &nbsp;
-					<lightning:button label="Next" disabled="{!v.endPage >= v.totalRecords}" onclick="{!c.next}"
+				<lightning:button label="{!$Label.c.orm_next_title}"
+						disabled="{!v.endPage >= v.totalRecords}" onclick="{!c.next}"
 						variant="brand" iconName='utility:forward' iconPosition='right' />
 				</lightning:buttonGroup>
 			</div>
-			
+
 			<!--debut bouton d'ajout -->
 			<div class=" slds-grid  slds-wrap slds-align--absolute-center"
 				style="">
