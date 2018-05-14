@@ -22,7 +22,10 @@
         }
     },
     removeItem: function(component, event, helper) {
-        component.set('v.currentIndex', event.target.dataset.index);
+        var index = event.target.dataset.index;        
+        component.set('v.currentIndex', index);
+        //component.set('v.currentIndex', event.target.dataset.index);
+        
         helper.openDeleteConfirmationModel(component);
 
     },
@@ -45,11 +48,12 @@
 
     },
     confirmDeletion: function(component, event, helper) {
-
         var self = this; // safe reference
 
-        var items = component.get("v.items");
-        itemToRemove = items[component.get('v.currentIndex')];
+        /*var items = component.get("v.items");*/
+        var paginationList = component.get("v.PaginationList");
+        itemToRemove = paginationList[component.get('v.currentIndex')];
+        alert(itemToRemove);
         if (itemToRemove) {
             helper.showSpinner(component);
             var cc = component.getConcreteComponent();
