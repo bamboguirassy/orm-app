@@ -22,6 +22,7 @@
         }
     },
     removeItem: function(component, event, helper) {
+    alert(event.target.dataset.index);
         component.set('v.currentIndex', event.target.dataset.index);
         helper.openDeleteConfirmationModel(component);
 
