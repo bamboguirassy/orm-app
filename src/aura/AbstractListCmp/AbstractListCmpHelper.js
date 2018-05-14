@@ -1,9 +1,13 @@
 ({
 	getSelectedItem : function(component, event) {
 
+		/*var index = event.target.dataset.index;
+		var items = component.get("v.items");*/
+		
 		var index = event.target.dataset.index;
-		var items = component.get("v.items");
-		var selectedItem = items[index];
+		alert(index);
+        var paginationList = component.get("v.PaginationList");
+		var selectedItem = paginationList[index];
 		
 		return selectedItem;
 	},
