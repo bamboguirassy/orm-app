@@ -34,8 +34,7 @@
                         PaginationList.push(response.getReturnValue()[i]);    
                 }
                 component.set('v.PaginationList', PaginationList);
-            }else{
-                alert('ERROR');
+            }else{                alert('ERROR');
             }
         });
         $A.enqueueAction(action);
