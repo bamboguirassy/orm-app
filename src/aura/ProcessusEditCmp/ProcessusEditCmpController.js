@@ -84,38 +84,37 @@
     },
     openModal : function(component, event, helper) {
     
-    	// recuperer l'élément avec l'Id
-		helper.openModal(component);
+    	helper.openModal(component);
 		var action = component.get('c.getElementById');
 		action.setParam('Id', event.getParam('Id'));
 		action.setCallback(this, function(response) {
 			if (response.getState() == 'SUCCESS') {
-				var item = response.getReturnValue();
-				component.set('v.item', item);
-				console.log("item "+ JSON.stringify(item));
-				//david
-				var action1 = component.get('c.getEntites');
-		        action1.setCallback(this, function(response) {
-		            if (response.getState() == 'SUCCESS') {
-		                component.set('v.entites', response.getReturnValue());
-		                
-		                var actionPil = component.get('c.findUserEntites');
-				        actionPil.setParam("entite", item.proprietaire__c);
-				        actionPil.setCallback(this, function(response) {
-				            if (response.getState() == "SUCCESS") {
-				                component.set('v.userEntites', response.getReturnValue());
-				            } else {
-				                alert('impossible de récuperer la liste des users entités');
-				            }
-				        });
-				        $A.enqueueAction(actionPil);
-		                
-		            } else {
-		                alert('Impossible de récuperer la liste des entités');
-		            }
-		        });
-		        $A.enqueueAction(action1);
-				//david
+				component.set('v.item', response.getReturnValue());
+				//laye
+				var actionEnt = component.get('c.getEntites');
+				actionEnt.setCallback(this, function(responseEnt) {
+					var state = response.getState();
+					if (state == 'SUCCESS') {
+						component.set("v.entites", responseEnt.getReturnValue());
+						console.log('entites '+ JSON.stringify(response.getReturnValue()));
+						var actionResponsable = component.get('c.findUserEntites');
+						console.log('structure_c '+ component.get("v.item").Structure__c);
+						actionResponsable.setParam("entite", component.get("v.item").Structure__c);
+						actionResponsable.setCallback(this, function(responseResp) {
+							if (response.getState() == "SUCCESS") {
+								component.set('v.userEntites', responseResp.getReturnValue());
+								console.log('responsable '+ JSON.stringify(responseResp.getReturnValue()));
+							} else {
+								alert('impossible de récuperer la liste des users entités');
+							}
+						});
+						$A.enqueueAction(actionResponsable);
+					} else {
+						alert('Impossible de récupérer la liste des structures');
+					}
+				});
+				$A.enqueueAction(actionEnt);
+				//laye
 			} else {
 				helper.showToast('Error', "Impossible de recuperer l'élement ",
 						'error');

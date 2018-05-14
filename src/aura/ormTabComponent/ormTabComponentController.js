@@ -119,6 +119,17 @@
             }
         );
     },
+   /* navigateToRisqueList: function(component, event, helper) {
+        $A.createComponent(
+            "c:ProjetListCmp", {
+            },
+            function(newCmp) {
+                if (component.isValid()) {
+                    component.set("v.body", newCmp);
+                }
+            }
+        );
+    },*/
         navigateToProjetList: function(component, event, helper) {
         $A.createComponent(
             "c:ProjetListCmp", {

@@ -18,6 +18,7 @@
     <aura:handler action="{!c.navigateToEntiteList}" event="c:navigateToEntiteList" />
     <aura:handler action="{!c.navigateToRisqueShow}" event="c:navigateToRisqueShow" />
     <aura:handler action="{!c.navigateToProjetShow}" event="c:navigateToProjetShow" />
+    <aura:handler action="{!c.navigateToProjetList}" event="c:navigateToProjetList" />
     <aura:handler action="{!c.navigateToRisqueList}" event="c:navigateToRisqueList" />
     <aura:handler action="{!c.navigateToPlanActionPreventifShow}" event="c:navigateToPlanActionPreventifShow" />
     <aura:handler action="{!c.navigateToPlanActionShow}" event="c:navigateToPlanActionShow" />

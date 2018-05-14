@@ -38,6 +38,11 @@
                                     <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="Acme - 1,200 Widgets"></h1>
 
                                 </div>
+                                <div>
+							<button class="btn btn-default" onclick="{!c.navigateToProjetList}">
+								<i class="fa fa-rotate-left"></i>{!$Label.c.back_button_title} 
+							</button>
+						</div>
                             </div>
                         </div>
                         <div class="slds-col slds-no-flex slds-grid slds-align-top">
