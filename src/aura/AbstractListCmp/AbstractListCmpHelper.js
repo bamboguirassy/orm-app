@@ -5,6 +5,7 @@
 		var items = component.get("v.items");*/
 		
 		var index = event.target.dataset.index;
+		alert(index);
         var paginationList = component.get("v.PaginationList");
 		var selectedItem = paginationList[index];
 		

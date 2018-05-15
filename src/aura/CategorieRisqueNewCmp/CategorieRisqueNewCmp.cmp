@@ -20,6 +20,7 @@
 
 	<aura:if isTrue="{!v.inCategorieRisqueListCmp}">
 		<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
+		
 			<button onclick="{!c.openModel}"
                class="slds-button slds-button_stateful slds-not-selected slds-button_brand"
                aria-live="assertive" style="float: right;margin-right:250px">
@@ -151,7 +152,7 @@
 				<!--###### MODAL BOX Part END Here ######-->
 
 			</aura:if>
-														  </aura:set>
+		 </aura:set>
 	</aura:if>
 
 </aura:component>
