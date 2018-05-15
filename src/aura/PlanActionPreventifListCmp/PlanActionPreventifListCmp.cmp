@@ -37,7 +37,7 @@
 				<div
 					class="slds-tabs_card slds-theme_shade slds-theme_alert-texture">
 					<ul class="slds-timeline" style="background: #fff;">
-						<aura:iteration items="{!v.items}" var="item" indexVar="i">
+						<aura:iteration items="{!v.PaginationList}" var="item" indexVar="i">
 
 							<li>
 								<div
@@ -159,13 +159,27 @@
 						</aura:iteration>
 					</ul>
 				</div>
-
-			</div>
-		</div>
-		<aura:if isTrue="{!v.paramRisqueEntite}">
+				<div class="slds-m-top_medium" >
+		        <lightning:buttonGroup >
+		            <lightning:button label="{!$Label.c.orm_prev_title}" disabled="{!v.startPage == 0}"  
+		                              onclick="{!c.previous}" variant="brand"
+		                              iconName='utility:back'/>
+		            &nbsp; &nbsp; &nbsp;
+		            <lightning:button label="{!$Label.c.orm_next_title}" disabled="{!v.endPage >= v.totalRecords}" 
+		                              onclick="{!c.next}" variant="brand"
+		                              iconName='utility:forward' iconPosition='right'/>
+		        </lightning:buttonGroup>
+		        <aura:if isTrue="{!v.paramRisqueEntite}">
 			<c:PlanActionPreventifNewCmp paramRisqueEntite="{!v.paramRisqueEntite}" /> 
 			<c:PlanActionPreventifEditCmp />
 		</aura:if>
+		        
+	  </div>
+
+			</div>
+			
+		</div>
+		
 		<!-- fin test -->
 
 
