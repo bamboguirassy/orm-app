@@ -53,7 +53,6 @@
         /*var items = component.get("v.items");*/
         var paginationList = component.get("v.PaginationList");
         itemToRemove = paginationList[component.get('v.currentIndex')];
-        alert(itemToRemove);
         if (itemToRemove) {
             helper.showSpinner(component);
             var cc = component.getConcreteComponent();

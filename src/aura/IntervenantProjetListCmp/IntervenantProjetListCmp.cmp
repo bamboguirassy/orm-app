@@ -126,6 +126,10 @@
 							                              onclick="{!c.next}" variant="brand"
 							                              iconName='utility:forward' iconPosition='right'/>
 							        </lightning:buttonGroup>
+							         <aura:if isTrue="{!v.projet}">
+						<c:IntervenantProjetNewCmp projet="{!v.projet}" />
+                        <c:IntervenantProjetEditCmp projet="{!v.projet}"/>
+                      </aura:if>
 							    </div>
 
 
@@ -135,10 +139,7 @@
 				<div
 					class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
 					style="">
-                     <aura:if isTrue="{!v.projet}">
-						<c:IntervenantProjetNewCmp projet="{!v.projet}" />
-                        <c:IntervenantProjetEditCmp projet="{!v.projet}"/>
-                      </aura:if>
+                    
 
 				</div>
 			</div>

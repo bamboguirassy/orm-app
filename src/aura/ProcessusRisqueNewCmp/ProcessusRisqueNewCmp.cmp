@@ -14,21 +14,14 @@
 	<aura:handler action="{!c.doInit}" value="{!this}" name="init" />
 
 	<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
-	<div class="slds-m-around--xx-large">
-		<div class=" slds-grid  slds-wrap slds-align--absolute-center"
-			style="margin-top: 20px">
-			<div
-				class=" slds-size--1-of-2   slds-p-horizontal--small slds-float—left">
-				<button onclick="{!c.openModel}"
-					class="slds-button slds-button_stateful slds-not-selected slds-button_brand"
-					aria-live="assertive" style="float: right;">
-					<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
-							aria-hidden="true"
-							xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#add'}" /></span>
-				</button>
 
-			</div>
-		</div>
+		<button onclick="{!c.openModel}"
+               class="slds-button slds-button_stateful slds-not-selected slds-button_brand"
+               aria-live="assertive" style="float: right;margin-right:250px">
+               <span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
+				aria-hidden="true"
+				xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#add'}" /></span>
+            </button>
 		<!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->
 		<aura:if isTrue="{!v.isOpen}">
 
@@ -85,7 +78,4 @@
 			<!--###### MODAL BOX Part END Here ######-->
 
 		</aura:if>
-
-
-	</div>
 </aura:component>
