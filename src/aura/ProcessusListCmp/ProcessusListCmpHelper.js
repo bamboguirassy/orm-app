@@ -5,16 +5,7 @@
                 .setCallback(
                     this,
                     function(response) {
-                        /*var state = response.getState();
-                        if (state == "SUCCESS") {
-                            component.set("v.items", response
-                                .getReturnValue());
-                                $A.enqueueAction(component.get('c.applyDatatable'));
-                        } else {
-                            alert("Impossible de recuperer la liste des processus");
-                        }*/
-                        
-                        // laye
+                    
                         var state = response.getState();
 			            if(state === 'SUCCESS' && component.isValid()){
 			                var pageSize = component.get("v.pageSize");
@@ -35,8 +26,6 @@
 			            } else	{
 			                alert('ERROR');
 			            }
-                        // laye
-
                     });
             $A.enqueueAction(action);
         }

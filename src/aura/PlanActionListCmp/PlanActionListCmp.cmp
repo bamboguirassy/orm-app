@@ -2,16 +2,19 @@
 	controller="PlanActionController">
 	<!--<aura:attribute name="risqueEntite" type="String"
 		description="risque lié" />-->
-	<aura:attribute name="risqueEntite" type="Risque_Entite__c" description="risque lié" /> 
+	<aura:attribute name="risqueEntite" type="Risque_Entite__c"
+		description="risque lié" />
 	<aura:attribute name="entite" type="String" description="entité lié" />
 	<aura:attribute name="userEntites" type="Contact[]"
 		description="user entité" />
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 	<aura:registerEvent name="navigateToPlanActionShow"
 		type="c:navigateToPlanActionShow" />
-    <aura:handler event="c:eventNewPlanActionCreated"  action="{!c.refreshList}" />
-	<aura:registerEvent name="eventEditPlanActionClicked" type="c:eventEditPlanActionClicked" description="" />
-	
+	<aura:handler event="c:eventNewPlanActionCreated"
+		action="{!c.refreshList}" />
+	<aura:registerEvent name="eventEditPlanActionClicked"
+		type="c:eventEditPlanActionClicked" description="" />
+
 	<div class="slds-m-top_x-small">
 		<!--     debut test -->
 		<div class="slds-grid slds-gutters slds-m-top_x-small">
@@ -22,15 +25,18 @@
 					<div class="slds-media">
 						<div class="slds-media__figure">
 							<span class="slds-icon_container slds-icon-standard-opportunity"
-								title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+								title="Description of icon when needed"> <c:svg
+									class="slds-icon slds-page-header__icon" aria-hidden="true"
 									xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 							</span>
 						</div>
 						<div class="slds-media__body">
 							<h1
 								class="slds-page-header__title slds-truncate slds-align-middle"
-								title="{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}">{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}</h1>
-							<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label} ({!v.items.length})</p>
+								title="{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}">{!$Label.c.list_title_label+'
+								'+v.clabels.labelPlural}</h1>
+							<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label}
+								({!v.items.length})</p>
 						</div>
 					</div>
 				</div>
@@ -38,8 +44,8 @@
 				<div
 					class="slds-tabs_card slds-theme_shade slds-theme_alert-texture">
 					<ul class="slds-timeline" style="background: #fff;">
-						<aura:iteration items="{!v.items}" var="item" indexVar="i">
-
+						<aura:iteration items="{!v.PaginationList}" var="item"
+							indexVar="i">
 							<li>
 								<div
 									class="slds-timeline__item_expandable slds-timeline__item_task slds-is-open">
@@ -49,7 +55,8 @@
 											<button class="slds-button slds-button_icon"
 												title="Toggle details for Review proposals for EBC deck with larger team and have marketing review this"
 												aria-controls="task-item-expanded" aria-expanded="true">
-												<c:svg class="slds-button__icon slds-timeline__details-action-icon"
+												<c:svg
+													class="slds-button__icon slds-timeline__details-action-icon"
 													aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#switch'}" />
 												<span class="slds-assistive-text">Toggle details for
@@ -86,7 +93,8 @@
 													</h5>
 													<div class="slds-no-flex">
 														<span class="slds-icon_container slds-icon-utility-rotate"
-															title="Recurring Task"> <c:svg class="slds-icon slds-icon_xx-small slds-icon-text-default slds-m-left_x-small"
+															title="Recurring Task"> <c:svg
+																class="slds-icon slds-icon_xx-small slds-icon-text-default slds-m-left_x-small"
 																aria-hidden="true"
 																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#rotate'}" />
 															<span class="slds-assistive-text">Recurring Task</span>
@@ -103,13 +111,17 @@
 															<div class="slds-button-group" role="group">
 																<a data-index="{!i}" onclick="{!c.navigateToShow}"
 																	class="slds-button slds-button_icon slds-button_icon-border-filled"
-																	title="{!$Label.c.show_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																	title="{!$Label.c.show_button_title}"
+																	aria-pressed="false"> <c:svg
+																		class="slds-button__icon" aria-hidden="true"
 																		xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#preview'}" />
 
 																	<span class="slds-assistive-text">{!$Label.c.show_button_title}</span>
 																</a> <a data-index="{!i}" onclick="{!c.removeItem}"
 																	class="slds-button slds-button_icon slds-button_icon-border-filled"
-																	title="{!$Label.c.delete_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																	title="{!$Label.c.delete_button_title}"
+																	aria-pressed="false"> <c:svg
+																		class="slds-button__icon" aria-hidden="true"
 																		xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
 
 																	<span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
@@ -117,7 +129,9 @@
 																<aura:if isTrue="{!v.risqueEntite}">
 																	<a data-index="{!i}" onclick="{!c.registerEdit}"
 																		class="slds-button slds-button_icon slds-button_icon-border-filled"
-																		title="{!$Label.c.edit_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+																		title="{!$Label.c.edit_button_title}"
+																		aria-pressed="false"> <c:svg
+																			class="slds-button__icon" aria-hidden="true"
 																			xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
 
 																		<span class="slds-assistive-text">{!$Label.c.edit_button_title}</span>
@@ -129,7 +143,8 @@
 
 												</div>
 											</div>
-											<p class="slds-m-horizontal_xx-small">  {!$Label.c.orm_gere_value+'   '} {!item.gestionnaire__r.Name}</p>
+											<p class="slds-m-horizontal_xx-small">
+												{!$Label.c.orm_gere_value+' '} {!item.gestionnaire__r.Name}</p>
 											<article
 												class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small slds-p-around_medium  slds-theme_shade slds-theme_alert-texture"
 												id="task-item-expanded" aria-hidden="false">
@@ -138,13 +153,15 @@
 														class="slds-grid slds-grid--vertical slds-size_1-of-2 slds-p-bottom_small">
 														<span class="slds-text-title slds-p-bottom_x-small">{!v.clabels.etat__c}</span>
 														<span class="slds-text-body_medium slds-truncate"
-														title="{!item.etat__c}"><ui:outputCheckbox value="{!item.etat__c}" /></span>
+														title="{!item.etat__c}"><ui:outputCheckbox
+																value="{!item.etat__c}" /></span>
 													</li>
 													<li
 														class="slds-grid slds-grid--vertical slds-size_1-of-2 slds-p-bottom_small">
 														<span class="slds-text-title slds-p-bottom_x-small">{!v.clabels.echancier__c}</span>
 														<span class="slds-text-body_medium slds-truncate"
-														title="{!item.echeancier__c}"><ui:outputDateTime value="{!item.echeancier__c}" /></span>
+														title="{!item.echeancier__c}"><ui:outputDateTime
+																value="{!item.echeancier__c}" /></span>
 													</li>
 												</ul>
 												<div>
@@ -159,14 +176,27 @@
 						</aura:iteration>
 					</ul>
 				</div>
-
 			</div>
 		</div>
-		<aura:if isTrue="{!v.risqueEntite}">
-			<!--<c:PlanActionNewCmp risqueEntite="{!v.risqueEntite}" entite="{!v.entite}" />-->
-			<c:PlanActionNewCmp risqueEntite="{!v.risqueEntite}" /> 
-			<c:PlanActionEditCmp />
-		</aura:if>
+
+		<div class="slds-m-top_medium">
+			<lightning:buttonGroup>
+				<lightning:button label="{!$Label.c.orm_prev_title}"
+					disabled="{!v.startPage == 0}" onclick="{!c.previous}"
+					variant="brand" iconName='utility:back' />
+							            &nbsp; &nbsp; &nbsp;
+				<lightning:button label="{!$Label.c.orm_next_title}"
+					disabled="{!v.endPage >= v.totalRecords}" onclick="{!c.next}"
+					variant="brand" iconName='utility:forward' iconPosition='right' />
+			</lightning:buttonGroup>
+			<aura:if isTrue="{!v.risqueEntite}">
+				<!--<c:PlanActionNewCmp risqueEntite="{!v.risqueEntite}" entite="{!v.entite}" />-->
+				<c:PlanActionNewCmp risqueEntite="{!v.risqueEntite}" />
+				<c:PlanActionEditCmp />
+			</aura:if>
+		</div>
+
+		
 		<!-- fin test -->
 
 
