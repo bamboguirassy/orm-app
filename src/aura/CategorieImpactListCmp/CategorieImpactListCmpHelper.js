@@ -32,7 +32,6 @@
                           component.set("v.endPage", pageSize - 1);
                           
                         }
-						
 						var PaginationList = [];
 						for (var i = 0; i < pageSize; i++) {
 							if (component.get("v.items").length > i)

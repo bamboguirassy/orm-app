@@ -89,8 +89,8 @@
         }
         start = start + counter;
         end = end + counter;
-        var nextValueOfEnd = end + counter;
-        if( nextValueOfEnd >= sObjectList.length){
+        var valueOfEnd = end +1;
+        if( valueOfEnd == sObjectList.length){
            component.set("v.hideNext", true);
         }
         component.set("v.startPage",start);
