@@ -8,12 +8,14 @@ public with sharing class PlanActionController {
     
     @AuraEnabled
 	public static List<Plan_Action__c> findAllByRisqueEntite(String risqueEntite){
-		return [SELECT Id,commentaire__c,date_commencement__c,echeancier__c,etat__c,gestionnaire__r.Name,gestionnaire__r.Phone,Name,gestionnaire__c,risque_Entite__c,risque_Entite__r.Entite__c FROM Plan_Action__c where risque_Entite__c=:risqueEntite and RecordTypeId=:PlanActionController.getPlanActionCorrectifRecordTypeId() order by Name];
+		return [SELECT Id,commentaire__c,date_commencement__c,echeancier__c,etat__c,gestionnaire__r.Name,gestionnaire__r.Phone,Name,gestionnaire__c,
+			risque_Entite__c,risque_Entite__r.Entite__c FROM Plan_Action__c where risque_Entite__c=:risqueEntite and RecordTypeId=:PlanActionController.getPlanActionCorrectifRecordTypeId() order by Name];
 	}
 	
 	@AuraEnabled
 	public static List<Plan_Action__c> findAll(){
-		return [SELECT Id,commentaire__c,date_commencement__c,echeancier__c,etat__c,gestionnaire__r.Name,Name,gestionnaire__c,risque_Entite__c,risque_Entite__r.Entite__c FROM Plan_Action__c where RecordTypeId=:PlanActionController.getPlanActionCorrectifRecordTypeId() order by Name];
+		return [SELECT Id,commentaire__c,date_commencement__c,echeancier__c,etat__c,gestionnaire__r.Name,Name,gestionnaire__c,
+			risque_Entite__c,risque_Entite__r.Entite__c FROM Plan_Action__c where RecordTypeId=:PlanActionController.getPlanActionCorrectifRecordTypeId()  order by CreatedDate desc];
 	}
 	
 	@AuraEnabled
