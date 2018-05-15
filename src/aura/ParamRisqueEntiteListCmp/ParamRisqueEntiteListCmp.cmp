@@ -130,15 +130,16 @@
 							                              onclick="{!c.next}" variant="brand"
 							                              iconName='utility:forward' iconPosition='right'/>
 							        </lightning:buttonGroup>
-							    </div>
-	<footer class="slds-card__footer">
-				<aura:if isTrue="{!v.entite}">
+							        <aura:if isTrue="{!v.entite}">
 					<c:ParamRisqueEntiteNewCmp items="{!v.items}" entite="{!v.entite}" />
 					
 
 				</aura:if>
+							    </div>
+	
+				
 				<c:ParamRisqueEntiteEditCmp />
-			</footer>
+		
 	<!-- 	fin implementation body -->
 	<!-- fin implementation contenu page -->
 
