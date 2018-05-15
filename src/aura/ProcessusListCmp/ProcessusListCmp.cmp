@@ -135,6 +135,7 @@
 						disabled="{!v.endPage >= v.totalRecords}" onclick="{!c.next}"
 						variant="brand" iconName='utility:forward' iconPosition='right' />
 				</lightning:buttonGroup>
+				<c:ProcessusNewCmp />
 			</div>
 
 			<!--debut bouton d'ajout -->
@@ -144,7 +145,6 @@
 					class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
 					style="">
 
-					<c:ProcessusNewCmp />
 					<c:ProcessusEditCmp />
 
 				</div>
