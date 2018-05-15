@@ -1,123 +1,146 @@
-<aura:component controller="MesurePreventionRisqueDetecteController" extends="c:AbstractListCmp">
-    <aura:attribute name="paramRisqueEntite" type="ParamRisqueEntite__c" description="param risque entité lié" />  
-    <aura:attribute name="updatable" type="Boolean" description="updatable" default="true" />
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-	<aura:handler event="c:eventNewMesurePreventionCreated"  action="{!c.refreshList}" />
-<!-- début new content -->
-    <div class="slds-container--fluid " style="background: #fff;">
-       
+<aura:component controller="MesurePreventionRisqueDetecteController"
+	extends="c:AbstractListCmp">
+	<aura:attribute name="paramRisqueEntite" type="ParamRisqueEntite__c"
+		description="param risque entité lié" />
+	<aura:attribute name="updatable" type="Boolean" description="updatable"
+		default="true" />
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:handler event="c:eventNewMesurePreventionCreated"
+		action="{!c.refreshList}" />
+	<!-- début new content -->
+	<div class="slds-container--fluid " style="background: #fff;">
 
-        <div class="slds-m-bottom_xx-large">
-            <div class="slds-grid">
 
-                <!-- 	 header -->
+		<div class="slds-m-bottom_xx-large">
+			<div class="slds-grid">
 
-                <div class="slds-col slds-size_1-of-1">
-                    <div class="slds-page-header">
-                        <div class="slds-grid">
-                            <div class="slds-col slds-has-flexi-truncate">
-                                <div class="slds-media slds-no-space slds-grow">
-                                    <div class="slds-media__figure">
-                                        <span class="slds-icon_container slds-icon-standard-opportunity" title="Liste des catégories de mesure de prévention"> 
-										<c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
-									xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
-									</span>
-                                    </div>
-                                    <div class="slds-media__body">
-                                        <nav>
-                                            <ol class="slds-breadcrumb slds-line-height_reset">
-                                                <li class="slds-breadcrumb__item"><span>{!$Label.c.list_title_label+' '+v.clabels.labelPlural}</span>
-                                                </li>
-                                            </ol>
-                                        </nav>
-                                        <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="{!$Label.c.record_count_label}">
-                                        {!$Label.c.record_count_label} ({!v.items.length})
-										</h1>
+				<!-- 	 header -->
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slds-col slds-no-flex slds-grid slds-align-top">
-
-                                <div class="slds-button-group" role="group">
-                                    <!--bouton entete -->
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slds-grid slds-page-header__detail-row">
-
-                            <div class="slds-grid slds-wrap slds-theme_shade slds-theme_alert-texture  slds-size_1-of-1">
-                                <aura:iteration items="{!v.items}" var="item" indexVar="i">
-                                    <div class="slds-col slds-size_1-of-2">
-                                        <div class="slds-box slds-box_x-small slds-text-align_left slds-m-around_x-small" style="border: none;">
-                                            <article class="slds-card">
-                                                <div class="slds-card__header slds-grid">
-                                                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                                                        <div class="slds-media__figure">
-                                                            <span class="slds-icon_container slds-icon-standard-record" title="catégories de mesure de prévention"> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
-												xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#record'}" />
-
+				<div class="slds-col slds-size_1-of-1">
+					<div class="slds-page-header">
+						<div class="slds-grid">
+							<div class="slds-col slds-has-flexi-truncate">
+								<div class="slds-media slds-no-space slds-grow">
+									<div class="slds-media__figure">
+										<span
+											class="slds-icon_container slds-icon-standard-opportunity"
+											title="Liste des catégories de mesure de prévention">
+											<c:svg class="slds-icon slds-page-header__icon"
+												aria-hidden="true"
+												xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 										</span>
-                                                        </div>
-                                                       <div class="slds-media__body">
-                                                        <h2>
-															<a href="javascript:void(0);"
-																class="slds-card__header-link"
-																title="{!item.Name}"><ui:outputText value="{!item.mesure_Prevention__r.Name}" />
+									</div>
+									<div class="slds-media__body">
+										<nav>
+											<ol class="slds-breadcrumb slds-line-height_reset">
+												<li class="slds-breadcrumb__item"><span>{!$Label.c.list_title_label+'
+														'+v.clabels.labelPlural}</span></li>
+											</ol>
+										</nav>
+										<h1
+											class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate"
+											title="{!$Label.c.record_count_label}">
+											{!$Label.c.record_count_label} ({!v.items.length})</h1>
+
+									</div>
+								</div>
+							</div>
+							<div class="slds-col slds-no-flex slds-grid slds-align-top">
+
+								<div class="slds-button-group" role="group">
+									<!--bouton entete -->
+
+								</div>
+							</div>
+						</div>
+						<div class="slds-grid slds-page-header__detail-row">
+							<div
+								class="slds-grid slds-wrap slds-theme_shade slds-theme_alert-texture  slds-size_1-of-1">
+								<aura:iteration items="{!v.PaginationList}" var="item"
+									indexVar="i">
+									<div class="slds-col slds-size_1-of-2">
+										<div
+											class="slds-box slds-box_x-small slds-text-align_left slds-m-around_x-small"
+											style="border: none;">
+											<article class="slds-card">
+												<div class="slds-card__header slds-grid">
+													<header
+														class="slds-media slds-media_center slds-has-flexi-truncate">
+														<div class="slds-media__figure">
+															<span
+																class="slds-icon_container slds-icon-standard-record"
+																title="catégories de mesure de prévention"> <c:svg
+																	class="slds-icon slds-icon_small" aria-hidden="true"
+																	xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#record'}" />
+															</span>
+														</div>
+														<div class="slds-media__body">
+															<h2>
+																<a href="javascript:void(0);"
+																	class="slds-card__header-link" title="{!item.Name}"><ui:outputText
+																		value="{!item.mesure_Prevention__r.Name}" /> </a>
+															</h2>
+														</div>
+													</header>
+													<div class="slds-einstein-header__actions">
+														<div class="slds-button-group" role="group">
+
+															<a data-index="{!i}" onclick="{!c.removeItem}"
+																class="slds-button slds-button_icon slds-button_icon-border-filled"
+																title="{!$Label.c.delete_button_title}"
+																aria-pressed="false"> <c:svg
+																	class="slds-button__icon" aria-hidden="true"
+																	xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
+
+																<span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
 															</a>
-														</h2>
-                                                        </div>
-                                                    </header>
-                                                    <div class="slds-einstein-header__actions">
-                                                        <div class="slds-button-group" role="group">
-                                                         
-                                                            <a data-index="{!i}" onclick="{!c.removeItem}" class="slds-button slds-button_icon slds-button_icon-border-filled" title="{!$Label.c.delete_button_title}" aria-pressed="false">
-                                                                <c:svg class="slds-button__icon" aria-hidden="true" xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
 
-                                                                <span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
-                                                            </a>
+														</div>
+													</div>
+												</div>
+												<br />
+												<div class="slds-card__body slds-card__body_inner">
+													<ui:outputRichText value="{!item.Description__c}" />
+												</div>
 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br/>
-                                                <div class="slds-card__body slds-card__body_inner">
-                                                    <ui:outputRichText value="{!item.Description__c}" />
-                                                </div>
+											</article>
+										</div>
 
-                                            </article>
-                                        </div>
+									</div>
+								</aura:iteration>
+							</div>
+						</div>
 
-                                    </div>
-                                </aura:iteration>
-                            </div>
+						<div class="slds-m-top_medium">
+							<lightning:buttonGroup>
+								<lightning:button label="{!$Label.c.orm_prev_title}"
+									disabled="{!v.startPage == 0}" onclick="{!c.previous}"
+									variant="brand" iconName='utility:back' />
+										            &nbsp; &nbsp; &nbsp;
+							<lightning:button label="{!$Label.c.orm_next_title}"
+									disabled="{!v.endPage >= v.totalRecords}" onclick="{!c.next}"
+									variant="brand" iconName='utility:forward' iconPosition='right' />
+							</lightning:buttonGroup>
+							<aura:if isTrue="{!v.paramRisqueEntite}">
+								<c:MesurePreventionRisqueDetecteNewCmp
+									paramRisqueEntite="{!v.paramRisqueEntite}" />
+							</aura:if>
+						</div>
 
-                        </div>
+						<!-- <footer class="slds-card__footer" style="text-align: left;"></footer> -->
+					</div>
+				</div>
+				<!-- fin header -->
+			</div>
 
-                        <footer class="slds-card__footer" style="text-align: left;">
-
-                        <aura:if isTrue="{!v.paramRisqueEntite}">
-                            <c:MesurePreventionRisqueDetecteNewCmp paramRisqueEntite="{!v.paramRisqueEntite}"/>
-                        </aura:if>
-                
-                        </footer>
-                    </div>
+		</div>
 
 
 
-                </div>
-                <!-- fin header -->
-            </div>
+	</div>
 
-        </div>
 
-   
-        
-    </div>
- 
-
-<!-- fin new content -->
+	<!-- fin new content -->
 
 
 
