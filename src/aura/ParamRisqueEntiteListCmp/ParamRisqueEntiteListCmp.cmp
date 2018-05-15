@@ -131,14 +131,10 @@
 							                              iconName='utility:forward' iconPosition='right'/>
 							        </lightning:buttonGroup>
 							        <aura:if isTrue="{!v.entite}">
-					<c:ParamRisqueEntiteNewCmp items="{!v.items}" entite="{!v.entite}" />
-					
-
-				</aura:if>
+										<c:ParamRisqueEntiteNewCmp items="{!v.items}" entite="{!v.entite}" />
+									</aura:if>
 							    </div>
-	
-				
-				<c:ParamRisqueEntiteEditCmp />
+									<c:ParamRisqueEntiteEditCmp />
 		
 	<!-- 	fin implementation body -->
 	<!-- fin implementation contenu page -->
