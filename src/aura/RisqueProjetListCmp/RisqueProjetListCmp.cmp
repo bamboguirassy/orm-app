@@ -110,6 +110,10 @@
 							                              onclick="{!c.next}" variant="brand"
 							                              iconName='utility:forward' iconPosition='right'/>
 							        </lightning:buttonGroup>
+							        <aura:if isTrue="{!v.projet}">
+						            <c:RisqueProjetNewCmp items="{!v.items}"
+							projet="{!v.projet}" />
+					</aura:if>
 							    </div>
 			<!--debut bouton d'ajout -->
 			<div class=" slds-grid  slds-wrap slds-align--absolute-center"
@@ -118,10 +122,7 @@
 					class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
 					style="">
 
-					<aura:if isTrue="{!v.projet}">
-						<c:RisqueProjetNewCmp items="{!v.items}"
-							projet="{!v.projet}" />
-					</aura:if>
+					
 				</div>
 			</div>
 			<!-- fin bouton d'ajout -->
