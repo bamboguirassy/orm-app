@@ -60,7 +60,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<aura:iteration items="{!v.items}" var="item" indexVar="i">
+				<aura:iteration items="{!v.PaginationList}" var="item" indexVar="i">
 					<tr>
 					<td data-label="Nom">
 					<div class="slds-media__figure">
@@ -120,7 +120,17 @@
 		</table>
 		</div>
 <!-- fin test tableau -->
-	
+	<div class="slds-m-top_medium" >
+							        <lightning:buttonGroup >
+							            <lightning:button label="{!$Label.c.orm_prev_title}" disabled="{!v.startPage == 0}"  
+							                              onclick="{!c.previous}" variant="brand"
+							                              iconName='utility:back'/>
+							            &nbsp; &nbsp; &nbsp;
+							            <lightning:button label="{!$Label.c.orm_next_title}" disabled="{!v.endPage >= v.totalRecords}" 
+							                              onclick="{!c.next}" variant="brand"
+							                              iconName='utility:forward' iconPosition='right'/>
+							        </lightning:buttonGroup>
+							    </div>
 	<footer class="slds-card__footer">
 				<aura:if isTrue="{!v.entite}">
 					<c:ParamRisqueEntiteNewCmp items="{!v.items}" entite="{!v.entite}" />
