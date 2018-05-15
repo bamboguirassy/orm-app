@@ -5,19 +5,6 @@
 				.setCallback(
 						this,
 						function(response) {
-							/*var state = response.getState();
-							if (state == "SUCCESS") {
-								component.set("v.items", response
-										.getReturnValue());
-							} else {
-								helper
-										.showToast(
-												'Error',
-												"Impossible de recuperer la liste des categories risques dans categorie risque",
-												'error');
-							}*/
-							
-							// laye
 	                        var state = response.getState();
 				            if(state === 'SUCCESS' && component.isValid()){
 				                var pageSize = component.get("v.pageSize");
@@ -37,9 +24,7 @@
 				                component.set('v.PaginationList', PaginationList);
 				            } else	{
 				                alert('ERROR');
-				            }
-                           // laye
-							
+				            }							
 
 						});
 		$A.enqueueAction(action);
