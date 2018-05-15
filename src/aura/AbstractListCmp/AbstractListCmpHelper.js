@@ -89,6 +89,10 @@
         }
         start = start + counter;
         end = end + counter;
+        var nextValueOfEnd = end + counter;
+        if( nextValueOfEnd >= sObjectList.length){
+           component.set("v.hideNext", true);
+        }
         component.set("v.startPage",start);
         component.set("v.endPage",end);
         component.set('v.PaginationList', Paginationlist);
@@ -111,6 +115,10 @@
         }
         start = start - counter;
         end = end - counter;
+        var lastValueOfEnd = end - counter;
+        if( lastValueOfEnd < sObjectList.length){
+           component.set("v.hideNext", false);
+        }
         component.set("v.startPage",start);
         component.set("v.endPage",end);
         component.set('v.PaginationList', Paginationlist);

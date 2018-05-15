@@ -22,6 +22,7 @@
     <aura:attribute name="endPage" type="Integer"/>
     <aura:attribute name="totalRecords" type="Integer"/>
     <aura:attribute name="pageSize" type="Integer" default="4"/>
+    <aura:attribute name="hideNext" type="Boolean" default="true" />
     <!-- Attribute Declration For Pagination End-->
 
 	<!--     methods -->
