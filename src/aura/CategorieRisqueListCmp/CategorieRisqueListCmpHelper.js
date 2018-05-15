@@ -38,7 +38,7 @@
 				            } else	{
 				                alert('ERROR');
 				            }
-                        // laye
+                           // laye
 							
 
 						});
