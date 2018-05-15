@@ -47,8 +47,7 @@
                             </div>
                         </div>
                         <div class="slds-grid slds-page-header__detail-row">
-                            <div class="slds-grid slds-wrap">
-                            <div class="slds-grid slds-wrap slds-theme_shade slds-theme_alert-texture">
+                            <div class="slds-grid slds-wrap slds-theme_shade slds-theme_alert-texture" style="width:100%">
                                 <aura:iteration items="{!v.PaginationList}" var="item" indexVar="i">
                                     <div class="slds-col slds-size_1-of-2">
                                         <div class="slds-box slds-box_x-small slds-text-align_left slds-m-around_x-small" style="border: none;word-wrap: break-word">
@@ -96,7 +95,6 @@
                                 </aura:iteration>
 								</div>
 
-                            </div>
                         </div>
                          <div class="slds-m-top_medium" style="padding-top:10px">
 						<lightning:buttonGroup >
