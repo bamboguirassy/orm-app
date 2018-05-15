@@ -56,7 +56,8 @@
 						<div class="slds-grid slds-page-header__detail-row">
 							<div
 								class="slds-grid slds-wrap slds-theme_shade slds-theme_alert-texture  slds-size_1-of-1">
-								<aura:iteration items="{!v.PaginationList}" var="item" indexVar="i">
+								<aura:iteration items="{!v.PaginationList}" var="item"
+									indexVar="i">
 									<div class="slds-col slds-size_1-of-2">
 										<div
 											class="slds-box slds-box_x-small slds-text-align_left slds-m-around_x-small"
@@ -109,7 +110,7 @@
 								</aura:iteration>
 							</div>
 						</div>
-						
+
 						<div class="slds-m-top_medium">
 							<lightning:buttonGroup>
 								<lightning:button label="{!$Label.c.orm_prev_title}"
@@ -120,20 +121,14 @@
 									disabled="{!v.endPage >= v.totalRecords}" onclick="{!c.next}"
 									variant="brand" iconName='utility:forward' iconPosition='right' />
 							</lightning:buttonGroup>
-						</div>
-
-						<footer class="slds-card__footer" style="text-align: left;">
-
 							<aura:if isTrue="{!v.paramRisqueEntite}">
 								<c:MesurePreventionRisqueDetecteNewCmp
 									paramRisqueEntite="{!v.paramRisqueEntite}" />
 							</aura:if>
+						</div>
 
-						</footer>
+						<!-- <footer class="slds-card__footer" style="text-align: left;"></footer> -->
 					</div>
-
-
-
 				</div>
 				<!-- fin header -->
 			</div>

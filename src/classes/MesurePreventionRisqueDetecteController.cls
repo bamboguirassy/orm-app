@@ -2,7 +2,8 @@ public with sharing class MesurePreventionRisqueDetecteController {
    
       @AuraEnabled
 	public static List<Mesure_Prevention_Risque_Detecte__c> findAll(String ParamRisqueEntite){
-		return [SELECT Id,mesure_Prevention__r.Name,risk_tracking_parameter__r.Risque__r.Name FROM Mesure_Prevention_Risque_Detecte__c where risk_tracking_parameter__c=:ParamRisqueEntite];
+		return [SELECT Id,mesure_Prevention__r.Name,risk_tracking_parameter__r.Risque__r.Name FROM Mesure_Prevention_Risque_Detecte__c 
+		where risk_tracking_parameter__c=:ParamRisqueEntite order by CreatedDate desc];
 	}
 	
 	@AuraEnabled
