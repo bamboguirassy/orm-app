@@ -120,21 +120,22 @@
 		</table>
 		</div>
 <!-- fin test tableau -->
-	<div class="slds-m-top_medium" >
-							        <lightning:buttonGroup >
-							            <lightning:button label="{!$Label.c.orm_prev_title}" disabled="{!v.startPage == 0}"  
-							                              onclick="{!c.previous}" variant="brand"
-							                              iconName='utility:back'/>
-							            &nbsp; &nbsp; &nbsp;
-							            <lightning:button label="{!$Label.c.orm_next_title}" disabled="{!v.endPage >= v.totalRecords}" 
-							                              onclick="{!c.next}" variant="brand"
-							                              iconName='utility:forward' iconPosition='right'/>
-							        </lightning:buttonGroup>
-							        <aura:if isTrue="{!v.entite}">
-										<c:ParamRisqueEntiteNewCmp items="{!v.items}" entite="{!v.entite}" />
-									</aura:if>
-							    </div>
-									<c:ParamRisqueEntiteEditCmp />
+	   <div class="slds-m-top_medium" >
+	        <lightning:buttonGroup >
+	            <lightning:button label="{!$Label.c.orm_prev_title}" disabled="{!v.startPage == 0}"  
+	                              onclick="{!c.previous}" variant="brand"
+	                              iconName='utility:back'/>
+	            &nbsp; &nbsp; &nbsp;
+	            <lightning:button label="{!$Label.c.orm_next_title}" 
+	                              disabled="{!or(v.endPage >= v.totalRecords, v.hideNext)}" 
+	                              onclick="{!c.next}" variant="brand"
+	                              iconName='utility:forward' iconPosition='right'/>
+	        </lightning:buttonGroup>
+	        <aura:if isTrue="{!v.entite}">
+				<c:ParamRisqueEntiteNewCmp entite="{!v.entite}" />
+			</aura:if>
+	    </div>
+	    <c:ParamRisqueEntiteEditCmp />
 		
 	<!-- 	fin implementation body -->
 	<!-- fin implementation contenu page -->
