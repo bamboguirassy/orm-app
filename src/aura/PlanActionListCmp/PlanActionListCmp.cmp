@@ -186,16 +186,15 @@
 					variant="brand" iconName='utility:back' />
 							            &nbsp; &nbsp; &nbsp;
 				<lightning:button label="{!$Label.c.orm_next_title}"
-					disabled="{!v.endPage >= v.totalRecords}" onclick="{!c.next}"
+					disabled="{!or(v.endPage >= v.totalRecords, v.hideNext)}" onclick="{!c.next}"
 					variant="brand" iconName='utility:forward' iconPosition='right' />
 			</lightning:buttonGroup>
 			<aura:if isTrue="{!v.risqueEntite}">
 				<!--<c:PlanActionNewCmp risqueEntite="{!v.risqueEntite}" entite="{!v.entite}" />-->
 				<c:PlanActionNewCmp risqueEntite="{!v.risqueEntite}" />
-				<c:PlanActionEditCmp />
 			</aura:if>
 		</div>
-
+        <c:PlanActionEditCmp />
 		
 		<!-- fin test -->
 
