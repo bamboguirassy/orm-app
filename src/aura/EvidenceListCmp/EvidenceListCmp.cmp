@@ -134,6 +134,7 @@
 		                              iconName='utility:forward' iconPosition='right'/>
 		        </lightning:buttonGroup>
  		    </div>
+
 			<!-- fin implementation datatable -->
 
 					<c:fileUploadCmp parentId="{!v.parentId}" isOpenfileUploadNewCmp="{!v.isOpenfileUploadNewCmp}"  />
