@@ -10,6 +10,21 @@
 	<aura:registerEvent name="eventEditPREtrackerClicked"
 		type="c:eventEditPREtrackerClicked" description="" />
 	<!-- debut new implementation -->
+	<div class="slds-page-header">
+		<div class="slds-media">
+			<div class="slds-media__figure">
+				<span class="slds-icon_container slds-icon-standard-opportunity"
+					title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+						xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
+				</span>
+			</div>
+			<div class="slds-media__body">
+				<h1 class="slds-page-header__title slds-truncate slds-align-middle"
+					title="{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}">{!$Label.c.list_title_label+'  '+v.clabels.labelPlural}</h1>
+				<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label} ({!v.items.length})</p>
+			</div>
+		</div>
+	</div>
 	<table
 		class="slds-table slds-table_fixed-layout slds-table_bordered slds-no-row-hover slds-table_cell-buffer">
 		<thead>
@@ -65,19 +80,19 @@
 		</tbody>
 	</table>
 	<div class="slds-m-top_medium" style="padding-top:10px">
-						<lightning:buttonGroup >
-							<lightning:button label="{!$Label.c.orm_prev_title}"
-								disabled="{!v.startPage == 0}" onclick="{!c.previous}"
-								variant="brand" iconName='utility:back' />
-									            &nbsp; &nbsp; &nbsp;
-						<lightning:button label="{!$Label.c.orm_next_title}"
-								disabled="{!v.endPage >= v.totalRecords}" onclick="{!c.next}"
-								variant="brand" iconName='utility:forward' iconPosition='right' />
-						</lightning:buttonGroup>
-						<aura:if isTrue="{!v.paramRisqueEntite}">
-							<c:PREtrackerNewCmp paramRisqueEntite="{!v.paramRisqueEntite}" />
-						</aura:if>
-					</div>
+			<lightning:buttonGroup >
+				<lightning:button label="{!$Label.c.orm_prev_title}"
+					disabled="{!v.startPage == 0}" onclick="{!c.previous}"
+					variant="brand" iconName='utility:back' />
+						            &nbsp; &nbsp; &nbsp;
+			<lightning:button label="{!$Label.c.orm_next_title}"
+					disabled="{!or(v.endPage >= v.totalRecords, v.hideNext)}" onclick="{!c.next}"
+					variant="brand" iconName='utility:forward' iconPosition='right' />
+			</lightning:buttonGroup>
+			<aura:if isTrue="{!v.paramRisqueEntite}">
+				<c:PREtrackerNewCmp paramRisqueEntite="{!v.paramRisqueEntite}" />
+			</aura:if>
+		</div>
 	
 
 		
