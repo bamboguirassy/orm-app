@@ -88,6 +88,19 @@
 					</aura:iteration>
 				</tbody>
 			</table>
+			<div class="slds-m-top_medium" >
+							        <lightning:buttonGroup >
+							            <lightning:button label= "{!$Label.c.orm_prev_title}" disabled="{!v.startPage == 0}"  
+							                              onclick="{!c.previous}" variant="brand"
+							                              iconName='utility:back'/>
+							            &nbsp; &nbsp; &nbsp;
+							            <lightning:button label="{!$Label.c.orm_next_title}" 
+							                              disabled="{!or(v.endPage >= v.totalRecords, v.hideNext)}" 
+							                              onclick="{!c.next}" variant="brand"
+							                              iconName='utility:forward' iconPosition='right'/>
+							        </lightning:buttonGroup>
+							        
+							    </div>
 		</div>
 		<!-- fin body -->
 	</div>

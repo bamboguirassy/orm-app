@@ -141,6 +141,10 @@
 							                              onclick="{!c.next}" variant="brand"
 							                              iconName='utility:forward' iconPosition='right'/>
 							        </lightning:buttonGroup>
+							        <aura:if isTrue="{!v.entite}">
+						<c:RiskManagerNewCmp entite="{!v.entite}" />
+						<c:RiskManagerEditCmp />
+					</aura:if>
 							    </div>
 
 
@@ -151,10 +155,7 @@
 					class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
 					style="">
 
-					<aura:if isTrue="{!v.entite}">
-						<c:RiskManagerNewCmp entite="{!v.entite}" />
-						<c:RiskManagerEditCmp />
-					</aura:if>
+					
 
 				</div>
 			</div>
