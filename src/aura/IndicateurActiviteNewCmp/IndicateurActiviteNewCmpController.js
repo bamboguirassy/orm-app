@@ -25,29 +25,8 @@
                         var state = response.getState();
                         if (component.isValid() && state == "SUCCESS") {
                             // refresh list
-                            var findAllAction = component
-                                .get("c.findAll");
-                            findAllAction.setParams({
-                                'activite': component
-                                    .get('v.activite')
-                            });
-                            findAllAction
-                                .setCallback(
-                                    this,
-                                    function(response) {
-                                        var resStatus = response
-                                            .getState();
-                                        if (resStatus == "SUCCESS") {
-                                            component
-                                                .set("v.items",
-                                                    response
-                                                    .getReturnValue());
-                                        } else {
-                                            alert("impossible de recuperer la liste aprés ajout");
-                                        }
-                                    });
-                            $A.enqueueAction(findAllAction);
-
+                            var evt = $A.get("e.c:eventNewIndicateurActiviteCreated");
+                            evt.fire();
                             component.set("v.item", {
                                 'sobjectType': 'Indicateur_Activite__c',
                                 'Name': '',

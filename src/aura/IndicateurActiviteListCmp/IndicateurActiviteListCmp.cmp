@@ -103,6 +103,7 @@
 
 						</div>
 					</div>
+				</div>
 				<div class="slds-m-top_medium" >
 			        <lightning:buttonGroup >
 			            <lightning:button label="{!$Label.c.orm_prev_title}" disabled="{!v.startPage == 0}"  
@@ -118,21 +119,13 @@
 						<c:IndicateurActiviteNewCmp activite="{!v.activite}" />
 					</aura:if>
 	            </div>
-					
-				</div>
-
+                <c:IndicateurActiviteEditCmp /> 
 
 
 			</div>
 			<!-- fin header -->
 		</div>
 
-
-
-		<!--  <aura:if isTrue="{!v.activite}">-->
-			<c:IndicateurActiviteEditCmp /> <!--  item="{!v.editItem}" items="{!v.items}" -->
-<!-- 				isOpen="{!v.editComponentIsOpen}" /> -->
-<!-- 		</aura:if> -->
 	</div>
 	
 	<!-- fin implementation page -->
