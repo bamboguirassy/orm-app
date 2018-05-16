@@ -140,9 +140,12 @@
 		                              onclick="{!c.next}" variant="brand"
 		                              iconName='utility:forward' iconPosition='right'/>
 		        </lightning:buttonGroup>
+		        <aura:if isTrue="{!v.entite}">
+					<c:RisqueEntiteNewCmp entite="{!v.entite}"/>
+				</aura:if>
 		    </div>
 
-
+           <c:RisqueEntiteEditCmp />
 
 			<div class=" slds-grid  slds-wrap slds-align--absolute-center"
 				style="">
@@ -150,13 +153,8 @@
 					class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
 					style="">
 
-					<aura:if isTrue="{!v.entite}">
-						<c:RisqueEntiteNewCmp entite="{!v.entite}" items="{!v.items}" />
-						<!--  entite="{!v.entite}" item="{!v.editItem}"
-							items="{!v.items}" isOpen="{!v.editComponentIsOpen}"-->
-						
-					</aura:if>
-					<c:RisqueEntiteEditCmp />
+					
+					
 				
 				</div>
 			</div>
