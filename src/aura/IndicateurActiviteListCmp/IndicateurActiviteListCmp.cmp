@@ -46,7 +46,7 @@
 					<div class="slds-grid slds-page-header__detail-row slds-size_1-of-1">
 						<div
 							class="slds-grid slds-wrap slds-theme_shade slds-theme_alert-texture slds-size_1-of-1">
-							<aura:iteration items="{!v.items}" var="item" indexVar="i">
+							<aura:iteration items="{!v.PaginationList}" var="item" indexVar="i">
 								<div class="slds-col slds-size_1-of-2">
 									<div
 										class="slds-box slds-box_x-small slds-text-align_left slds-m-around_x-small"
@@ -103,12 +103,23 @@
 
 						</div>
 					</div>
-					<footer class="slds-card__footer" style="text-align: left;">
-						<aura:if isTrue="{!v.activite}">
+					<div class="slds-m-top_medium" >
+		        <lightning:buttonGroup >
+		            <lightning:button label="{!$Label.c.orm_prev_title}" disabled="{!v.startPage == 0}"  
+		                              onclick="{!c.previous}" variant="brand"
+		                              iconName='utility:back'/>
+		            &nbsp; &nbsp; &nbsp;
+		            <lightning:button label="{!$Label.c.orm_next_title}" 
+		            disabled="{!or(v.endPage >= v.totalRecords, v.hideNext)}" 
+		                              onclick="{!c.next}" variant="brand"
+		                              iconName='utility:forward' iconPosition='right'/>
+		        </lightning:buttonGroup>
+		        <aura:if isTrue="{!v.activite}">
 							<c:IndicateurActiviteNewCmp items="{!v.items}"
 								activite="{!v.activite}" />
 						</aura:if>
-					</footer>
+	  </div>
+					
 				</div>
 
 
