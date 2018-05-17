@@ -18,6 +18,6 @@ trigger RisqueEntiteTrigger on Risque_Entite__c (before insert, before update, a
         }
         RisqueEntiteManagement manager=RisqueEntiteManagement.getInstance();
         insert manager.getImpactRisqueEntite(risqueEntites);
-        insert manager.getMesurePreventionRisqueEntite(risqueEntites);
+       // insert manager.getMesurePreventionRisqueEntite(risqueEntites);
     }
 }
