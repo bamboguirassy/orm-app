@@ -9,16 +9,7 @@
 				.setCallback(
 						this,
 						function(response) {
-							/*var state = response.getState();
-							if (state == "SUCCESS") {
-								component.set("v.items", response
-										.getReturnValue());
-								// $A.enqueueAction(component.get('c.applyDatatable'));
-
-							} else {
-								alert("Une erreur est survenue lors de la récupération de la liste des pieces jointes");
-							}*/
-							
+														
 							var state = response.getState();
 				            if(state === 'SUCCESS' && component.isValid()){
 				                var pageSize = component.get("v.pageSize");
