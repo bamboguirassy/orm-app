@@ -3,13 +3,13 @@
     <div class="tete  " style="padding-top:15px;">
         <div class="">
             <div class="slds-button-group" role="group">
-                <button onclick="{!c.navigateTochartNombreRisqueByCategorie}" class="slds-button slds-button_neutral">Par Catégorie</button>
-                <button onclick="{!c.navigateTochartRisqueByEntiteByAnnee}" class="slds-button slds-button_neutral">Par Entité</button>
-                <button onclick="{!c.navigateTochartNombreRisqueByEntite}" class="slds-button slds-button_neutral">Par catégorie/Entité</button>
-                <button onclick="{!c.navigateTochartRisqueByUserByEntite}" class="slds-button slds-button_neutral">Par Responsable</button>
-                <button onclick="{!c.navigateTochartRisqueEnEntreeByProcessus}" class="slds-button slds-button_neutral">Par processus</button>
-                <button onclick="{!c.navigateTochartRisqueEntiteByRisque}" class="slds-button slds-button_neutral">Par Risque</button>
-                <button onclick="{!c.navigateToChartRisqueEntiteByCotationByEntite}" class="slds-button slds-button_neutral">Par Cotation</button>
+                <button onclick="{!c.navigateTochartNombreRisqueByCategorie}" class="slds-button slds-button_neutral">{!$Label.c.orm_par_value+'   '+$Label.c.categorie_menu}</button>
+                <button onclick="{!c.navigateTochartRisqueByEntiteByAnnee}" class="slds-button slds-button_neutral">{!$Label.c.orm_par_value+'  '+$Label.c.structure_menu}</button>
+                <button onclick="{!c.navigateTochartNombreRisqueByEntite}" class="slds-button slds-button_neutral">{!$Label.c.orm_par_value+'   '+$Label.c.categorie_menu}/{!$Label.c.structure_menu}</button>
+                <button onclick="{!c.navigateTochartRisqueByUserByEntite}" class="slds-button slds-button_neutral">{!$Label.c.orm_par_value+'  '+$Label.c.risk_manager_menu}</button>
+                <button onclick="{!c.navigateTochartRisqueEnEntreeByProcessus}" class="slds-button slds-button_neutral">{!$Label.c.orm_par_value+'  '+$Label.c.processus_menu}</button>
+                <button onclick="{!c.navigateTochartRisqueEntiteByRisque}" class="slds-button slds-button_neutral">{!$Label.c.orm_par_value+'  '+$Label.c.risk_menu}</button>
+                <button onclick="{!c.navigateToChartRisqueEntiteByCotationByEntite}" class="slds-button slds-button_neutral">{!$Label.c.orm_par_value+'  '+$Label.c.cotation_menu}</button>
 
 
 

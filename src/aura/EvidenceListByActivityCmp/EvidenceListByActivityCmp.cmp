@@ -1,30 +1,32 @@
-<aura:component extends="c:AbstractListCmp" controller="EvidenceController">
+<aura:component extends="c:AbstractListCmp"
+	controller="EvidenceController">
 
-      <!--declaration de variable-->
-       
+	<!--declaration de variable-->
+
 	<aura:attribute name="items" type="ContentDocument[]"
 		description="Liste des pieces jointes" />
 	<aura:attribute name="activite" type="String"
 		description="Activite des preuves" />
-	
-        <!--declaration des abonnements aux évenements-->
+
+	<!--declaration des abonnements aux évenements-->
 	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
-	
+
 	<div class="slds-container--fluid ">
 		<!-- 	 header -->
 		<div class="slds-page-header">
 			<div class="slds-media">
 				<div class="slds-media__figure">
-					<span class="slds-icon_container slds-icon-standard-opportunity"
-						> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+					<span class="slds-icon_container slds-icon-standard-opportunity">
+						<c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
 							xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 					</span>
 				</div>
 				<div class="slds-media__body">
 					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
-						title="{!$Label.c.list_title_label+' '+v.clabels.labelPlural}">{!$Label.c.list_title_label+' '+v.clabels.labelPlural}</h1>
+						title="{!$Label.c.list_title_label+' '+v.clabels.labelPlural}">{!$Label.c.list_title_label+'
+						'+v.clabels.labelPlural}</h1>
 					<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label}
-										({!v.items.length})</p>
+						({!v.items.length})</p>
 				</div>
 			</div>
 		</div>
@@ -41,7 +43,7 @@
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
 							<div class="slds-truncate" title="{!v.clabels.name}">{!v.clabels.name}</div>
 						</th>
-					
+
 					</tr>
 				</thead>
 				<tbody>
@@ -50,9 +52,10 @@
 							<td scope="row" data-label="Libellé"
 								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
 								<div class="slds-truncate" title="{!item.Title}">
-								<a data-index="{!i}"  onclick="{!c.openSingleFile}">{!item.Title}</a></div>
+									<a data-index="{!i}" onclick="{!c.openSingleFile}">{!item.Title}</a>
+								</div>
 							</td>
-						
+
 						</tr>
 					</aura:iteration>
 				</tbody>
@@ -71,18 +74,28 @@
  		    </div>
 			<!-- fin implementation datatable -->
 
-				
+			<div class="slds-m-top_medium" style="padding-top: 10px">
+				<lightning:buttonGroup>
+					<lightning:button label="{!$Label.c.orm_prev_title}"
+						disabled="{!v.startPage == 0}" onclick="{!c.previous}"
+						variant="brand" iconName='utility:back' />
+									            &nbsp; &nbsp; &nbsp;
+						<lightning:button label="{!$Label.c.orm_next_title}"
+						disabled="{!or(v.endPage >= v.totalRecords, v.hideNext)}"
+						onclick="{!c.next}" variant="brand" iconName='utility:forward'
+						iconPosition='right' />
+				</lightning:buttonGroup>
+			</div>
+
+
 			<div class=" slds-grid  slds-wrap slds-align--absolute-center"
 				style="">
 				<div
 					class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
-					style="">
-
-
-				</div>
+					style=""></div>
 			</div>
 		</div>
 		<!-- fin body -->
 	</div>
-	
+
 </aura:component>
