@@ -48,21 +48,20 @@
                     <div class="slds-dropdown slds-dropdown_right slds-context-bar__item_divider-right">
                         <ul class="slds-dropdown__list" role="menu">
                             <li class="slds-dropdown__item slds-context-bar__item_divider-right" role="presentation"></li>
-                            <li class="slds-dropdown__header slds-has-divider_top-space slds-context-bar__item_divider-right" role="separator"><span class="slds-text-title_caps">Configuration </span>
+                            <li class="slds-dropdown__header slds-has-divider_top-space slds-context-bar__item_divider-right" role="separator"><span class="slds-text-title_caps">{!$Label.c.configuration_menu} </span>
                             </li>
                             <li class="slds-dropdown__item slds-context-bar__item_divider-right" role="presentation">
-                                <a href="javascript:void(0);" role="menuitem" tabindex="-1" onclick="{!c.navigateToCategorieRisqueList}"> <span class="slds-truncate" title="Menu Item One">Categorie 
-										{!$Label.c.risk_menu}</span>
+                                <a href="javascript:void(0);" role="menuitem" tabindex="-1" onclick="{!c.navigateToCategorieRisqueList}"> <span class="slds-truncate" title="{!$Label.c.categorie_menu+'  '+$Label.c.risk_menu}">{!$Label.c.categorie_menu+'  '+$Label.c.risk_menu}</span>
                                 </a>
                             </li>
                             <li class="slds-dropdown__item slds-context-bar__item_divider-right" role="presentation" onclick="{!c.navigateToCategorieMesurePreventionList}">
-                                <a href="javascript:void(0);" role="menuitem" tabindex="-1"> <span class="slds-truncate" title="Menu Item Two">
+                                <a href="javascript:void(0);" role="menuitem" tabindex="-1"> <span class="slds-truncate" title="{!$Label.c.prevention_mes_cat_menu}">
                                 {!$Label.c.prevention_mes_cat_menu}</span>
                                 </a>
                             </li>
                             <li class="slds-dropdown__item slds-context-bar__item_divider-right" role="presentation" onclick="{!c.navigateToCategorieImpactList}">
                                 <a href="javascript:void(0);" role="menuitem" tabindex="-1">
-                                    <span class="slds-truncate" title="Menu Item Three">
+                                    <span class="slds-truncate" title="{!$Label.c.impact_category_menu}">
                                     {!$Label.c.impact_category_menu}</span>
                                 </a>
                             </li>
@@ -70,22 +69,22 @@
                     </div>
                 </li>
                 <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.risk_menu}" onclick="{!c.navigateToRisqueList}"> <span class="slds-truncate" title="Menu Item"><i
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.risk_menu}" onclick="{!c.navigateToRisqueList}"> <span class="slds-truncate" title="{!$Label.c.risk_menu}"><i
 							class="fa fa-adjust"></i> {!$Label.c.risk_menu}</span>
                     </a>
                 </li>
                 <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.structure_menu}" onclick="{!c.navigateToEntiteList}"> <span class="slds-truncate" title="Menu Item"><i
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.structure_menu}" onclick="{!c.navigateToEntiteList}"> <span class="slds-truncate" title="{!$Label.c.structure_menu}"><i
 							class="fa  fa-building"></i> {!$Label.c.structure_menu}</span>
                     </a>
                 </li>
                 <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.processus_menu}" onclick="{!c.navigateToProcessusList}"> <span class="slds-truncate" title="Menu Item"><i
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.processus_menu}" onclick="{!c.navigateToProcessusList}"> <span class="slds-truncate" title="{!$Label.c.processus_menu}"><i
 							class="fa fa-archive"></i> {!$Label.c.processus_menu}</span>
                     </a>
                 </li>
                 <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.project_menu}" onclick="{!c.navigateToProjetList}"> <span class="slds-truncate" title="Menu Item"><i
+                    <a href="javascript:void(0);" class="slds-context-bar__label-action" title="{!$Label.c.project_menu}" onclick="{!c.navigateToProjetList}"> <span class="slds-truncate" title="{!$Label.c.project_menu}"><i
 							class="fa fa-chain"></i> {!$Label.c.project_menu}</span>
                     </a>
                 </li>
