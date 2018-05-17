@@ -1,25 +1,4 @@
 ({
-	/*refreshList : function(component, event) {
-		var action = component.get("c.findAll");
-		action.setParams({
-		'risqueEntite':component.get('v.risqueEntite')
-		});
-		action
-				.setCallback(
-						this,
-						function(response) {
-							var state = response.getState();
-							if (state == "SUCCESS") {
-								component.set("v.items", response
-										.getReturnValue());
-							} else {
-								alert("Impossible de recuperer la liste des causes risques detectées dans cause risque");
-							}
-
-						});
-		$A.enqueueAction(action);
-	},*/
-	
 	 refreshList : function(component, event) {
 		var action = component.get('c.findAll');
 		action.setParams({
@@ -35,8 +14,19 @@
                 component.set("v.totalRecords", component.get("v.items").length);
                 // set star as 0
                 component.set("v.startPage",0);
-                
-                component.set("v.endPage",pageSize-1);
+                 var totalRecords = component
+				.get("v.items").length;
+			    //var div = Math.trunc(totalRecords / pageSize);
+                if(totalRecords === pageSize){
+                  component.set("v.hideNext", true);
+                  component.set("v.endPage", pageSize - 1);
+                  
+                }else{
+                  component.set("v.hideNext", false);
+                  component.set("v.endPage", pageSize - 1);
+                  
+                }
+               
                 var PaginationList = [];
                 for(var i=0; i< pageSize; i++){
                     if(component.get("v.items").length> i)

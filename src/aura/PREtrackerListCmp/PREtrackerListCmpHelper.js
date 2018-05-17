@@ -1,25 +1,5 @@
 ({
-   /* refreshList: function(component, event) {
-        var action = component.get("c.findFromParamRisqueEntite");
-        action.setParam("paramRisqueEntite", component.get('v.paramRisqueEntite').Id);
-        if (component.get('v.paramRisqueEntite')) {
-            action
-                .setCallback(
-                    this,
-                    function(response) {
-                        var state = response.getState();
-                        if (state == "SUCCESS") {
-                            component.set("v.items", response
-                                .getReturnValue());
-                        } else {
-                            alert("Impossible de recuperer la liste des params");
-                        }
-
-                    });
-            $A.enqueueAction(action);
-        }
-    }
-*/
+   
 refreshList : function(component, event) {
 		var action = component.get('c.findFromParamRisqueEntite');
 		 action.setParam("paramRisqueEntite", component.get('v.paramRisqueEntite').Id);
@@ -35,7 +15,16 @@ refreshList : function(component, event) {
                 // set star as 0
                 component.set("v.startPage",0);
                 
-                component.set("v.endPage",pageSize-1);
+                var totalRecords = component
+				.get("v.items").length;
+			    //var div = Math.trunc(totalRecords / pageSize);
+                if(totalRecords === pageSize){
+                  component.set("v.hideNext", true);
+                  component.set("v.endPage", pageSize - 1);
+                }else{
+                  component.set("v.hideNext", false);
+                  component.set("v.endPage", pageSize - 1);
+                }
                 var PaginationList = [];
                 for(var i=0; i< pageSize; i++){
                     if(component.get("v.items").length> i)

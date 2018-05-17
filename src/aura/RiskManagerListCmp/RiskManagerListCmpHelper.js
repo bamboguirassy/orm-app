@@ -1,28 +1,4 @@
 ({
-    /*refreshList: function(component, event) {
-
-        if (component.get('v.entite') != null) {
-            action = component.get('c.findAll');
-            action.setParam("entite", component.get('v.entite').Id);
-
-            action
-                .setCallback(
-                    this,
-                    function(response) {
-                        var state = response.getState();
-                        if (state == "SUCCESS") {
-                            component.set("v.items", response
-                                .getReturnValue());
-                            $A.enqueueAction(component.get('c.applyDatatable'));
-                        } else {
-                            alert("Impossible de recuperer la liste des gestionnaires de risque");
-                        }
-
-                    });
-            $A.enqueueAction(action);
-        }
-
-    }*/
     refreshList : function(component, event) {
 		var action = component.get('c.findAll');
 		action.setParam("entite", component.get('v.entite').Id);
@@ -37,7 +13,16 @@
                 // set star as 0
                 component.set("v.startPage",0);
                 
-                component.set("v.endPage",pageSize-1);
+                var totalRecords = component
+				.get("v.items").length;
+			    //var div = Math.trunc(totalRecords / pageSize);
+                if(totalRecords === pageSize){
+                  component.set("v.hideNext", true);
+                  component.set("v.endPage", pageSize - 1);
+                }else{
+                  component.set("v.hideNext", false);
+                  component.set("v.endPage", pageSize - 1);
+                }
                 var PaginationList = [];
                 for(var i=0; i< pageSize; i++){
                     if(component.get("v.items").length> i)
