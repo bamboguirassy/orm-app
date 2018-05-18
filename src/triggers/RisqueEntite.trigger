@@ -6,7 +6,7 @@ trigger RisqueEntite on Risque_Entite__c (before delete) {
           List<CauseRisqueDetecte__c>   causeRisqueDetectes = new List<CauseRisqueDetecte__c>();
           List<Entite_Affectee__c>      entiteAffectees = new List<Entite_Affectee__c>();
           
-          for(Risque_Entite__c risqueEntite:Trigger.new){ 
+          for(Risque_Entite__c risqueEntite:Trigger.old){ 
             //recuperation de la liste des 'impacts risques' pour chaque Risque_Entite
              impactRisqueEntites.addAll([select Id from Impact_Risque_Entite__c where risque_Entite__c=:risqueEntite.Id]);
              //recuperation de la liste des 'plans d actions' pour chaque Risque_Entite
