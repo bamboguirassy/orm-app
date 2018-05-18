@@ -9,7 +9,7 @@ trigger ProcessusTrigger on Processus__c (before delete) {
           List<ProcessusSortie__c> processusSorties = new List<ProcessusSortie__c>();
           List<EntiteSortie__c>    entiteSorties = new List<EntiteSortie__c>();
           List<ElementSortie__c>   elementSorties = new List<ElementSortie__c>();
-          for(Processus__c processus:Trigger.new){ 
+          for(Processus__c processus:Trigger.old){ 
             //recuperation de la liste des 'risques associés' pour chaque processus
              processusRisques.addAll([select Id from ProcessusRisque__c where processus__c=:processus.Id]);
              //recuperation de la liste des 'parties concernées' pour chaque processus
