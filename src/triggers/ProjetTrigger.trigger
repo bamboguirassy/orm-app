@@ -16,4 +16,5 @@ trigger ProjetTrigger on Projet__c (before delete)
      				delete intervenantProjets;
      	}
     }  
+
 }
