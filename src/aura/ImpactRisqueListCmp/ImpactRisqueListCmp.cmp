@@ -116,15 +116,7 @@
 					 <c:ImpactRisqueEditCmp />
 	  </div>
 			<!-- fin implementation datatable -->
-			<div class=" slds-grid  slds-wrap slds-align--absolute-center"
-				style="">
-				<div
-					class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
-					style="">
-
-					
-				</div>
-			</div>
+			
 		</div>
 		<!-- fin body -->
 	</div>
