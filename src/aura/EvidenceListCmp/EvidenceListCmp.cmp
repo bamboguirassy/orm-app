@@ -1,42 +1,50 @@
-<aura:component extends="c:AbstractListCmp" controller="EvidenceController">
+<aura:component extends="c:AbstractListCmp"
+	controller="EvidenceController">
 
-      <!--declaration de variable-->
-       
+	<!--declaration de variable-->
+
 	<aura:attribute name="items" type="Evidence__c[]"
 		description="Liste des preuves" />
-		<aura:attribute name="attachments" type="ContentDocument[]"
+	<aura:attribute name="attachments" type="ContentDocument[]"
 		description="Liste des pieces jointes" />
 	<aura:attribute name="activite" type="String"
 		description="Activite des preuves" />
-		<aura:attribute name="mesure" type="String"
+	<aura:attribute name="mesure" type="String"
 		description="Mesure des preuves" />
-		 <aura:attribute name="parentId" type="String" description="id du preuve"/>
-     <aura:attribute name="preuveId" type="String" description="id du preuve"/>
-     <aura:attribute name="isOpenEditmodal" type="boolean" default="false" />
-        <!--declaration des abonnements aux évenements-->
+	<aura:attribute name="parentId" type="String"
+		description="id du preuve" />
+	<aura:attribute name="preuveId" type="String"
+		description="id du preuve" />
+	<aura:attribute name="isOpenEditmodal" type="boolean" default="false" />
+	<!--declaration des abonnements aux évenements-->
 	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
- 		<aura:handler action="{!c.refreshList}" event="c:eventNewPreuveCreated" />
-<!-- 		<aura:registerEvent name="navigateToProjetShow" type="c:navigateToProjetShow" description="enregistrement event navigateToProjetShow" /> -->
-		<aura:attribute name="isOpenfileUploadNewCmp" default="false" type="Boolean" description="Test visibilité form upload file" />
-        <aura:attribute name="isOpenListfileUploadCmp" default="false" type="Boolean" description="Test visibilité liste upload file" /> 
-	<aura:registerEvent name="eventListFileUploadClicked" type="c:eventListFileUploadClicked" description="" />
-		<aura:registerEvent name="eventEditEvidenceClicked" type="c:eventEditEvidenceClicked" description="" />
-	
+	<aura:handler action="{!c.refreshList}" event="c:eventNewPreuveCreated" />
+	<!-- 		<aura:registerEvent name="navigateToProjetShow" type="c:navigateToProjetShow" description="enregistrement event navigateToProjetShow" /> -->
+	<aura:attribute name="isOpenfileUploadNewCmp" default="false"
+		type="Boolean" description="Test visibilité form upload file" />
+	<aura:attribute name="isOpenListfileUploadCmp" default="false"
+		type="Boolean" description="Test visibilité liste upload file" />
+	<aura:registerEvent name="eventListFileUploadClicked"
+		type="c:eventListFileUploadClicked" description="" />
+	<aura:registerEvent name="eventEditEvidenceClicked"
+		type="c:eventEditEvidenceClicked" description="" />
+
 	<div class="slds-container--fluid ">
 		<!-- 	 header -->
 		<div class="slds-page-header">
 			<div class="slds-media">
 				<div class="slds-media__figure">
-					<span class="slds-icon_container slds-icon-standard-opportunity"
-						> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+					<span class="slds-icon_container slds-icon-standard-opportunity">
+						<c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
 							xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 					</span>
 				</div>
 				<div class="slds-media__body">
 					<h1 class="slds-page-header__title slds-truncate slds-align-middle"
-						title="{!$Label.c.list_title_label+' '+v.clabels.labelPlural}">{!$Label.c.list_title_label+' '+v.clabels.labelPlural}</h1>
+						title="{!$Label.c.list_title_label+' '+v.clabels.labelPlural}">{!$Label.c.list_title_label+'
+						'+v.clabels.labelPlural}</h1>
 					<p class="slds-text-body_small slds-line-height_reset">{!$Label.c.record_count_label}
-										({!v.items.length})</p>
+						({!v.items.length})</p>
 				</div>
 			</div>
 		</div>
@@ -46,14 +54,15 @@
 			<!-- 		filtre -->
 			<!--     debut datatable -->
 			<table id="table"
-				class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped table_legenda"  width="100%">
+				class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped table_legenda"
+				width="100%">
 				<thead>
 					<tr class="slds-text-title_caps">
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
 							<div class="slds-truncate" title="{!v.clabels.name}">{!v.clabels.name}</div>
 						</th>
-						
+
 						<th scope="col"
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
 							<div class="slds-truncate" title="{!v.clabels.description__c}">{!v.clabels.description__c}</div>
@@ -65,93 +74,98 @@
 					</tr>
 				</thead>
 				<tbody>
-					
+
 					<aura:iteration items="{!v.PaginationList}" var="item" indexVar="i">
 						<tr class="slds-hint-parent">
 							<td scope="row" data-label="Libellé"
-								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right" width="40%">
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right"
+								width="40%">
 								<div title="{!v.clabels.name}">{!item.Name}</div>
 							</td>
-						
+
 							<td data-label="description"
-								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right" width="50%">
+								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right"
+								width="50%">
 								<div title="{!v.clabels.description__c}">
 									<ui:outputText value="{!item.description__c}" />
 								</div>
 							</td>
 							<td data-label="Actions"
-								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" width="10%">
+								class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left"
+								width="10%">
 								<div title="Actions">
 									<div class="slds-einstein-header__actions">
 										<div class="slds-button-group" role="group">
 											<a data-index="{!i}" onclick="{!c.showformfileUploadNew}"
 												class="slds-button slds-button_icon slds-button_icon-border-filled"
-												title="{!$Label.c.orm_attachment_menu}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+												title="{!$Label.c.orm_attachment_menu}" aria-pressed="false">
+												<c:svg class="slds-button__icon" aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#attach'}" />
 
 												<span class="slds-assistive-text">{!$Label.c.orm_attachment_menu}</span>
-											</a> 
-													<a data-index="{!i}" onclick="{!c.regEdit}"
-															class="slds-button slds-button_icon slds-button_icon-border-filled"
-															title="{!$Label.c.edit_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
-																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
-
-															<span class="slds-assistive-text">{!$Label.c.edit_button_title}</span>
-														</a>
-											<a data-index="{!i}" onclick="{!c.removeItem}"
+											</a> <a data-index="{!i}" onclick="{!c.regEdit}"
 												class="slds-button slds-button_icon slds-button_icon-border-filled"
-												title="{!$Label.c.delete_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+												title="{!$Label.c.edit_button_title}" aria-pressed="false">
+												<c:svg class="slds-button__icon" aria-hidden="true"
+													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
+
+												<span class="slds-assistive-text">{!$Label.c.edit_button_title}</span>
+											</a> <a data-index="{!i}" onclick="{!c.removeItem}"
+												class="slds-button slds-button_icon slds-button_icon-border-filled"
+												title="{!$Label.c.delete_button_title}" aria-pressed="false">
+												<c:svg class="slds-button__icon" aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
 
 												<span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
-											</a> 
-												<a data-index="{!i}" onclick="{!c.showListfileByMesure}"
+											</a> <a data-index="{!i}" onclick="{!c.showListfileByMesure}"
 												class="slds-button slds-button_icon slds-button_icon-border-filled"
-												title="{!$Label.c.show_button_title}" aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
+												title="{!$Label.c.show_button_title}" aria-pressed="false">
+												<c:svg class="slds-button__icon" aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#preview'}" />
 
-												<span class="slds-assistive-text">{!$Label.c.show_button_title}</span> 
-											 </a>  
+												<span class="slds-assistive-text">{!$Label.c.show_button_title}</span>
+											</a>
 
 										</div>
-									</div> 
+									</div>
 								</div>
 							</td>
 						</tr>
 					</aura:iteration>
-				
+
 				</tbody>
 			</table>
-			<div class="slds-m-top_medium" >
-		        <lightning:buttonGroup >
-		            <lightning:button label="{!$Label.c.orm_prev_title}" disabled="{!v.startPage == 0}"  
-		                              onclick="{!c.previous}" variant="brand"
-		                              iconName='utility:back'/>
+			<div class="slds-m-top_medium">
+				<lightning:buttonGroup>
+					<lightning:button label="{!$Label.c.orm_prev_title}"
+						disabled="{!v.startPage == 0}" onclick="{!c.previous}"
+						variant="brand" iconName='utility:back' />
 		            &nbsp; &nbsp; &nbsp;
-		            <lightning:button label="{!$Label.c.orm_next_title}" 
-		                              disabled="{!or(v.endPage >= v.totalRecords, v.hideNext)}"
-		                              onclick="{!c.next}" variant="brand"
-		                              iconName='utility:forward' iconPosition='right'/>
-		        </lightning:buttonGroup>
- 		    </div>
+		            <lightning:button label="{!$Label.c.orm_next_title}"
+						disabled="{!or(v.endPage >= v.totalRecords, v.hideNext)}"
+						onclick="{!c.next}" variant="brand" iconName='utility:forward'
+						iconPosition='right' />
+				</lightning:buttonGroup>
+			</div>
 
 			<!-- fin implementation datatable -->
 
-					<c:fileUploadCmp parentId="{!v.parentId}" isOpenfileUploadNewCmp="{!v.isOpenfileUploadNewCmp}"  />
-					
-	<c:ListFileUploadCmp isOpenListfileUploadCmp="{!v.isOpenListfileUploadCmp}" parentId="{!v.parentId}"  /> 
-					 
+			<c:fileUploadCmp parentId="{!v.parentId}"
+				isOpenfileUploadNewCmp="{!v.isOpenfileUploadNewCmp}" />
+
+			<c:ListFileUploadCmp
+				isOpenListfileUploadCmp="{!v.isOpenListfileUploadCmp}"
+				parentId="{!v.parentId}" />
+
 			<div class=" slds-grid  slds-wrap slds-align--absolute-center"
 				style="">
 				<div
 					class=" slds-size--1-of-1   slds-p-horizontal--small slds-float—left"
-					style="">
-
-				</div>
+					style=""></div>
 			</div>
 		</div>
 		<!-- fin body -->
-	
+
 	</div>
-	
+
 </aura:component>
