@@ -4,6 +4,8 @@
 	<aura:registerEvent name="navigateToEntiteShow" type="c:navigateToEntiteShow" />
 	<aura:handler event="c:eventNewParamRisqueEntiteCreated" action="{!c.refreshShow}" />
 	<aura:registerEvent name="eventEditParamRisqueEntiteClicked" type="c:eventEditParamRisqueEntiteClicked" description="" />
+	<aura:handler action="{!c.createNewRisqueByEvent}"
+		event="c:newRisqueDetecteEvt" />
 	<!--      debut implementation entite -->
 	<div class="slds-grid slds-gutters">
 		<div class="slds-col slds-size_1-of-7"></div>
