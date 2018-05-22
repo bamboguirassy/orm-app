@@ -7,8 +7,7 @@
 	<!-- events -->
 	<aura:registerEvent name="navigateToRisqueEntiteShow"
 		type="c:navigateToRisqueEntiteShow" />
-	<aura:handler action="{!c.createNewRisqueByEvent}"
-		event="c:newRisqueDetecteEvt" />
+	
 
 	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
     <aura:handler event="c:eventNewRisqueEntiteCreated"  action="{!c.refreshList}" />

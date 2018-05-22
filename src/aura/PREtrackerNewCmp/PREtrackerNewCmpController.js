@@ -28,13 +28,13 @@
                     });
 
                     //publish and Risque Detecté Event to create new Risque
-                    var obj=response.getReturnValue();
-                    var evt = $A.get("e.c:newRisqueDetecteEvt");
-                    evt.setParams({
-                        "sum": obj[0],
-                        "preID": obj[1]
-                    });
-                    evt.fire();
+//                    var obj=response.getReturnValue();
+//                    var evt = $A.get("e.c:newRisqueDetecteEvt");
+//                    evt.setParams({
+//                        "sum": obj[0],
+//                        "preID": obj[1]
+//                    });
+//                    evt.fire();
 
                 } else {
                     alert("Le formulaire n'est pas valide");

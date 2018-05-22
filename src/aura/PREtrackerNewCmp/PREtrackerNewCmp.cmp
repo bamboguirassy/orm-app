@@ -8,7 +8,7 @@
     <aura:attribute name="paramRisqueEntite" type="ParamRisqueEntite__c" description="paramRisqueEntite dont est lié le tracker" required="true" />
     
     <!-- events -->
-    <aura:registerEvent name="createNewRisqueEntiteOnEvent" type="c:newRisqueDetecteEvt" />
+<!--     <aura:registerEvent name="createNewRisqueEntiteOnEvent" type="c:newRisqueDetecteEvt" /> -->
     <aura:registerEvent name="newPREtrackerAjoute" type="c:eventNewPREtrackerCreated" description="" />
 	<aura:handler action="{!c.doInit}" name="init" value="{!this}" />
 
