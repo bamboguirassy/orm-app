@@ -22,7 +22,8 @@
 					<div class="slds-media">
 						<div class="slds-media__figure">
 							<span class="slds-icon_container slds-icon-standard-opportunity"
-								title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+								title="Description of icon when needed"> <c:svg
+									class="slds-icon slds-page-header__icon" aria-hidden="true"
 									xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 							</span>
 						</div>
@@ -61,7 +62,7 @@
 
 											<div class="slds-panel__section">
 												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.detail_menu+'
-																	'+v.clabels.label}</h3>
+													'+v.clabels.label}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
@@ -76,7 +77,8 @@
 														class="slds-form-element slds-hint-parent slds-border_bottom">
 														<span class="slds-form-element__label">{!v.clabels.description__c}</span>
 														<div class="slds-form-element__control">
-															<span class="slds-form-element__static"> <ui:outputTextArea value="{!v.item.description__c}" />
+															<span class="slds-form-element__static"> <ui:outputTextArea
+																	value="{!v.item.description__c}" />
 															</span>
 														</div>
 													</li>
@@ -84,7 +86,8 @@
 														class="slds-form-element slds-hint-parent slds-border_bottom">
 														<span class="slds-form-element__label">{!v.clabels.date_detection__c}</span>
 														<div class="slds-form-element__control">
-															<span class="slds-form-element__static"> <ui:outputDate value="{!v.item.Date_Detection__c}" />
+															<span class="slds-form-element__static"> <ui:outputDate
+																	value="{!v.item.Date_Detection__c}" />
 															</span>
 														</div>
 													</li>
@@ -92,7 +95,8 @@
 														class="slds-form-element slds-hint-parent slds-border_bottom">
 														<span class="slds-form-element__label">{!v.clabels.responsable__c}</span>
 														<div class="slds-form-element__control">
-															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.responsable__r.Name}" />
+															<span class="slds-form-element__static"> <ui:outputText
+																	value="{!v.item.responsable__r.Name}" />
 															</span>
 														</div>
 													</li>
@@ -100,10 +104,12 @@
 														class="slds-form-element slds-hint-parent slds-border_bottom">
 														<span class="slds-form-element__label">{!v.clabels.etat__c}</span>
 														<div class="slds-form-element__control">
-															<span class="slds-form-element__static"> <aura:if isTrue="{!v.item.etat__c}">
+															<span class="slds-form-element__static"> <aura:if
+																	isTrue="{!v.item.etat__c}">
 																	<span class="success">{!$Label.c.orm_gere_value}</span>
 																	<aura:set attribute="else">
-																		<span class="danger">{!$Label.c.orm_en_cours_select_value} </span>
+																		<span class="danger">{!$Label.c.orm_en_cours_select_value}
+																		</span>
 																	</aura:set>
 																</aura:if>
 															</span>
@@ -114,7 +120,8 @@
 														<div class="slds-box">
 															<p>{!$Label.c.orm_changer_etat_risque_message}</p>
 															<button class="slds-button slds-button--brand"
-																onclick="{!c.updateRisque}">{!$Label.c.orm_changer_etat_title} </button>
+																onclick="{!c.updateRisque}">{!$Label.c.orm_changer_etat_title}
+															</button>
 														</div>
 													</li>
 												</ul>
@@ -131,7 +138,7 @@
 
 											<div class="slds-panel__section">
 												<h3 class="slds-text-heading_small slds-m-bottom_medium">{!$Label.c.orm_structure_concernee_menu}
-													</h3>
+												</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
@@ -146,7 +153,8 @@
 														class="slds-form-element slds-hint-parent slds-border_bottom">
 														<span class="slds-form-element__label">{!v.clabels.phone}</span>
 														<div class="slds-form-element__control">
-															<span class="slds-form-element__static"> <ui:outputPhone value="{!v.item.Entite__r.Phone}" />
+															<span class="slds-form-element__static"> <ui:outputPhone
+																	value="{!v.item.Entite__r.Phone}" />
 															</span>
 														</div>
 													</li>
@@ -154,7 +162,8 @@
 														class="slds-form-element slds-hint-parent slds-border_bottom">
 														<span class="slds-form-element__label">{!v.clabels.website}</span>
 														<div class="slds-form-element__control">
-															<span class="slds-form-element__static"> <ui:outputURL value="{!v.item.Entite__r.Website}" />
+															<span class="slds-form-element__static"> <ui:outputURL
+																	value="{!v.item.Entite__r.Website}" />
 															</span>
 														</div>
 													</li>
@@ -162,7 +171,8 @@
 														class="slds-form-element slds-hint-parent slds-border_bottom">
 														<span class="slds-form-element__label">{!v.clabels.type}</span>
 														<div class="slds-form-element__control">
-															<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Entite__r.Type}" />
+															<span class="slds-form-element__static"> <ui:outputText
+																	value="{!v.item.Entite__r.Type}" />
 															</span>
 														</div>
 													</li>
@@ -172,7 +182,8 @@
 														<div class="slds-form-element__control">
 															<span
 																class="slds-form-element__static slds-text-longform">
-																<ui:outputRichText value="{!v.item.Entite__r.Description}" />
+																<ui:outputRichText
+																	value="{!v.item.Entite__r.Description}" />
 															</span>
 														</div>
 													</li>
@@ -182,13 +193,15 @@
 													<button onclick="{!c.registerEdit}"
 														class="slds-button slds-button_success">
 
-														<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
+														<span class="slds-text-not-selected"> <c:svg
+																class="slds-button__icon_stateful slds-button__icon_left"
 																aria-hidden="true"
 																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" /></span>
 													</button>
 													<button class="slds-button slds-button_destructive"
 														onclick="{!c.removeItem}">
-														<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
+														<span class="slds-text-not-selected"> <c:svg
+																class="slds-button__icon_stateful slds-button__icon_left"
 																aria-hidden="true"
 																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" /></span>
 													</button>
@@ -205,13 +218,15 @@
 											class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
 
 											<div class="slds-panel__section">
-												<h3 class="slds-text-heading_small slds-m-bottom_medium"> {!$Label.c.orm_cotation_menu} </h3>
+												<h3 class="slds-text-heading_small slds-m-bottom_medium">
+													{!$Label.c.orm_cotation_menu}</h3>
 												<ul>
 													<li
 														class="slds-form-element slds-hint-parent slds-border_bottom">
 														<span class="slds-form-element__label">{!v.clabels.frequence__c}</span>
 														<div class="slds-form-element__control">
-															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.frequence__c}" />
+															<span class="slds-form-element__static"> <ui:outputNumber
+																	value="{!v.item.frequence__c}" />
 															</span>
 														</div>
 													</li>
@@ -219,7 +234,8 @@
 														class="slds-form-element slds-hint-parent slds-border_bottom">
 														<span class="slds-form-element__label">{!v.clabels.maitrise__c}</span>
 														<div class="slds-form-element__control">
-															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.maitrise__c}" />
+															<span class="slds-form-element__static"> <ui:outputNumber
+																	value="{!v.item.maitrise__c}" />
 															</span>
 														</div>
 													</li>
@@ -227,7 +243,8 @@
 														class="slds-form-element slds-hint-parent slds-border_bottom">
 														<span class="slds-form-element__label">{!v.clabels.gravite__c}</span>
 														<div class="slds-form-element__control">
-															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.gravite__c}" />
+															<span class="slds-form-element__static"> <ui:outputNumber
+																	value="{!v.item.gravite__c}" />
 															</span>
 														</div>
 													</li>
@@ -235,7 +252,8 @@
 														class="slds-form-element slds-hint-parent slds-border_bottom">
 														<span class="slds-form-element__label">{!v.clabels.criticite__c}</span>
 														<div class="slds-form-element__control">
-															<span class="slds-form-element__static"> <ui:outputNumber value="{!v.item.criticite__c}" />
+															<span class="slds-form-element__static"> <ui:outputNumber
+																	value="{!v.item.criticite__c}" />
 															</span>
 														</div>
 													</li>
@@ -255,12 +273,12 @@
 
 						<lightning:tab label="{!$Label.c.impact_menu}" id="2">
 							<aura:if isTrue="{!v.item}">
-							<c:ImpactRisqueEntiteListCmp risqueEntite="{!v.item}"/>
+								<c:ImpactRisqueEntiteListCmp risqueEntite="{!v.item}" />
 							</aura:if>
 						</lightning:tab>
 
 						<lightning:tab label="{!$Label.c.action_plan_menu}" id="3">
-							<c:PlanActionListCmp risqueEntite="{!v.item}"/>
+							<c:PlanActionListCmp risqueEntite="{!v.item}" />
 						</lightning:tab>
 
 						<lightning:tab label="{!$Label.c.cause_menu}" id="4">

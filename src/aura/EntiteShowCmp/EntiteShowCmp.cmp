@@ -6,11 +6,12 @@
 	<!-- évenement de navigation vers la liste des entités -->
 	<aura:registerEvent name="navigateToEntiteList"
 		type="c:navigateToEntiteList" />
-		<!-- évenement de navigation vers la visualisation // cas de l'entité parente -->
+	<!-- évenement de navigation vers la visualisation // cas de l'entité parente -->
 	<aura:registerEvent name="navigateToEntiteShow"
 		type="c:navigateToEntiteShow" />
-		<!-- évenement publié lorsqu'on veut supprimer un objet -->
-		<aura:registerEvent name="eventEditEntiteClicked" type="c:eventEditEntiteClicked" description="" />
+	<!-- évenement publié lorsqu'on veut supprimer un objet -->
+	<aura:registerEvent name="eventEditEntiteClicked"
+		type="c:eventEditEntiteClicked" description="" />
 	<!--      debut implementation entite -->
 	<div class="slds-grid slds-gutters">
 		<div class="slds-col slds-size_1-of-7"></div>
@@ -29,14 +30,16 @@
 										<div class="slds-media__figure">
 											<span
 												class="slds-icon_container slds-icon-standard-opportunity"
-												title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
+												title="Description of icon when needed"> <c:svg
+													class="slds-icon slds-page-header__icon" aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 											</span>
 										</div>
 										<div class="slds-media__body">
 											<nav>
 												<ol class="slds-breadcrumb slds-line-height_reset">
-													<li class="slds-breadcrumb__item"><span> <ui:outputText value="{!v.item.Name}" /></span></li>
+													<li class="slds-breadcrumb__item"><span> <ui:outputText
+																value="{!v.item.Name}" /></span></li>
 												</ol>
 											</nav>
 											<h1
@@ -47,7 +50,8 @@
 										<div>
 											<button class="btn btn-default"
 												onclick="{!c.navigateToEntiteList}">
-												<i class="fa fa-rotate-left"></i> {!$Label.c.back_button_title}
+												<i class="fa fa-rotate-left"></i>
+												{!$Label.c.back_button_title}
 											</button>
 										</div>
 									</div>
@@ -63,7 +67,7 @@
 							<div class="slds-grid slds-page-header__detail-row">
 								<div class="slds-grid slds-wrap  slds-size_1-of-1">
 									<!-- debut tab -->
-									<lightning:tabset >
+									<lightning:tabset>
 										<lightning:tab label="{!$Label.c.detail_menu}" id="1">
 											<!-- detail entite -->
 
@@ -77,15 +81,15 @@
 															<div
 																class="slds-panel__section slds-theme_shade slds-theme_alert-texture">
 																<h3 class="slds-text-heading_small slds-m-bottom_medium">
-																
-																{!$Label.c.detail_menu+'   '+v.clabels.label}
-																</h3>
+
+																	{!$Label.c.detail_menu+' '+v.clabels.label}</h3>
 																<ul>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
 																		<span class="slds-form-element__label">{!v.clabels.name}</span>
 																		<div class="slds-form-element__control">
-																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Name}" />
+																			<span class="slds-form-element__static"> <ui:outputText
+																					value="{!v.item.Name}" />
 																			</span>
 																		</div>
 																	</li>
@@ -93,7 +97,8 @@
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
 																		<span class="slds-form-element__label">{!v.clabels.website}</span>
 																		<div class="slds-form-element__control">
-																			<span class="slds-form-element__static"> <ui:outputEmail value="{!v.item.Website}" />
+																			<span class="slds-form-element__static"> <ui:outputEmail
+																					value="{!v.item.Website}" />
 																			</span>
 																		</div>
 																	</li>
@@ -101,7 +106,8 @@
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
 																		<span class="slds-form-element__label">{!v.clabels.phone}</span>
 																		<div class="slds-form-element__control">
-																			<span class="slds-form-element__static"> <ui:outputPhone value="{!v.item.Phone}" />
+																			<span class="slds-form-element__static"> <ui:outputPhone
+																					value="{!v.item.Phone}" />
 																			</span>
 																		</div>
 																	</li>
@@ -109,19 +115,24 @@
 															</div>
 														</div>
 													</div>
-													<div class="slds-button-group" style="text-align:right" role="group">
-														<button class="slds-button slds-button_success" onclick="{!c.registerEdit}">
+													<div class="slds-button-group" style="text-align: right"
+														role="group">
+														<button class="slds-button slds-button_success"
+															onclick="{!c.registerEdit}">
 
-															<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
-																aria-hidden="true"
-																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" /></span>
-															</button>
-															<button  onclick="{!c.removeItem}" class="slds-button slds-button_destructive">
-																<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
+															<span class="slds-text-not-selected"> <c:svg
+																	class="slds-button__icon_stateful slds-button__icon_left"
+																	aria-hidden="true"
+																	xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" /></span>
+														</button>
+														<button onclick="{!c.removeItem}"
+															class="slds-button slds-button_destructive">
+															<span class="slds-text-not-selected"> <c:svg
+																	class="slds-button__icon_stateful slds-button__icon_left"
 																	aria-hidden="true"
 																	xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" /></span>
-																</button>
-															</div>
+														</button>
+													</div>
 
 												</div>
 
@@ -131,10 +142,10 @@
 
 											<!-- fin detail sur l'entite-->
 										</lightning:tab>
-									
+
 										<lightning:tab label="{!$Label.c.risk_manager_menu}" id="2">
 											<aura:if isTrue="{!v.item}">
-											
+
 												<c:RiskManagerListCmp entite="{!v.item}" />
 											</aura:if>
 										</lightning:tab>
@@ -142,9 +153,10 @@
 											<aura:if isTrue="{!v.item}">
 												<c:RisqueEntiteListCmp entite="{!v.item.Id}" />
 											</aura:if>
-										</lightning:tab> 
+										</lightning:tab>
 
-										<lightning:tab label="{!$Label.c.risk_tracking_parameter_menu}" id="4">
+										<lightning:tab
+											label="{!$Label.c.risk_tracking_parameter_menu}" id="4">
 
 											<aura:if isTrue="{!v.item}">
 												<c:ParamRisqueEntiteListCmp entite="{!v.item}" />
@@ -168,7 +180,7 @@
 							<!-- <footer class="slds-card__footer" style="text-align: left;">
 
 							</footer> -->
-							
+
 						</div>
 
 
