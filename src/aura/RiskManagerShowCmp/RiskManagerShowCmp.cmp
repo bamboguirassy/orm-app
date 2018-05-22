@@ -204,7 +204,6 @@
 										</lightning:tab>
 										<!-- fin detail sur l'entite-->
 										<lightning:tab label="{!$Label.c.responsabilite_menu}" id="2">
-
 											<c:ProjetListByRiskManager riskmanager="{!v.item.Id}" />
 										</lightning:tab>
 										<lightning:tab label="{!$Label.c.statistical_menu}" id="3">
