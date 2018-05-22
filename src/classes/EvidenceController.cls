@@ -24,20 +24,19 @@ public with sharing class EvidenceController {
 		delete item;
 		return item;
 	}
+	
 	 @AuraEnabled
      public static List<ContentDocument> findAllContentDocument(String activite){
      	List<Mesure__c> mesures =new List<Mesure__c>();
      	List <Evidence__c> preuves=new List<Evidence__c>();
      	List<ContentDocumentLink> cdls= new List<ContentDocumentLink>();
      	mesures=MesureController.findAll(activite);
-    for(Mesure__c mesure:mesures){
+    	for(Mesure__c mesure:mesures){
      	     preuves.addAll(EvidenceController.findAll(mesure.Id));
-
      	}
-     	for(Evidence__c preuve:preuves){
+     	for(Evidence__c preuve:preuves){	
      		 cdls.addAll([select ContentDocumentId from ContentDocumentLink 
-     where LinkedEntityId=:preuve.Id]);
-     	
+     			where LinkedEntityId=:preuve.Id]);
      	}
      	
      	set <Id> idcds = new set <Id> ();
@@ -46,27 +45,26 @@ public with sharing class EvidenceController {
      	}
      	//return cdls;
      	return [SELECT Id,Title,ParentId from ContentDocument where Id IN :idcds ];
-}
+	 }
 
 	
- @AuraEnabled
+ 	 @AuraEnabled
      public static List<ContentDocument> findAllContentDocumentByMesure(String preuve){
-      List <Evidence__c> preuves=new List<Evidence__c>();
+      	List <Evidence__c> preuves=new List<Evidence__c>();
         List<ContentDocumentLink> cdls= new List<ContentDocumentLink>();
-      preuves.add([select Id from Evidence__c where Id=:preuve]);
+        preuves.add([select Id from Evidence__c where Id=:preuve]);
       
-        for(Evidence__c pid:preuves ){
-         
+        for(Evidence__c pid:preuves ){         
              cdls.addAll([select ContentDocumentId from ContentDocumentLink where LinkedEntityId =:pid.Id]);     
         }
             
-       set <Id> idcds = new set <Id> ();
+        set <Id> idcds = new set <Id> ();
         for(ContentDocumentLink cdl:cdls ){
             idcds.add(cdl.ContentDocumentId);
         }
         
         return [SELECT Id,Title,ParentId from ContentDocument where Id IN :idcds ];
-}
+	 }
 
 	@AuraEnabled
     public static Map<String,String> getObjectFields(){
