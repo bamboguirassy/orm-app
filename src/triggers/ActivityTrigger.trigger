@@ -15,7 +15,7 @@ trigger ActivityTrigger on Activite__c (before delete) {
 			}			
 			delete indicateurActivities;
 			//delete evidences;
-			delete mesures;				
+			delete mesures;	
 		}
 	}
 }

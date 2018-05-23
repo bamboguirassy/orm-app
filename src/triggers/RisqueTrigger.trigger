@@ -20,6 +20,7 @@ trigger RisqueTrigger on Risque__c (before delete)
      				 delete impacts;
      				 delete risqueEntite;
      				 delete paramRisqueEntite;	
+
      	}
     }   
 }
