@@ -85,7 +85,7 @@
 																	class="slds-card__header-link" title="{!item.Name}"><ui:outputText
 																		value="{!item.ImpactRisque__r.Name}" /> </a>
 															</h2>
-
+															{!item.ImpactRisque__r.description__c}
 														</div>
 													</header>
 													<div class="slds-einstein-header__actions">

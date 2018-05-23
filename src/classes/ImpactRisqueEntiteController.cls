@@ -1,7 +1,7 @@
 public with sharing class ImpactRisqueEntiteController {
      @AuraEnabled
 	public static List<Impact_Risque_Entite__c> findAll(String risqueEntite){
-		return [SELECT Id,ImpactRisque__r.Name,risque_Entite__r.Risque__r.Name FROM Impact_Risque_Entite__c where risque_Entite__c=:risqueEntite];
+		return [SELECT Id,ImpactRisque__r.Name,ImpactRisque__r.description__c,risque_Entite__r.Risque__r.Name FROM Impact_Risque_Entite__c where risque_Entite__c=:risqueEntite];
 	}
 	
 	@AuraEnabled
