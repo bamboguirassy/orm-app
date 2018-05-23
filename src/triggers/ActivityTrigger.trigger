@@ -12,12 +12,10 @@ trigger ActivityTrigger on Activite__c (before delete) {
 				indicateurActivities.addAll([SELECT Id FROM Indicateur_Activite__c WHERE activite__c =:act.Id]);
 				mesures.addAll([SELECT Id FROM Mesure__c WHERE activite__c =:act.Id]);
 				//evidences.addAll([SELECT Id FROM Evidence__c WHERE evidenceOfActivity__r.activite__c =:act.Id]);				
-			}
-			
+			}			
 			delete indicateurActivities;
 			//delete evidences;
-			delete mesures;
-				
+			delete mesures;				
 		}
 	}
 }

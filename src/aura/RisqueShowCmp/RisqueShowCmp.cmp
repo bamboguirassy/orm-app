@@ -60,7 +60,7 @@
                             <!-- debut tab -->
                             <lightning:tabset >
                                 <lightning:tab label="Details" id="1">
-                                    <!-- detail risques -->
+                                    <!-- detail risques --> 
 
                                     <div class="slds-grid slds-gutters slds-size_1-of-1">
                                         <div class="slds-col slds-size_1-of-2">
