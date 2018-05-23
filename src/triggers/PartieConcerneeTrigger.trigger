@@ -1,5 +1,6 @@
 trigger PartieConcerneeTrigger on PartieConcernee__c (before delete) {
     
+
     	if(Trigger.isBefore)
     { 
     	if(Trigger.isDelete)
@@ -29,4 +30,5 @@ trigger PartieConcerneeTrigger on PartieConcernee__c (before delete) {
      	}
     }   
     
+
 }
