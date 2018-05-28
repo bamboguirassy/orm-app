@@ -15,7 +15,11 @@
         var getFieldsLabelAction=component.get('c.getObjectFields');
         getFieldsLabelAction.setCallback(this, function(response){
             if(response.getState()=='SUCCESS'){
+<<<<<<< Updated upstream
                 component.set('v.clabels',response.getReturnValue()); 
+=======
+                component.set('v.clabels',response.getReturnValue());   
+>>>>>>> Stashed changes
             } else {
                     alert('Une erreur est survenues lors de la récuperation des champs'); }
         });
