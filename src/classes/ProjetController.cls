@@ -85,16 +85,6 @@ public with sharing class ProjetController {
         objectFields.put('structureLabel', SObjectType.Account.getLabel());
         //return map with fields api name as key and field label as value
         System.debug('###-result'+objectFields);
-        
-        objectFields.put('riskLabels', SObjectType.Risque_projet__c.getLabelPlural());
-        //return map with fields api name as key and field label as value
-        System.debug('###-result'+objectFields);
-        
-        //IntervenantProjet__c
-        objectFields.put('intervenantLabels', SObjectType.IntervenantProjet__c.getLabelPlural());
-        //return map with fields api name as key and field label as value
-        System.debug('###-result'+objectFields);
-        
         return objectFields;
     }
     
