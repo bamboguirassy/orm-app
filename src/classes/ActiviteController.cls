@@ -74,6 +74,4 @@ public with sharing class ActiviteController {
         System.debug('###-result'+objectFields);
         return objectFields;
     }
-	
-	
 }

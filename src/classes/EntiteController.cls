@@ -4,7 +4,6 @@ public with sharing class EntiteController {
                   .get('Structure').getRecordTypeId();
         return RecordTypeId;
     }
-    
     @AuraEnabled
 	public static List<Account> findAll(){
 		return [SELECT Id,Name,Phone,Website,Description,Type,ParentId,Parent.Name FROM Account where RecordTypeId=:EntiteController.getStructureRecordTypeId() order by Name];
@@ -15,7 +14,7 @@ public with sharing class EntiteController {
         if(item!=null){
             item.RecordTypeId=EntiteController.getStructureRecordTypeId();
             upsert item;
-           return item;
+           	return item;
         }
        
         return item;

@@ -63,11 +63,11 @@
 			newItem.statut__c = component.find('statutid').get('v.value');
 			newItem.type__c = component.find('typeid').get('v.value');
 			newItem.cout__c = component.find('cout').get('v.value');
+			
 			var action = component.get('c.add');
 			action.setParams({
 				"item" : newItem
 			});
-
 			action.setCallback(this, function(response) {
 				var state = response.getState();
 				if (state == "SUCCESS") {
