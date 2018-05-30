@@ -5,19 +5,12 @@
  */
 public class Orm_TestFactory 
 {
-<<<<<<< HEAD
-    /**
-    * @author : David
-    * @date : 25/05/2018
-    * @description :generer une liste de categorie risque
-    */
-=======
+
   /**
    * @author : David
    * @date : 25/05/2018
    * @description :generer une liste de categorie risque
    */
->>>>>>> 670d727c0ef5ffc73d3e28fe876fe381562a631e
     public static List<Categorie_Risque__c> generateCategorieRisque()
     {
         List<Categorie_Risque__c> categories=new List<Categorie_Risque__c>();
@@ -28,10 +21,7 @@ public class Orm_TestFactory
         insert categories;
         return categories;
     }
-<<<<<<< HEAD
-    
-=======
->>>>>>> 670d727c0ef5ffc73d3e28fe876fe381562a631e
+
     /**
      * @author : David
      * @date  :25/05/2018
@@ -46,12 +36,8 @@ public class Orm_TestFactory
         }
         insert risques;
         return risques;
-<<<<<<< HEAD
     }
     
-=======
-   }
->>>>>>> 670d727c0ef5ffc73d3e28fe876fe381562a631e
     /**
      * @author : David
      * @date  :25/05/2018
@@ -67,20 +53,12 @@ public class Orm_TestFactory
         insert categorieImpacts;
         return categorieImpacts; 
     }
-<<<<<<< HEAD
-    
-=======
->>>>>>> 670d727c0ef5ffc73d3e28fe876fe381562a631e
+
     /**
      * @author : David
      * @date : 25/05/5018
      * @description : generer une liste de categorie de mesure de prevention
-<<<<<<< HEAD
      */    
-=======
-     */
-    
->>>>>>> 670d727c0ef5ffc73d3e28fe876fe381562a631e
     public static LIST<Categorie_Mesure_Prevention__c> generateCategorieMesurePrevention()
     {
         List<Categorie_Mesure_Prevention__c> categorieMesurePreventions= new List<Categorie_Mesure_Prevention__c>();
@@ -92,13 +70,8 @@ public class Orm_TestFactory
         return categorieMesurePreventions; 
 
     }
-<<<<<<< HEAD
    
-    /**
-=======
    /**
->>>>>>> 670d727c0ef5ffc73d3e28fe876fe381562a631e
-   * @author : salimata
    * @date : 28/05/2018
    * @description :generer une liste de structure (Account)
    */
@@ -151,11 +124,7 @@ public class Orm_TestFactory
         } 
         insert risqueentite;
         return risqueentite;
-<<<<<<< HEAD
-    } 
-=======
-    }
 
+    }
     
->>>>>>> 670d727c0ef5ffc73d3e28fe876fe381562a631e
 }
