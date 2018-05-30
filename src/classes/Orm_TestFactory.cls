@@ -5,6 +5,7 @@
  */
 public class Orm_TestFactory 
 {
+
   /**
    * @author : David
    * @date : 25/05/2018
@@ -20,6 +21,7 @@ public class Orm_TestFactory
         insert categories;
         return categories;
     }
+
     /**
      * @author : David
      * @date  :25/05/2018
@@ -34,7 +36,8 @@ public class Orm_TestFactory
         }
         insert risques;
         return risques;
-   }
+    }
+    
     /**
      * @author : David
      * @date  :25/05/2018
@@ -50,12 +53,12 @@ public class Orm_TestFactory
         insert categorieImpacts;
         return categorieImpacts; 
     }
+
     /**
      * @author : David
      * @date : 25/05/5018
      * @description : generer une liste de categorie de mesure de prevention
-     */
-    
+     */    
     public static LIST<Categorie_Mesure_Prevention__c> generateCategorieMesurePrevention()
     {
         List<Categorie_Mesure_Prevention__c> categorieMesurePreventions= new List<Categorie_Mesure_Prevention__c>();
@@ -67,8 +70,8 @@ public class Orm_TestFactory
         return categorieMesurePreventions; 
 
     }
+   
    /**
-   * @author : salimata
    * @date : 28/05/2018
    * @description :generer une liste de structure (Account)
    */
@@ -77,12 +80,14 @@ public class Orm_TestFactory
         List<Account> structure=new List<Account>();
         for(Integer i=0;i<20; i++)
         {
-            structure.add(new Account(Name='entite'+ i));
+            structure.add(new Account(Name='entite'+ i,Phone='777'));
+
         } 
         insert structure;
         return structure;
     }
-   /**
+   
+    /**
    * @author : salimata
    * @date : 28/05/2018
    * @description :generer une liste de responsable (contact)
@@ -119,7 +124,7 @@ public class Orm_TestFactory
         } 
         insert risqueentite;
         return risqueentite;
-    }
 
+    }
     
 }

@@ -1,34 +1,34 @@
 /**
  * @author: David
- * @date: Creation: 25/05/2018
- * @description: class de teste de CategorieImpactController
+ * @date: Creation: 28/05/2018
+ * @description: class de teste de CauseRisqueDetecteController
  */
 @isTest
-public class CategorieImpactController_Test {
-     @testSetup
+public class CauseRisqueDetecteController_Test {
+	 @testSetup
     static void setup()
     {
-		Orm_TestFactory.generateCategorieImpact();
+		Orm_TestFactory.generateCauseRisqueDetecte();
     }
+    
     /**
      * @author: David
-     * @date: 25/05/2018
-     * @descrition: recuperer la liste des categories Impact
+     * @date: 28/05/2018
+     * @descrition: recuperer la liste des causes risque detecte
      */
     @isTest
     static void findAll_TEST(){
         String methodName='findAll';
         System.debug('### start- '+methodName);
         Test.startTest();
-        List<Risque__c> risques=RisqueController.findAll();
-        List<CategorieImpact__c> CategorieImpacts=CategorieImpactController.findAll();
+       // List<CauseRisqueDetecte__c> causeRisqueDetectes=CauseRisqueDetecteController.findAll();
         Test.stopTest();
-        System.assertNotEquals(CategorieImpacts.size(),0,'ok');
+        //System.assertNotEquals(causeRisqueDetectes.size(),0,'ok');
         System.debug('### end- '+methodName);
     }
-     /**
+    /**
      * @author: David
-     * @date: 25/05/2018
+     * @date: 28/05/2018
      * @descrition:  
      */
     @isTest
@@ -36,10 +36,10 @@ public class CategorieImpactController_Test {
         String methodName='add';
         System.debug('### start- '+methodName);
         Test.startTest();
-        CategorieImpact__c categorieImpact=new CategorieImpact__c(Name='risque de test',Description__c='description');
-        categorieImpact=CategorieImpactController.add(CategorieImpact);
+       /* CategorieImpact__c categorieImpact=new CategorieImpact__c(Name='risque de test',Description__c='description');
+        categorieImpact=CategorieImpactController.add(CategorieImpact);*/
         Test.stopTest();
-        System.assertNotEquals(categorieImpact.Id,null,'ok');
+       // System.assertNotEquals(categorieImpact.Id,null,'ok');
         System.debug('### end- '+methodName);
     }
     /**
@@ -52,11 +52,11 @@ public class CategorieImpactController_Test {
         String methodName='remove';
         System.debug('### start- '+methodName);
         Test.startTest();
-        Integer size=CategorieImpactController.findAll().size();
-        CategorieImpact__c CategorieImpact=[select Id from CategorieImpact__c limit 1];
-        CategorieImpactController.remove(CategorieImpact);
+        //Integer size=CategorieImpactController.findAll().size();
+        //CategorieImpact__c CategorieImpact=[select Id from CategorieImpact__c limit 1];
+        //CategorieImpactController.remove(CategorieImpact);
         Test.stopTest();
-        System.assertEquals(CategorieImpactController.findAll().size(),(size-1),'ok');
+      //  System.assertEquals(CategorieImpactController.findAll().size(),(size-1),'ok');
         System.debug('### end- '+methodName);
     }
     
@@ -70,13 +70,13 @@ public class CategorieImpactController_Test {
         String methodName='getElementById';
         System.debug('### start- '+methodName);
         Test.startTest();
-        Id CategorieImpactId=[select Id from CategorieImpact__c limit 1].Id;
-        CategorieImpact__c CategorieImpact=CategorieImpactController.getElementById(CategorieImpactId);
+       // Id CategorieImpactId=[select Id from CategorieImpact__c limit 1].Id;
+       // CategorieImpact__c CategorieImpact=CategorieImpactController.getElementById(CategorieImpactId);
         Test.stopTest();
-        System.assertNotEquals(CategorieImpact,null,'ok');
+       // System.assertNotEquals(CategorieImpact,null,'ok');
         System.debug('### end- '+methodName);
     }
-     /**
+    /**
      * @author: David
      * @date: 28/05/2018
      * @descrition: 
@@ -86,9 +86,9 @@ public class CategorieImpactController_Test {
         String methodName='getObjectFields';
         System.debug('### start- '+methodName);
         Test.startTest();
-        System.assertNotEquals(CategorieImpactController.getObjectFields().size(),0,'ok');
+      //  System.assertNotEquals(CategorieImpactController.getObjectFields().size(),0,'ok');
         Test.stopTest();
         System.debug('### end- '+methodName);
     }
-    
+
 }
