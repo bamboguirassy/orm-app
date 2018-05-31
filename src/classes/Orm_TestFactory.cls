@@ -86,6 +86,16 @@ public class Orm_TestFactory
         insert structure;
         return structure;
     }
+    
+    public static List<Contact> generateRiskManager(string entiteId){
+        List<Contact> responsables = new List<Contact>();
+        for(integer i= 0; i< 20; i++)
+        {
+            responsables.add(new Contact(Email='email@gmail.com', LastName='lastName-'+i, AccountId=entiteId));
+        } 
+        insert responsables;
+        return responsables;
+    }
    
     /**
    * @author : salimata
@@ -94,15 +104,15 @@ public class Orm_TestFactory
    */
     public static List<Contact> generateContact()
     {
-    	   List<Account> entites=generateStructure();
+    	List<Account> entites=generateStructure();
        
-        List<Contact> responsable=new List<Contact>();
-         for(Account entite:entites)
+        List<Contact> responsables = new List<Contact>();
+        for(Account entite:entites)
         {
-            responsable.add(new Contact(Email='email@gmail.com',AccountId=entite.Id));
+            responsables.add(new Contact(Email='email@gmail.com',AccountId=entite.Id));
         } 
-        insert responsable;
-        return responsable;
+        insert responsables;
+        return responsables;
     }
   
    /**
@@ -126,5 +136,26 @@ public class Orm_TestFactory
         return risqueentite;
     }
     
+    
+    /**
+   * @author : Dibocor
+   * @date : 31/05/2018
+   * @description :generer une liste d'ImpactRisqueEntite
+   */
+    public static List<Risque_Entite__c> generateImpactRisqueEntite()
+    {	
+    	List<Contact>  responsables=generateContact();
+    	List<Categorie_Risque__c> categorierisques =generateCategorieRisque();
+    	List<Risque__c> risques=generateRisque(categorierisques);
+    	List<Account> structures=generateStructure();
+        List<Risque_Entite__c> risqueentite=new List<Risque_Entite__c>();
+        
+        for(Integer i=0;i<20; i++)
+        {
+          risqueentite.add(new Risque_Entite__c(risque__c=risques[1].Id,responsable__c=responsables[1].Id,Description__c='description', entite__c=structures[1].Id));
+        } 
+        insert risqueentite;
+        return risqueentite;
+    }
     
 }
