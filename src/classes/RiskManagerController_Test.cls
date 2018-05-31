@@ -7,7 +7,8 @@
 public class RiskManagerController_Test {
 	@testSetup
     static void setUp(){
-    	Orm_TestFactory.generateStructure();     
+    	List<Account> entites = Orm_TestFactory.generateStructure(); 
+        Orm_TestFactory.generateRiskManager(entites[0].Id);
     }
     
     /**
@@ -30,7 +31,12 @@ public class RiskManagerController_Test {
     @isTest
     static void findAll_Test(){
         String methodName='findAll';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);
+		Test.startTest();
+        ID entiteId = [SELECT Id FROM Account limit 1].Id;
+        List<Contact> responsables = RiskManagerController.findAll(entiteId);
+        Test.stopTest();
+        System.assertEquals(responsables.size(),20,'ok');
         System.debug('### end- '+methodName);
     }
     
@@ -42,7 +48,9 @@ public class RiskManagerController_Test {
     @isTest
     static void add_Test(){
         String methodName='add';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);
+        ID entiteId = [SELECT Id FROM Account limit 1].Id;
+		Contact contact = new Contact(Email='email@gmail.com', LastName='lastName', AccountId=entiteId);        
         System.debug('### end- '+methodName);
     }
     
