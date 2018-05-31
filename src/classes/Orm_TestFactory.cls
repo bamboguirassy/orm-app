@@ -104,15 +104,15 @@ public class Orm_TestFactory
    */
     public static List<Contact> generateContact()
     {
-    	List<Account> entites=generateStructure();
+    	   List<Account> entites=generateStructure();
        
-        List<Contact> responsables = new List<Contact>();
-        for(Account entite:entites)
+        List<Contact> responsable=new List<Contact>();
+         for(Account entite:entites)
         {
-            responsables.add(new Contact(Email='email@gmail.com',AccountId=entite.Id));
+            responsable.add(new Contact(Email='email@gmail.com',AccountId=entite.Id));
         } 
-        insert responsables;
-        return responsables;
+        insert responsable;
+        return responsable;
     }
   
    /**
@@ -136,26 +136,23 @@ public class Orm_TestFactory
         return risqueentite;
     }
     
-    
-    /**
-   * @author : Dibocor
-   * @date : 31/05/2018
-   * @description :generer une liste d'ImpactRisqueEntite
-   */
-    public static List<Risque_Entite__c> generateImpactRisqueEntite()
-    {	
-    	List<Contact>  responsables=generateContact();
+   /**
+     * @author : Dibocor
+     * @date  :31/05/2018
+     * @description : generer une liste des ImpactRisques
+     */
+    public static List<Impact__c> generateImpactRisque(List<CategorieImpact__c> categorieImpacts)
+    {
     	List<Categorie_Risque__c> categorierisques =generateCategorieRisque();
-    	List<Risque__c> risques=generateRisque(categorierisques);
-    	List<Account> structures=generateStructure();
-        List<Risque_Entite__c> risqueentite=new List<Risque_Entite__c>();
-        
-        for(Integer i=0;i<20; i++)
+        List<Risque__c> risques=generateRisque(categorierisques);
+        List<Impact__c> impactRisques =new List<Impact__c>();
+        for(CategorieImpact__c categorieImpact: categorieImpacts)
         {
-          risqueentite.add(new Risque_Entite__c(risque__c=risques[1].Id,responsable__c=responsables[1].Id,Description__c='description', entite__c=structures[1].Id));
-        } 
-        insert risqueentite;
-        return risqueentite;
-    }
+            impactRisques.add(new Impact__c(risque__c=risques[0].Id,description__c='description',Categorie_Impact__c=categorieImpact.Id));
+        }
+        insert impactRisques;
+        return impactRisques;
+    } 
+    
     
 }
