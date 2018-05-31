@@ -124,7 +124,7 @@ public class Orm_TestFactory
         } 
         insert risqueentite;
         return risqueentite;
-
     }
+    
     
 }
