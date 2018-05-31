@@ -6,7 +6,8 @@
 @isTest
 public class RiskManagerController_Test {
 	@testSetup
-    static void setUp(){        
+    static void setUp(){
+    	Orm_TestFactory.generateStructure();     
     }
     
     /**
@@ -17,6 +18,18 @@ public class RiskManagerController_Test {
     @isTest
     static void getRiskManagerRecordTypeId_Test(){
         String methodName='getRiskManagerRecordTypeId';
+        System.debug('### start- '+methodName);        
+        System.debug('### end- '+methodName);
+    }
+    
+    /**
+     * @author: Laye
+     * @date: Creation: 29/05/2018
+     * @description: methode de test de findAll
+     */
+    @isTest
+    static void findAll_Test(){
+        String methodName='findAll';
         System.debug('### start- '+methodName);        
         System.debug('### end- '+methodName);
     }
