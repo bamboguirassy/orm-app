@@ -5,9 +5,9 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>RisqueController_Test</members>
-        <members>Orm_TestFactory</members>
         <members>CategorieImpactController_Test</members>
+        <members>Orm_TestFactory</members>
+        <members>RisqueController_Test</members>
         <name>ApexClass</name>
     </types>
     <version>38.0</version>
