@@ -1,23 +1,25 @@
 /**
- * @author: Laye
- * @date: Creation: 29/05/2018
+ * @author: david
+ * @date: Creation: 31/05/2018
  * @description: class de test de RiskManagerController
  */
 @isTest
 public class RisqueEntiteController_Test {
 	@testSetup
-    static void setUp(){        
+    static void setUp(){
+    	  Orm_TestFactory.generateStructure(); 
+    	  Orm_TestFactory.generateCauseRisqueDetecte(); 
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: david
+     * @date: Creation: 31/05/2018
      * @description: methode de test de findAllByEntite
      */
     @isTest
     static void findAllByEntite_Test(){
         String methodName='findAllByEntite';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);     
         System.debug('### end- '+methodName);
     }
     
@@ -29,7 +31,11 @@ public class RisqueEntiteController_Test {
     @isTest
     static void findAll_Test(){
         String methodName='findAll';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);   
+        Test.startTest(); 
+        List<Risque_Entite__c> risqueEntite=RisqueEntiteController.findAll();
+        Test.stopTest();
+        System.assertNotEquals(risqueEntite.size(),0,'ok');  
         System.debug('### end- '+methodName);
     }
     
