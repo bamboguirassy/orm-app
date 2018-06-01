@@ -50,7 +50,9 @@ public class RiskManagerController_Test {
         String methodName='add';
         System.debug('### start- '+methodName);
         ID entiteId = [SELECT Id FROM Account limit 1].Id;
-		Contact contact = new Contact(Email='email@gmail.com', LastName='lastName', AccountId=entiteId);        
+		Contact contact = new Contact(Email='email@gmail.com', LastName='lastName', AccountId=entiteId);
+		RiskManagerController.add(contact);
+        System.assertNotEquals(contact.Id, null, 'OK');
         System.debug('### end- '+methodName);
     }
     
@@ -85,4 +87,17 @@ public class RiskManagerController_Test {
         System.debug('### end- '+methodName);
     }
     
+    /**
+     * @author: Laye
+     * @date: Creation: 29/05/2018
+     * @description: methode de test de getObjectFields
+     */
+    @isTest
+    static void getObjectFields_Test(){
+        String methodName='getObjectFields';
+        System.debug('### start- '+methodName);
+        ID idContact = [SELECT Id FROM Contact limit 1].Id;
+        System.assertNotEquals(RiskManagerController.getObjectFields().size(), null, 'OK');
+        System.debug('### end- '+methodName);
+    }
 }
