@@ -11,10 +11,11 @@ public class RisqueEntiteController_Test {
         List<Categorie_Risque__c> categories = Orm_TestFactory.generateCategorieRisque();
     	List<Contact>  responsables = Orm_TestFactory.generateRiskManager(structures[0].Id);    	
     	List<Risque__c> risques = Orm_TestFactory.generateRisque(categories);
+        Orm_TestFactory.generateParamRisqueEntite(structures[0].Id, risques[0].Id);
     	Orm_TestFactory.generateRisqueDetecte(risques[0].Id, responsables[0].Id,  structures[0].Id);
     }
     
-        /**
+    /**
      * @author:david
      * @date: Creation: 29/05/2018
      * @description: methode de test de findAllByEntite
@@ -47,7 +48,7 @@ public class RisqueEntiteController_Test {
         System.debug('### end- '+methodName);
     }
         
-             /**
+      /**
      * @author:david
      * @date: Creation: 29/05/2018
      * @description: methode de test de filterFromCategorieEntite
@@ -68,7 +69,7 @@ public class RisqueEntiteController_Test {
      /**
      * @author:david
      * @date: Creation: 29/05/2018
-     * @description: methode de test de filterFromCategofilterFromCategorierieEntite
+     * @description: methode de test de filterFromCategorie
      */
     @isTest
     static void filterFromCategorie_Test(){
@@ -188,6 +189,23 @@ public class RisqueEntiteController_Test {
         List<Risque__c> Risque=RisqueEntiteController.findRisques();
         Test.stopTest();
         System.assertNotEquals(Risque.size(),0,'ok');
+        System.debug('### end- '+methodName);
+    }
+     /**
+     * @author: David
+     * @date: 01/06/2018
+     * @descrition: 
+     */
+    @isTest
+    static void getParamRisqueEntite_TEST()
+    {
+        String methodName='getParamRisqueEntite';
+        System.debug('### start- '+methodName);
+        Test.startTest();
+        string paramId=[select Id from ParamRisqueEntite__c limit 1].Id;
+        ParamRisqueEntite__c param=RisqueEntiteController.getParamRisqueEntite(paramId);
+        Test.stopTest();
+        System.assertNotEquals(param,null,'ok');
         System.debug('### end- '+methodName);
     }
     
