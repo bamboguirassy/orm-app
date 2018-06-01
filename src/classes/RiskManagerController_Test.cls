@@ -62,7 +62,9 @@ public class RiskManagerController_Test {
     @isTest
     static void getElementById_Test(){
         String methodName='getElementById';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);
+        ID idContact = [SELECT Id FROM Contact limit 1].Id;
+        System.assertNotEquals(RiskManagerController.getElementById(idContact).Id, null, 'OK');
         System.debug('### end- '+methodName);
     }
     
@@ -74,7 +76,12 @@ public class RiskManagerController_Test {
     @isTest
     static void remove_Test(){
         String methodName='remove';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);
+        Account entite = [SELECT Id FROM Account limit 1];    
+		Integer size = RiskManagerController.findAll(entite.Id).size();
+        Contact contact=[select Id from Contact limit 1];
+        RiskManagerController.remove(contact);
+        System.assertEquals(RiskManagerController.findAll(entite.Id).size(), size-1, 'OK');
         System.debug('### end- '+methodName);
     }
     
