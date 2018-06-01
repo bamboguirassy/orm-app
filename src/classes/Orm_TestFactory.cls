@@ -87,6 +87,11 @@ public class Orm_TestFactory
         return structure;
     }
     
+    /**
+     * @author : laye
+     * @date : 31/05/2018
+     * @description :generer une liste de responsable (contact)
+     */
     public static List<Contact> generateRiskManager(string entiteId){
         List<Contact> responsables = new List<Contact>();
         for(integer i= 0; i< 20; i++)
@@ -109,7 +114,7 @@ public class Orm_TestFactory
         List<Contact> responsable=new List<Contact>();
          for(Account entite:entites)
         {
-            responsable.add(new Contact(Email='email@gmail.com',AccountId=entite.Id));
+            responsable.add(new Contact(FirstName='name1',LastName='lastName1',Birthdate=System.today(),Phone='7777',Email='email@gmail.com',AccountId=entite.Id));
         } 
         insert responsable;
         return responsable;
@@ -120,20 +125,16 @@ public class Orm_TestFactory
    * @date : 28/05/2018
    * @description :generer une liste de risque entite
    */
-    public static List<Risque_Entite__c> generateCauseRisqueDetecte()
-    {	
-    	List<Contact>  responsables=generateContact();
-    	List<Categorie_Risque__c> categorierisques =generateCategorieRisque();
-    	List<Risque__c> risques=generateRisque(categorierisques);
-    	List<Account> structures=generateStructure();
-        List<Risque_Entite__c> risqueentite=new List<Risque_Entite__c>();
-        
+    public static List<Risque_Entite__c> generateRisqueDetecte(string idRisque, string idResponsable, string idEntite)
+    {    	
+        List<Risque_Entite__c> risqueEntite=new List<Risque_Entite__c>();
         for(Integer i=0;i<20; i++)
         {
-          risqueentite.add(new Risque_Entite__c(risque__c=risques[1].Id,responsable__c=responsables[1].Id,Description__c='description', entite__c=structures[1].Id));
+          risqueEntite.add(new Risque_Entite__c(frequence__c=2,gravite__c=1,maitrise__c=2,Date_Detection__c=System.today(),
+                                                risque__c=idRisque,responsable__c=idResponsable, description__c='description', entite__c= idEntite));
         } 
-        insert risqueentite;
-        return risqueentite;
+        insert risqueEntite;
+        return risqueEntite;
     }
     
    /**
@@ -154,5 +155,18 @@ public class Orm_TestFactory
         return impactRisques;
     } 
     
+    /**
+     * @author : Laye
+     * @date : 01/06/2018
+     * @description : generer une liste de ParamRisqueEntite__c 
+     */
+    public static List<ParamRisqueEntite__c> generateParamRisqueEntite(string idEntite, string idRisque){
+        List<ParamRisqueEntite__c> paramRisqueEntites = new List<ParamRisqueEntite__c>();
+        for(integer i = 0; i < 20; i++){
+            paramRisqueEntites.add(new ParamRisqueEntite__c(unite__c = 'unite-'+ i, seuilApparution__c = i, risque__c=idRisque, entite__c = idEntite));
+        }
+        insert paramRisqueEntites;
+        return paramRisqueEntites;
+    }
     
 }

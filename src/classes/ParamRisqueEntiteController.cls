@@ -1,5 +1,5 @@
 public with sharing class ParamRisqueEntiteController {
-     @AuraEnabled
+    @AuraEnabled
 	public static List<ParamRisqueEntite__c> findFromEntite(String entite){
 		return [SELECT Id,risque__r.Name,seuilApparution__c,unite__c,apparu__c,entite__c FROM ParamRisqueEntite__c where entite__c=:entite order by risque__r.Name];
 	 }
