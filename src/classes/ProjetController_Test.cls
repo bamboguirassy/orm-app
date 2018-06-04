@@ -16,8 +16,8 @@ public class ProjetController_Test {
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: David
+     * @date: Creation: 04/06/2018
      * @description: methode de test de getStructureRecordTypeId
      */
     @isTest

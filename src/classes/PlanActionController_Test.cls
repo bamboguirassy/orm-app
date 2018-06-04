@@ -6,7 +6,13 @@
 @isTest
 public class PlanActionController_Test {
 	@testSetup
-    static void setUp(){        
+    static void setUp(){
+    	List<Account> entites = Orm_TestFactory.generateStructure();
+        List<Categorie_Risque__c> categories = Orm_TestFactory.generateCategorieRisque();
+		List<Risque__c> risques = Orm_TestFactory.generateRisque(categories);
+		List<Contact> riskManagers = Orm_TestFactory.generateRiskManager(entites[0]);
+		List<Risque_Entite__c> risqueDetectes = Orm_TestFactory.generateRisqueDetecte(risque[0], riskManagers[0], entites[0]);
+		Orm_TestFactory.generatePlanAction(risqueDetectes[0], riskManagers[0]);         
     }
     
     /**

@@ -168,6 +168,21 @@ public class Orm_TestFactory
         insert paramRisqueEntites;
         return paramRisqueEntites;
     }
+    /**
+     * @author : David 
+     * @date : 01/06/2018
+     * @description : generer une liste de Projet
+     */
+    public static List<Projet__c> generateProjet(string idEntite,string idResponsable){
+         List<Projet__c> projets= new List<Projet__c>();
+         for(integer i = 0; i < 20; i++){
+            projets.add(new Projet__c(Cout__c = 25,Description__c = 'description',Name = 'nom'+i , Site_Web_du_projet__c = 'site@site.com',
+                                      Date_fin_prevue__c=System.today() , Date_debut__c = System.today() , Structure__c = idEntite , Responsable__c = idResponsable));
+        }
+        
+        insert projets;
+        return projets;
+    }
     
     /**
      * @author : Laye
@@ -177,10 +192,10 @@ public class Orm_TestFactory
     public static List<Plan_Action__c> generatePlanAction(string idRisqueEntite, string idRiskManager){
     	List<Plan_Action__c> actionPlans = new List<Plan_Action__c>();
     	for(integer i = 0; i < 20; i++){
-    		actionPlans.add(new Plan_Action__c());
+    		actionPlans.add(new Plan_Action__c(Name='plan action-'+ i, date_commencement__c = System.now(), 
+    		echeancier__c = System.now(), risque_Entite__c = idRisqueEntite, gestionnaire__c = idRiskManager));
     	}
     	
     	insert actionPlans;
     }
-    
 }
