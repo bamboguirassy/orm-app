@@ -247,7 +247,7 @@ public class Orm_TestFactory
      * @date : 04/06/2018
      * @description : generer une liste de entiteAffectee
      */
-     public static List<Entite_Affectee__c> generateEntite_Affectee(string idRisqueEntite,string idEntite ){
+     public static List<Entite_Affectee__c> generateEntiteAffectee(string idRisqueEntite,string idEntite ){
      	 List<Entite_Affectee__c>  entiteAffectees= new List<Entite_Affectee__c>();
      	  for(integer i = 0; i < 20; i++){
      	entiteAffectees.add(new Entite_Affectee__c(risque_Entite__c=idRisqueEntite,Entite__c=idEntite));
