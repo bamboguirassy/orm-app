@@ -183,6 +183,23 @@ public class Orm_TestFactory
         insert projets;
         return projets;
     }
+    
+    /**
+     * @author : Laye
+     * @date : 04/06/2018
+     * @description : generer une liste de PlanAction 
+     */
+    public static List<Plan_Action__c> generatePlanAction(string idRisqueEntite, string idRiskManager){
+    	List<Plan_Action__c> actionPlans = new List<Plan_Action__c>();
+    	for(integer i = 0; i < 20; i++){
+    		actionPlans.add(new Plan_Action__c(Name='plan action-'+ i, date_commencement__c = System.now(), 
+    		echeancier__c = System.now(), risque_Entite__c = idRisqueEntite, gestionnaire__c = idRiskManager));
+    	}
+    	
+    	insert actionPlans;
+    	return actionPlans;
+    }
+    
     /**
      * @author : David 
      * @date : 04/06/2018
@@ -198,4 +215,5 @@ public class Orm_TestFactory
      }
       
    
+>>>>>>> 8b1bfecc0f53b79d027e4e93bad0c38e68aafdd1
 }
