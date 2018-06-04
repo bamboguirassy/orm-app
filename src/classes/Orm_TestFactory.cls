@@ -183,8 +183,19 @@ public class Orm_TestFactory
         insert projets;
         return projets;
     }
-    
-    
-    
+    /**
+     * @author : David 
+     * @date : 04/06/2018
+     * @description : generer une liste de RisqueProjet
+     */
+     public static List<Risque_Projet__c> generateRisqueProjet(string idPojet,string idRisqueDetecte){
+     	 List<Risque_Projet__c> risqueProjets= new List<Risque_Projet__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	risqueProjets.add(new Risque_Projet__c(Risque_detecte__c=idRisqueDetecte,Projet__c=idPojet));
+     	  }
+     	 upsert risqueProjets;
+         return risqueProjets;
+     }
+      
    
 }
