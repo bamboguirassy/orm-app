@@ -227,6 +227,18 @@ public class Orm_TestFactory
          return intervenantProjets;
      }
       
-   
+   	  /**
+     * @author : David 
+     * @date : 04/06/2018
+     * @description : generer une liste de CauseRisqueDetecte
+     */
+     public static List<CauseRisqueDetecte__c> generateCauseRisqueDetecte(string idRisqueEntite ){
+     	 List<CauseRisqueDetecte__c>  CauseRisqueDetecte= new List<CauseRisqueDetecte__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	CauseRisqueDetecte.add(new CauseRisqueDetecte__c(Name='name'+i,Description__c='description'+i,risqueEntite__c=idRisqueEntite));
+     	  }
+     	 upsert CauseRisqueDetecte;
+         return CauseRisqueDetecte;
+     }
 
 }

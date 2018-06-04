@@ -1,6 +1,6 @@
 /**
  * @author: David
- * @date: Creation: 28/05/2018
+ * @date: Creation: 04/06/2018
  * @description: class de teste de CauseRisqueDetecteController
  */
 @isTest
@@ -8,12 +8,17 @@ public class CauseRisqueDetecteController_Test {
 	 @testSetup
     static void setup()
     {
-		Orm_TestFactory.generateCauseRisqueDetecte();
+    	List<Account> structures = Orm_TestFactory.generateStructure();
+        List<Categorie_Risque__c> categories = Orm_TestFactory.generateCategorieRisque();
+    	List<Contact>  responsables = Orm_TestFactory.generateRiskManager(structures[0].Id);    	
+    	List<Risque__c> risques = Orm_TestFactory.generateRisque(categories);
+    	List<Risque_Entite__c> risqueDetecte =Orm_TestFactory.generateRisqueDetecte(risques[0].Id, responsables[0].Id,  structures[0].Id);
+		Orm_TestFactory.generateCauseRisqueDetecte(risqueDetecte[0].Id);
     }
     
     /**
      * @author: David
-     * @date: 28/05/2018
+     * @date: 04/06/2018
      * @descrition: recuperer la liste des causes risque detecte
      */
     @isTest
@@ -21,14 +26,15 @@ public class CauseRisqueDetecteController_Test {
         String methodName='findAll';
         System.debug('### start- '+methodName);
         Test.startTest();
-       // List<CauseRisqueDetecte__c> causeRisqueDetectes=CauseRisqueDetecteController.findAll();
+        string risqueEntite = [select id from Risque_Entite__c limit 1].Id;
+        List<CauseRisqueDetecte__c> causeRisqueDetectes=CauseRisqueDetecteController.findAll(risqueEntite);
         Test.stopTest();
-        //System.assertNotEquals(causeRisqueDetectes.size(),0,'ok');
+        System.assertNotEquals(causeRisqueDetectes.size(),0,'ok');
         System.debug('### end- '+methodName);
     }
     /**
      * @author: David
-     * @date: 28/05/2018
+     * @date: 04/06/2018
      * @descrition:  
      */
     @isTest
@@ -36,15 +42,16 @@ public class CauseRisqueDetecteController_Test {
         String methodName='add';
         System.debug('### start- '+methodName);
         Test.startTest();
-       /* CategorieImpact__c categorieImpact=new CategorieImpact__c(Name='risque de test',Description__c='description');
-        categorieImpact=CategorieImpactController.add(CategorieImpact);*/
+        string risqueEntite = [select id from Risque_Entite__c limit 1].Id;
+        CauseRisqueDetecte__c CauseRisqueDetecte=new CauseRisqueDetecte__c(Name='risque de test',Description__c='description',risqueEntite__c=risqueEntite);
+        CauseRisqueDetecteController.add(CauseRisqueDetecte);
         Test.stopTest();
-       // System.assertNotEquals(categorieImpact.Id,null,'ok');
+        System.assertNotEquals(CauseRisqueDetecte.Id,null,'ok');
         System.debug('### end- '+methodName);
     }
     /**
      * @author: David
-     * @date: 28/05/2018
+     * @date: 04/06/2018
      * @descrition:  
      */
     @isTest
@@ -52,11 +59,12 @@ public class CauseRisqueDetecteController_Test {
         String methodName='remove';
         System.debug('### start- '+methodName);
         Test.startTest();
-        //Integer size=CategorieImpactController.findAll().size();
-        //CategorieImpact__c CategorieImpact=[select Id from CategorieImpact__c limit 1];
-        //CategorieImpactController.remove(CategorieImpact);
+        string risqueEntite = [select id from Risque_Entite__c limit 1].Id;
+        Integer size=CauseRisqueDetecteController.findAll(risqueEntite).size();
+        CauseRisqueDetecte__c CauseRisqueDetecte=[select Id from CauseRisqueDetecte__c limit 1];
+        CauseRisqueDetecteController.remove(CauseRisqueDetecte);
         Test.stopTest();
-      //  System.assertEquals(CategorieImpactController.findAll().size(),(size-1),'ok');
+        System.assertEquals(CauseRisqueDetecteController.findAll(risqueEntite).size(),(size-1),'ok');
         System.debug('### end- '+methodName);
     }
     
@@ -70,10 +78,10 @@ public class CauseRisqueDetecteController_Test {
         String methodName='getElementById';
         System.debug('### start- '+methodName);
         Test.startTest();
-       // Id CategorieImpactId=[select Id from CategorieImpact__c limit 1].Id;
-       // CategorieImpact__c CategorieImpact=CategorieImpactController.getElementById(CategorieImpactId);
+        Id CauseRisqueDetecteId =[select Id from CauseRisqueDetecte__c limit 1].Id;
+        CauseRisqueDetecte__c CauseRisqueDetecte=CauseRisqueDetecteController.getElementById(CauseRisqueDetecteId);
         Test.stopTest();
-       // System.assertNotEquals(CategorieImpact,null,'ok');
+        System.assertNotEquals(CauseRisqueDetecte,null,'ok');
         System.debug('### end- '+methodName);
     }
     /**
@@ -86,7 +94,7 @@ public class CauseRisqueDetecteController_Test {
         String methodName='getObjectFields';
         System.debug('### start- '+methodName);
         Test.startTest();
-      //  System.assertNotEquals(CategorieImpactController.getObjectFields().size(),0,'ok');
+       System.assertNotEquals(CauseRisqueDetecteController.getObjectFields().size(),0,'ok');
         Test.stopTest();
         System.debug('### end- '+methodName);
     }
