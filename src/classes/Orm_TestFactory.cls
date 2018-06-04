@@ -197,6 +197,7 @@ public class Orm_TestFactory
     	}
     	
     	insert actionPlans;
+    	return actionPlans;
     }
     
     /**
