@@ -15,7 +15,18 @@ public class EntiteAffecteeController_Test {
     	Orm_TestFactory.generateEntiteAffectee(risqueEntites[0].Id,structures[0].Id);     
     }
     
-   
+    /**
+     * @author: Laye
+     * @date: Creation: 28/05/2018
+     * @description: methode de test de getStructureRecordTypeId
+     */
+    @isTest
+    static void getStructureRecordTypeId_Test(){
+        String methodName='getStructureRecordTypeId';
+        System.debug('### start- '+methodName);
+       
+        System.debug('### end- '+methodName);
+    }
     
      /**
      * @author: David
