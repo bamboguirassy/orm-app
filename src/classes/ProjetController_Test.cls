@@ -10,6 +10,9 @@ public class ProjetController_Test {
     	 List<Account> structures = Orm_TestFactory.generateStructure();
     	List<Contact>  responsables = Orm_TestFactory.generateRiskManager(structures[0].Id);   
     	Orm_TestFactory.generateProjet(structures[0].Id,responsables[0].Id);
+    	List<Categorie_Risque__c> categories = Orm_TestFactory.generateCategorieRisque();
+    	List<Risque__c> risques = Orm_TestFactory.generateRisque(categories);
+    	Orm_TestFactory.generateRisqueDetecte(risques[0].Id, responsables[0].Id,  structures[0].Id);
     }
     
     /**
@@ -20,7 +23,10 @@ public class ProjetController_Test {
     @isTest
     static void getStructureRecordTypeId_Test(){
         String methodName='getStructureRecordTypeId';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);
+        Test.startTest();
+        ProjetController.getStructureRecordTypeId();
+        Test.stopTest();        
         System.debug('### end- '+methodName);
     }
     
@@ -93,14 +99,33 @@ public class ProjetController_Test {
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: David
+     * @date: Creation: 04/06/2018
      * @description: methode de test d'add
      */
     @isTest
     static void add_Test(){
         String methodName='add';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName); 
+        Test.startTest();
+        string idEntite=[select id from Account limit 1].Id;
+        string idResponsable=[select id from Contact limit 1].Id;
+        
+           Projet__c projet=new Projet__c(Cout__c = 25,Description__c = 'description',Name = 'nom' , Site_Web_du_projet__c = 'site@site.com',
+                                      Date_fin_prevue__c=System.today() , Date_debut__c = System.today() , Structure__c = idEntite , Responsable__c = idResponsable);
+
+        Projet__c projet2 = null;
+
+        if(projet!=null)
+        	{
+       	  projet=ProjetController.add(projet);
+            }
+
+            
+           ProjetController.add(projet);
+           ProjetController.add(projet2);
+        Test.stopTest();
+        System.assertNotEquals(projet.Id,null,'ok');       
         System.debug('### end- '+methodName);
     }
     
@@ -112,39 +137,52 @@ public class ProjetController_Test {
     @isTest
     static void remove_Test(){
         String methodName='remove';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);  
+         Test.startTest();
+        Integer size=ProjetController.findAll().size();
+        Projet__c projet=[select Id from Projet__c limit 1];
+        ProjetController.remove(projet);
+        Test.stopTest();
+        System.assertEquals(ProjetController.findAll().size(),(size-1),'ok');      
         System.debug('### end- '+methodName);
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: David
+     * @date: Creation: 04/06/2018
      * @description: methode de test de getEntites
      */
     @isTest
     static void getEntites_Test(){
         String methodName='getEntites';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);   
+        Test.startTest();
+        List<Account> Entite=ProjetController.getEntites();
+        Test.stopTest();   
+        System.assertNotEquals(Entite.size(),0,'ok');  
         System.debug('### end- '+methodName);
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: David
+     * @date: Creation: 04/06/2018
      * @description: methode de test de findRisqueDetectes
      */
     @isTest
     static void findRisqueDetectes_Test(){
         String methodName='findRisqueDetectes';
         System.debug('### start- '+methodName);  
-        
-           
+        Test.startTest();
+        string entiteId=[select id from Account limit 1].id;
+         List<Risque_Entite__c> risqueEntite=ProjetController.findRisqueDetectes(entiteId);
+        Test.stopTest();   
+        System.assertNotEquals(risqueEntite.size(),0,'ok');
         System.debug('### end- '+methodName);
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: David
+     * @date: Creation: 01/06/2018
      * @description: methode de test de findUserEntites
      */
     @isTest
