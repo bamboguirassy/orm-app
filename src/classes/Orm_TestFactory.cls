@@ -266,5 +266,4 @@ public class Orm_TestFactory
         insert activites;
         return activites;
     }
-
 }
