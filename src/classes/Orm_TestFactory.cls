@@ -215,4 +215,17 @@ public class Orm_TestFactory
     	return actionPlans;
     }     
    
+     /**
+     * @author : David 
+     * @date : 04/06/2018
+     * @description : generer une liste de IntervenantProjet
+     */
+     public static List<IntervenantProjet__c> generateIntervenantProjet(string idProjet,string idIntervenant ){
+     	 List<IntervenantProjet__c> intervenantProjets= new List<IntervenantProjet__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	intervenantProjets.add(new IntervenantProjet__c(Role__c='role 1'+i ,Project__c=idProjet,Intervenant__c=idIntervenant));
+     	  }
+     	 upsert intervenantProjets;
+         return intervenantProjets;
+     }
 }
