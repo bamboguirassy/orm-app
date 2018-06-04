@@ -168,5 +168,23 @@ public class Orm_TestFactory
         insert paramRisqueEntites;
         return paramRisqueEntites;
     }
+    /**
+     * @author : David 
+     * @date : 01/06/2018
+     * @description : generer une liste de Projet
+     */
+    public static List<Projet__c> generateProjet(string idEntite,string idResponsable){
+         List<Projet__c> projets= new List<Projet__c>();
+         for(integer i = 0; i < 20; i++){
+            projets.add(new Projet__c(Cout__c = 25,Description__c = 'description',Name = 'nom'+i , Site_Web_du_projet__c = 'site@site.com',
+                                      Date_fin_prevue__c=System.today() , Date_debut__c = System.today() , Structure__c = idEntite , Responsable__c = idResponsable));
+        }
+        
+        insert projets;
+        return projets;
+    }
     
+    
+    
+   
 }
