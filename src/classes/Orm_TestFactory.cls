@@ -207,7 +207,7 @@ public class Orm_TestFactory
         for(Risque_Entite__c risqueEntite : risqueEntites){
             for(integer i = 0; i < 20; i++){
     			actionPlans.add(new Plan_Action__c(Name='plan action-'+ i, date_commencement__c = System.now(), 
-    			echeancier__c = System.now(), risque_Entite__c = risqueEntite.Id, gestionnaire__c = idRiskManager, 
+    			echeancier__c = System.now().addDays(4), risque_Entite__c = risqueEntite.Id, gestionnaire__c = idRiskManager, 
                 RecordTypeId=PlanActionController.getPlanActionCorrectifRecordTypeId()));
     		}
         }    	
@@ -228,4 +228,43 @@ public class Orm_TestFactory
      	 upsert intervenantProjets;
          return intervenantProjets;
      }
+   	  /**
+     * @author : David 
+     * @date : 04/06/2018
+     * @description : generer une liste de CauseRisqueDetecte
+     */
+     public static List<CauseRisqueDetecte__c> generateCauseRisqueDetecte(string idRisqueEntite ){
+     	 List<CauseRisqueDetecte__c>  CauseRisqueDetecte= new List<CauseRisqueDetecte__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	CauseRisqueDetecte.add(new CauseRisqueDetecte__c(Name='name'+i,Description__c='description'+i,risqueEntite__c=idRisqueEntite));
+     	  }
+     	 upsert CauseRisqueDetecte;
+         return CauseRisqueDetecte;
+     }
+     
+     /**
+     * @author : David 
+     * @date : 04/06/2018
+     * @description : generer une liste de entiteAffectee
+     */
+     public static List<Entite_Affectee__c> generateEntiteAffectee(string idRisqueEntite,string idEntite ){
+     	 List<Entite_Affectee__c>  entiteAffectees= new List<Entite_Affectee__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	entiteAffectees.add(new Entite_Affectee__c(risque_Entite__c=idRisqueEntite,Entite__c=idEntite));
+     	  }
+     	 upsert entiteAffectees;
+         return entiteAffectees;
+     }
+     
+    public static List<Activite__c> generateActivites(Plan_Action__c actionPlan){
+        List<Activite__c> activites = new List<Activite__c>();
+        Datetime now = System.now();
+        for(integer i = 0; i < 20; i++){
+            activites.add(new Activite__c(Name= 'Name-'+i, date__c= now.addDays(1) , delai__c= now.addDays(2), 
+                                          responsable__c=actionPlan.gestionnaire__c, plan_Action__c= actionPlan.Id));
+        }
+        insert activites;
+        return activites;
+    }
+
 }
