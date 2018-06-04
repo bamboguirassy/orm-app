@@ -169,4 +169,18 @@ public class Orm_TestFactory
         return paramRisqueEntites;
     }
     
+    /**
+     * @author : Laye
+     * @date : 04/06/2018
+     * @description : generer une liste de PlanAction 
+     */
+    public static List<Plan_Action__c> generatePlanAction(string idRisqueEntite, string idRiskManager){
+    	List<Plan_Action__c> actionPlans = new List<Plan_Action__c>();
+    	for(integer i = 0; i < 20; i++){
+    		actionPlans.add(new Plan_Action__c());
+    	}
+    	
+    	insert actionPlans;
+    }
+    
 }
