@@ -191,7 +191,7 @@ public class Orm_TestFactory
      public static List<Risque_Projet__c> generateRisqueProjet(string idPojet,string idRisqueDetecte){
      	 List<Risque_Projet__c> risqueProjets= new List<Risque_Projet__c>();
      	  for(integer i = 0; i < 20; i++){
-     	risqueProjets.add(new Risque_Projet__c(Risque_detecte__c=idRisqueDetecte,Projet__c=idPojet));
+     	risqueProjets.add(new Risque_Projet__c(Projet__c=idPojet,Risque_detecte__c=idRisqueDetecte));
      	  }
      	 upsert risqueProjets;
          return risqueProjets;
