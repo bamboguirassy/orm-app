@@ -228,8 +228,6 @@ public class Orm_TestFactory
      	 upsert intervenantProjets;
          return intervenantProjets;
      }
-
-      
    	  /**
      * @author : David 
      * @date : 04/06/2018
@@ -243,5 +241,20 @@ public class Orm_TestFactory
      	 upsert CauseRisqueDetecte;
          return CauseRisqueDetecte;
      }
+     
+     /**
+     * @author : David 
+     * @date : 04/06/2018
+     * @description : generer une liste de entiteAffectee
+     */
+     public static List<Entite_Affectee__c> generateEntite_Affectee(string idRisqueEntite,string idEntite ){
+     	 List<Entite_Affectee__c>  entiteAffectees= new List<Entite_Affectee__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	entiteAffectees.add(new Entite_Affectee__c(risque_Entite__c=idRisqueEntite,Entite__c=idEntite));
+     	  }
+     	 upsert entiteAffectees;
+         return entiteAffectees;
+     }
+     
 
 }
