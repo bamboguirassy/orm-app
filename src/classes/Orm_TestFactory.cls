@@ -206,7 +206,7 @@ public class Orm_TestFactory
     	List<Plan_Action__c> actionPlans = new List<Plan_Action__c>();
         for(Risque_Entite__c risqueEntite : risqueEntites){
             for(integer i = 0; i < 20; i++){
-    			actionPlans.add(new Plan_Action__c(Name='plan action-'+ i, date_commencement__c = System.now(), 
+    			actionPlans.add(new Plan_Action__c(Name='plan action-'+ i, etat__c= false, date_commencement__c = System.now(), 
     			echeancier__c = System.now().addDays(4), risque_Entite__c = risqueEntite.Id, gestionnaire__c = idRiskManager, 
                 RecordTypeId=PlanActionController.getPlanActionCorrectifRecordTypeId()));
     		}
@@ -261,7 +261,7 @@ public class Orm_TestFactory
         List<Activite__c> activites = new List<Activite__c>();
         Datetime now = System.now();
         for(integer i = 0; i < 20; i++){
-            activites.add(new Activite__c(Name= 'Name-'+i, date__c= now.addDays(1) , delai__c= now.addDays(2), 
+            activites.add(new Activite__c(Name= 'Name-'+i, type__c= 'Corrective', date__c= now.addDays(1) , delai__c= now.addDays(2), 
                                           responsable__c=actionPlan.gestionnaire__c, plan_Action__c= actionPlan.Id));
         }
         insert activites;
@@ -309,6 +309,7 @@ public class Orm_TestFactory
      	 upsert partieConcernees;
          return partieConcernees;
      }
+
       /**
      * @author : David 
      * @date : 05/06/2018
