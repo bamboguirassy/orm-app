@@ -282,5 +282,19 @@ public class Orm_TestFactory
      	 upsert processus;
          return processus;
      }
+     
+      /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de ProcessusRisque
+     */
+     public static List<ProcessusRisque__c> generateProcessusRisque(string idProcessus,string risqueEntite){
+     	 List<ProcessusRisque__c>  processusRisques= new List<ProcessusRisque__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	processusRisques.add(new ProcessusRisque__c(processus__c=idProcessus,risqueEntite__c=risqueEntite));
+     	  }
+     	 upsert processusRisques;
+         return processusRisques;
+     }
     
 }
