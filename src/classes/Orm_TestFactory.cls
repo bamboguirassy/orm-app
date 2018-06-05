@@ -267,6 +267,21 @@ public class Orm_TestFactory
         insert activites;
         return activites;
     }
+    
+    /**
+     * @author : Laye 
+     * @date : 05/06/2018
+     * @description : generer une liste dindicateur
+     */
+    public static List<Indicateur_Activite__c> genererIndicateurActivites(Activite__c activite){
+        List<Indicateur_Activite__c> indicateurActivites = new List<Indicateur_Activite__c>();
+        for(integer i=0; i< 20; i++){
+            indicateurActivites.add(new Indicateur_Activite__c(Name= 'Name', description__c= 'description', activite__c= activite.Id));
+        }
+        insert indicateurActivites;
+        return indicateurActivites;
+    }
+    
      /**
      * @author : David 
      * @date : 05/06/2018

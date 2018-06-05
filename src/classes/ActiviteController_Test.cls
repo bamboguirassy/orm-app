@@ -54,52 +54,65 @@ public class ActiviteController_Test {
     /**
      * @author: Laye
      * @date: Creation: 28/05/2018
+     * @date: Modification: 05/06/2018
      * @description: methode de test de findAll
      */
     @isTest
     static void findAll_Test(){
         String methodName='findAll';
         System.debug('### start- '+methodName);
-        
+        System.assertEquals(ActiviteController.findAll().size(), 20);
         System.debug('### end- '+methodName);
     }
     
     /**
      * @author: Laye
      * @date: Creation: 28/05/2018
+     * @date: Modification: 05/06/2018
      * @description: methode de test d'add
      */
     @isTest
     static void add_Test(){
         String methodName='add';
         System.debug('### start- '+methodName);
-        
+        Plan_Action__c actionPlan = [SELECT Id, gestionnaire__c FROM Plan_Action__c LIMIT 1];
+        Activite__c activite = new Activite__c(Name= 'Name', type__c= 'Corrective', date__c= System.now().addDays(1),
+                                               delai__c= System.now().addDays(2), responsable__c= actionPlan.gestionnaire__c, plan_Action__c= actionPlan.Id);
+        activite = ActiviteController.add(activite);
+        System.assertNotEquals(activite.Id, null);
         System.debug('### end- '+methodName);
     }
     
     /**
      * @author: Laye
      * @date: Creation: 28/05/2018
+     * @date: Modification: 05/06/2018
      * @description: methode de test de remove
      */
     @isTest
     static void remove_Test(){
         String methodName='remove';
         System.debug('### start- '+methodName);
-        
+        integer size = ActiviteController.findAll().size();
+        Activite__c activity = [SELECT Id FROM Activite__c limit 1];
+        ActiviteController.remove(activity);
+        System.assertEquals(ActiviteController.findAll().size(), size-1);
         System.debug('### end- '+methodName);
     }
     
     /**
      * @author: Laye
      * @date: Creation: 28/05/2018
+     * @date: Modification: 05/06/2018
      * @description: methode de test de findUserEntites
      */
     @isTest
     static void findUserEntites_Test(){
         String methodName='findUserEntites';
         System.debug('### start- '+methodName);
-        
+        Id entiteId = [SELECT Id FROM Account limit 1].Id;
+        List<Contact> users = ActiviteController.findUserEntites(entiteId);
+        System.assertEquals(users.size(), 20);
         System.debug('### end- '+methodName);
     }
     
@@ -112,7 +125,8 @@ public class ActiviteController_Test {
     static void getObjectFields_Test(){
         String methodName='getObjectFields';
         System.debug('### start- '+methodName);
-        
+        Map<String,String> fields = ActiviteController.getObjectFields();
+        System.assertNotEquals(fields.size(), null);
         System.debug('### end- '+methodName);
     }
     
