@@ -324,7 +324,7 @@ public class Orm_TestFactory
      	 upsert partieConcernees;
          return partieConcernees;
      }
-     
+
       /**
      * @author : David 
      * @date : 05/06/2018
@@ -339,4 +339,56 @@ public class Orm_TestFactory
          return processusEntrees;
      }
     
+     /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de EntiteSource
+     */
+     public static List<EntiteSource__c> generateEntiteSource(string idProcessus,string idEntite){
+     	 List<EntiteSource__c>  entiteSources= new List<EntiteSource__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	   entiteSources.add(new EntiteSource__c(processus__c=idProcessus,entite__c=idEntite));
+     	  }
+     	 upsert entiteSources;
+         return entiteSources;
+     }
+     /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de ElementEntree
+     */
+     public static List<ElementEntree__c> generateElementEntree(string idProcessus){
+     	 List<ElementEntree__c>  elementEntrees= new List<ElementEntree__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	     elementEntrees.add(new ElementEntree__c(processus__c=idProcessus,Name='name'+i));
+     	  }
+     	 upsert elementEntrees;
+         return elementEntrees;
+     }
+      /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de Processus sortie
+     */
+     public static List<ProcessusSortie__c> generateProcessusSortie(string idProcessus,string idDestination){
+     	 List<ProcessusSortie__c>  processusSorties= new List<ProcessusSortie__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	     processusSorties.add(new ProcessusSortie__c(processus__c=idProcessus, destination__c=idDestination));
+     	  }
+     	 upsert processusSorties;
+         return processusSorties;
+     }
+      /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de Entite sortie
+     */
+     public static List<EntiteSortie__c> generateEntiteSortie(string idProcessus,string idEntite){
+     	 List<EntiteSortie__c>  entiteSorties= new List<EntiteSortie__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	     entiteSorties.add(new EntiteSortie__c(processus__c=idProcessus, entite__c=idEntite));
+     	  }
+     	 upsert entiteSorties;
+         return entiteSorties;
+     }
 }

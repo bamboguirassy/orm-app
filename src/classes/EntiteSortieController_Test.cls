@@ -6,7 +6,11 @@
 @isTest
 public class EntiteSortieController_Test {
 	@testSetup
-    static void setUp(){        
+    static void setUp(){ 
+        List<Account> structures = Orm_TestFactory.generateStructure();
+    	List<Contact>  responsables = Orm_TestFactory.generateRiskManager(structures[0].Id);
+    	List<Processus__c>  processus = Orm_TestFactory.generateProcessus(responsables[0].Id, responsables[0].Id,  structures[0].Id); 
+    	Orm_TestFactory.generateProcessusSortie(processus[0].id,structures[0].id);       
     }
     
     /**
@@ -18,7 +22,11 @@ public class EntiteSortieController_Test {
     static void findFromProcessus_Test(){
         String methodName='findFromProcessus';
         System.debug('### start- '+methodName);
-        
+        Test.startTest(); 
+		        string  processusId=[select Id from Processus__c limit 1].Id;
+		        List<EntiteSortie__c> entiteSorties=EntiteSortieController.findFromProcessus(processusId);
+          Test.stopTest();
+          System.assertNotEquals(entiteSorties.size(),0,'ok'); 
         System.debug('### end- '+methodName);
     }
     
