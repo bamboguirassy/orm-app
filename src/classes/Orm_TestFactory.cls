@@ -324,4 +324,17 @@ public class Orm_TestFactory
          return processusEntrees;
      }
     
+     /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de EntiteSource
+     */
+     public static List<EntiteSource__c> generateEntiteSource(string idProcessus,string idEntite){
+     	 List<EntiteSource__c>  entiteSources= new List<EntiteSource__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	   entiteSources.add(new EntiteSource__c(processus__c=idProcessus,entite__c=idEntite));
+     	  }
+     	 upsert entiteSources;
+         return entiteSources;
+     }
 }
