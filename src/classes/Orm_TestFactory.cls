@@ -296,5 +296,18 @@ public class Orm_TestFactory
      	 upsert processusRisques;
          return processusRisques;
      }
+     /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de PartieConcernee
+     */
+     public static List<PartieConcernee__c> generatePartieConcernee(string idProcessus){
+     	 List<PartieConcernee__c>  partieConcernees= new List<PartieConcernee__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	partieConcernees.add(new PartieConcernee__c(processus__c=idProcessus,Name='name'+i));
+     	  }
+     	 upsert partieConcernees;
+         return partieConcernees;
+     }
     
 }
