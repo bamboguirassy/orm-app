@@ -350,4 +350,17 @@ public class Orm_TestFactory
      	 upsert elementEntrees;
          return elementEntrees;
      }
+      /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de Processus sortie
+     */
+     public static List<ProcessusSortie__c> generateProcessusSortie(string idProcessus,string idDestination){
+     	 List<ProcessusSortie__c>  processusSorties= new List<ProcessusSortie__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	     processusSorties.add(new ProcessusSortie__c(processus__c=idProcessus, destination__c=idDestination));
+     	  }
+     	 upsert processusSorties;
+         return processusSorties;
+     }
 }
