@@ -206,7 +206,7 @@ public class Orm_TestFactory
     	List<Plan_Action__c> actionPlans = new List<Plan_Action__c>();
         for(Risque_Entite__c risqueEntite : risqueEntites){
             for(integer i = 0; i < 20; i++){
-    			actionPlans.add(new Plan_Action__c(Name='plan action-'+ i, date_commencement__c = System.now(), 
+    			actionPlans.add(new Plan_Action__c(Name='plan action-'+ i, etat__c= false, date_commencement__c = System.now(), 
     			echeancier__c = System.now().addDays(4), risque_Entite__c = risqueEntite.Id, gestionnaire__c = idRiskManager, 
                 RecordTypeId=PlanActionController.getPlanActionCorrectifRecordTypeId()));
     		}
@@ -256,14 +256,71 @@ public class Orm_TestFactory
          return entiteAffectees;
      }
      
+     
     public static List<Activite__c> generateActivites(Plan_Action__c actionPlan){
         List<Activite__c> activites = new List<Activite__c>();
         Datetime now = System.now();
         for(integer i = 0; i < 20; i++){
-            activites.add(new Activite__c(Name= 'Name-'+i, date__c= now.addDays(1) , delai__c= now.addDays(2), 
+            activites.add(new Activite__c(Name= 'Name-'+i, type__c= 'Corrective', date__c= now.addDays(1) , delai__c= now.addDays(2), 
                                           responsable__c=actionPlan.gestionnaire__c, plan_Action__c= actionPlan.Id));
         }
         insert activites;
         return activites;
     }
+     /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de Processus
+     */
+     public static List<Processus__c> generateProcessus(string idPilote,string idCopilote,string idEntite ){
+     	 List<Processus__c>  processus= new List<Processus__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	processus.add(new Processus__c(copilote__c=idCopilote,proprietaire__c=idEntite,pilote__c=idPilote,
+     												version__c='5',Name='processus'+i,reference__c='reference',finalite__c='finalite',
+     												dateApplication__c=System.today()));
+     	  }
+     	 upsert processus;
+         return processus;
+     }
+     
+      /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de ProcessusRisque
+     */
+     public static List<ProcessusRisque__c> generateProcessusRisque(string idProcessus,string risqueEntite){
+     	 List<ProcessusRisque__c>  processusRisques= new List<ProcessusRisque__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	processusRisques.add(new ProcessusRisque__c(processus__c=idProcessus,risqueEntite__c=risqueEntite));
+     	  }
+     	 upsert processusRisques;
+         return processusRisques;
+     }
+     /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de PartieConcernee
+     */
+     public static List<PartieConcernee__c> generatePartieConcernee(string idProcessus){
+     	 List<PartieConcernee__c>  partieConcernees= new List<PartieConcernee__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	partieConcernees.add(new PartieConcernee__c(processus__c=idProcessus,Name='name'+i));
+     	  }
+     	 upsert partieConcernees;
+         return partieConcernees;
+     }
+      /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de ProcessusEntree
+     */
+     public static List<ProcessusEntree__c> generateProcessusEntree(string idProcessus,string idSource){
+     	 List<ProcessusEntree__c>  processusEntrees= new List<ProcessusEntree__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	processusEntrees.add(new ProcessusEntree__c(processus__c=idProcessus,source__c=idSource));
+     	  }
+     	 upsert processusEntrees;
+         return processusEntrees;
+     }
+    
 }
