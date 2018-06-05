@@ -337,4 +337,17 @@ public class Orm_TestFactory
      	 upsert entiteSources;
          return entiteSources;
      }
+     /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de ElementEntree
+     */
+     public static List<ElementEntree__c> generateElementEntree(string idProcessus){
+     	 List<ElementEntree__c>  elementEntrees= new List<ElementEntree__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	     elementEntrees.add(new ElementEntree__c(processus__c=idProcessus,Name='name'+i));
+     	  }
+     	 upsert elementEntrees;
+         return elementEntrees;
+     }
 }
