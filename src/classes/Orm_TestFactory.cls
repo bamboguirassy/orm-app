@@ -200,7 +200,7 @@ public class Orm_TestFactory
     /**
      * @author: Laye
      * @date: Modification: 04/06/2018
-     * @description: methode de génèration de plan d'action
+     * @description: methode de test de findAllByRisqueEntite
      */
     public static List<Plan_Action__c> generatePlanActions(List<Risque_Entite__c> risqueEntites, string idRiskManager){
     	List<Plan_Action__c> actionPlans = new List<Plan_Action__c>();
@@ -213,36 +213,6 @@ public class Orm_TestFactory
         }    	
     	insert actionPlans;
     	return actionPlans;
-    }
-    
-    /**
-     * @author : Laye 
-     * @date : 05/06/2018
-     * @description : generer une liste d'activites
-     */
-    public static List<Activite__c> generateActivites(Plan_Action__c actionPlan){
-        List<Activite__c> activites = new List<Activite__c>();
-        Datetime now = System.now();
-        for(integer i = 0; i < 20; i++){
-            activites.add(new Activite__c(Name= 'Name-'+i, type__c= 'Corrective', date__c= now.addDays(1) , delai__c= now.addDays(2), 
-                                          responsable__c=actionPlan.gestionnaire__c, plan_Action__c= actionPlan.Id));
-        }
-        insert activites;
-        return activites;
-    }
-    
-    /**
-     * @author : Laye 
-     * @date : 05/06/2018
-     * @description : generer une liste dindicateur
-     */
-    public static List<Indicateur_Activite__c> genererIndicateurActivites(Activite__c activite){
-        List<Indicateur_Activite__c> indicateurActivites = new List<Indicateur_Activite__c>();
-        for(integer i=0; i< 20; i++){
-            indicateurActivites.add(new Indicateur_Activite__c(Name= 'Name', description__c= 'description', activite__c= activite.Id));
-        }
-        insert indicateurActivites;
-        return indicateurActivites;
     }     
    
      /**
@@ -285,6 +255,32 @@ public class Orm_TestFactory
      	 upsert entiteAffectees;
          return entiteAffectees;
      }
+     
+     
+    public static List<Activite__c> generateActivites(Plan_Action__c actionPlan){
+        List<Activite__c> activites = new List<Activite__c>();
+        Datetime now = System.now();
+        for(integer i = 0; i < 20; i++){
+            activites.add(new Activite__c(Name= 'Name-'+i, type__c= 'Corrective', date__c= now.addDays(1) , delai__c= now.addDays(2), 
+                                          responsable__c=actionPlan.gestionnaire__c, plan_Action__c= actionPlan.Id));
+        }
+        insert activites;
+        return activites;
+    }
+    
+    /**
+     * @author : Laye 
+     * @date : 05/06/2018
+     * @description : generer une liste dindicateur
+     */
+    public static List<Indicateur_Activite__c> genererIndicateurActivites(Activite__c activite){
+        List<Indicateur_Activite__c> indicateurActivites = new List<Indicateur_Activite__c>();
+        for(integer i=0; i< 20; i++){
+            indicateurActivites.add(new Indicateur_Activite__c(Name= 'Name', description__c= 'description', activite__c= activite.Id));
+        }
+        insert indicateurActivites;
+        return indicateurActivites;
+    }
     
      /**
      * @author : David 
@@ -394,5 +390,18 @@ public class Orm_TestFactory
      	  }
      	 upsert entiteSorties;
          return entiteSorties;
+     }
+     /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de Element sortie
+     */
+     public static List<ElementSortie__c> generateElementSortie(string idProcessus){
+     	 List<ElementSortie__c>  elementSorties= new List<ElementSortie__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	     elementSorties.add(new ElementSortie__c(processus__c=idProcessus));
+     	  }
+     	 upsert elementSorties;
+         return elementSorties;
      }
 }
