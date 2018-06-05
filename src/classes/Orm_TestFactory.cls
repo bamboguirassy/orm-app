@@ -256,6 +256,7 @@ public class Orm_TestFactory
          return entiteAffectees;
      }
      
+     
     public static List<Activite__c> generateActivites(Plan_Action__c actionPlan){
         List<Activite__c> activites = new List<Activite__c>();
         Datetime now = System.now();
@@ -266,4 +267,20 @@ public class Orm_TestFactory
         insert activites;
         return activites;
     }
+     /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de Processus
+     */
+     public static List<Processus__c> generateProcessus(string idPilote,string idCopilote,string idEntite ){
+     	 List<Processus__c>  processus= new List<Processus__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	processus.add(new Processus__c(copilote__c=idCopilote,proprietaire__c=idEntite,pilote__c=idPilote,
+     												version__c='5',Name='processus'+i,reference__c='reference',finalite__c='finalite',
+     												dateApplication__c=System.today()));
+     	  }
+     	 upsert processus;
+         return processus;
+     }
+    
 }
