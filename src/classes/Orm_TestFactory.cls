@@ -309,5 +309,18 @@ public class Orm_TestFactory
      	 upsert partieConcernees;
          return partieConcernees;
      }
+      /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de ProcessusEntree
+     */
+     public static List<ProcessusEntree__c> generateProcessusEntree(string idProcessus,string idSource){
+     	 List<ProcessusEntree__c>  processusEntrees= new List<ProcessusEntree__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	processusEntrees.add(new ProcessusEntree__c(processus__c=idProcessus,source__c=idSource));
+     	  }
+     	 upsert processusEntrees;
+         return processusEntrees;
+     }
     
 }
