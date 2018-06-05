@@ -363,4 +363,17 @@ public class Orm_TestFactory
      	 upsert processusSorties;
          return processusSorties;
      }
+      /**
+     * @author : David 
+     * @date : 05/06/2018
+     * @description : generer une liste de Entite sortie
+     */
+     public static List<EntiteSortie__c> generateEntiteSortie(string idProcessus,string idEntite){
+     	 List<EntiteSortie__c>  entiteSorties= new List<EntiteSortie__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	     entiteSorties.add(new EntiteSortie__c(processus__c=idProcessus, entite__c=idEntite));
+     	  }
+     	 upsert entiteSorties;
+         return entiteSorties;
+     }
 }
