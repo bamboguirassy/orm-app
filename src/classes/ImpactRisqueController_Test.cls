@@ -24,9 +24,9 @@ public class ImpactRisqueController_Test {
         System.debug('### start- '+methodName); 
         Test.startTest();
         string risqueId = [select Id from Risque__c limit 1].Id;
-        List<Impact__c> Impact=ImpactRisqueController.findAll(risqueId);
+        List<Impact__c> Impacts=ImpactRisqueController.findAll(risqueId);
         Test.stopTest();
-        System.assertNotEquals(Impact.size(),0,'ok');        
+        System.assertNotEquals(Impacts.size(),0,'ok');        
         System.debug('### end- '+methodName);
     }
     
@@ -38,7 +38,13 @@ public class ImpactRisqueController_Test {
     @isTest
     static void filterFromCategorie_Test(){
         String methodName='filterFromCategorie';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName); 
+         Test.startTest();
+		string risqueId=[select id from Risque__c limit 1].id;
+		string categorieId=[select id from CategorieImpact__c limit 1].id;
+        List<Impact__c> impacts=ImpactRisqueController.filterFromCategorie(categorieId,risqueId);
+        Test.stopTest();  
+               System.assertNotEquals(impacts.size(),0,'ok');
         System.debug('### end- '+methodName);
     }
     
