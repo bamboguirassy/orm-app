@@ -1,17 +1,18 @@
 /**
- * @author: Laye
- * @date: Creation: 29/05/2018
+ * @author: Dibocor
+ * @date: Creation: 31/05/2018
  * @description: class de test d'ImpactRisqueController
  */
 @isTest
 public class ImpactRisqueEntiteController_Test {
 	@testSetup
-    static void setUp(){        
+    static void setUp(){   
+    	//Orm_TestFactory.generateImpactRisqueEntite();     
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: Dibocor
+     * @date: Creation: 31/05/2018
      * @description: methode de test de findAll
      */
     @isTest
@@ -22,8 +23,8 @@ public class ImpactRisqueEntiteController_Test {
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: Dibocor
+     * @date: Creation: 31/05/2018
      * @description: methode de test d'add
      */
     @isTest
@@ -34,8 +35,8 @@ public class ImpactRisqueEntiteController_Test {
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: Dibocor
+     * @date: Creation: 31/05/2018
      * @description: methode de test de remove
      */
     @isTest
@@ -46,8 +47,8 @@ public class ImpactRisqueEntiteController_Test {
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: Dibocor
+     * @date: Creation: 31/05/2018
      * @description: methode de test de getImpacts
      */
     @isTest

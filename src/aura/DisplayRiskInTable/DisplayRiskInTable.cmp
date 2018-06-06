@@ -1,0 +1,97 @@
+<aura:component extends="c:AbstractListCmp" 
+          controller="RisqueEntiteController" access="global">
+    <aura:attribute name="entite" type="String"  />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+	 <div class="slds-m-bottom_xx-large" style="margin-top: 50px">
+		<div class="slds-grid">
+            <table
+                    class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_col-bordered slds-table_striped table_legenda"  width="100%">
+                    <thead>
+                        <tr class="slds-text-title_caps">
+        
+                            <th scope="col"
+                                class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right" width="30%">
+                                <div class="" title="{!v.clabels.description__c}">{!v.clabels.description__c}</div>
+                            </th>
+                            <th scope="col"
+                                class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right" width="5%">
+                                <div class="" title="{!v.clabels.gravite__c}">G</div>
+                            </th>
+                            <th scope="col"
+                                class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right" width="5%">
+                                <div class="" title="{!v.clabels.frequence__c}">F</div>
+                            </th>
+                            <th scope="col"
+                                class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right" width="5%">
+                                <div class="" title="{!v.clabels.criticite__c}">C</div>
+                            </th>
+                            
+                            <th scope="col"
+                                class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right" width="15%">
+                                <div class="" title="{!v.clabels.responsable__c}">{!v.clabels.responsable__c}</div>
+                                
+                            </th>
+                            <th scope="col"
+                                class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right" width="20%">
+                                <div class="" title="">{!$Label.c.impact_menu}</div>
+                                
+                            </th>
+                            <th scope="col"
+                                class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right" width="20%">
+                                <div class="" title="">{!$Label.c.action_plan_menu}</div>
+                                
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.items}" var="item">
+                            <tr>
+                                <td class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" >
+                                    <div class="" title="">
+                                        <ui:outputText value="{!item.description__c}" />
+                                    </div>
+                                </td>
+                                <td class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+                                    <div class="slds-truncate" title="">
+                                        <ui:outputText value="{!item.gravite__c}" />
+                                    </div>
+                                </td>
+                                <td class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+                                    <div class="" title="">
+                                        <ui:outputText value="{!item.frequence__c}" />
+                                    </div>
+                                </td>
+                                <td class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left" >
+                                    <div class="" title="">
+                                        <ui:outputText value="{!item.criticite__c}" />
+                                    </div>
+                                </td>
+                                <td class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+                                    <div class="" title="">
+                                        <ui:outputText value="{!item.responsable__r.Name}" />
+                                    </div>
+                                </td>
+                                <td class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+                                  <aura:iteration items="{!item.Entity_Risk_Impacts__r}" var="impact">
+	                                    <div class="" title="{!impact.ImpactRisque__r.description__c}">
+	                                        <ui:outputText value="{!'- '+impact.ImpactRisque__r.description__c}" />
+	                                    </div>
+                                   </aura:iteration>
+                                </td>
+                                <td class="slds-cell-wrap slds-cell-buffer_right slds-cell-buffer_left">
+                                  <aura:iteration items="{!item.Action_Plans__r}" var="ap">
+	                                    <div class="" title="">
+	                                        <ui:outputText value="{!'- '+ap.Name}" />
+	                                    </div>
+                                   </aura:iteration>
+                                </td>
+                            </tr>
+                          </aura:iteration>
+                    </tbody>
+                </table>
+	    </div>
+	</div>
+   
+</aura:component>

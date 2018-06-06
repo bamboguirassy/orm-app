@@ -107,7 +107,7 @@
                             </aura:if>
 						</div>
 						<aura:if isTrue="{!v.processus}">
-                            <c:ElementSortieEditCmp/>
+                            <c:ElementSortieEditCmp />
                         </aura:if>
                         
                     </div>

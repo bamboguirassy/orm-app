@@ -86,6 +86,16 @@ public class Orm_TestFactory
         insert structure;
         return structure;
     }
+    
+    public static List<Contact> generateRiskManager(string entiteId){
+        List<Contact> responsables = new List<Contact>();
+        for(integer i= 0; i< 20; i++)
+        {
+            responsables.add(new Contact(Email='email@gmail.com', LastName='lastName-'+i, AccountId=entiteId));
+        } 
+        insert responsables;
+        return responsables;
+    }
    
     /**
    * @author : salimata
@@ -125,6 +135,24 @@ public class Orm_TestFactory
         insert risqueentite;
         return risqueentite;
     }
+    
+   /**
+     * @author : Dibocor
+     * @date  :31/05/2018
+     * @description : generer une liste des ImpactRisques
+     */
+    public static List<Impact__c> generateImpactRisque(List<CategorieImpact__c> categorieImpacts)
+    {
+    	List<Categorie_Risque__c> categorierisques =generateCategorieRisque();
+        List<Risque__c> risques=generateRisque(categorierisques);
+        List<Impact__c> impactRisques =new List<Impact__c>();
+        for(CategorieImpact__c categorieImpact: categorieImpacts)
+        {
+            impactRisques.add(new Impact__c(risque__c=risques[0].Id,description__c='description',Categorie_Impact__c=categorieImpact.Id));
+        }
+        insert impactRisques;
+        return impactRisques;
+    } 
     
     
 }

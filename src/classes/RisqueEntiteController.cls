@@ -1,7 +1,14 @@
 public with sharing class RisqueEntiteController {
-      @AuraEnabled
+    @AuraEnabled
 	public static List<Risque_Entite__c> findAllByEntite(String entite){
-		return [SELECT Id,Date_Detection__c,Entite__r.Name,description__c,frequence__c,gravite__c,maitrise__c,criticite__c,responsable__r.Name,Risque__r.Name,Entite__c,etat__c FROM Risque_Entite__c where Entite__c=:entite order by responsable__r.Name ];
+		return [SELECT Id,Date_Detection__c,Entite__r.Name,description__c,frequence__c,gravite__c,maitrise__c,criticite__c,
+		               responsable__r.Name,Risque__r.Name,Entite__c,etat__c,(SELECT Id,ImpactRisque__r.Name, ImpactRisque__r.description__c,risque_Entite__r.Risque__r.Name 
+		                                                                     FROM Entity_Risk_Impacts__r),
+		                                                                    (SELECT Id,commentaire__c,Name 
+		                                                                     FROM Action_Plans__r) 
+		        FROM Risque_Entite__c 
+		        WHERE Entite__c=:entite 
+		        order by responsable__r.Name ];
 	}
 	
 	@AuraEnabled
@@ -99,4 +106,5 @@ public with sharing class RisqueEntiteController {
         System.debug('###-result'+objectFields);
         return objectFields;
     }
+   
 }

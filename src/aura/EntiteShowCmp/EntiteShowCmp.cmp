@@ -14,8 +14,8 @@
 		type="c:eventEditEntiteClicked" description="" />
 	<!--      debut implementation entite -->
 	<div class="slds-grid slds-gutters">
-		<div class="slds-col slds-size_1-of-7"></div>
-		<div class="slds-col slds-size_5-of-7">
+		<!-- <div class="slds-col slds-size_1-of-10"></div> -->
+		<div class="slds-col slds-size_6-of-6">
 			<!--     debut implementation page -->
 
 			<div class="slds-m-bottom_xx-large">
@@ -30,16 +30,14 @@
 										<div class="slds-media__figure">
 											<span
 												class="slds-icon_container slds-icon-standard-opportunity"
-												title="Description of icon when needed"> <c:svg
-													class="slds-icon slds-page-header__icon" aria-hidden="true"
+												title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 											</span>
 										</div>
 										<div class="slds-media__body">
 											<nav>
 												<ol class="slds-breadcrumb slds-line-height_reset">
-													<li class="slds-breadcrumb__item"><span> <ui:outputText
-																value="{!v.item.Name}" /></span></li>
+													<li class="slds-breadcrumb__item"><span> <ui:outputText value="{!v.item.Name}" /></span></li>
 												</ol>
 											</nav>
 											<h1
@@ -67,7 +65,7 @@
 							<div class="slds-grid slds-page-header__detail-row">
 								<div class="slds-grid slds-wrap  slds-size_1-of-1">
 									<!-- debut tab -->
-									<lightning:tabset>
+									<lightning:tabset >
 										<lightning:tab label="{!$Label.c.detail_menu}" id="1">
 											<!-- detail entite -->
 
@@ -88,8 +86,7 @@
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
 																		<span class="slds-form-element__label">{!v.clabels.name}</span>
 																		<div class="slds-form-element__control">
-																			<span class="slds-form-element__static"> <ui:outputText
-																					value="{!v.item.Name}" />
+																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.Name}" />
 																			</span>
 																		</div>
 																	</li>
@@ -97,8 +94,7 @@
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
 																		<span class="slds-form-element__label">{!v.clabels.website}</span>
 																		<div class="slds-form-element__control">
-																			<span class="slds-form-element__static"> <ui:outputEmail
-																					value="{!v.item.Website}" />
+																			<span class="slds-form-element__static"> <ui:outputEmail value="{!v.item.Website}" />
 																			</span>
 																		</div>
 																	</li>
@@ -106,8 +102,7 @@
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
 																		<span class="slds-form-element__label">{!v.clabels.phone}</span>
 																		<div class="slds-form-element__control">
-																			<span class="slds-form-element__static"> <ui:outputPhone
-																					value="{!v.item.Phone}" />
+																			<span class="slds-form-element__static"> <ui:outputPhone value="{!v.item.Phone}" />
 																			</span>
 																		</div>
 																	</li>
@@ -120,15 +115,13 @@
 														<button class="slds-button slds-button_success"
 															onclick="{!c.registerEdit}">
 
-															<span class="slds-text-not-selected"> <c:svg
-																	class="slds-button__icon_stateful slds-button__icon_left"
+															<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
 																	aria-hidden="true"
 																	xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" /></span>
 														</button>
 														<button onclick="{!c.removeItem}"
 															class="slds-button slds-button_destructive">
-															<span class="slds-text-not-selected"> <c:svg
-																	class="slds-button__icon_stateful slds-button__icon_left"
+															<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
 																	aria-hidden="true"
 																	xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" /></span>
 														</button>
@@ -155,15 +148,16 @@
 											</aura:if>
 										</lightning:tab>
 
-										<lightning:tab
-											label="{!$Label.c.risk_tracking_parameter_menu}" id="4">
-
+										<lightning:tab label="{!$Label.c.risk_tracking_parameter_menu}" id="4">
 											<aura:if isTrue="{!v.item}">
 												<c:ParamRisqueEntiteListCmp entite="{!v.item}" />
 											</aura:if>
 										</lightning:tab>
-
-
+										<lightning:tab label="{!$Label.c.Risk_Management_Sheet}" id="5">
+											<aura:if isTrue="{!v.item}">
+												<c:DisplayRiskInTable entite="{!v.item.Id}"/>
+											</aura:if>
+										</lightning:tab>
 
 									</lightning:tabset>
 									<!-- fin tab -->

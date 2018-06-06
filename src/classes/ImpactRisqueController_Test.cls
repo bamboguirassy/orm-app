@@ -1,41 +1,60 @@
 /**
- * @author: Laye
- * @date: Creation: 29/05/2018
+ * @author: Dibocor
+ * @date: Creation: 31/05/2018
  * @description: class de test d'ImpactRisqueController
  */
 @isTest
 public class ImpactRisqueController_Test {
 	@testSetup
-    static void setUp(){        
+    static void setUp(){     
+    	List<CategorieImpact__c> categorieImpacts = Orm_TestFactory.generateCategorieImpact();  
+    	Orm_TestFactory.generateImpactRisque(categorieImpacts);
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: Dibocor 
+     * @date: Creation: 31/05/2018
      * @description: methode de test de findAll
      */
     @isTest
     static void findAll_Test(){
         String methodName='findAll';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);
+        
+        Risque__c risque = [select Id from Risque__c Limit 1];
+        
+        Test.startTest();
+        List<Impact__c> impactRisques = ImpactRisqueController.findAll(risque.Id);
+        Test.stopTest();
+        System.assertNotEquals(impactRisques.size(),0,'ok findAll');
+              
         System.debug('### end- '+methodName);
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: Dibocor
+     * @date: Creation: 31/05/2018
      * @description: methode de test de filterFromCategorie
      */
     @isTest
     static void filterFromCategorie_Test(){
         String methodName='filterFromCategorie';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);   
+        
+        Risque__c risque = [select Id from Risque__c Limit 1];
+        Categorie_Risque__c categorie = [select Id from Categorie_Risque__c Limit 1];
+        
+        Test.startTest();
+        List<Impact__c> listFilterImpact = ImpactRisqueController.filterFromCategorie(categorie.Id, risque.Id);
+        Test.stopTest();
+        System.assert(listFilterImpact.size() > 0);
+             
         System.debug('### end- '+methodName);
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: Dibocor
+     * @date: Creation: 31/05/2018
      * @description: methode de test d'add
      */
     @isTest
@@ -46,8 +65,8 @@ public class ImpactRisqueController_Test {
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: Dibocor
+     * @date: Creation: 31/05/2018
      * @description: methode de test de remove
      */
     @isTest
@@ -58,8 +77,8 @@ public class ImpactRisqueController_Test {
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: Dibocor
+     * @date: Creation: 31/05/2018
      * @description: methode de test de getCategorieImpacts
      */
     @isTest

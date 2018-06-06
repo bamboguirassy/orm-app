@@ -1,0 +1,10 @@
+.THIS {
+}
+
+.THIS .table_legenda {
+  table-layout: fixed;
+}
+
+.THIS .table_legenda th {
+  word-wrap: break-word;
+}
