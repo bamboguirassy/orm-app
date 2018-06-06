@@ -226,15 +226,13 @@
 																	<button onclick="{!c.registerEdit}"
 																		class="slds-button slds-button_success">
 
-																		<span class="slds-text-not-selected"> <c:svg
-																				class="slds-button__icon_stateful slds-button__icon_left"
+																		<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
 																				aria-hidden="true"
 																				xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" /></span>
 																	</button>
 																	<button class="slds-button slds-button_destructive"
 																		onclick="{!c.removeItem}">
-																		<span class="slds-text-not-selected"> <c:svg
-																				class="slds-button__icon_stateful slds-button__icon_left"
+																		<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
 																				aria-hidden="true"
 																				xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" /></span>
 																	</button>

@@ -29,16 +29,14 @@
 										<div class="slds-media__figure">
 											<span
 												class="slds-icon_container slds-icon-standard-opportunity"
-												title="Description of icon when needed"> <c:svg
-													class="slds-icon slds-page-header__icon" aria-hidden="true"
+												title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 											</span>
 										</div>
 										<div class="slds-media__body">
 											<nav>
 												<ol class="slds-breadcrumb slds-line-height_reset">
-													<li class="slds-breadcrumb__item"><span> <ui:outputText
-																value="{!v.item.Name}" /></span></li>
+													<li class="slds-breadcrumb__item"><span> <ui:outputText value="{!v.item.Name}" /></span></li>
 												</ol>
 											</nav>
 											<h1
@@ -66,7 +64,7 @@
 							<div class="slds-grid slds-page-header__detail-row">
 								<div class="slds-grid slds-wrap  slds-size_1-of-1">
 									<!-- debut tab -->
-									<lightning:tabset>
+									<lightning:tabset >
 										<lightning:tab label="{!$Label.c.detail_menu}" id="1">
 											<!-- detail entite -->
 											<div class="slds-grid slds-gutters slds-size_1-of-1">
@@ -85,8 +83,7 @@
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
 																		<span class="slds-form-element__label">{!v.clabels.firstname}</span>
 																		<div class="slds-form-element__control">
-																			<span class="slds-form-element__static"> <ui:outputText
-																					value="{!v.item.FirstName}" />
+																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.FirstName}" />
 																			</span>
 																		</div>
 																	</li>
@@ -94,8 +91,7 @@
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
 																		<span class="slds-form-element__label">{!v.clabels.lastname}</span>
 																		<div class="slds-form-element__control">
-																			<span class="slds-form-element__static"> <ui:outputText
-																					value="{!v.item.LastName}" />
+																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.LastName}" />
 																			</span>
 																		</div>
 																	</li>
@@ -104,8 +100,7 @@
 																		<span class="slds-form-element__label">{!v.clabels.birthdate}
 																	</span>
 																		<div class="slds-form-element__control">
-																			<span class="slds-form-element__static"> <ui:outputDate
-																					value="{!v.item.Birthdate}" />
+																			<span class="slds-form-element__static"> <ui:outputDate value="{!v.item.Birthdate}" />
 																			</span>
 																		</div>
 																	</li>
@@ -113,8 +108,7 @@
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
 																		<span class="slds-form-element__label">{!v.clabels.description}</span>
 																		<div class="slds-form-element__control">
-																			<span class="slds-form-element__static"> <ui:outputTextArea
-																					value="{!v.item.Description}" />
+																			<span class="slds-form-element__static"> <ui:outputTextArea value="{!v.item.Description}" />
 																			</span>
 																		</div>
 																	</li>
@@ -157,8 +151,7 @@
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
 																		<span class="slds-form-element__label">{!v.clabels.email}</span>
 																		<div class="slds-form-element__control">
-																			<span class="slds-form-element__static"> <ui:outputEmail
-																					value="{!v.item.Email}" />
+																			<span class="slds-form-element__static"> <ui:outputEmail value="{!v.item.Email}" />
 																			</span>
 																		</div>
 																	</li>
@@ -166,8 +159,7 @@
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
 																		<span class="slds-form-element__label">{!v.clabels.phone}</span>
 																		<div class="slds-form-element__control">
-																			<span class="slds-form-element__static"> <ui:outputPhone
-																					value="{!v.item.Phone}" />
+																			<span class="slds-form-element__static"> <ui:outputPhone value="{!v.item.Phone}" />
 																			</span>
 																		</div>
 																	</li>
@@ -177,15 +169,13 @@
 																	<button onclick="{!c.registerEdit}"
 																		class="slds-button slds-button_success">
 
-																		<span class="slds-text-not-selected"> <c:svg
-																				class="slds-button__icon_stateful slds-button__icon_left"
+																		<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
 																				aria-hidden="true"
 																				xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" /></span>
 																	</button>
 																	<button class="slds-button slds-button_destructive"
 																		onclick="{!c.removeItem}">
-																		<span class="slds-text-not-selected"> <c:svg
-																				class="slds-button__icon_stateful slds-button__icon_left"
+																		<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
 																				aria-hidden="true"
 																				xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" /></span>
 																	</button>

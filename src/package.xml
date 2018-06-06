@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+<<<<<<< HEAD
+=======
     <types>
         <members>Orm_TestFactory</members>
         <members>EvidenceControllerTest</members>
         <name>ApexClass</name>
     </types>
+>>>>>>> add6868a2901e440f03e1264e4e713c5cbcedfe8
     <version>38.0</version>
 </Package>

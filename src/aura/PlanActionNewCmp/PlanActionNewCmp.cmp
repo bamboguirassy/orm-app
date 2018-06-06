@@ -26,8 +26,7 @@
 	<button onclick="{!c.openModel}"
 		class="slds-button slds-button_stateful slds-not-selected slds-button_brand"
 		aria-live="assertive" style="float: right; margin-right: 250px">
-		<span class="slds-text-not-selected"> <c:svg
-				class="slds-button__icon_stateful slds-button__icon_left"
+		<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
 				aria-hidden="true"
 				xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#add'}" /></span>
 	</button>
