@@ -295,7 +295,7 @@ public class Orm_TestFactory
         insert mesures;
         return mesures;
     }
-        
+    
      /**
      * @author : David 
      * @date : 05/06/2018
@@ -497,5 +497,18 @@ public class Orm_TestFactory
      	  }
      	 upsert critereEfficacitePCs;
          return critereEfficacitePCs;
+     }
+       /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de Mesure Prevention
+     */
+     public static List<Mesure_Prevention__c> generateMesurePrevention(string idCategorieMesurePrevention,string idRisque){
+     	 List<Mesure_Prevention__c>  mesurePreventions= new List<Mesure_Prevention__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	mesurePreventions.add(new Mesure_Prevention__c(CategorieMesurePrevention__c=idCategorieMesurePrevention,Description__c='name'+i,Risque__c=idRisque));
+     	  }
+     	 upsert mesurePreventions;
+         return mesurePreventions;
      }
 }
