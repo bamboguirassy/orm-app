@@ -570,5 +570,23 @@ public class Orm_TestFactory
         insert mesurePreventionRisqueDetectes;
         return mesurePreventionRisqueDetectes;
     }
+    
+     /**
+     * @author: DAVID
+     * @date: Modification: 06/06/2018
+     * @description: methode de test de PlanActionPreventifController
+     */
+    public static List<Plan_Action__c> generatePlanActionActionPreventif(List<Risque_Entite__c> risqueEntites, string idRiskManager,string idparamRisque){
+    	List<Plan_Action__c> actionPlans = new List<Plan_Action__c>();
+        for(Risque_Entite__c risqueEntite : risqueEntites){
+            for(integer i = 0; i < 20; i++){
+    			actionPlans.add(new Plan_Action__c(Name='plan action-'+ i, etat__c= false, date_commencement__c = System.now(), 
+    			echeancier__c = System.now().addDays(4), risque_Entite__c = risqueEntite.Id, gestionnaire__c = idRiskManager,ParamRisqueEntite__c=idparamRisque,
+                RecordTypeId=PlanActionPreventifController.getPlanActionPreventifRecordTypeId()));
+    		}
+        }    	
+    	insert actionPlans;
+    	return actionPlans;
+    }     
 
 }
