@@ -458,4 +458,17 @@ public class Orm_TestFactory
      	 upsert revuePCs;
          return revuePCs;
      }
+     /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de ExigencePC
+     */
+     public static List<ExigencePC__c> generateExigencePC(string idPartieConcernee){
+     	 List<ExigencePC__c>  exigencePCs= new List<ExigencePC__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	exigencePCs.add(new ExigencePC__c(PartieConcernee__c=idPartieConcernee,Name='name'+i));
+     	  }
+     	 upsert exigencePCs;
+         return exigencePCs;
+     }
 }
