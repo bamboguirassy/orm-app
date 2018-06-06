@@ -542,4 +542,17 @@ public class Orm_TestFactory
      	 upsert impacts;
          return impacts;
      }
+     /**
+     * @author : David
+     * @date : 06/06/2018
+     * @description : generer une liste de PREtracker 
+     */
+    public static List<PREtracker__c> generatePREtracker(string idParamRisqueEntite){
+        List<PREtracker__c> PREtrackers = new List<PREtracker__c>();
+        for(integer i = 0; i < 20; i++){
+            PREtrackers.add(new PREtracker__c(description__c='description',Name='name'+i,valeur__c=i,ParamRisqueEntite__c=idParamRisqueEntite));
+        }
+        insert PREtrackers;
+        return PREtrackers;
+    }
 }
