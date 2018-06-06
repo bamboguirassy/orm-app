@@ -282,6 +282,20 @@ public class Orm_TestFactory
         return indicateurActivites;
     }
     
+    /**
+     * @author : Laye 
+     * @date : Creation: 06/06/2018
+     * @description : generer une liste de mesure
+     */
+    public static List<Mesure__c> generateMesureActivites(Activite__c activite){
+        List<Mesure__c> mesures = new List<Mesure__c>();
+        for(integer i=0; i< 20; i++){
+            mesures.add(new Mesure__c(Name= 'Name', description__c= 'description', activite__c= activite.Id));
+        }
+        insert mesures;
+        return mesures;
+    }
+    
      /**
      * @author : David 
      * @date : 05/06/2018
