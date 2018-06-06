@@ -444,4 +444,18 @@ public class Orm_TestFactory
      	 upsert modeSurveillancePCs;
          return modeSurveillancePCs;
      }
+     
+      /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de RevuePC
+     */
+     public static List<RevuePC__c> generateRevuePC(string idPartieConcernee){
+     	 List<RevuePC__c>  revuePCs= new List<RevuePC__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	revuePCs.add(new RevuePC__c(PartieConcernee__c=idPartieConcernee,Name='name'+i));
+     	  }
+     	 upsert revuePCs;
+         return revuePCs;
+     }
 }
