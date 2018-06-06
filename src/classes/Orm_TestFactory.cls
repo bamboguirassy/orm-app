@@ -256,7 +256,11 @@ public class Orm_TestFactory
          return entiteAffectees;
      }
      
-     
+     /**
+     * @author : Laye 
+     * @date : 05/06/2018
+     * @description : generer une liste dindicateur
+     */
     public static List<Activite__c> generateActivites(Plan_Action__c actionPlan){
         List<Activite__c> activites = new List<Activite__c>();
         Datetime now = System.now();
