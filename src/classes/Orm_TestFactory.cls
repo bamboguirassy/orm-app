@@ -404,4 +404,17 @@ public class Orm_TestFactory
      	 upsert elementSorties;
          return elementSorties;
      }
+     /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de PartieInteressee
+     */
+     public static List<PartieInteressee__c> generatePartieIntereesee(string idPartieConcernee){
+     	 List<PartieInteressee__c>  partieInteressees= new List<PartieInteressee__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	partieInteressees.add(new PartieInteressee__c(PartieConcernee__c=idPartieConcernee,Name='name'+i));
+     	  }
+     	 upsert partieInteressees;
+         return partieInteressees;
+     }
 }
