@@ -529,4 +529,43 @@ public class Orm_TestFactory
      	 upsert mesurePreventions;
          return mesurePreventions;
      }
+       /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de Impact Risque
+     */
+     public static List<Impact__c> generateImpact(string idcategorieImpact,string idRisque){
+     	 List<Impact__c>  impacts= new List<Impact__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	 impacts.add(new Impact__c(Categorie_Impact__c=idcategorieImpact,description__c='name'+i,risque__c=idRisque));
+     	  }
+     	 upsert impacts;
+         return impacts;
+     }
+     /**
+     * @author : David
+     * @date : 06/06/2018
+     * @description : generer une liste de PREtracker 
+     */
+    public static List<PREtracker__c> generatePREtracker(string idParamRisqueEntite){
+        List<PREtracker__c> PREtrackers = new List<PREtracker__c>();
+        for(integer i = 0; i < 20; i++){
+            PREtrackers.add(new PREtracker__c(description__c='description',Name='name'+i,valeur__c=i,ParamRisqueEntite__c=idParamRisqueEntite));
+        }
+        insert PREtrackers;
+        return PREtrackers;
+    }
+     /**
+     * @author : David
+     * @date : 06/06/2018
+     * @description : generer une liste de Mesure Prevention Risque Detecte 
+     */
+    public static List<Mesure_Prevention_Risque_Detecte__c> generatePREtracker(string idParamRisqueEntite,string IdMesurePrevention){
+        List<Mesure_Prevention_Risque_Detecte__c> mesurePreventionRisqueDetectes = new List<Mesure_Prevention_Risque_Detecte__c>();
+        for(integer i = 0; i < 20; i++){
+            mesurePreventionRisqueDetectes.add(new Mesure_Prevention_Risque_Detecte__c(risk_tracking_parameter__c=idParamRisqueEntite,mesure_Prevention__c=idMesurePrevention));
+        }
+        insert mesurePreventionRisqueDetectes;
+        return mesurePreventionRisqueDetectes;
+    }
 }
