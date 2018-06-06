@@ -431,4 +431,17 @@ public class Orm_TestFactory
      	 upsert impactPCs;
          return impactPCs;
      }
+     /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de ModeSurveillancePC
+     */
+     public static List<ModeSurveillancePC__c> generateModeSurveillancePC(string idPartieConcernee){
+     	 List<ModeSurveillancePC__c>  modeSurveillancePCs= new List<ModeSurveillancePC__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	modeSurveillancePCs.add(new ModeSurveillancePC__c(PartieConcernee__c=idPartieConcernee,Name='name'+i));
+     	  }
+     	 upsert modeSurveillancePCs;
+         return modeSurveillancePCs;
+     }
 }
