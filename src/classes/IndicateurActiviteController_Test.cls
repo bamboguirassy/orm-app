@@ -52,6 +52,7 @@ public class IndicateurActiviteController_Test {
     /**
      * @author: Laye
      * @date: Creation: 29/05/2018
+     * @date: Modification: 05/06/2018
      * @description: methode de test de remove
      */
     @isTest
