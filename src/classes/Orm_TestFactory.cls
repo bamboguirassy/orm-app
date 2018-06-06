@@ -561,10 +561,7 @@ public class Orm_TestFactory
      * @date : 06/06/2018
      * @description : generer une liste de Mesure Prevention Risque Detecte 
      */
-
-   
-
-    public static List<Mesure_Prevention_Risque_Detecte__c> generatePREtracker(string idParamRisqueEntite,string IdMesurePrevention){
+    public static List<Mesure_Prevention_Risque_Detecte__c> generateMesurePreventionRisqueDetecte(string idParamRisqueEntite,string IdMesurePrevention){
 
         List<Mesure_Prevention_Risque_Detecte__c> mesurePreventionRisqueDetectes = new List<Mesure_Prevention_Risque_Detecte__c>();
         for(integer i = 0; i < 20; i++){
