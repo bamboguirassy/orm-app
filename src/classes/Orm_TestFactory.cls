@@ -511,4 +511,17 @@ public class Orm_TestFactory
      	 upsert mesurePreventions;
          return mesurePreventions;
      }
+       /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de Impact Risque
+     */
+     public static List<Impact__c> generateImpact(string idcategorieImpact,string idRisque){
+     	 List<Impact__c>  impacts= new List<Impact__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	impacts.add(new Impact__c(Categorie_Impact__c=idcategorieImpact,description__c='name'+i,risque__c=idRisque));
+     	  }
+     	 upsert impacts;
+         return impacts;
+     }
 }
