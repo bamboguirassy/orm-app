@@ -282,6 +282,20 @@ public class Orm_TestFactory
         return indicateurActivites;
     }
     
+    /**
+     * @author : Laye 
+     * @date : Creation: 06/06/2018
+     * @description : generer une liste de mesure
+     */
+    public static List<Mesure__c> generateMesureActivites(Activite__c activite){
+        List<Mesure__c> mesures = new List<Mesure__c>();
+        for(integer i=0; i< 20; i++){
+            mesures.add(new Mesure__c(Name= 'Name', description__c= 'description', activite__c= activite.Id));
+        }
+        insert mesures;
+        return mesures;
+    }
+        
      /**
      * @author : David 
      * @date : 05/06/2018
@@ -403,5 +417,85 @@ public class Orm_TestFactory
      	  }
      	 upsert elementSorties;
          return elementSorties;
+     }
+     /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de PartieInteressee
+     */
+     public static List<PartieInteressee__c> generatePartieIntereesee(string idPartieConcernee){
+     	 List<PartieInteressee__c>  partieInteressees= new List<PartieInteressee__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	partieInteressees.add(new PartieInteressee__c(PartieConcernee__c=idPartieConcernee,Name='name'+i));
+     	  }
+     	 upsert partieInteressees;
+         return partieInteressees;
+     }
+     
+      /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de ImpactPC
+     */
+     public static List<ImpactPC__c> generateImpactPC(string idPartieConcernee){
+     	 List<ImpactPC__c>  impactPCs= new List<ImpactPC__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	impactPCs.add(new ImpactPC__c(PartieConcernee__c=idPartieConcernee,Name='name'+i));
+     	  }
+     	 upsert impactPCs;
+         return impactPCs;
+     }
+     /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de ModeSurveillancePC
+     */
+     public static List<ModeSurveillancePC__c> generateModeSurveillancePC(string idPartieConcernee){
+     	 List<ModeSurveillancePC__c>  modeSurveillancePCs= new List<ModeSurveillancePC__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	modeSurveillancePCs.add(new ModeSurveillancePC__c(PartieConcernee__c=idPartieConcernee,Name='name'+i));
+     	  }
+     	 upsert modeSurveillancePCs;
+         return modeSurveillancePCs;
+     }
+     
+      /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de RevuePC
+     */
+     public static List<RevuePC__c> generateRevuePC(string idPartieConcernee){
+     	 List<RevuePC__c>  revuePCs= new List<RevuePC__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	revuePCs.add(new RevuePC__c(PartieConcernee__c=idPartieConcernee,Name='name'+i));
+     	  }
+     	 upsert revuePCs;
+         return revuePCs;
+     }
+     /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de ExigencePC
+     */
+     public static List<ExigencePC__c> generateExigencePC(string idPartieConcernee){
+     	 List<ExigencePC__c>  exigencePCs= new List<ExigencePC__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	exigencePCs.add(new ExigencePC__c(PartieConcernee__c=idPartieConcernee,Name='name'+i));
+     	  }
+     	 upsert exigencePCs;
+         return exigencePCs;
+     }
+      /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de CritereEfficacitePC
+     */
+     public static List<CritereEfficacitePC__c> generateCritereEfficacitePC(string idPartieConcernee){
+     	 List<CritereEfficacitePC__c>  critereEfficacitePCs= new List<CritereEfficacitePC__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	critereEfficacitePCs.add(new CritereEfficacitePC__c(PartieConcernee__c=idPartieConcernee,Name='name'+i));
+     	  }
+     	 upsert critereEfficacitePCs;
+         return critereEfficacitePCs;
      }
 }
