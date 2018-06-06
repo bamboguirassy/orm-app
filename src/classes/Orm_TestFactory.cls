@@ -417,4 +417,18 @@ public class Orm_TestFactory
      	 upsert partieInteressees;
          return partieInteressees;
      }
+     
+      /**
+     * @author : David 
+     * @date : 06/06/2018
+     * @description : generer une liste de ImpactPC
+     */
+     public static List<ImpactPC__c> generateImpactPC(string idPartieConcernee){
+     	 List<ImpactPC__c>  impactPCs= new List<ImpactPC__c>();
+     	  for(integer i = 0; i < 20; i++){
+     	impactPCs.add(new ImpactPC__c(PartieConcernee__c=idPartieConcernee,Name='name'+i));
+     	  }
+     	 upsert impactPCs;
+         return impactPCs;
+     }
 }
