@@ -296,6 +296,20 @@ public class Orm_TestFactory
         return mesures;
     }
     
+    /**
+     * @author : Laye 
+     * @date : Creation: 06/06/2018
+     * @description : generer une liste d'evidences
+     */
+    public static List<Evidence__c> generateEvidences(Mesure__c mesure){
+        List<Evidence__c> evidences = new List<Evidence__c>();
+        for(integer i=0; i< 20; i++){
+            evidences.add(new Evidence__c(Name= 'Name', description__c= 'description', evidenceOfActivity__c= mesure.Id));
+        }
+        insert evidences;
+        return evidences;
+    }
+    
      /**
      * @author : David 
      * @date : 05/06/2018
