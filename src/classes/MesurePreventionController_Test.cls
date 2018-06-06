@@ -43,7 +43,8 @@ public class MesurePreventionController_Test {
 		string risqueId=[select id from Risque__c limit 1].id;
 		string categorieId=[select id from Categorie_Mesure_Prevention__c limit 1].id;
         List<Mesure_Prevention__c> MesurePrevention=MesurePreventionController.filterFromCategorie(categorieId,risqueId);
-        Test.stopTest();       
+        Test.stopTest(); 
+        System.assertNotEquals(MesurePrevention.size(),0,'ok');      
         System.debug('### end- '+methodName);
     }
     

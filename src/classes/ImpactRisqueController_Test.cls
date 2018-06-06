@@ -56,7 +56,14 @@ public class ImpactRisqueController_Test {
     @isTest
     static void add_Test(){
         String methodName='add';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);  
+         Test.startTest();
+        string risqueId=[select id from Risque__c limit 1].id;
+		string categorieId=[select id from CategorieImpact__c limit 1].id;
+           Impact__c impactRisque=new Impact__c(Categorie_Impact__c=categorieId,description__c='name',risque__c=risqueId);
+           ImpactRisqueController.add(impactRisque);
+        Test.stopTest();
+        System.assertNotEquals(impactRisque.Id,null,'ok');      
         System.debug('### end- '+methodName);
     }
     
@@ -68,7 +75,30 @@ public class ImpactRisqueController_Test {
     @isTest
     static void remove_Test(){
         String methodName='remove';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);    
+        Test.startTest();
+         string risqueId = [select Id from Risque__c limit 1].Id;
+        Integer size=ImpactRisqueController.findAll(risqueId).size();
+        Impact__c impactRisque=[select Id from Impact__c limit 1];
+        ImpactRisqueController.remove(impactRisque);
+        Test.stopTest();
+        System.assertEquals(ImpactRisqueController.findAll(risqueId).size(),(size-1),'ok');    
+        System.debug('### end- '+methodName);
+    }
+       /**
+     * @author: David
+     * @date: Creation: 01/06/2018
+     * @description: methode de test de getElementById
+     */
+    @isTest
+    static void getElementById_Test(){
+        String methodName='getElementById';
+        System.debug('### start- '+methodName);  
+          Test.startTest();
+        Id impactId=[select Id from Impact__c limit 1].Id;
+        Impact__c mesurePrevention=ImpactRisqueController.getElementById(impactId);
+        Test.stopTest();
+        System.assertNotEquals(mesurePrevention,null,'ok');      
         System.debug('### end- '+methodName);
     }
     
@@ -80,7 +110,25 @@ public class ImpactRisqueController_Test {
     @isTest
     static void getCategorieImpacts_Test(){
         String methodName='getCategorieImpacts';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);
+        Test.startTest();
+        System.assertNotEquals(ImpactRisqueController.getCategorieImpacts().size(),0,'ok');
+        Test.stopTest();        
+        System.debug('### end- '+methodName);
+    }
+    /**
+     * @author: David
+     * @date: 06/06/2018
+     * @descrition: 
+     */
+    @isTest
+    static void getObjectFields_TEST()
+    {
+        String methodName='getObjectFields';
+        System.debug('### start- '+methodName);
+        Test.startTest();
+        System.assertNotEquals(ImpactRisqueController.getObjectFields().size(),0,'ok');
+        Test.stopTest();
         System.debug('### end- '+methodName);
     }
 }
