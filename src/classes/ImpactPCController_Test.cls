@@ -1,47 +1,102 @@
 /**
- * @author: Laye
- * @date: Creation: 29/05/2018
+ * @author: David
+ * @date: Creation: 06/06/2018
  * @description: class de test d'ImpactPCController
  */
 @isTest
 public class ImpactPCController_Test {
 	@testSetup
-    static void setUp(){        
+    static void setUp(){ 
+    	 List<Account> structures = Orm_TestFactory.generateStructure();
+    	List<Contact>  responsables = Orm_TestFactory.generateRiskManager(structures[0].Id);
+    	List<Processus__c> processus=Orm_TestFactory.generateProcessus(responsables[0].Id, responsables[0].Id,  structures[0].Id); 
+    	List<PartieConcernee__c> partieConcernee = Orm_TestFactory.generatePartieConcernee(processus[0].Id);   
+    	      Orm_TestFactory.generateImpactPC(partieConcernee[0].Id);       
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: David
+     * @date: Creation: 06/06/2018
      * @description: methode de test de findFromPartieConcernee
      */
     @isTest
     static void findFromPartieConcernee_Test(){
         String methodName='findFromPartieConcernee';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);
+        Test.startTest(); 
+		        string  partieConcerneeId=[select Id from PartieConcernee__c limit 1].Id;
+		        List<ImpactPC__c> impactPCs=ImpactPCController.findFromPartieConcernee(partieConcerneeId);
+          Test.stopTest();
+          System.assertNotEquals(impactPCs.size(),0,'ok');          
         System.debug('### end- '+methodName);
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: David
+     * @date: Creation: 06/06/2018
      * @description: methode de test d'add
      */
     @isTest
     static void add_Test(){
         String methodName='add';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);  
+               Test.startTest();
+      	string  partieConcerneeId=[select Id from PartieConcernee__c limit 1].Id;
+      
+      ImpactPC__c impactPC= new ImpactPC__c(PartieConcernee__c=partieConcerneeId,Name='name');
+		         ImpactPCController.add(impactPC);
+        Test.stopTest();
+        System.assertNotEquals(impactPC.Id,null,'ok'); 
         System.debug('### end- '+methodName);
     }
     
     /**
-     * @author: Laye
-     * @date: Creation: 29/05/2018
+     * @author: David
+     * @date: Creation: 06/06/2018
      * @description: methode de test de remove
      */
     @isTest
     static void remove_Test(){
         String methodName='remove';
-        System.debug('### start- '+methodName);        
+        System.debug('### start- '+methodName);
+                 Test.startTest();
+        string  partieConcerneeId=[select Id from PartieConcernee__c limit 1].Id;
+        Integer size=ImpactPCController.findFromPartieConcernee(partieConcerneeId).size();
+        ImpactPC__c ImpactPCId = [select Id from ImpactPC__c limit 1];
+        ImpactPCController.remove(ImpactPCId);
+        Test.stopTest();
+        System.assertEquals(ImpactPCController.findFromPartieConcernee(partieConcerneeId).size(),(size-1),'ok');
+        System.debug('### end- '+methodName);
+    }
+    /**
+     * @author: David
+     * @date: Creation: 06/06/2018
+     * @description: methode de test de getElementById
+     */
+    @isTest
+    static void getElementById_Test(){
+        String methodName='getElementById';
+        System.debug('### start- '+methodName);  
+          Test.startTest();
+        Id impactPCId=[select Id from ImpactPC__c limit 1].Id;
+        ImpactPC__c impactPC=ImpactPCController.getElementById(impactPCId);
+        Test.stopTest();
+        System.assertNotEquals(impactPC,null,'ok');       
+        System.debug('### end- '+methodName);
+    }
+     /**
+     * @author: David
+     * @date: 06/06/2018
+     * @descrition: 
+     */
+    @isTest
+    static void getObjectFields_TEST()
+    {
+        String methodName='getObjectFields';
+        System.debug('### start- '+methodName);
+        Test.startTest();
+        System.assertNotEquals(ImpactPCController.getObjectFields().size(),0,'ok');
+        Test.stopTest();
         System.debug('### end- '+methodName);
     }
 }

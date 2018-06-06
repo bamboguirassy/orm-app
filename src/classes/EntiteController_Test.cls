@@ -36,12 +36,21 @@ public class EntiteController_Test {
         String methodName='add';
         System.debug('### start- '+methodName);
         Test.startTest();
-        Account entite=new Account(Name='entite');
+        Account entite=new Account(Name='entite',Phone='777');
+
+        Account entite1 = null;
+
         if(entite!=null)
         	{
           entite.RecordTypeId=EntiteController.getStructureRecordTypeId();
        	  entite=EntiteController.add(entite);
             }
+
+            
+           EntiteController.add(entite);
+           EntiteController.add(entite1);
+           
+
         Test.stopTest();
         System.assertNotEquals(entite.Id,null,'ok');
         System.debug('### end- '+methodName);
