@@ -587,6 +587,19 @@ public class Orm_TestFactory
         }    	
     	insert actionPlans;
     	return actionPlans;
-    }     
+    }  
+    /**
+     * @author : David
+     * @date : 07/06/2018
+     * @description : generer une liste de Impact_Risque_Entite__c 
+     */
+    public static List<Impact_Risque_Entite__c> generateImpactRisqueEntite(string idRisqueEntite, string idImpactRisque){
+        List<Impact_Risque_Entite__c> impactRisqueEntites = new List<Impact_Risque_Entite__c>();
+        for(integer i = 0; i < 20; i++){
+            impactRisqueEntites.add(new Impact_Risque_Entite__c(risque_Entite__c = idRisqueEntite,ImpactRisque__c=idImpactRisque));
+        }
+        insert impactRisqueEntites;
+        return impactRisqueEntites;
+    }   
 
 }
