@@ -126,7 +126,7 @@
 			<!-- fin implementation datatable -->
 
 			<div class="slds-m-top_medium">
-				<lightning:buttonGroup>
+				<lightning:buttonGroup >
 					<lightning:button label="{!$Label.c.orm_prev_title}"
 						disabled="{!v.startPage == 0}" onclick="{!c.previous}"
 						variant="brand" iconName='utility:back' />

@@ -87,8 +87,7 @@
 		<aura:set attribute="else">
 			<button class="slds-button slds-button--neutral" type="button"
 				onclick="{!c.openModel}" style="float: right;">
-				<span class="slds-text-not-selected"> <c:svg
-						class="slds-button__icon_stateful slds-button__icon_left"
+				<span class="slds-text-not-selected"> <c:svg class="slds-button__icon_stateful slds-button__icon_left"
 						aria-hidden="true"
 						xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#add'}" /></span>
 			</button>

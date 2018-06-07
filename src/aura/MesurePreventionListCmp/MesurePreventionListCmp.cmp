@@ -15,8 +15,7 @@
 			<div class="slds-media">
 				<div class="slds-media__figure">
 					<span class="slds-icon_container slds-icon-standard-opportunity"
-						title="Description of icon when needed"> <c:svg
-							class="slds-icon slds-page-header__icon" aria-hidden="true"
+						title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
 							xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 					</span>
 				</div>
@@ -78,8 +77,7 @@
 								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right"
 								width="30%">
 								<div title="{!item.categorieRisque__r.Name}">
-									<ui:outputText
-										value="{!item.CategorieMesurePrevention__r.Name}" />
+									<ui:outputText value="{!item.CategorieMesurePrevention__r.Name}" />
 								</div>
 							</td>
 							<td data-label="Actions"
@@ -113,7 +111,7 @@
 			<!-- fin implementation datatable -->
 
 			<div class="slds-m-top_medium" style="padding-top: 10px">
-				<lightning:buttonGroup>
+				<lightning:buttonGroup >
 					<lightning:button label="{!$Label.c.orm_prev_title}"
 						disabled="{!v.startPage == 0}" onclick="{!c.previous}"
 						variant="brand" iconName='utility:back' />

@@ -69,16 +69,14 @@
 														<div class="slds-media__figure">
 															<span
 																class="slds-icon_container slds-icon-standard-record"
-																title="catégories de mesure de prévention"> <c:svg
-																	class="slds-icon slds-icon_small" aria-hidden="true"
+																title="catégories de mesure de prévention"> <c:svg class="slds-icon slds-icon_small" aria-hidden="true"
 																	xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#record'}" />
 															</span>
 														</div>
 														<div class="slds-media__body">
 															<h2>
 																<a href="javascript:void(0);"
-																	class="slds-card__header-link" title="{!item.Name}"><ui:outputText
-																		value="{!item.mesure_Prevention__r.Name}" /> </a>
+																	class="slds-card__header-link" title="{!item.Name}"><ui:outputText value="{!item.mesure_Prevention__r.Name}" /> </a>
 															</h2>
 														</div>
 													</header>
@@ -88,8 +86,7 @@
 															<a data-index="{!i}" onclick="{!c.removeItem}"
 																class="slds-button slds-button_icon slds-button_icon-border-filled"
 																title="{!$Label.c.delete_button_title}"
-																aria-pressed="false"> <c:svg
-																	class="slds-button__icon" aria-hidden="true"
+																aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 																	xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
 
 																<span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
@@ -112,7 +109,7 @@
 						</div>
 					</div>
 					<div class="slds-m-top_medium">
-						<lightning:buttonGroup>
+						<lightning:buttonGroup >
 							<lightning:button label="{!$Label.c.orm_prev_title}"
 								disabled="{!v.startPage == 0}" onclick="{!c.previous}"
 								variant="brand" iconName='utility:back' />
@@ -122,8 +119,7 @@
 								variant="brand" iconName='utility:forward' iconPosition='right' />
 						</lightning:buttonGroup>
 						<aura:if isTrue="{!v.paramRisqueEntite}">
-							<c:MesurePreventionRisqueDetecteNewCmp
-								paramRisqueEntite="{!v.paramRisqueEntite}" />
+							<c:MesurePreventionRisqueDetecteNewCmp paramRisqueEntite="{!v.paramRisqueEntite}" />
 						</aura:if>
 					</div>
 				</div>

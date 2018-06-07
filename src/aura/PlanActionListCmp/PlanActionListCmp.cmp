@@ -25,8 +25,7 @@
 					<div class="slds-media">
 						<div class="slds-media__figure">
 							<span class="slds-icon_container slds-icon-standard-opportunity"
-								title="Description of icon when needed"> <c:svg
-									class="slds-icon slds-page-header__icon" aria-hidden="true"
+								title="Description of icon when needed"> <c:svg class="slds-icon slds-page-header__icon" aria-hidden="true"
 									xlinkHref="{!$Resource.slds+'/assets/icons/standard-sprite/svg/symbols.svg#opportunity'}" />
 							</span>
 						</div>
@@ -55,8 +54,7 @@
 											<button class="slds-button slds-button_icon"
 												title="Toggle details for Review proposals for EBC deck with larger team and have marketing review this"
 												aria-controls="task-item-expanded" aria-expanded="true">
-												<c:svg
-													class="slds-button__icon slds-timeline__details-action-icon"
+												<c:svg class="slds-button__icon slds-timeline__details-action-icon"
 													aria-hidden="true"
 													xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#switch'}" />
 												<span class="slds-assistive-text">Toggle details for
@@ -93,8 +91,7 @@
 													</h5>
 													<div class="slds-no-flex">
 														<span class="slds-icon_container slds-icon-utility-rotate"
-															title="Recurring Task"> <c:svg
-																class="slds-icon slds-icon_xx-small slds-icon-text-default slds-m-left_x-small"
+															title="Recurring Task"> <c:svg class="slds-icon slds-icon_xx-small slds-icon-text-default slds-m-left_x-small"
 																aria-hidden="true"
 																xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#rotate'}" />
 															<span class="slds-assistive-text">Recurring Task</span>
@@ -112,16 +109,14 @@
 																<a data-index="{!i}" onclick="{!c.navigateToShow}"
 																	class="slds-button slds-button_icon slds-button_icon-border-filled"
 																	title="{!$Label.c.show_button_title}"
-																	aria-pressed="false"> <c:svg
-																		class="slds-button__icon" aria-hidden="true"
+																	aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 																		xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#preview'}" />
 
 																	<span class="slds-assistive-text">{!$Label.c.show_button_title}</span>
 																</a> <a data-index="{!i}" onclick="{!c.removeItem}"
 																	class="slds-button slds-button_icon slds-button_icon-border-filled"
 																	title="{!$Label.c.delete_button_title}"
-																	aria-pressed="false"> <c:svg
-																		class="slds-button__icon" aria-hidden="true"
+																	aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 																		xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#delete'}" />
 
 																	<span class="slds-assistive-text">{!$Label.c.delete_button_title}</span>
@@ -130,8 +125,7 @@
 																	<a data-index="{!i}" onclick="{!c.registerEdit}"
 																		class="slds-button slds-button_icon slds-button_icon-border-filled"
 																		title="{!$Label.c.edit_button_title}"
-																		aria-pressed="false"> <c:svg
-																			class="slds-button__icon" aria-hidden="true"
+																		aria-pressed="false"> <c:svg class="slds-button__icon" aria-hidden="true"
 																			xlinkHref="{!$Resource.slds+'/assets/icons/utility-sprite/svg/symbols.svg#edit'}" />
 
 																		<span class="slds-assistive-text">{!$Label.c.edit_button_title}</span>
@@ -153,15 +147,13 @@
 														class="slds-grid slds-grid--vertical slds-size_1-of-2 slds-p-bottom_small">
 														<span class="slds-text-title slds-p-bottom_x-small">{!v.clabels.etat__c}</span>
 														<span class="slds-text-body_medium slds-truncate"
-														title="{!item.etat__c}"><ui:outputCheckbox
-																value="{!item.etat__c}" /></span>
+														title="{!item.etat__c}"><ui:outputCheckbox value="{!item.etat__c}" /></span>
 													</li>
 													<li
 														class="slds-grid slds-grid--vertical slds-size_1-of-2 slds-p-bottom_small">
 														<span class="slds-text-title slds-p-bottom_x-small">{!v.clabels.echancier__c}</span>
 														<span class="slds-text-body_medium slds-truncate"
-														title="{!item.echeancier__c}"><ui:outputDateTime
-																value="{!item.echeancier__c}" /></span>
+														title="{!item.echeancier__c}"><ui:outputDateTime value="{!item.echeancier__c}" /></span>
 													</li>
 												</ul>
 												<div>
@@ -180,7 +172,7 @@
 		</div>
 
 		<div class="slds-m-top_medium">
-			<lightning:buttonGroup>
+			<lightning:buttonGroup >
 				<lightning:button label="{!$Label.c.orm_prev_title}"
 					disabled="{!v.startPage == 0}" onclick="{!c.previous}"
 					variant="brand" iconName='utility:back' />

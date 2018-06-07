@@ -555,13 +555,14 @@ public class Orm_TestFactory
         insert PREtrackers;
         return PREtrackers;
     }
-    
+
      /**
      * @author : David
      * @date : 06/06/2018
      * @description : generer une liste de Mesure Prevention Risque Detecte 
      */
-    public static List<Mesure_Prevention_Risque_Detecte__c> generatePREtracker(string idParamRisqueEntite,string IdMesurePrevention){
+    public static List<Mesure_Prevention_Risque_Detecte__c> generateMesurePreventionRisqueDetecte(string idParamRisqueEntite,string IdMesurePrevention){
+
         List<Mesure_Prevention_Risque_Detecte__c> mesurePreventionRisqueDetectes = new List<Mesure_Prevention_Risque_Detecte__c>();
         for(integer i = 0; i < 20; i++){
             mesurePreventionRisqueDetectes.add(new Mesure_Prevention_Risque_Detecte__c(risk_tracking_parameter__c=idParamRisqueEntite,mesure_Prevention__c=idMesurePrevention));
@@ -569,5 +570,36 @@ public class Orm_TestFactory
         insert mesurePreventionRisqueDetectes;
         return mesurePreventionRisqueDetectes;
     }
+    
+     /**
+     * @author: DAVID
+     * @date: Modification: 06/06/2018
+     * @description: methode de test de PlanActionPreventifController
+     */
+    public static List<Plan_Action__c> generatePlanActionActionPreventif(List<Risque_Entite__c> risqueEntites, string idRiskManager,string idparamRisque){
+    	List<Plan_Action__c> actionPlans = new List<Plan_Action__c>();
+        for(Risque_Entite__c risqueEntite : risqueEntites){
+            for(integer i = 0; i < 20; i++){
+    			actionPlans.add(new Plan_Action__c(Name='plan action-'+ i, etat__c= false, date_commencement__c = System.now(), 
+    			echeancier__c = System.now().addDays(4), risque_Entite__c = risqueEntite.Id, gestionnaire__c = idRiskManager,ParamRisqueEntite__c=idparamRisque,
+                RecordTypeId=PlanActionPreventifController.getPlanActionPreventifRecordTypeId()));
+    		}
+        }    	
+    	insert actionPlans;
+    	return actionPlans;
+    }  
+    /**
+     * @author : David
+     * @date : 07/06/2018
+     * @description : generer une liste de Impact_Risque_Entite__c 
+     */
+    public static List<Impact_Risque_Entite__c> generateImpactRisqueEntite(string idRisqueEntite, string idImpactRisque){
+        List<Impact_Risque_Entite__c> impactRisqueEntites = new List<Impact_Risque_Entite__c>();
+        for(integer i = 0; i < 20; i++){
+            impactRisqueEntites.add(new Impact_Risque_Entite__c(risque_Entite__c = idRisqueEntite,ImpactRisque__c=idImpactRisque));
+        }
+        insert impactRisqueEntites;
+        return impactRisqueEntites;
+    }   
 
 }

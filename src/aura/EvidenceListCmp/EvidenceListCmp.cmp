@@ -136,7 +136,7 @@
 				</tbody>
 			</table>
 			<div class="slds-m-top_medium">
-				<lightning:buttonGroup>
+				<lightning:buttonGroup >
 					<lightning:button label="{!$Label.c.orm_prev_title}"
 						disabled="{!v.startPage == 0}" onclick="{!c.previous}"
 						variant="brand" iconName='utility:back' />
@@ -153,8 +153,7 @@
 			<c:fileUploadCmp parentId="{!v.parentId}"
 				isOpenfileUploadNewCmp="{!v.isOpenfileUploadNewCmp}" />
 
-			<c:ListFileUploadCmp
-				isOpenListfileUploadCmp="{!v.isOpenListfileUploadCmp}"
+			<c:ListFileUploadCmp isOpenListfileUploadCmp="{!v.isOpenListfileUploadCmp}"
 				parentId="{!v.parentId}" />
 
 			<div class=" slds-grid  slds-wrap slds-align--absolute-center"

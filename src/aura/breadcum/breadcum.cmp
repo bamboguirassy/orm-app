@@ -1,0 +1,30 @@
+<aura:component >
+	<aura:attribute name="title" type="String" description="" required="" />
+	<aura:attribute name="subtitle" type="String" description=""
+		required="" />
+
+	<!-- PAGE HEADER -->
+	<div class="slds-no-flex" style="color: #a094ed">
+		<button class="slds-button slds-button_neutral">
+			<a href="#" style="color: #a094ed"> <i class="fa fa-home"
+				aria-hidden="true"></i>Accueil
+			</a>
+		</button>
+		/
+		<button class="slds-button slds-button_neutral">
+			<a href="#" style="color: #a094ed"> <i class="fa fa-list-ol"
+				aria-hidden="true"></i>
+			<ui:outputText value="{!v.title}" />
+			</a>
+		</button>
+		<button class="slds-button slds-button_neutral">
+			<a href="#" style="color: #a094ed"> <i class="fa fa-list-ol"
+				aria-hidden="true"></i>
+			<ui:outputText value="{!v.subtitle}" />
+			</a>
+		</button>
+	</div>
+
+
+	<!-- / PAGE HEADER -->
+</aura:component>
