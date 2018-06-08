@@ -85,8 +85,7 @@ public class Orm_TestFactory
         } 
         insert structure;
         return structure;
-    }
-    
+    }   
     /**
      * @author : laye
      * @date : 31/05/2018

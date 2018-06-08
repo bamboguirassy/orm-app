@@ -1,4 +1,4 @@
-trigger ParamRisqueEntite on ParamRisqueEntite__c (before delete) {
+trigger ParamRisqueEntite on ParamRisqueEntite__c (before delete, before insert, before update, after insert) {
     if(Trigger.isBefore){ 
       if(Trigger.isDelete){
           List<Mesure_Prevention_Risque_Detecte__c> mesurePreventions = new List<Mesure_Prevention_Risque_Detecte__c>();
@@ -15,5 +15,20 @@ trigger ParamRisqueEntite on ParamRisqueEntite__c (before delete) {
          delete planActions;
          delete pREtrackers;        
       }
-   }  
+   }
+    
+    if(Trigger.isAfter && Trigger.isInsert){
+       Map<Id,Risque_Entite__c> risqueEntites = new Map<Id,Risque_Entite__c>();
+       for(ParamRisqueEntite__c paramRisqueEntite : Trigger.new){
+           List<Risque_Entite__c> risqueDetectes = [SELECT Id FROM Risque_Entite__c WHERE Risque__c =:paramRisqueEntite.risque__c ];
+           for(Risque_Entite__c risqueDetecte : risqueDetectes){
+               risqueEntites.put(risqueDetecte.Id, risqueDetecte);
+           }
+       }
+        
+       RisqueEntiteManagement manager=RisqueEntiteManagement.getInstance();
+       insert manager.getMesurePreventionRisqueEntite(risqueEntites);
+      // insert manager.getMesurePreventionRisqueEntite(risqueEntites);
+   }
+    
 }

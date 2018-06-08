@@ -138,4 +138,17 @@ public class ChartRisqueController_Test {
         
         System.debug('### end- '+methodName);
     }
+  
+    /**
+     * @author: Laye
+     * @date: Creation: 28/05/2018
+     * @description: methode de test de risqueEntiteByCotationByEntite
+     */
+     @isTest
+    static void statistiqueRiskManager_TEST(){
+        String methodName='risqueEntiteByCotationByEntite';
+        System.debug('### start- '+methodName);
+        
+        System.debug('### end- '+methodName);
+    }
 }
