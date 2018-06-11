@@ -28,7 +28,7 @@ trigger ParamRisqueEntite on ParamRisqueEntite__c (before delete, before insert,
         
        RisqueEntiteManagement manager=RisqueEntiteManagement.getInstance();
        insert manager.getMesurePreventionRisqueEntite(risqueEntites);
-      // insert manager.getMesurePreventionRisqueEntite(risqueEntites);
+       // insert manager.getMesurePreventionRisqueEntite(risqueEntites);
    }
     
 }
