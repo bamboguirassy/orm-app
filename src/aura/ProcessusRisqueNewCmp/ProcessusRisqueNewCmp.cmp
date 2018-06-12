@@ -10,7 +10,7 @@
 		description="liste des risques liés à l'entité" />
 	<aura:attribute name="processus" type="Processus__c"
 		description="processus dont est lié le risque" required="true" />
-
+		<aura:registerEvent name="newProcessusRisqueAjoute" type="c:eventNewProcessusRisqueCreated" description="" />
 	<aura:handler action="{!c.doInit}" value="{!this}" name="init" />
 
 	<!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component-->
