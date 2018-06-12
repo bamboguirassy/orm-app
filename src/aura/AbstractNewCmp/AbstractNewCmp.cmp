@@ -7,7 +7,7 @@
     <aura:attribute name="isOpen" type="boolean" default="false" />
     <aura:attribute name="clabels" type="Map"
 		description="fields label and api names" />
-    <aura:attribute name="isDuplicateValueDetected" type="Boolean" description="value to test if a given element is detected" />
+    <aura:attribute name="isDuplicateValueDetected" type="Boolean" description="value to test if a given element is detected {!$Label.c.orm_confirmation_message}" />
     <aura:attribute name="isMissedValue" type="Boolean" description="value to test if a given element is detected" />
     <aura:method name="openModel" description="" />
     <aura:method name="closeModel" description="" />

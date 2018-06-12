@@ -1,6 +1,6 @@
 ({
     doInit: function(component, event, helper) {
-        component.set("v.title", "Nombre de risques detectés par cotation pour une entité donnée par année");
+        component.set("v.title",component.get("c.titreReport"));
         //populate years
         var annees = [];
         for (var i = 2017; i < 2099; i++) {
