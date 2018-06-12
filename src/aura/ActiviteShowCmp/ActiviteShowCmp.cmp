@@ -112,6 +112,7 @@
 																			<span class="slds-form-element__static"> <ui:outputText value="{!v.item.type__c}" />
 																			</span>
 																		</div>
+                                                                        
 																	</li>
 																	<li
 																		class="slds-form-element slds-hint-parent slds-border_bottom">
@@ -122,6 +123,15 @@
 																				<ui:outputText value="{!v.item.statut__c}" />
 																			</span>
 																		</div>
+                                                                        <aura:if isTrue="{!v.item.statut__c==$Label.c.orm_fait_select_value}">
+                                                                        	<div class="success" ></div>
+                                                                        </aura:if>
+                                                                        <aura:if isTrue="{!v.item.statut__c==$Label.c.orm_en_cours_select_value}">
+                                                                        	<div class="warning" ></div>
+                                                                        </aura:if>
+                                                                        <aura:if isTrue="{!v.item.statut__c==$Label.c.orm_non_fait_select_value}">
+                                                                        	<div class="danger" ></div>
+                                                                        </aura:if>
 																	</li>
 
 																	<li

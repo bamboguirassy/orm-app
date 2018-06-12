@@ -1,2 +1,22 @@
 .THIS  {
  }
+.THIS .success {
+	background-color: green;
+    width:60px;
+    height:20px;
+    border-radius:2em;
+}
+
+.THIS .danger{
+	background-color: red;
+    width:60px;
+    height:20px;
+    border-radius:2em;
+}
+
+.THIS .warning{
+	background-color: yellow;
+    width:60px;
+    height:20px;
+    border-radius:2em;
+}

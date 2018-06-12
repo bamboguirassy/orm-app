@@ -103,9 +103,9 @@
 											<ui:inputSelect aura:id="statutid" label="{!v.clabels.statut__c}"
 												class="slds-select" labelClass="slds-form-element__label">
 											
-												<ui:inputSelectOption text="1" label="{!$Label.c.orm_non_fait_select_value}"/>
-                                       			 <ui:inputSelectOption text="2" label="{!$Label.c.orm_en_cours_select_value}" />
-                                       			 <ui:inputSelectOption text="3" label="{!$Label.c.orm_fait_select_value}" />
+												<ui:inputSelectOption text="{!$Label.c.orm_non_fait_select_value}" label="{!$Label.c.orm_non_fait_select_value}"/>
+                                       			 <ui:inputSelectOption text="{!$Label.c.orm_en_cours_select_value}" label="{!$Label.c.orm_en_cours_select_value}" />
+                                       			 <ui:inputSelectOption text="{!$Label.c.orm_fait_select_value}" label="{!$Label.c.orm_fait_select_value}" />
 											</ui:inputSelect>
 										</div>
 
@@ -114,8 +114,8 @@
 										<div class="slds-form-element__control">
 											<ui:inputSelect aura:id="typeid" label="{!v.clabels.type__c}"
 												class="slds-select" labelClass="slds-form-element__label">
-												<ui:inputSelectOption text="1" label="{!$Label.c.orm_corrective_select_value}"/>
-                                       			 <ui:inputSelectOption text="2" label="{!$Label.c.orm_prevention_select_value}" />
+												<ui:inputSelectOption text="{!$Label.c.orm_corrective_select_value}" label="{!$Label.c.orm_corrective_select_value}"/>
+                                       			 <ui:inputSelectOption text="{!$Label.c.orm_prevention_select_value}" label="{!$Label.c.orm_prevention_select_value}" />
                                        			 
 												 
 											</ui:inputSelect>
