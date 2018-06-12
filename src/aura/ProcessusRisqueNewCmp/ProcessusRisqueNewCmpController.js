@@ -54,7 +54,7 @@
 	                var state = response.getState();
 	                if (component.isValid() && state == "SUCCESS") {
 	                    // refresh list
-	                    var findAllAction = component.get("c.findFromProcessus");
+	                   /* var findAllAction = component.get("c.findFromProcessus");
 	                    findAllAction.setParam("processus", component.get('v.processus').Id);
 	                    findAllAction.setCallback(this, function(response) {
 	                        var resStatus = response.getState();
@@ -64,7 +64,9 @@
 	                            alert("impossible de recuperer la liste aprés ajout");
 	                        }
 	                    });
-	                    $A.enqueueAction(findAllAction);
+	                    $A.enqueueAction(findAllAction);*/
+	                     var evt = $A.get("e.c:eventNewProcessusRisqueCreated");
+											 	evt.fire();
 	
 	                    component.set("v.item", {
 	                        'sobjectType': 'ProcessusRisque__c',

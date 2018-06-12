@@ -2,9 +2,9 @@
     <aura:attribute name="entites" type="Account[]" description="" />
     <aura:attribute name="entite" type="String" description="" />
     <aura:attribute name="annees" type="Integer[]" description="" default="2017,2018" />
-
+	
     <aura:handler action="{!c.doInit}" value="{!this}" name="init" />
-
+	<aura:attribute name="titreReport" type="String" description="{!$Label.c.titre_report}" />
     <div class=" slds-size--1-of-4   slds-p-horizontal--small slds-float—left">
         <div class="slds-form-element">
             <div class="slds-form-element__control">

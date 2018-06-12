@@ -2,7 +2,7 @@
 	extends="c:AbstractListCmp">
 	<aura:attribute name="processus" type="Processus__c"
 		description="processus dont est lié le risque" required="true" />
-
+	<aura:handler event="c:eventNewProcessusRisqueCreated"  action="{!c.refreshList}" />
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
 	<!-- debut implementation page -->
