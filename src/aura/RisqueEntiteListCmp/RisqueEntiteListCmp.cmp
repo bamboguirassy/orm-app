@@ -50,6 +50,14 @@
 							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
 							<div class="slds-truncate" title="{!v.clabels.criticite__c}">{!v.clabels.criticite__c}</div>
 						</th>
+						<!-- test -->
+						<th scope="col"
+							class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+							<div class="slds-truncate" title="{!$Label.c.orm_criticity_level_color}">
+                                {!$Label.c.orm_criticity_level_color}
+                            </div>
+						</th>
+						<!-- fin test -->
 						<aura:if isTrue="{!v.entite==null}">
 							<th scope="col"
 								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
@@ -81,9 +89,35 @@
 							<td data-label="Criticité"
 								class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
 								<div class="slds-truncate" title="{! item.criticite__c}">
-									<ui:outputNumber value="{! item.criticite__c}" />
+									<ui:outputNumber value="{! item.criticite__c}" />                                    
 								</div>
 							</td>
+							<!-- test -->
+							<aura:if isTrue="{!(5 >= item.criticite__c)}">
+                                <td data-label=""
+                                    class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+                                    <div>
+                                        <div class="success"></div>
+                                    </div>
+                                </td>
+							</aura:if>
+                            <aura:if isTrue="{!and(item.criticite__c > 5, 10 >= item.criticite__c)}">
+                                    <td data-label=""
+                                    class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+                                        <div >
+                                            <div class="warning" ></div>
+                                        </div>
+                                	</td>
+                            </aura:if>
+                            <aura:if isTrue="{!item.criticite__c > 10}">
+                                    <td data-label=""
+                                    class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
+                                        <div  >
+                                            <div class="danger" ></div>
+                                        </div>
+                                	</td>
+                            </aura:if>
+							<!-- fin test -->
 							<aura:if isTrue="{!v.entite==null}">
 								<td data-label="Entité parente"
 									class="slds-cell-wrap slds-cell-buffer_left slds-cell-buffer_right">
