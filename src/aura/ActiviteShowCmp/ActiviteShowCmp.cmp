@@ -266,20 +266,22 @@
 
 											<!-- fin detail sur l'entite-->
 										</lightning:tab>
-
+										
+                                        <!--
 										<lightning:tab label="{!$Label.c.indicateur_menu}" id="2">
 											<aura:if isTrue="{!v.item}">
 												<c:IndicateurActiviteListCmp activite="{!v.item.Id}" />
 											</aura:if>
-										</lightning:tab>
-
-										<lightning:tab label="{!$Label.c.mesure_menu}" id="3">
+										</lightning:tab> -->
+										
+                                        <!-- {!$Label.c.mesure_menu} -->
+										<lightning:tab label="{!$Label.c.indicateur_menu}" id="3">
 											<aura:if isTrue="{!v.item}">
                                                 <c:MesureActiviteListCmp activite="{!v.item.Id}" /> 
 											</aura:if>
 
 										</lightning:tab>
-
+									   
 		                               <lightning:tab label="{!$Label.c.preuve_menu}" id="4">
 											<aura:if isTrue="{!v.item}"> 
 												<c:EvidenceListByActivityCmp activite="{!v.item.Id}" />

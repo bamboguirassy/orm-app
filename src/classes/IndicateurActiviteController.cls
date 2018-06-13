@@ -24,6 +24,7 @@ public with sharing class IndicateurActiviteController {
         //variable for storing object field api name and field label
         Map<String,String> objectFields=new Map<String,String>();
         //field type
+        //Indicateur_Activite__c
         String type='Indicateur_Activite__c';
         //get field description
         Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();

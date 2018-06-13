@@ -85,7 +85,8 @@ public class Orm_TestFactory
         } 
         insert structure;
         return structure;
-    }   
+    }
+    
     /**
      * @author : laye
      * @date : 31/05/2018
@@ -105,7 +106,7 @@ public class Orm_TestFactory
    * @author : salimata
    * @date : 28/05/2018
    * @description :generer une liste de responsable (contact)
-   */
+   *
     public static List<Contact> generateContact()
     {
     	   List<Account> entites=generateStructure();
@@ -117,8 +118,8 @@ public class Orm_TestFactory
         } 
         insert responsable;
         return responsable;
-    }
-  
+    }  */
+    
    /**
    * @author : salimata
    * @date : 28/05/2018
@@ -140,7 +141,7 @@ public class Orm_TestFactory
      * @author : Dibocor
      * @date  :31/05/2018
      * @description : generer une liste des ImpactRisques
-     */
+     *
     public static List<Impact__c> generateImpactRisque(List<CategorieImpact__c> categorieImpacts)
     {
     	List<Categorie_Risque__c> categorierisques =generateCategorieRisque();
@@ -152,7 +153,7 @@ public class Orm_TestFactory
         }
         insert impactRisques;
         return impactRisques;
-    } 
+    } */
     
     /**
      * @author : Laye

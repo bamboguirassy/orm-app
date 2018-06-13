@@ -40,14 +40,14 @@
 												value="{!v.item.Name}" />
 										</div>
 									</div>
-
-									<div class="slds-form-element">
+									
+                                    <!-- <div class="slds-form-element">
 										<div class="slds-form-element__control slds-is-required">
 											<ui:inputURL aura:id="webressource" label="{!v.clabels.webressource__c }"
 												class="slds-input" labelClass="slds-form-element__label"
 												value="{!v.item.webRessource__c}" />
 										</div>
-									</div>
+									</div> -->									
 
 									<div class="slds-form-element">
 										<div class="slds-form-element__control">

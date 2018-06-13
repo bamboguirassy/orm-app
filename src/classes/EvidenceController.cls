@@ -71,13 +71,14 @@ public with sharing class EvidenceController {
         //variable for storing object field api name and field label
         Map<String,String> objectFields=new Map<String,String>();
         //field type
-        String type='Evidence__c';
+        // Evidence__c
+        String type='Mesure__c';
         //get field description
         Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
         Schema.SObjectType leadSchema = schemaMap.get(type);
         Map<String, Schema.SObjectField> fieldMap = leadSchema.getDescribe().fields.getMap();
-        objectFields.put('label', SObjectType.Evidence__c.getLabel());
-        objectFields.put('labelPlural', SObjectType.Evidence__c.getLabelPlural());
+        objectFields.put('label', SObjectType.Mesure__c.getLabel());
+        objectFields.put('labelPlural', SObjectType.Mesure__c.getLabelPlural());
         //loop over description
         for (String fieldName: fieldMap.keySet()) {
            //fill variable
